@@ -1,0 +1,4 @@
+go:
+    version: 0.0.0
+    packagename: github.com/speakeasy-sdks/company-laguage-sdk
+sdkclassname: companyname
