@@ -11,9 +11,9 @@ jobs:
   publish:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-publish.yaml@v10 # Import the sdk publish workflow which will handle the publishing to the package managers
     with:
-      # publish_typescript: true
+      publish_typescript: true
       create_release: true
     secrets:
-      # npm_token: ${{secrets.NPM_TOKEN}}
+      npm_token: ${{secrets.NPM_TOKEN}}
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
