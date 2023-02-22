@@ -3,7 +3,7 @@ management:
     openapi-version: 1.1.0
     speakeasy-version: 1.4.7
 typescript:
-    version: 1.2.0
+    version: 1.1.0
     packagename: '@speakeasy-api/openai'
     author: openai
 sdkclassname: openai
