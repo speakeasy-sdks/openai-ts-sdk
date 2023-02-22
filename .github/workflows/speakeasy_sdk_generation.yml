@@ -1,9 +1,15 @@
 name: Generate
 
 on:
-  workflow_dispatch: {} # Allows manual triggering of the workflow to generate SDK
+  workflow_dispatch:
+    inputs:
+      force:
+        description: "Force the generation of the SDKs"
+        type: boolean
+        default: false
   schedule:
-    - cron: 0 0 * * * # Runs every day at midnight
+    - cron: 0 0 * * *
+
 
 jobs:
   generate:
