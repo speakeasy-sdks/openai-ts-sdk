@@ -1,7 +1,7 @@
 <!-- Start SDK Example Usage -->
 ```typescript
-import { Openai, withSecurity} from "@openai/sdk";
-import { CancelFineTuneRequest, CancelFineTuneResponse } from "@openai/sdk/src/sdk/models/operations";
+import { Openai, withSecurity} from "@speakeasy-api/openai";
+import { CancelFineTuneRequest, CancelFineTuneResponse } from "@speakeasy-api/openai/src/sdk/models/operations";
 import { AxiosError } from "axios";
 
 

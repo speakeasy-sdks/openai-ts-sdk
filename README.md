@@ -6,21 +6,21 @@
 ### NPM
 
 ```bash
-npm add @openai/sdk
+npm add @speakeasy-api/openai
 ```
 
 ### Yarn
 
 ```bash
-yarn add @openai/sdk
+yarn add @speakeasy-api/openai
 ```
 <!-- End SDK Installation -->
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import { Openai, withSecurity} from "@openai/sdk";
-import { CancelFineTuneRequest, CancelFineTuneResponse } from "@openai/sdk/src/sdk/models/operations";
+import { Openai, withSecurity} from "@speakeasy-api/openai";
+import { CancelFineTuneRequest, CancelFineTuneResponse } from "@speakeasy-api/openai/src/sdk/models/operations";
 import { AxiosError } from "axios";
 
 
