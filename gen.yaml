@@ -1,5 +1,9 @@
+management:
+    openapi-checksum: 070eea1a67c4e5af9e7dbad61d95fd37
+    openapi-version: 1.1.0
+    speakeasy-version: 1.4.7
 typescript:
-    version: 1.1.0
+    version: 1.2.0
     packagename: '@openai/sdk'
     author: openai
 sdkclassname: openai
