@@ -7,6 +7,6 @@ generation:
     telemetryEnabled: false
     sdkClassName: openai
 typescript:
-    version: 1.1.0
+    version: 1.1.2
     author: speakeasy-openai
     packageName: '@speakeasy-api/openai'
