@@ -19,7 +19,7 @@ jobs:
       openapi_doc_location: https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
       languages: |-
         - typescript: ./
-       
+      publish_typescript: true 
       mode: pr
       force: ${{ github.event.inputs.force }}
     secrets:
