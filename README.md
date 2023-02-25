@@ -40,9 +40,13 @@ Authorization: Bearer YOUR_API_KEY
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import { Openai, withSecurity} from "@speakeasy-api/openai";
-import { CancelFineTuneRequest, CancelFineTuneResponse } from "@speakeasy-api/openai/src/sdk/models/operations";
+import {
+  CancelFineTuneRequest,
+  CancelFineTuneResponse 
+} from "@speakeasy-api/openai/dist/sdk/models/operations";
+
 import { AxiosError } from "axios";
+import { Openai } from "@speakeasy-api/openai";
 
 
 const sdk = new Openai();
