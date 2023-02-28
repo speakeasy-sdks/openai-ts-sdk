@@ -1,13 +1,17 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class CreateEmbeddingRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=input" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "input" })
   input: any;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model: any;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
   user?: any;
 }

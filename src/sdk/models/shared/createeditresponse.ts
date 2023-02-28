@@ -1,55 +1,74 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CreateEditResponseChoicesLogprobs extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=text_offset" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "text_offset" })
   textOffset?: number[];
 
-  @SpeakeasyMetadata({ data: "json, name=token_logprobs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "token_logprobs" })
   tokenLogprobs?: number[];
 
-  @SpeakeasyMetadata({ data: "json, name=tokens" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "tokens" })
   tokens?: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=top_logprobs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "top_logprobs" })
   topLogprobs?: Record<string, any>[];
 }
 
 export class CreateEditResponseChoices extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=finish_reason" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "finish_reason" })
   finishReason?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=index" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "index" })
   index?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=logprobs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "logprobs" })
+  @Type(() => CreateEditResponseChoicesLogprobs)
   logprobs?: CreateEditResponseChoicesLogprobs;
 
-  @SpeakeasyMetadata({ data: "json, name=text" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "text" })
   text?: string;
 }
 
 export class CreateEditResponseUsage extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=completion_tokens" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "completion_tokens" })
   completionTokens: number;
 
-  @SpeakeasyMetadata({ data: "json, name=prompt_tokens" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "prompt_tokens" })
   promptTokens: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_tokens" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_tokens" })
   totalTokens: number;
 }
 
 export class CreateEditResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=choices", elemType: CreateEditResponseChoices })
+  @SpeakeasyMetadata({ elemType: CreateEditResponseChoices })
+  @Expose({ name: "choices" })
+  @Type(() => CreateEditResponseChoices)
   choices: CreateEditResponseChoices[];
 
-  @SpeakeasyMetadata({ data: "json, name=created" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "created" })
   created: number;
 
-  @SpeakeasyMetadata({ data: "json, name=object" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "object" })
   object: string;
 
-  @SpeakeasyMetadata({ data: "json, name=usage" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "usage" })
+  @Type(() => CreateEditResponseUsage)
   usage: CreateEditResponseUsage;
 }

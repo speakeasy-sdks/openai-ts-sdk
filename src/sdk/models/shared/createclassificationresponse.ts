@@ -1,33 +1,44 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CreateClassificationResponseSelectedExamples extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=document" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "document" })
   document?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=label" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "label" })
   label?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=text" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "text" })
   text?: string;
 }
 
 export class CreateClassificationResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=completion" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "completion" })
   completion?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=label" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "label" })
   label?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=object" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "object" })
   object?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=search_model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "search_model" })
   searchModel?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=selected_examples", elemType: CreateClassificationResponseSelectedExamples })
+  @SpeakeasyMetadata({ elemType: CreateClassificationResponseSelectedExamples })
+  @Expose({ name: "selected_examples" })
+  @Type(() => CreateClassificationResponseSelectedExamples)
   selectedExamples?: CreateClassificationResponseSelectedExamples[];
 }

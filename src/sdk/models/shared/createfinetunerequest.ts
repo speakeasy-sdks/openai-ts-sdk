@@ -1,40 +1,53 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class CreateFineTuneRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=batch_size" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "batch_size" })
   batchSize?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=classification_betas" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "classification_betas" })
   classificationBetas?: number[];
 
-  @SpeakeasyMetadata({ data: "json, name=classification_n_classes" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "classification_n_classes" })
   classificationNClasses?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=classification_positive_class" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "classification_positive_class" })
   classificationPositiveClass?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=compute_classification_metrics" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "compute_classification_metrics" })
   computeClassificationMetrics?: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=learning_rate_multiplier" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "learning_rate_multiplier" })
   learningRateMultiplier?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=n_epochs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "n_epochs" })
   nEpochs?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=prompt_loss_weight" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "prompt_loss_weight" })
   promptLossWeight?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=suffix" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "suffix" })
   suffix?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=training_file" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "training_file" })
   trainingFile: string;
 
-  @SpeakeasyMetadata({ data: "json, name=validation_file" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "validation_file" })
   validationFile?: string;
 }

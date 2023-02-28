@@ -1,52 +1,69 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class CreateCompletionRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=best_of" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "best_of" })
   bestOf?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=echo" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "echo" })
   echo?: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=frequency_penalty" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "frequency_penalty" })
   frequencyPenalty?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=logit_bias" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "logit_bias" })
   logitBias?: Record<string, any>;
 
-  @SpeakeasyMetadata({ data: "json, name=logprobs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "logprobs" })
   logprobs?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=max_tokens" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "max_tokens" })
   maxTokens?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model: string;
 
-  @SpeakeasyMetadata({ data: "json, name=n" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "n" })
   n?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=presence_penalty" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "presence_penalty" })
   presencePenalty?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=prompt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "prompt" })
   prompt?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=stop" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "stop" })
   stop?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=stream" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "stream" })
   stream?: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=suffix" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "suffix" })
   suffix?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=temperature" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "temperature" })
   temperature?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=top_p" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "top_p" })
   topP?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
   user?: string;
 }

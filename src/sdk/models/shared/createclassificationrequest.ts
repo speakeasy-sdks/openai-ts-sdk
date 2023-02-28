@@ -1,46 +1,61 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class CreateClassificationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=examples" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "examples" })
   examples?: string[][];
 
-  @SpeakeasyMetadata({ data: "json, name=expand" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "expand" })
   expand?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=file" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "file" })
   file?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=labels" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "labels" })
   labels?: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=logit_bias" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "logit_bias" })
   logitBias?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=logprobs" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "logprobs" })
   logprobs?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=max_examples" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "max_examples" })
   maxExamples?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model: any;
 
-  @SpeakeasyMetadata({ data: "json, name=query" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "query" })
   query: string;
 
-  @SpeakeasyMetadata({ data: "json, name=return_metadata" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "return_metadata" })
   returnMetadata?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=return_prompt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "return_prompt" })
   returnPrompt?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=search_model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "search_model" })
   searchModel?: any;
 
-  @SpeakeasyMetadata({ data: "json, name=temperature" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "temperature" })
   temperature?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
   user?: any;
 }

@@ -1,6 +1,8 @@
 import * as utils from "../internal/utils";
 import * as operations from "./models/operations";
-import { AxiosInstance, AxiosRequestConfig, AxiosResponse, ParamsSerializerOptions } from "axios";
+import * as shared from "./models/shared";
+import { AxiosInstance, AxiosRequestConfig, AxiosResponse } from "axios";
+import { plainToInstance } from "class-transformer";
 
 export class OpenAI {
   _defaultClient: AxiosInstance;
@@ -36,6 +38,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "post",
@@ -50,7 +53,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.fineTune = httpRes?.data;
+              res.fineTune = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -88,6 +95,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -107,7 +115,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createAnswerResponse = httpRes?.data;
+              res.createAnswerResponse = plainToInstance(
+                shared.CreateAnswerResponse,
+                httpRes?.data as shared.CreateAnswerResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -151,6 +163,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -170,7 +183,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createClassificationResponse = httpRes?.data;
+              res.createClassificationResponse = plainToInstance(
+                shared.CreateClassificationResponse,
+                httpRes?.data as shared.CreateClassificationResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -205,6 +222,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -224,7 +242,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createCompletionResponse = httpRes?.data;
+              res.createCompletionResponse = plainToInstance(
+                shared.CreateCompletionResponse,
+                httpRes?.data as shared.CreateCompletionResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -259,6 +281,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -278,7 +301,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createEditResponse = httpRes?.data;
+              res.createEditResponse = plainToInstance(
+                shared.CreateEditResponse,
+                httpRes?.data as shared.CreateEditResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -313,6 +340,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -332,7 +360,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createEmbeddingResponse = httpRes?.data;
+              res.createEmbeddingResponse = plainToInstance(
+                shared.CreateEmbeddingResponse,
+                httpRes?.data as shared.CreateEmbeddingResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -368,6 +400,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -387,7 +420,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.openAIFile = httpRes?.data;
+              res.openAIFile = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -427,6 +464,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -446,7 +484,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.fineTune = httpRes?.data;
+              res.fineTune = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -481,6 +523,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -500,7 +543,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.imagesResponse = httpRes?.data;
+              res.imagesResponse = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -535,6 +582,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -554,7 +602,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.imagesResponse = httpRes?.data;
+              res.imagesResponse = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -589,6 +641,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -608,7 +661,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.imagesResponse = httpRes?.data;
+              res.imagesResponse = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -643,6 +700,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -662,7 +720,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createModerationResponse = httpRes?.data;
+              res.createModerationResponse = plainToInstance(
+                shared.CreateModerationResponse,
+                httpRes?.data as shared.CreateModerationResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -702,6 +764,7 @@ export class OpenAI {
     }
     
     const client: AxiosInstance = this._defaultClient!;
+    
     const headers = {...reqBodyHeaders, ...config?.headers};
     if (reqBody == null || Object.keys(reqBody).length === 0) throw new Error("request body is required");
     
@@ -721,7 +784,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.createSearchResponse = httpRes?.data;
+              res.createSearchResponse = plainToInstance(
+                shared.CreateSearchResponse,
+                httpRes?.data as shared.CreateSearchResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -747,6 +814,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "delete",
@@ -761,7 +829,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteFileResponse = httpRes?.data;
+              res.deleteFileResponse = plainToInstance(
+                shared.DeleteFileResponse,
+                httpRes?.data as shared.DeleteFileResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -787,6 +859,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "delete",
@@ -801,7 +874,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.deleteModelResponse = httpRes?.data;
+              res.deleteModelResponse = plainToInstance(
+                shared.DeleteModelResponse,
+                httpRes?.data as shared.DeleteModelResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -826,6 +903,7 @@ export class OpenAI {
     const url: string = utils.generateURL(baseURL, "/files/{file_id}/content", req.pathParams);
     
     const client: AxiosInstance = this._defaultClient!;
+    
     
     const r = client.request({
       url: url,
@@ -862,6 +940,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "get",
@@ -876,7 +955,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listEnginesResponse = httpRes?.data;
+              res.listEnginesResponse = plainToInstance(
+                shared.ListEnginesResponse,
+                httpRes?.data as shared.ListEnginesResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -897,6 +980,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "get",
@@ -911,7 +995,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listFilesResponse = httpRes?.data;
+              res.listFilesResponse = plainToInstance(
+                shared.ListFilesResponse,
+                httpRes?.data as shared.ListFilesResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -937,19 +1025,13 @@ export class OpenAI {
     const url: string = utils.generateURL(baseURL, "/fine-tunes/{fine_tune_id}/events", req.pathParams);
     
     const client: AxiosInstance = this._defaultClient!;
-    const qpSerializer: ParamsSerializerOptions = utils.getQueryParamSerializer(req.queryParams);
-
-    const requestConfig: AxiosRequestConfig = {
-      ...config,
-      params: req.queryParams,
-      paramsSerializer: qpSerializer,
-    };
     
+    const queryParams: string = utils.serializeQueryParams(req.queryParams);
     
     const r = client.request({
-      url: url,
+      url: url + queryParams,
       method: "get",
-      ...requestConfig,
+      ...config,
     });
     
     return r.then((httpRes: AxiosResponse) => {
@@ -960,7 +1042,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listFineTuneEventsResponse = httpRes?.data;
+              res.listFineTuneEventsResponse = plainToInstance(
+                shared.ListFineTuneEventsResponse,
+                httpRes?.data as shared.ListFineTuneEventsResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -982,6 +1068,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "get",
@@ -996,7 +1083,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listFineTunesResponse = httpRes?.data;
+              res.listFineTunesResponse = plainToInstance(
+                shared.ListFineTunesResponse,
+                httpRes?.data as shared.ListFineTunesResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -1017,6 +1108,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "get",
@@ -1031,7 +1123,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.listModelsResponse = httpRes?.data;
+              res.listModelsResponse = plainToInstance(
+                shared.ListModelsResponse,
+                httpRes?.data as shared.ListModelsResponse,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -1057,6 +1153,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "get",
@@ -1071,7 +1168,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.engine = httpRes?.data;
+              res.engine = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -1097,6 +1198,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "get",
@@ -1111,7 +1213,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.openAIFile = httpRes?.data;
+              res.openAIFile = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -1140,6 +1246,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "get",
@@ -1154,7 +1261,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.fineTune = httpRes?.data;
+              res.fineTune = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }
@@ -1180,6 +1291,7 @@ export class OpenAI {
     
     const client: AxiosInstance = this._defaultClient!;
     
+    
     const r = client.request({
       url: url,
       method: "get",
@@ -1194,7 +1306,11 @@ export class OpenAI {
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-                res.model = httpRes?.data;
+              res.model = plainToInstance(
+                ,
+                httpRes?.data as ,
+                { excludeExtraneousValues: true }
+              );
             }
             break;
         }

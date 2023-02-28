@@ -1,10 +1,13 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class CreateModerationRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=input" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "input" })
   input: any;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model?: string;
 }
