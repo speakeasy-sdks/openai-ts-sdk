@@ -1,30 +1,40 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CreateAnswerResponseSelectedDocuments extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=document" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "document" })
   document?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=text" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "text" })
   text?: string;
 }
 
 export class CreateAnswerResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=answers" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "answers" })
   answers?: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=completion" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "completion" })
   completion?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=object" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "object" })
   object?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=search_model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "search_model" })
   searchModel?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=selected_documents", elemType: CreateAnswerResponseSelectedDocuments })
+  @SpeakeasyMetadata({ elemType: CreateAnswerResponseSelectedDocuments })
+  @Expose({ name: "selected_documents" })
+  @Type(() => CreateAnswerResponseSelectedDocuments)
   selectedDocuments?: CreateAnswerResponseSelectedDocuments[];
 }

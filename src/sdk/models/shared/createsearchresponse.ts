@@ -1,24 +1,32 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CreateSearchResponseData extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=document" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "document" })
   document?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=object" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "object" })
   object?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=score" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "score" })
   score?: number;
 }
 
 export class CreateSearchResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=data", elemType: CreateSearchResponseData })
+  @SpeakeasyMetadata({ elemType: CreateSearchResponseData })
+  @Expose({ name: "data" })
+  @Type(() => CreateSearchResponseData)
   data?: CreateSearchResponseData[];
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=object" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "object" })
   object?: string;
 }

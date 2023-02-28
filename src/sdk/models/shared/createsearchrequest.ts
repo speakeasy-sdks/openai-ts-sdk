@@ -1,22 +1,29 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class CreateSearchRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=documents" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "documents" })
   documents?: string[];
 
-  @SpeakeasyMetadata({ data: "json, name=file" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "file" })
   file?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=max_rerank" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "max_rerank" })
   maxRerank?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=query" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "query" })
   query: string;
 
-  @SpeakeasyMetadata({ data: "json, name=return_metadata" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "return_metadata" })
   returnMetadata?: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
   user?: any;
 }

@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 export enum CreateImageRequestResponseFormatEnum {
     Url = "url",
@@ -11,18 +12,23 @@ export enum CreateImageRequestSizeEnum {
 }
 
 export class CreateImageRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=n" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "n" })
   n?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=prompt" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "prompt" })
   prompt: string;
 
-  @SpeakeasyMetadata({ data: "json, name=response_format" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "response_format" })
   responseFormat?: CreateImageRequestResponseFormatEnum;
 
-  @SpeakeasyMetadata({ data: "json, name=size" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "size" })
   size?: CreateImageRequestSizeEnum;
 
-  @SpeakeasyMetadata({ data: "json, name=user" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "user" })
   user?: any;
 }

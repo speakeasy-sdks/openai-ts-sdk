@@ -1,5 +1,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import * as shared from "../shared";
+import { Type } from "class-transformer";
 
 
 export class ListFineTuneEventsPathParams extends SpeakeasyBase {

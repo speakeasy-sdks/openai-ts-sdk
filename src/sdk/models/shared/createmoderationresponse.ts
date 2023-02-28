@@ -1,70 +1,94 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CreateModerationResponseResultsCategories extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=hate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "hate" })
   hate: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=hate/threatening" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "hate/threatening" })
   hateThreatening: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=self-harm" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "self-harm" })
   selfHarm: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=sexual" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "sexual" })
   sexual: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=sexual/minors" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "sexual/minors" })
   sexualMinors: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=violence" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "violence" })
   violence: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=violence/graphic" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "violence/graphic" })
   violenceGraphic: boolean;
 }
 
 export class CreateModerationResponseResultsCategoryScores extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=hate" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "hate" })
   hate: number;
 
-  @SpeakeasyMetadata({ data: "json, name=hate/threatening" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "hate/threatening" })
   hateThreatening: number;
 
-  @SpeakeasyMetadata({ data: "json, name=self-harm" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "self-harm" })
   selfHarm: number;
 
-  @SpeakeasyMetadata({ data: "json, name=sexual" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "sexual" })
   sexual: number;
 
-  @SpeakeasyMetadata({ data: "json, name=sexual/minors" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "sexual/minors" })
   sexualMinors: number;
 
-  @SpeakeasyMetadata({ data: "json, name=violence" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "violence" })
   violence: number;
 
-  @SpeakeasyMetadata({ data: "json, name=violence/graphic" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "violence/graphic" })
   violenceGraphic: number;
 }
 
 export class CreateModerationResponseResults extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=categories" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "categories" })
+  @Type(() => CreateModerationResponseResultsCategories)
   categories: CreateModerationResponseResultsCategories;
 
-  @SpeakeasyMetadata({ data: "json, name=category_scores" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "category_scores" })
+  @Type(() => CreateModerationResponseResultsCategoryScores)
   categoryScores: CreateModerationResponseResultsCategoryScores;
 
-  @SpeakeasyMetadata({ data: "json, name=flagged" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "flagged" })
   flagged: boolean;
 }
 
 export class CreateModerationResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model: string;
 
-  @SpeakeasyMetadata({ data: "json, name=results", elemType: CreateModerationResponseResults })
+  @SpeakeasyMetadata({ elemType: CreateModerationResponseResults })
+  @Expose({ name: "results" })
+  @Type(() => CreateModerationResponseResults)
   results: CreateModerationResponseResults[];
 }

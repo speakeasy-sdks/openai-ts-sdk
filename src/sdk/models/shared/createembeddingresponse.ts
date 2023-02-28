@@ -1,35 +1,47 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose, Type } from "class-transformer";
 
 
 export class CreateEmbeddingResponseData extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=embedding" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "embedding" })
   embedding: number[];
 
-  @SpeakeasyMetadata({ data: "json, name=index" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "index" })
   index: number;
 
-  @SpeakeasyMetadata({ data: "json, name=object" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "object" })
   object: string;
 }
 
 export class CreateEmbeddingResponseUsage extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=prompt_tokens" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "prompt_tokens" })
   promptTokens: number;
 
-  @SpeakeasyMetadata({ data: "json, name=total_tokens" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "total_tokens" })
   totalTokens: number;
 }
 
 export class CreateEmbeddingResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=data", elemType: CreateEmbeddingResponseData })
+  @SpeakeasyMetadata({ elemType: CreateEmbeddingResponseData })
+  @Expose({ name: "data" })
+  @Type(() => CreateEmbeddingResponseData)
   data: CreateEmbeddingResponseData[];
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model: string;
 
-  @SpeakeasyMetadata({ data: "json, name=object" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "object" })
   object: string;
 
-  @SpeakeasyMetadata({ data: "json, name=usage" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "usage" })
+  @Type(() => CreateEmbeddingResponseUsage)
   usage: CreateEmbeddingResponseUsage;
 }

@@ -1,22 +1,29 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class CreateEditRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=input" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "input" })
   input?: string;
 
-  @SpeakeasyMetadata({ data: "json, name=instruction" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "instruction" })
   instruction: string;
 
-  @SpeakeasyMetadata({ data: "json, name=model" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "model" })
   model: any;
 
-  @SpeakeasyMetadata({ data: "json, name=n" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "n" })
   n?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=temperature" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "temperature" })
   temperature?: number;
 
-  @SpeakeasyMetadata({ data: "json, name=top_p" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "top_p" })
   topP?: number;
 }

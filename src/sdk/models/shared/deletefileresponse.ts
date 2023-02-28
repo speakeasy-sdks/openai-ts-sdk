@@ -1,13 +1,17 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { Expose } from "class-transformer";
 
 
 export class DeleteFileResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "json, name=deleted" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "deleted" })
   deleted: boolean;
 
-  @SpeakeasyMetadata({ data: "json, name=id" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "id" })
   id: string;
 
-  @SpeakeasyMetadata({ data: "json, name=object" })
+  @SpeakeasyMetadata()
+  @Expose({ name: "object" })
   object: string;
 }
