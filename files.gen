@@ -17,6 +17,7 @@ src/sdk/index.ts
 tsconfig.json
 src/sdk/models/operations/cancelfinetune.ts
 src/sdk/models/operations/createanswer.ts
+src/sdk/models/operations/createchatcompletion.ts
 src/sdk/models/operations/createclassification.ts
 src/sdk/models/operations/createcompletion.ts
 src/sdk/models/operations/createedit.ts
@@ -28,6 +29,8 @@ src/sdk/models/operations/createimageedit.ts
 src/sdk/models/operations/createimagevariation.ts
 src/sdk/models/operations/createmoderation.ts
 src/sdk/models/operations/createsearch.ts
+src/sdk/models/operations/createtranscription.ts
+src/sdk/models/operations/createtranslation.ts
 src/sdk/models/operations/deletefile.ts
 src/sdk/models/operations/deletemodel.ts
 src/sdk/models/operations/downloadfile.ts
@@ -43,6 +46,10 @@ src/sdk/models/operations/retrievemodel.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/createanswerresponse.ts
 src/sdk/models/shared/createanswerrequest.ts
+src/sdk/models/shared/createchatcompletionresponse.ts
+src/sdk/models/shared/chatcompletionresponsemessage.ts
+src/sdk/models/shared/createchatcompletionrequest.ts
+src/sdk/models/shared/chatcompletionrequestmessage.ts
 src/sdk/models/shared/createclassificationresponse.ts
 src/sdk/models/shared/createclassificationrequest.ts
 src/sdk/models/shared/createcompletionresponse.ts
@@ -60,6 +67,10 @@ src/sdk/models/shared/createmoderationresponse.ts
 src/sdk/models/shared/createmoderationrequest.ts
 src/sdk/models/shared/createsearchresponse.ts
 src/sdk/models/shared/createsearchrequest.ts
+src/sdk/models/shared/createtranscriptionresponse.ts
+src/sdk/models/shared/createtranscriptionrequest.ts
+src/sdk/models/shared/createtranslationresponse.ts
+src/sdk/models/shared/createtranslationrequest.ts
 src/sdk/models/shared/deletefileresponse.ts
 src/sdk/models/shared/deletemodelresponse.ts
 src/sdk/models/shared/listenginesresponse.ts

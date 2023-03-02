@@ -1,5 +1,6 @@
 export * from "./cancelfinetune";
 export * from "./createanswer";
+export * from "./createchatcompletion";
 export * from "./createclassification";
 export * from "./createcompletion";
 export * from "./createedit";
@@ -11,6 +12,8 @@ export * from "./createimageedit";
 export * from "./createimagevariation";
 export * from "./createmoderation";
 export * from "./createsearch";
+export * from "./createtranscription";
+export * from "./createtranslation";
 export * from "./deletefile";
 export * from "./deletemodel";
 export * from "./downloadfile";
