@@ -4,12 +4,17 @@ import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
 
-export class ListFineTunesResponse extends SpeakeasyBase {
+export class CreateChatCompletionRequest extends SpeakeasyBase {
+  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+  request: shared.CreateChatCompletionRequest;
+}
+
+export class CreateChatCompletionResponse extends SpeakeasyBase {
   @SpeakeasyMetadata()
   contentType: string;
 
   @SpeakeasyMetadata()
-  listFineTunesResponse?: shared.ListFineTunesResponse;
+  createChatCompletionResponse?: shared.CreateChatCompletionResponse;
 
   @SpeakeasyMetadata()
   statusCode: number;
