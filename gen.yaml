@@ -5,8 +5,8 @@ management:
   speakeasyVersion: 1.5.4
 generation:
   telemetryEnabled: false
-  sdkClassName: openai
-  sdkFlattening: false
+  sdkClassName: gpt
+  sdkFlattening: true
 typescript:
   version: 1.2.1
   author: speakeasy-openai
