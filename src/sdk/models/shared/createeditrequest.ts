@@ -13,7 +13,7 @@ export class CreateEditRequest extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   @Expose({ name: "model" })
-  model: any;
+  model: string;
 
   @SpeakeasyMetadata()
   @Expose({ name: "n" })

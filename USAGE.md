@@ -6,10 +6,10 @@ import {
 } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
-import { Openai } from "@speakeasy-api/openai";
+import { Gpt } from "@speakeasy-api/openai";
 
 
-const sdk = new Openai();
+const sdk = new Gpt();
     
 const req: CancelFineTuneRequest = {
   pathParams: {

@@ -13,16 +13,16 @@ export type SDKProps = {
   serverUrl?: string;
 }
 
-
-export class Openai {
+/* SDK Documentation: APIs for sampling from and fine-tuning language models*/
+export class Gpt {
   public openAI: OpenAI;
 
   public _defaultClient: AxiosInstance;
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "1.2.1";
-  private _genVersion = "1.5.4";
+  private _sdkVersion = "1.3.0";
+  private _genVersion = "1.8.6";
 
   constructor(props: SDKProps) {
     this._serverURL = props.serverUrl ?? ServerList[0];

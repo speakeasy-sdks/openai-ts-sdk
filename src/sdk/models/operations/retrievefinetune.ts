@@ -1,4 +1,5 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
 
@@ -21,4 +22,7 @@ export class RetrieveFineTuneResponse extends SpeakeasyBase {
 
   @SpeakeasyMetadata()
   statusCode: number;
+
+  @SpeakeasyMetadata()
+  rawResponse?: AxiosResponse;
 }
