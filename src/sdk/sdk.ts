@@ -21,13 +21,13 @@ export class Gpt {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "1.4.0";
-  private _genVersion = "1.9.1";
+  private _sdkVersion = "1.4.1";
+  private _genVersion = "1.9.2";
 
-  constructor(props: SDKProps) {
-    this._serverURL = props.serverUrl ?? ServerList[0];
+  constructor(props?: SDKProps) {
+    this._serverURL = props?.serverUrl ?? ServerList[0];
 
-    this._defaultClient = props.defaultClient ?? axios.create({ baseURL: this._serverURL });
+    this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
     this._securityClient = this._defaultClient;
     
     this.openAI = new OpenAI(
