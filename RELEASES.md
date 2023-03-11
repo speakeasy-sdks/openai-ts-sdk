@@ -45,3 +45,27 @@ Based on:
 - Speakeasy CLI 1.8.6 https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v1.3.0] https://www.npmjs.com/package/@speakeasy-api/openai/v/1.3.0 - .
+
+## 2023-03-09 01:14:47
+### Changes
+Based on:
+- OpenAPI Doc 1.2.0 https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+- Speakeasy CLI 1.8.7 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v1.3.1] https://www.npmjs.com/package/@speakeasy-api/openai/v/1.3.1 - .
+
+## 2023-03-10 01:13:24
+### Changes
+Based on:
+- OpenAPI Doc 1.2.0 https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+- Speakeasy CLI 1.9.1 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v1.4.0] https://www.npmjs.com/package/@speakeasy-api/openai/v/1.4.0 - .
+
+## 2023-03-11 01:02:22
+### Changes
+Based on:
+- OpenAPI Doc 1.2.0 https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+- Speakeasy CLI 1.9.2 https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v1.4.1] https://www.npmjs.com/package/@speakeasy-api/openai/v/1.4.1 - .

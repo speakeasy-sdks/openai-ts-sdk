@@ -49,7 +49,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CancelFineTuneResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CancelFineTuneResponse =
+            new operations.CancelFineTuneResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -107,14 +112,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateAnswerResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateAnswerResponse =
+            new operations.CreateAnswerResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createAnswerResponse = plainToInstance(
+              res.createAnswerResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateAnswerResponse,
-                httpRes?.data as shared.CreateAnswerResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -166,14 +175,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateChatCompletionResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateChatCompletionResponse =
+            new operations.CreateChatCompletionResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createChatCompletionResponse = plainToInstance(
+              res.createChatCompletionResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateChatCompletionResponse,
-                httpRes?.data as shared.CreateChatCompletionResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -234,14 +247,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateClassificationResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateClassificationResponse =
+            new operations.CreateClassificationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createClassificationResponse = plainToInstance(
+              res.createClassificationResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateClassificationResponse,
-                httpRes?.data as shared.CreateClassificationResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -293,14 +310,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateCompletionResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateCompletionResponse =
+            new operations.CreateCompletionResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createCompletionResponse = plainToInstance(
+              res.createCompletionResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateCompletionResponse,
-                httpRes?.data as shared.CreateCompletionResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -352,14 +373,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateEditResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateEditResponse =
+            new operations.CreateEditResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createEditResponse = plainToInstance(
+              res.createEditResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateEditResponse,
-                httpRes?.data as shared.CreateEditResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -411,14 +436,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateEmbeddingResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateEmbeddingResponse =
+            new operations.CreateEmbeddingResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createEmbeddingResponse = plainToInstance(
+              res.createEmbeddingResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateEmbeddingResponse,
-                httpRes?.data as shared.CreateEmbeddingResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -471,7 +500,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateFileResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateFileResponse =
+            new operations.CreateFileResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -531,7 +565,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateFineTuneResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateFineTuneResponse =
+            new operations.CreateFineTuneResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -586,7 +625,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateImageResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateImageResponse =
+            new operations.CreateImageResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -641,7 +685,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateImageEditResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateImageEditResponse =
+            new operations.CreateImageEditResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -696,7 +745,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateImageVariationResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateImageVariationResponse =
+            new operations.CreateImageVariationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -751,14 +805,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateModerationResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateModerationResponse =
+            new operations.CreateModerationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createModerationResponse = plainToInstance(
+              res.createModerationResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateModerationResponse,
-                httpRes?.data as shared.CreateModerationResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -815,14 +873,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateSearchResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateSearchResponse =
+            new operations.CreateSearchResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createSearchResponse = plainToInstance(
+              res.createSearchResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateSearchResponse,
-                httpRes?.data as shared.CreateSearchResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -874,14 +936,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateTranscriptionResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateTranscriptionResponse =
+            new operations.CreateTranscriptionResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createTranscriptionResponse = plainToInstance(
+              res.createTranscriptionResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateTranscriptionResponse,
-                httpRes?.data as shared.CreateTranscriptionResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -933,14 +999,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.CreateTranslationResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.CreateTranslationResponse =
+            new operations.CreateTranslationResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.createTranslationResponse = plainToInstance(
+              res.createTranslationResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.CreateTranslationResponse,
-                httpRes?.data as shared.CreateTranslationResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -978,14 +1048,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DeleteFileResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DeleteFileResponse =
+            new operations.DeleteFileResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.deleteFileResponse = plainToInstance(
+              res.deleteFileResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.DeleteFileResponse,
-                httpRes?.data as shared.DeleteFileResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -1023,14 +1097,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DeleteModelResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DeleteModelResponse =
+            new operations.DeleteModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.deleteModelResponse = plainToInstance(
+              res.deleteModelResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.DeleteModelResponse,
-                httpRes?.data as shared.DeleteModelResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -1068,7 +1146,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.DownloadFileResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.DownloadFileResponse =
+            new operations.DownloadFileResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -1104,14 +1187,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListEnginesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListEnginesResponse =
+            new operations.ListEnginesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listEnginesResponse = plainToInstance(
+              res.listEnginesResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.ListEnginesResponse,
-                httpRes?.data as shared.ListEnginesResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -1144,14 +1231,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListFilesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListFilesResponse =
+            new operations.ListFilesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listFilesResponse = plainToInstance(
+              res.listFilesResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.ListFilesResponse,
-                httpRes?.data as shared.ListFilesResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -1191,14 +1282,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListFineTuneEventsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListFineTuneEventsResponse =
+            new operations.ListFineTuneEventsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listFineTuneEventsResponse = plainToInstance(
+              res.listFineTuneEventsResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.ListFineTuneEventsResponse,
-                httpRes?.data as shared.ListFineTuneEventsResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -1232,14 +1327,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListFineTunesResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListFineTunesResponse =
+            new operations.ListFineTunesResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listFineTunesResponse = plainToInstance(
+              res.listFineTunesResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.ListFineTunesResponse,
-                httpRes?.data as shared.ListFineTunesResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -1272,14 +1371,18 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.ListModelsResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.ListModelsResponse =
+            new operations.ListModelsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
-              res.listModelsResponse = plainToInstance(
+              res.listModelsResponse = utils.deserializeJSONResponse(
+                httpRes?.data,
                 shared.ListModelsResponse,
-                httpRes?.data as shared.ListModelsResponse,
-                { excludeExtraneousValues: true }
               );
             }
             break;
@@ -1317,7 +1420,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.RetrieveEngineResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.RetrieveEngineResponse =
+            new operations.RetrieveEngineResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -1358,7 +1466,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.RetrieveFileResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.RetrieveFileResponse =
+            new operations.RetrieveFileResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -1402,7 +1515,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.RetrieveFineTuneResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.RetrieveFineTuneResponse =
+            new operations.RetrieveFineTuneResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
@@ -1443,7 +1561,12 @@ export class OpenAI {
         const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
         if (httpRes?.status == null) throw new Error(`status code not found in response: ${httpRes}`);
-        const res: operations.RetrieveModelResponse = {statusCode: httpRes.status, contentType: contentType, rawResponse: httpRes};
+        const res: operations.RetrieveModelResponse =
+            new operations.RetrieveModelResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes
+            });
         switch (true) {
           case httpRes?.status == 200:
             if (utils.matchContentType(contentType, `application/json`)) {
