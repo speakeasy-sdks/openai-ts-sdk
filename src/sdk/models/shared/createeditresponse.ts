@@ -1,7 +1,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-
 export class CreateEditResponseChoicesLogprobs extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "text_offset" })

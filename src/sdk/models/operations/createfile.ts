@@ -3,7 +3,6 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class CreateFileRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "request, media_type=multipart/form-data" })
   request: shared.CreateFileRequest;

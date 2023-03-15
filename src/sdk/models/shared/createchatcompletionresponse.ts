@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ChatCompletionResponseMessage } from "./chatcompletionresponsemessage";
 import { Expose, Type } from "class-transformer";
 
-
 export class CreateChatCompletionResponseChoices extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "finish_reason" })

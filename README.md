@@ -47,7 +47,6 @@ import {
 
 import { AxiosError } from "axios";
 import { Gpt } from "@speakeasy-api/openai";
-
 const sdk = new Gpt();
     
 const req: CancelFineTuneRequest = {

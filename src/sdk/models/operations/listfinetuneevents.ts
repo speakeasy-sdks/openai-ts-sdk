@@ -3,14 +3,17 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class ListFineTuneEventsPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=fine_tune_id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=fine_tune_id",
+  })
   fineTuneId: string;
 }
 
 export class ListFineTuneEventsQueryParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=stream" })
+  @SpeakeasyMetadata({
+    data: "queryParam, style=form;explode=true;name=stream",
+  })
   stream?: boolean;
 }
 

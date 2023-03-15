@@ -3,9 +3,10 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class CreateSearchPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=engine_id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=engine_id",
+  })
   engineId: string;
 }
 

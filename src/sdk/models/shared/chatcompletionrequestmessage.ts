@@ -2,9 +2,9 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export enum ChatCompletionRequestMessageRoleEnum {
-    System = "system",
-    User = "user",
-    Assistant = "assistant"
+  System = "system",
+  User = "user",
+  Assistant = "assistant",
 }
 
 export class ChatCompletionRequestMessage extends SpeakeasyBase {

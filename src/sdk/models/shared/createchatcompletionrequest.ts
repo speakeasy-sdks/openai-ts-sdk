@@ -2,7 +2,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ChatCompletionRequestMessage } from "./chatcompletionrequestmessage";
 import { Expose, Type } from "class-transformer";
 
-
 export class CreateChatCompletionRequest extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "frequency_penalty" })

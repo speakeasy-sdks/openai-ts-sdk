@@ -1,19 +1,15 @@
 import { OpenAI } from "./openai";
 import axios, { AxiosInstance } from "axios";
 
-export const ServerList = [
-	"https://api.openai.com/v1",
-] as const;
-
-
+export const ServerList = ["https://api.openai.com/v1"] as const;
 
 export type SDKProps = {
   defaultClient?: AxiosInstance;
-
   serverUrl?: string;
-}
+};
 
-/* SDK Documentation: APIs for sampling from and fine-tuning language models*/
+/* SDK Documentation: APIs for sampling from and fine-tuning language models
+ */
 export class Gpt {
   public openAI: OpenAI;
 
@@ -21,15 +17,17 @@ export class Gpt {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "1.4.1";
-  private _genVersion = "1.9.2";
+  private _sdkVersion = "1.5.0";
+  private _genVersion = "1.11.0";
+  private _globals: any;
 
   constructor(props?: SDKProps) {
     this._serverURL = props?.serverUrl ?? ServerList[0];
 
-    this._defaultClient = props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
+    this._defaultClient =
+      props?.defaultClient ?? axios.create({ baseURL: this._serverURL });
     this._securityClient = this._defaultClient;
-    
+
     this.openAI = new OpenAI(
       this._defaultClient,
       this._securityClient,
@@ -39,5 +37,4 @@ export class Gpt {
       this._genVersion
     );
   }
-  
 }

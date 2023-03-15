@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class RetrieveFineTunePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=fine_tune_id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=fine_tune_id",
+  })
   fineTuneId: string;
 }
 

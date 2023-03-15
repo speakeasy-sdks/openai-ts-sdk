@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class RetrieveModelPathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=model" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=model",
+  })
   model: string;
 }
 

@@ -1,7 +1,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
-
 export class CreateEmbeddingResponseData extends SpeakeasyBase {
   @SpeakeasyMetadata()
   @Expose({ name: "embedding" })

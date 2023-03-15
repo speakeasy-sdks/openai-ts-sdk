@@ -2,13 +2,13 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export enum CreateImageRequestResponseFormatEnum {
-    Url = "url",
-    B64Json = "b64_json"
+  Url = "url",
+  B64Json = "b64_json",
 }
 export enum CreateImageRequestSizeEnum {
-    TwoHundredAndFiftySixx256 = "256x256",
-    FiveHundredAndTwelvex512 = "512x512",
-    OneThousandAndTwentyFourx1024 = "1024x1024"
+  TwoHundredAndFiftySixx256 = "256x256",
+  FiveHundredAndTwelvex512 = "512x512",
+  OneThousandAndTwentyFourx1024 = "1024x1024",
 }
 
 export class CreateImageRequest extends SpeakeasyBase {

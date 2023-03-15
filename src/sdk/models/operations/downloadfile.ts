@@ -2,9 +2,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-
 export class DownloadFilePathParams extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=file_id" })
+  @SpeakeasyMetadata({
+    data: "pathParam, style=simple;explode=false;name=file_id",
+  })
   fileId: string;
 }
 
