@@ -44,7 +44,7 @@ export class OpenAI {
     const url: string = utils.generateURL(
       baseURL,
       "/fine-tunes/{fine_tune_id}/cancel",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._defaultClient!;
@@ -85,11 +85,11 @@ export class OpenAI {
    *
    **/
   createAnswer(
-    req: operations.CreateAnswerRequest,
+    req: shared.CreateAnswerRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateAnswerResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateAnswerRequest(req);
+      req = new shared.CreateAnswerRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -98,7 +98,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -149,11 +153,11 @@ export class OpenAI {
    * createChatCompletion - Creates a completion for the chat message
    **/
   createChatCompletion(
-    req: operations.CreateChatCompletionRequest,
+    req: shared.CreateChatCompletionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateChatCompletionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateChatCompletionRequest(req);
+      req = new shared.CreateChatCompletionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -162,7 +166,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -222,11 +230,11 @@ export class OpenAI {
    *
    **/
   createClassification(
-    req: operations.CreateClassificationRequest,
+    req: shared.CreateClassificationRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateClassificationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateClassificationRequest(req);
+      req = new shared.CreateClassificationRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -235,7 +243,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -286,11 +298,11 @@ export class OpenAI {
    * createCompletion - Creates a completion for the provided prompt and parameters
    **/
   createCompletion(
-    req: operations.CreateCompletionRequest,
+    req: shared.CreateCompletionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateCompletionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateCompletionRequest(req);
+      req = new shared.CreateCompletionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -299,7 +311,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -350,11 +366,11 @@ export class OpenAI {
    * createEdit - Creates a new edit for the provided input, instruction, and parameters.
    **/
   createEdit(
-    req: operations.CreateEditRequest,
+    req: shared.CreateEditRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateEditResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateEditRequest(req);
+      req = new shared.CreateEditRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -363,7 +379,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -414,11 +434,11 @@ export class OpenAI {
    * createEmbedding - Creates an embedding vector representing the input text.
    **/
   createEmbedding(
-    req: operations.CreateEmbeddingRequest,
+    req: shared.CreateEmbeddingRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateEmbeddingResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateEmbeddingRequest(req);
+      req = new shared.CreateEmbeddingRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -427,7 +447,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -479,11 +503,11 @@ export class OpenAI {
    *
    **/
   createFile(
-    req: operations.CreateFileRequest,
+    req: shared.CreateFileRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateFileResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateFileRequest(req);
+      req = new shared.CreateFileRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -492,7 +516,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "multipart"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -545,11 +573,11 @@ export class OpenAI {
    *
    **/
   createFineTune(
-    req: operations.CreateFineTuneRequest,
+    req: shared.CreateFineTuneRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateFineTuneResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateFineTuneRequest(req);
+      req = new shared.CreateFineTuneRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -558,7 +586,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -606,11 +638,11 @@ export class OpenAI {
    * createImage - Creates an image given a prompt.
    **/
   createImage(
-    req: operations.CreateImageRequest,
+    req: shared.CreateImageRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateImageResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateImageRequest(req);
+      req = new shared.CreateImageRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -619,7 +651,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -667,11 +703,11 @@ export class OpenAI {
    * createImageEdit - Creates an edited or extended image given an original image and a prompt.
    **/
   createImageEdit(
-    req: operations.CreateImageEditRequest,
+    req: shared.CreateImageEditRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateImageEditResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateImageEditRequest(req);
+      req = new shared.CreateImageEditRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -680,7 +716,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "multipart"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -728,11 +768,11 @@ export class OpenAI {
    * createImageVariation - Creates a variation of a given image.
    **/
   createImageVariation(
-    req: operations.CreateImageVariationRequest,
+    req: shared.CreateImageVariationRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateImageVariationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateImageVariationRequest(req);
+      req = new shared.CreateImageVariationRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -741,7 +781,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "multipart"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -789,11 +833,11 @@ export class OpenAI {
    * createModeration - Classifies if text violates OpenAI's Content Policy
    **/
   createModeration(
-    req: operations.CreateModerationRequest,
+    req: shared.CreateModerationRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateModerationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateModerationRequest(req);
+      req = new shared.CreateModerationRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -802,7 +846,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -869,13 +917,17 @@ export class OpenAI {
     const url: string = utils.generateURL(
       baseURL,
       "/engines/{engine_id}/search",
-      req.pathParams
+      req
     );
 
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "createSearchRequest",
+        "json"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -926,11 +978,11 @@ export class OpenAI {
    * createTranscription - Transcribes audio into the input language.
    **/
   createTranscription(
-    req: operations.CreateTranscriptionRequest,
+    req: shared.CreateTranscriptionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateTranscriptionResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateTranscriptionRequest(req);
+      req = new shared.CreateTranscriptionRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -939,7 +991,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "multipart"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -990,11 +1046,11 @@ export class OpenAI {
    * createTranslation - Translates audio into into English.
    **/
   createTranslation(
-    req: operations.CreateTranslationRequest,
+    req: shared.CreateTranslationRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateTranslationResponse> {
     if (!(req instanceof utils.SpeakeasyBase)) {
-      req = new operations.CreateTranslationRequest(req);
+      req = new shared.CreateTranslationRequest(req);
     }
 
     const baseURL: string = this._serverURL;
@@ -1003,7 +1059,11 @@ export class OpenAI {
     let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
 
     try {
-      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req);
+      [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
+        req,
+        "request",
+        "multipart"
+      );
     } catch (e: unknown) {
       if (e instanceof Error) {
         throw new Error(`Error serializing request body, cause: ${e.message}`);
@@ -1062,11 +1122,7 @@ export class OpenAI {
     }
 
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/files/{file_id}",
-      req.pathParams
-    );
+    const url: string = utils.generateURL(baseURL, "/files/{file_id}", req);
 
     const client: AxiosInstance = this._defaultClient!;
 
@@ -1114,11 +1170,7 @@ export class OpenAI {
     }
 
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/models/{model}",
-      req.pathParams
-    );
+    const url: string = utils.generateURL(baseURL, "/models/{model}", req);
 
     const client: AxiosInstance = this._defaultClient!;
 
@@ -1169,7 +1221,7 @@ export class OpenAI {
     const url: string = utils.generateURL(
       baseURL,
       "/files/{file_id}/content",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._defaultClient!;
@@ -1307,12 +1359,12 @@ export class OpenAI {
     const url: string = utils.generateURL(
       baseURL,
       "/fine-tunes/{fine_tune_id}/events",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._defaultClient!;
 
-    const queryParams: string = utils.serializeQueryParams(req.queryParams);
+    const queryParams: string = utils.serializeQueryParams(req);
 
     const r = client.request({
       url: url + queryParams,
@@ -1445,11 +1497,7 @@ export class OpenAI {
     }
 
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/engines/{engine_id}",
-      req.pathParams
-    );
+    const url: string = utils.generateURL(baseURL, "/engines/{engine_id}", req);
 
     const client: AxiosInstance = this._defaultClient!;
 
@@ -1494,11 +1542,7 @@ export class OpenAI {
     }
 
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/files/{file_id}",
-      req.pathParams
-    );
+    const url: string = utils.generateURL(baseURL, "/files/{file_id}", req);
 
     const client: AxiosInstance = this._defaultClient!;
 
@@ -1549,7 +1593,7 @@ export class OpenAI {
     const url: string = utils.generateURL(
       baseURL,
       "/fine-tunes/{fine_tune_id}",
-      req.pathParams
+      req
     );
 
     const client: AxiosInstance = this._defaultClient!;
@@ -1595,11 +1639,7 @@ export class OpenAI {
     }
 
     const baseURL: string = this._serverURL;
-    const url: string = utils.generateURL(
-      baseURL,
-      "/models/{model}",
-      req.pathParams
-    );
+    const url: string = utils.generateURL(baseURL, "/models/{model}", req);
 
     const client: AxiosInstance = this._defaultClient!;
 

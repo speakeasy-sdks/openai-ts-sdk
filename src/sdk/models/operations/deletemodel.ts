@@ -3,16 +3,11 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 import { Type } from "class-transformer";
 
-export class DeleteModelPathParams extends SpeakeasyBase {
+export class DeleteModelRequest extends SpeakeasyBase {
   @SpeakeasyMetadata({
     data: "pathParam, style=simple;explode=false;name=model",
   })
   model: string;
-}
-
-export class DeleteModelRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  pathParams: DeleteModelPathParams;
 }
 
 export class DeleteModelResponse extends SpeakeasyBase {

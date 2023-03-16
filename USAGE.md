@@ -8,11 +8,9 @@ import {
 import { AxiosError } from "axios";
 import { Gpt } from "@speakeasy-api/openai";
 const sdk = new Gpt();
-    
+
 const req: CancelFineTuneRequest = {
-  pathParams: {
-    fineTuneId: "unde",
-  },
+  fineTuneId: "unde",
 };
 
 sdk.openAI.cancelFineTune(req).then((res: CancelFineTuneResponse | AxiosError) => {
