@@ -1,6 +1,6 @@
 {
   "name": "@speakeasy-api/openai",
-  "version": "1.6.2",
+  "version": "1.7.0",
   "author": "speakeasy-openai",
   "scripts": {
     "prepare": "tsc --build"
