@@ -53,7 +53,7 @@ export class OpenAI {
       req
     );
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -115,7 +115,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -183,7 +183,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -260,7 +260,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -328,7 +328,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -396,7 +396,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -464,7 +464,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -533,7 +533,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -603,7 +603,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -668,7 +668,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -733,7 +733,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -798,7 +798,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -863,7 +863,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -940,7 +940,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -1008,7 +1008,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -1076,7 +1076,7 @@ export class OpenAI {
       }
     }
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const headers = { ...reqBodyHeaders, ...config?.headers };
     if (reqBody == null || Object.keys(reqBody).length === 0)
@@ -1130,7 +1130,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/files/{file_id}", req);
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1178,7 +1178,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/models/{model}", req);
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1230,7 +1230,7 @@ export class OpenAI {
       req
     );
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1272,7 +1272,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/engines";
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1315,7 +1315,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/files";
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1368,7 +1368,7 @@ export class OpenAI {
       req
     );
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const queryParams: string = utils.serializeQueryParams(req);
 
@@ -1414,7 +1414,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/fine-tunes";
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1457,7 +1457,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = baseURL.replace(/\/$/, "") + "/models";
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1505,7 +1505,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/engines/{engine_id}", req);
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1550,7 +1550,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/files/{file_id}", req);
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1602,7 +1602,7 @@ export class OpenAI {
       req
     );
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,
@@ -1647,7 +1647,7 @@ export class OpenAI {
     const baseURL: string = this._serverURL;
     const url: string = utils.generateURL(baseURL, "/models/{model}", req);
 
-    const client: AxiosInstance = this._defaultClient!;
+    const client: AxiosInstance = this._defaultClient;
 
     const r = client.request({
       url: url,

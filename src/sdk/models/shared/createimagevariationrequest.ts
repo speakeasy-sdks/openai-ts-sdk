@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Type } from "class-transformer";
 
 export class CreateImageVariationRequestImage extends SpeakeasyBase {
   @SpeakeasyMetadata({ data: "multipart_form, content=true" })
