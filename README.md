@@ -42,19 +42,15 @@ Authorization: Bearer YOUR_API_KEY
 ```typescript
 import {
   CancelFineTuneRequest,
-  CancelFineTuneResponse 
+  CancelFineTuneResponse
 } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 import { AxiosError } from "axios";
 import { Gpt } from "@speakeasy-api/openai";
-
-
 const sdk = new Gpt();
-    
+
 const req: CancelFineTuneRequest = {
-  pathParams: {
-    fineTuneId: "unde",
-  },
+  fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
 };
 
 sdk.openAI.cancelFineTune(req).then((res: CancelFineTuneResponse | AxiosError) => {
