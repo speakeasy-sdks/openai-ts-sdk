@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreateFineTuneResponse extends SpeakeasyBase {
@@ -13,7 +14,7 @@ export class CreateFineTuneResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  fineTune?: any;
+  fineTune?: shared.FineTune;
 
   @SpeakeasyMetadata()
   statusCode: number;

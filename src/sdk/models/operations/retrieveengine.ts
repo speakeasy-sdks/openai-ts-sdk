@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class RetrieveEngineRequest extends SpeakeasyBase {
@@ -26,7 +27,7 @@ export class RetrieveEngineResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  engine?: any;
+  engine?: shared.Engine;
 
   @SpeakeasyMetadata()
   statusCode: number;

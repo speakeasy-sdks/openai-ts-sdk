@@ -75,7 +75,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.fineTune = httpRes?.data;
+            res.fineTune = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.FineTune
+            );
           }
           break;
       }
@@ -561,7 +564,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.openAIFile = httpRes?.data;
+            res.openAIFile = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.OpenAIFile
+            );
           }
           break;
       }
@@ -631,7 +637,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.fineTune = httpRes?.data;
+            res.fineTune = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.FineTune
+            );
           }
           break;
       }
@@ -696,7 +705,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.imagesResponse = httpRes?.data;
+            res.imagesResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ImagesResponse
+            );
           }
           break;
       }
@@ -761,7 +773,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.imagesResponse = httpRes?.data;
+            res.imagesResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ImagesResponse
+            );
           }
           break;
       }
@@ -826,7 +841,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.imagesResponse = httpRes?.data;
+            res.imagesResponse = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.ImagesResponse
+            );
           }
           break;
       }
@@ -1527,7 +1545,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.engine = httpRes?.data;
+            res.engine = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Engine
+            );
           }
           break;
       }
@@ -1572,7 +1593,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.openAIFile = httpRes?.data;
+            res.openAIFile = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.OpenAIFile
+            );
           }
           break;
       }
@@ -1624,7 +1648,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.fineTune = httpRes?.data;
+            res.fineTune = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.FineTune
+            );
           }
           break;
       }
@@ -1669,7 +1696,10 @@ export class OpenAI {
       switch (true) {
         case httpRes?.status == 200:
           if (utils.matchContentType(contentType, `application/json`)) {
-            res.model = httpRes?.data;
+            res.model = utils.deserializeJSONResponse(
+              httpRes?.data,
+              shared.Model
+            );
           }
           break;
       }

@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreateImageEditResponse extends SpeakeasyBase {
@@ -13,7 +14,7 @@ export class CreateImageEditResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  imagesResponse?: any;
+  imagesResponse?: shared.ImagesResponse;
 
   @SpeakeasyMetadata()
   statusCode: number;

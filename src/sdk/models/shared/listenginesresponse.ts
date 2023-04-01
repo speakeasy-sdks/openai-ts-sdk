@@ -3,15 +3,17 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { Engine } from "./engine";
+import { Expose, Type } from "class-transformer";
 
 /**
  * OK
  */
 export class ListEnginesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
+  @SpeakeasyMetadata({ elemType: Engine })
   @Expose({ name: "data" })
-  data: any[];
+  @Type(() => Engine)
+  data: Engine[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "object" })

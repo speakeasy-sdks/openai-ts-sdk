@@ -3,15 +3,17 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { Model } from "./model";
+import { Expose, Type } from "class-transformer";
 
 /**
  * OK
  */
 export class ListModelsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
+  @SpeakeasyMetadata({ elemType: Model })
   @Expose({ name: "data" })
-  data: any[];
+  @Type(() => Model)
+  data: Model[];
 
   @SpeakeasyMetadata()
   @Expose({ name: "object" })

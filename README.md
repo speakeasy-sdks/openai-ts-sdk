@@ -60,7 +60,7 @@ sdk.openAI.cancelFineTune(req).then((res: CancelFineTuneResponse | AxiosError) =
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
 ### openAI

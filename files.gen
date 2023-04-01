@@ -45,6 +45,9 @@ src/sdk/models/operations/retrievefile.ts
 src/sdk/models/operations/retrievefinetune.ts
 src/sdk/models/operations/retrievemodel.ts
 src/sdk/models/operations/index.ts
+src/sdk/models/shared/finetune.ts
+src/sdk/models/shared/openaifile.ts
+src/sdk/models/shared/finetuneevent.ts
 src/sdk/models/shared/createanswerresponse.ts
 src/sdk/models/shared/createanswerrequest.ts
 src/sdk/models/shared/createchatcompletionresponse.ts
@@ -61,6 +64,7 @@ src/sdk/models/shared/createembeddingresponse.ts
 src/sdk/models/shared/createembeddingrequest.ts
 src/sdk/models/shared/createfilerequest.ts
 src/sdk/models/shared/createfinetunerequest.ts
+src/sdk/models/shared/imagesresponse.ts
 src/sdk/models/shared/createimagerequest.ts
 src/sdk/models/shared/createimageeditrequest.ts
 src/sdk/models/shared/createimagevariationrequest.ts
@@ -75,9 +79,11 @@ src/sdk/models/shared/createtranslationrequest.ts
 src/sdk/models/shared/deletefileresponse.ts
 src/sdk/models/shared/deletemodelresponse.ts
 src/sdk/models/shared/listenginesresponse.ts
+src/sdk/models/shared/engine.ts
 src/sdk/models/shared/listfilesresponse.ts
 src/sdk/models/shared/listfinetuneeventsresponse.ts
 src/sdk/models/shared/listfinetunesresponse.ts
 src/sdk/models/shared/listmodelsresponse.ts
+src/sdk/models/shared/model.ts
 src/sdk/models/shared/index.ts
 USAGE.md

@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class RetrieveFileRequest extends SpeakeasyBase {
@@ -23,7 +24,7 @@ export class RetrieveFileResponse extends SpeakeasyBase {
    * OK
    */
   @SpeakeasyMetadata()
-  openAIFile?: any;
+  openAIFile?: shared.OpenAIFile;
 
   @SpeakeasyMetadata()
   statusCode: number;
