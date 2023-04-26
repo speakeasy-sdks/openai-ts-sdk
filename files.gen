@@ -88,4 +88,6 @@ src/sdk/models/shared/listfinetunesresponse.ts
 src/sdk/models/shared/listmodelsresponse.ts
 src/sdk/models/shared/model.ts
 src/sdk/models/shared/index.ts
+docs/gpt/README.md
+docs/openai/README.md
 USAGE.md
