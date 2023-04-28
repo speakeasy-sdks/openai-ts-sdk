@@ -41,17 +41,14 @@ Authorization: Bearer YOUR_API_KEY
 <!-- Start SDK Example Usage -->
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CancelFineTuneRequest, CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: CancelFineTuneRequest = {
+sdk.openAI.cancelFineTune({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-};
-
-sdk.openAI.cancelFineTune(req).then((res: CancelFineTuneResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CancelFineTuneResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });

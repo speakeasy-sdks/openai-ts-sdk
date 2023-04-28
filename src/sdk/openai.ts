@@ -38,7 +38,7 @@ export class OpenAI {
    * Immediately cancel a fine-tune job.
    *
    */
-  cancelFineTune(
+  async cancelFineTune(
     req: operations.CancelFineTuneRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CancelFineTuneResponse> {
@@ -55,33 +55,34 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CancelFineTuneResponse =
-        new operations.CancelFineTuneResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CancelFineTuneResponse =
+      new operations.CancelFineTuneResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -90,7 +91,7 @@ export class OpenAI {
    * The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
    *
    */
-  createAnswer(
+  async createAnswer(
     req: shared.CreateAnswerRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateAnswerResponse> {
@@ -121,7 +122,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -129,36 +131,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateAnswerResponse =
-        new operations.CreateAnswerResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createAnswerResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateAnswerResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateAnswerResponse =
+      new operations.CreateAnswerResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createAnswerResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateAnswerResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Creates a completion for the chat message
    */
-  createChatCompletion(
+  async createChatCompletion(
     req: shared.CreateChatCompletionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateChatCompletionResponse> {
@@ -189,7 +191,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -197,30 +200,30 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateChatCompletionResponse =
-        new operations.CreateChatCompletionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createChatCompletionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateChatCompletionResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateChatCompletionResponse =
+      new operations.CreateChatCompletionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createChatCompletionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateChatCompletionResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -235,7 +238,7 @@ export class OpenAI {
    * request using the `examples` parameter for quick tests and small scale use cases.
    *
    */
-  createClassification(
+  async createClassification(
     req: shared.CreateClassificationRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateClassificationResponse> {
@@ -266,7 +269,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -274,36 +278,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateClassificationResponse =
-        new operations.CreateClassificationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createClassificationResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateClassificationResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateClassificationResponse =
+      new operations.CreateClassificationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createClassificationResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateClassificationResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Creates a completion for the provided prompt and parameters
    */
-  createCompletion(
+  async createCompletion(
     req: shared.CreateCompletionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateCompletionResponse> {
@@ -334,7 +338,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -342,36 +347,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateCompletionResponse =
-        new operations.CreateCompletionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createCompletionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateCompletionResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateCompletionResponse =
+      new operations.CreateCompletionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createCompletionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateCompletionResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Creates a new edit for the provided input, instruction, and parameters.
    */
-  createEdit(
+  async createEdit(
     req: shared.CreateEditRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateEditResponse> {
@@ -402,7 +407,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -410,36 +416,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateEditResponse =
-        new operations.CreateEditResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createEditResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateEditResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateEditResponse =
+      new operations.CreateEditResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createEditResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateEditResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Creates an embedding vector representing the input text.
    */
-  createEmbedding(
+  async createEmbedding(
     req: shared.CreateEmbeddingRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateEmbeddingResponse> {
@@ -470,7 +476,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -478,37 +485,37 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateEmbeddingResponse =
-        new operations.CreateEmbeddingResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createEmbeddingResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateEmbeddingResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateEmbeddingResponse =
+      new operations.CreateEmbeddingResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createEmbeddingResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateEmbeddingResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
    *
    */
-  createFile(
+  async createFile(
     req: shared.CreateFileRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateFileResponse> {
@@ -539,7 +546,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -547,30 +555,30 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateFileResponse =
-        new operations.CreateFileResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.openAIFile = utils.objectToClass(
-              httpRes?.data,
-              shared.OpenAIFile
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateFileResponse =
+      new operations.CreateFileResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.openAIFile = utils.objectToClass(
+            httpRes?.data,
+            shared.OpenAIFile
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -581,7 +589,7 @@ export class OpenAI {
    * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
    *
    */
-  createFineTune(
+  async createFineTune(
     req: shared.CreateFineTuneRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateFineTuneResponse> {
@@ -612,7 +620,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -620,33 +629,33 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateFineTuneResponse =
-        new operations.CreateFineTuneResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateFineTuneResponse =
+      new operations.CreateFineTuneResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Creates an image given a prompt.
    */
-  createImage(
+  async createImage(
     req: shared.CreateImageRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateImageResponse> {
@@ -677,7 +686,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -685,36 +695,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateImageResponse =
-        new operations.CreateImageResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.imagesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ImagesResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateImageResponse =
+      new operations.CreateImageResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.imagesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ImagesResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Creates an edited or extended image given an original image and a prompt.
    */
-  createImageEdit(
+  async createImageEdit(
     req: shared.CreateImageEditRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateImageEditResponse> {
@@ -745,7 +755,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -753,36 +764,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateImageEditResponse =
-        new operations.CreateImageEditResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.imagesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ImagesResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateImageEditResponse =
+      new operations.CreateImageEditResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.imagesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ImagesResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Creates a variation of a given image.
    */
-  createImageVariation(
+  async createImageVariation(
     req: shared.CreateImageVariationRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateImageVariationResponse> {
@@ -813,7 +824,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -821,36 +833,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateImageVariationResponse =
-        new operations.CreateImageVariationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.imagesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ImagesResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateImageVariationResponse =
+      new operations.CreateImageVariationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.imagesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ImagesResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Classifies if text violates OpenAI's Content Policy
    */
-  createModeration(
+  async createModeration(
     req: shared.CreateModerationRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateModerationResponse> {
@@ -881,7 +893,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -889,30 +902,30 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateModerationResponse =
-        new operations.CreateModerationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createModerationResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateModerationResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateModerationResponse =
+      new operations.CreateModerationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createModerationResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateModerationResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -923,7 +936,7 @@ export class OpenAI {
    * The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
    *
    */
-  createSearch(
+  async createSearch(
     req: operations.CreateSearchRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateSearchResponse> {
@@ -958,7 +971,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -966,36 +980,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateSearchResponse =
-        new operations.CreateSearchResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createSearchResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateSearchResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateSearchResponse =
+      new operations.CreateSearchResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createSearchResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateSearchResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Transcribes audio into the input language.
    */
-  createTranscription(
+  async createTranscription(
     req: shared.CreateTranscriptionRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateTranscriptionResponse> {
@@ -1026,7 +1040,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -1034,36 +1049,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateTranscriptionResponse =
-        new operations.CreateTranscriptionResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createTranscriptionResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateTranscriptionResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateTranscriptionResponse =
+      new operations.CreateTranscriptionResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createTranscriptionResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateTranscriptionResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Translates audio into into English.
    */
-  createTranslation(
+  async createTranslation(
     req: shared.CreateTranslationRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.CreateTranslationResponse> {
@@ -1094,7 +1109,8 @@ export class OpenAI {
     if (reqBody == null || Object.keys(reqBody).length === 0)
       throw new Error("request body is required");
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "post",
       headers: headers,
@@ -1102,36 +1118,36 @@ export class OpenAI {
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.CreateTranslationResponse =
-        new operations.CreateTranslationResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.createTranslationResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.CreateTranslationResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.CreateTranslationResponse =
+      new operations.CreateTranslationResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.createTranslationResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.CreateTranslationResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Delete a file.
    */
-  deleteFile(
+  async deleteFile(
     req: operations.DeleteFileRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteFileResponse> {
@@ -1144,42 +1160,43 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteFileResponse =
-        new operations.DeleteFileResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteFileResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteFileResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DeleteFileResponse =
+      new operations.DeleteFileResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteFileResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteFileResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Delete a fine-tuned model. You must have the Owner role in your organization.
    */
-  deleteModel(
+  async deleteModel(
     req: operations.DeleteModelRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DeleteModelResponse> {
@@ -1192,42 +1209,43 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "delete",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DeleteModelResponse =
-        new operations.DeleteModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.deleteModelResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.DeleteModelResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DeleteModelResponse =
+      new operations.DeleteModelResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.deleteModelResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.DeleteModelResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Returns the contents of the specified file
    */
-  downloadFile(
+  async downloadFile(
     req: operations.DownloadFileRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.DownloadFileResponse> {
@@ -1244,41 +1262,42 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.DownloadFileResponse =
-        new operations.DownloadFileResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.downloadFile200ApplicationJSONString = JSON.stringify(
-              httpRes?.data
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.DownloadFileResponse =
+      new operations.DownloadFileResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.downloadFile200ApplicationJSONString = JSON.stringify(
+            httpRes?.data
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
    */
-  listEngines(
+  async listEngines(
     config?: AxiosRequestConfig
   ): Promise<operations.ListEnginesResponse> {
     const baseURL: string = this._serverURL;
@@ -1286,42 +1305,43 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListEnginesResponse =
-        new operations.ListEnginesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listEnginesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListEnginesResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListEnginesResponse =
+      new operations.ListEnginesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listEnginesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListEnginesResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Returns a list of files that belong to the user's organization.
    */
-  listFiles(
+  async listFiles(
     config?: AxiosRequestConfig
   ): Promise<operations.ListFilesResponse> {
     const baseURL: string = this._serverURL;
@@ -1329,43 +1349,43 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListFilesResponse =
-        new operations.ListFilesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listFilesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListFilesResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
+    const res: operations.ListFilesResponse = new operations.ListFilesResponse({
+      statusCode: httpRes.status,
+      contentType: contentType,
+      rawResponse: httpRes,
     });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listFilesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListFilesResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Get fine-grained status updates for a fine-tune job.
    *
    */
-  listFineTuneEvents(
+  async listFineTuneEvents(
     req: operations.ListFineTuneEventsRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.ListFineTuneEventsResponse> {
@@ -1384,43 +1404,44 @@ export class OpenAI {
 
     const queryParams: string = utils.serializeQueryParams(req);
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url + queryParams,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListFineTuneEventsResponse =
-        new operations.ListFineTuneEventsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listFineTuneEventsResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListFineTuneEventsResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListFineTuneEventsResponse =
+      new operations.ListFineTuneEventsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listFineTuneEventsResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListFineTuneEventsResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * List your organization's fine-tuning jobs
    *
    */
-  listFineTunes(
+  async listFineTunes(
     config?: AxiosRequestConfig
   ): Promise<operations.ListFineTunesResponse> {
     const baseURL: string = this._serverURL;
@@ -1428,42 +1449,43 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListFineTunesResponse =
-        new operations.ListFineTunesResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listFineTunesResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListFineTunesResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListFineTunesResponse =
+      new operations.ListFineTunesResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listFineTunesResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListFineTunesResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Lists the currently available models, and provides basic information about each one such as the owner and availability.
    */
-  listModels(
+  async listModels(
     config?: AxiosRequestConfig
   ): Promise<operations.ListModelsResponse> {
     const baseURL: string = this._serverURL;
@@ -1471,42 +1493,43 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.ListModelsResponse =
-        new operations.ListModelsResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.listModelsResponse = utils.objectToClass(
-              httpRes?.data,
-              shared.ListModelsResponse
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.ListModelsResponse =
+      new operations.ListModelsResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.listModelsResponse = utils.objectToClass(
+            httpRes?.data,
+            shared.ListModelsResponse
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Retrieves a model instance, providing basic information about it such as the owner and availability.
    */
-  retrieveEngine(
+  async retrieveEngine(
     req: operations.RetrieveEngineRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RetrieveEngineResponse> {
@@ -1519,39 +1542,40 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RetrieveEngineResponse =
-        new operations.RetrieveEngineResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.engine = utils.objectToClass(httpRes?.data, shared.Engine);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RetrieveEngineResponse =
+      new operations.RetrieveEngineResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.engine = utils.objectToClass(httpRes?.data, shared.Engine);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Returns information about a specific file.
    */
-  retrieveFile(
+  async retrieveFile(
     req: operations.RetrieveFileRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RetrieveFileResponse> {
@@ -1564,36 +1588,37 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RetrieveFileResponse =
-        new operations.RetrieveFileResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.openAIFile = utils.objectToClass(
-              httpRes?.data,
-              shared.OpenAIFile
-            );
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RetrieveFileResponse =
+      new operations.RetrieveFileResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.openAIFile = utils.objectToClass(
+            httpRes?.data,
+            shared.OpenAIFile
+          );
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
@@ -1602,7 +1627,7 @@ export class OpenAI {
    * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
    *
    */
-  retrieveFineTune(
+  async retrieveFineTune(
     req: operations.RetrieveFineTuneRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RetrieveFineTuneResponse> {
@@ -1619,39 +1644,40 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RetrieveFineTuneResponse =
-        new operations.RetrieveFineTuneResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RetrieveFineTuneResponse =
+      new operations.RetrieveFineTuneResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
+        }
+        break;
+    }
+
+    return res;
   }
 
   /**
    * Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
    */
-  retrieveModel(
+  async retrieveModel(
     req: operations.RetrieveModelRequest,
     config?: AxiosRequestConfig
   ): Promise<operations.RetrieveModelResponse> {
@@ -1664,32 +1690,33 @@ export class OpenAI {
 
     const client: AxiosInstance = this._defaultClient;
 
-    const r = client.request({
+    const httpRes: AxiosResponse = await client.request({
+      validateStatus: () => true,
       url: url,
       method: "get",
       ...config,
     });
 
-    return r.then((httpRes: AxiosResponse) => {
-      const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+    const contentType: string = httpRes?.headers?.["content-type"] ?? "";
 
-      if (httpRes?.status == null)
-        throw new Error(`status code not found in response: ${httpRes}`);
-      const res: operations.RetrieveModelResponse =
-        new operations.RetrieveModelResponse({
-          statusCode: httpRes.status,
-          contentType: contentType,
-          rawResponse: httpRes,
-        });
-      switch (true) {
-        case httpRes?.status == 200:
-          if (utils.matchContentType(contentType, `application/json`)) {
-            res.model = utils.objectToClass(httpRes?.data, shared.Model);
-          }
-          break;
-      }
+    if (httpRes?.status == null) {
+      throw new Error(`status code not found in response: ${httpRes}`);
+    }
 
-      return res;
-    });
+    const res: operations.RetrieveModelResponse =
+      new operations.RetrieveModelResponse({
+        statusCode: httpRes.status,
+        contentType: contentType,
+        rawResponse: httpRes,
+      });
+    switch (true) {
+      case httpRes?.status == 200:
+        if (utils.matchContentType(contentType, `application/json`)) {
+          res.model = utils.objectToClass(httpRes?.data, shared.Model);
+        }
+        break;
+    }
+
+    return res;
   }
 }

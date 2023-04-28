@@ -73,17 +73,14 @@ Immediately cancel a fine-tune job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CancelFineTuneRequest, CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: CancelFineTuneRequest = {
+sdk.openAI.cancelFineTune({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-};
-
-sdk.openAI.cancelFineTune(req).then((res: CancelFineTuneResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CancelFineTuneResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -100,12 +97,11 @@ The endpoint first [searches](/docs/api-reference/searches) over provided docume
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateAnswerRequest, CreateAnswerResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateAnswerResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateAnswerRequest = {
+sdk.openAI.createAnswer({
   documents: [
     "provident",
     "distinctio",
@@ -151,10 +147,8 @@ const req: shared.CreateAnswerRequest = {
   ],
   temperature: 3682.41,
   user: "repellendus",
-};
-
-sdk.openAI.createAnswer(req).then((res: CreateAnswerResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateAnswerResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -168,13 +162,12 @@ Creates a completion for the chat message
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateChatCompletionRequest, CreateChatCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateChatCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { ChatCompletionRequestMessageRoleEnum, ChatCompletionResponseMessageRoleEnum } from "@speakeasy-api/openai/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Gpt();
 
-const req: shared.CreateChatCompletionRequest = {
+sdk.openAI.createChatCompletion({
   frequencyPenalty: 9571.56,
   logitBias: {
     "odit": "at",
@@ -217,10 +210,8 @@ const req: shared.CreateChatCompletionRequest = {
   temperature: 1,
   topP: 1,
   user: "iure",
-};
-
-sdk.openAI.createChatCompletion(req).then((res: CreateChatCompletionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateChatCompletionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -243,12 +234,11 @@ request using the `examples` parameter for quick tests and small scale use cases
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateClassificationRequest, CreateClassificationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateClassificationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateClassificationRequest = {
+sdk.openAI.createClassification({
   examples: [
     [
       "architecto",
@@ -283,10 +273,8 @@ const req: shared.CreateClassificationRequest = {
   searchModel: "mollitia",
   temperature: 2088.76,
   user: "culpa",
-};
-
-sdk.openAI.createClassification(req).then((res: CreateClassificationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateClassificationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -300,12 +288,11 @@ Creates a completion for the provided prompt and parameters
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateCompletionRequest, CreateCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateCompletionRequest = {
+sdk.openAI.createCompletion({
   bestOf: 161309,
   echo: false,
   frequencyPenalty: 9953,
@@ -330,10 +317,8 @@ const req: shared.CreateCompletionRequest = {
   temperature: 1,
   topP: 1,
   user: "user-1234",
-};
-
-sdk.openAI.createCompletion(req).then((res: CreateCompletionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateCompletionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -347,22 +332,19 @@ Creates a new edit for the provided input, instruction, and parameters.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateEditRequest, CreateEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateEditRequest = {
+sdk.openAI.createEdit({
   input: "What day of the wek is it?",
   instruction: "Fix the spelling mistakes.",
   model: "enim",
   n: 1,
   temperature: 1,
   topP: 1,
-};
-
-sdk.openAI.createEdit(req).then((res: CreateEditResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateEditResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -376,19 +358,16 @@ Creates an embedding vector representing the input text.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateEmbeddingRequest, CreateEmbeddingResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateEmbeddingResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateEmbeddingRequest = {
+sdk.openAI.createEmbedding({
   input: "This is a test.",
   model: "quo",
   user: "sequi",
-};
-
-sdk.openAI.createEmbedding(req).then((res: CreateEmbeddingResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateEmbeddingResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -403,21 +382,18 @@ Upload a file that contains document(s) to be used across various endpoints/feat
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateFileRequest, CreateFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateFileRequest = {
+sdk.openAI.createFile({
   file: {
     content: "tenetur".encode(),
     file: "ipsam",
   },
   purpose: "id",
-};
-
-sdk.openAI.createFile(req).then((res: CreateFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -436,12 +412,11 @@ Response includes details of the enqueued job including job status and the name 
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateFineTuneRequest, CreateFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateFineTuneRequest = {
+sdk.openAI.createFineTune({
   batchSize: 820994,
   classificationBetas: [
     971.01,
@@ -456,10 +431,8 @@ const req: shared.CreateFineTuneRequest = {
   suffix: "vero",
   trainingFile: "file-ajSREls59WBbvgSzJSVWxMCB",
   validationFile: "file-XjSREls59WBbvgSzJSVWxMCa",
-};
-
-sdk.openAI.createFineTune(req).then((res: CreateFineTuneResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateFineTuneResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -473,22 +446,19 @@ Creates an image given a prompt.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateImageRequest, CreateImageResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateImageResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateImageRequestResponseFormatEnum, CreateImageRequestSizeEnum } from "@speakeasy-api/openai/dist/sdk/models/shared";
-import { AxiosError } from "axios";
 
 const sdk = new Gpt();
 
-const req: shared.CreateImageRequest = {
+sdk.openAI.createImage({
   n: 1,
   prompt: "A cute baby sea otter",
   responseFormat: CreateImageRequestResponseFormatEnum.Url,
   size: CreateImageRequestSizeEnum.OneThousandAndTwentyFourx1024,
   user: "nihil",
-};
-
-sdk.openAI.createImage(req).then((res: CreateImageResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateImageResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -502,12 +472,11 @@ Creates an edited or extended image given an original image and a prompt.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateImageEditRequest, CreateImageEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateImageEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateImageEditRequest = {
+sdk.openAI.createImageEdit({
   image: {
     content: "praesentium".encode(),
     image: "voluptatibus",
@@ -521,10 +490,8 @@ const req: shared.CreateImageEditRequest = {
   responseFormat: "cum",
   size: "perferendis",
   user: "doloremque",
-};
-
-sdk.openAI.createImageEdit(req).then((res: CreateImageEditResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateImageEditResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -538,12 +505,11 @@ Creates a variation of a given image.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateImageVariationRequest, CreateImageVariationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateImageVariationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateImageVariationRequest = {
+sdk.openAI.createImageVariation({
   image: {
     content: "reprehenderit".encode(),
     image: "ut",
@@ -552,10 +518,8 @@ const req: shared.CreateImageVariationRequest = {
   responseFormat: "dicta",
   size: "corporis",
   user: "dolore",
-};
-
-sdk.openAI.createImageVariation(req).then((res: CreateImageVariationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateImageVariationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -569,18 +533,15 @@ Classifies if text violates OpenAI's Content Policy
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateModerationRequest, CreateModerationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateModerationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateModerationRequest = {
+sdk.openAI.createModeration({
   input: "I want to kill them.",
   model: "text-moderation-stable",
-};
-
-sdk.openAI.createModeration(req).then((res: CreateModerationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateModerationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -599,12 +560,11 @@ The similarity score is a positive score that usually ranges from 0 to 300 (but 
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateSearchRequest, CreateSearchResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateSearchResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: CreateSearchRequest = {
+sdk.openAI.createSearch({
   createSearchRequest: {
     documents: [
       "harum",
@@ -616,10 +576,8 @@ const req: CreateSearchRequest = {
     user: "commodi",
   },
   engineId: "davinci",
-};
-
-sdk.openAI.createSearch(req).then((res: CreateSearchResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateSearchResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -633,12 +591,11 @@ Transcribes audio into the input language.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateTranscriptionRequest, CreateTranscriptionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateTranscriptionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateTranscriptionRequest = {
+sdk.openAI.createTranscription({
   file: {
     content: "repudiandae".encode(),
     file: "quae",
@@ -648,10 +605,8 @@ const req: shared.CreateTranscriptionRequest = {
   prompt: "molestias",
   responseFormat: "excepturi",
   temperature: 8651.03,
-};
-
-sdk.openAI.createTranscription(req).then((res: CreateTranscriptionResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateTranscriptionResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -665,12 +620,11 @@ Translates audio into into English.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateTranslationRequest, CreateTranslationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { CreateTranslationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: shared.CreateTranslationRequest = {
+sdk.openAI.createTranslation({
   file: {
     content: "modi".encode(),
     file: "praesentium",
@@ -679,10 +633,8 @@ const req: shared.CreateTranslationRequest = {
   prompt: "voluptates",
   responseFormat: "quasi",
   temperature: 9211.58,
-};
-
-sdk.openAI.createTranslation(req).then((res: CreateTranslationResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: CreateTranslationResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -696,17 +648,14 @@ Delete a file.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { DeleteFileRequest, DeleteFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DeleteFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: DeleteFileRequest = {
+sdk.openAI.deleteFile({
   fileId: "sint",
-};
-
-sdk.openAI.deleteFile(req).then((res: DeleteFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -720,17 +669,14 @@ Delete a fine-tuned model. You must have the Owner role in your organization.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { DeleteModelRequest, DeleteModelResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DeleteModelResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: DeleteModelRequest = {
+sdk.openAI.deleteModel({
   model: "curie:ft-acmeco-2021-03-03-21-44-20",
-};
-
-sdk.openAI.deleteModel(req).then((res: DeleteModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DeleteModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -744,17 +690,14 @@ Returns the contents of the specified file
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { DownloadFileRequest, DownloadFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { DownloadFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: DownloadFileRequest = {
+sdk.openAI.downloadFile({
   fileId: "veritatis",
-};
-
-sdk.openAI.downloadFile(req).then((res: DownloadFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: DownloadFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -769,12 +712,11 @@ Lists the currently available (non-finetuned) models, and provides basic informa
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { ListEnginesResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new Gpt();
 
-sdk.openAI.listEngines().then((res: ListEnginesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.openAI.listEngines().then((res: ListEnginesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -789,12 +731,11 @@ Returns a list of files that belong to the user's organization.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { ListFilesResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new Gpt();
 
-sdk.openAI.listFiles().then((res: ListFilesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.openAI.listFiles().then((res: ListFilesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -809,18 +750,15 @@ Get fine-grained status updates for a fine-tune job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { ListFineTuneEventsRequest, ListFineTuneEventsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { ListFineTuneEventsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: ListFineTuneEventsRequest = {
+sdk.openAI.listFineTuneEvents({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
   stream: false,
-};
-
-sdk.openAI.listFineTuneEvents(req).then((res: ListFineTuneEventsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: ListFineTuneEventsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -836,12 +774,11 @@ List your organization's fine-tuning jobs
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { ListFineTunesResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new Gpt();
 
-sdk.openAI.listFineTunes().then((res: ListFineTunesResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.openAI.listFineTunes().then((res: ListFineTunesResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -856,12 +793,11 @@ Lists the currently available models, and provides basic information about each 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { ListModelsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
 
 const sdk = new Gpt();
 
-sdk.openAI.listModels().then((res: ListModelsResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+sdk.openAI.listModels().then((res: ListModelsResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -875,17 +811,14 @@ Retrieves a model instance, providing basic information about it such as the own
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveEngineRequest, RetrieveEngineResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { RetrieveEngineResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: RetrieveEngineRequest = {
+sdk.openAI.retrieveEngine({
   engineId: "davinci",
-};
-
-sdk.openAI.retrieveEngine(req).then((res: RetrieveEngineResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RetrieveEngineResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -899,17 +832,14 @@ Returns information about a specific file.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveFileRequest, RetrieveFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { RetrieveFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: RetrieveFileRequest = {
+sdk.openAI.retrieveFile({
   fileId: "itaque",
-};
-
-sdk.openAI.retrieveFile(req).then((res: RetrieveFileResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RetrieveFileResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -926,17 +856,14 @@ Gets info about the fine-tune job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveFineTuneRequest, RetrieveFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { RetrieveFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: RetrieveFineTuneRequest = {
+sdk.openAI.retrieveFineTune({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-};
-
-sdk.openAI.retrieveFineTune(req).then((res: RetrieveFineTuneResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RetrieveFineTuneResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
@@ -950,17 +877,14 @@ Retrieves a model instance, providing basic information about the model such as 
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveModelRequest, RetrieveModelResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { AxiosError } from "axios";
+import { RetrieveModelResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 const sdk = new Gpt();
 
-const req: RetrieveModelRequest = {
+sdk.openAI.retrieveModel({
   model: "text-davinci-001",
-};
-
-sdk.openAI.retrieveModel(req).then((res: RetrieveModelResponse | AxiosError) => {
-  if (res instanceof UsageExamplePostResponse && res.statusCode == 200) {
+}).then((res: RetrieveModelResponse) => {
+  if (res.statusCode == 200) {
     // handle response
   }
 });
