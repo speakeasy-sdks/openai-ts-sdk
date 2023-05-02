@@ -2,13 +2,13 @@ configVersion: 1.0.0
 management:
   docChecksum: 5399f7767be93d4a4b8cecb9bbc687b3
   docVersion: 1.2.0
-  speakeasyVersion: 1.26.4
-  generationVersion: 2.23.4
+  speakeasyVersion: 1.26.5
+  generationVersion: 2.23.6
 generation:
   telemetryEnabled: false
   sdkClassName: gpt
   singleTagPerOp: false
 typescript:
-  version: 1.16.1
+  version: 1.16.2
   author: speakeasy-openai
   packageName: '@speakeasy-api/openai'
