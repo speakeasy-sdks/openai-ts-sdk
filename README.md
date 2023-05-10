@@ -63,12 +63,12 @@ sdk.openAI.cancelFineTune({
 
 * [cancelFineTune](docs/openai/README.md#cancelfinetune) - Immediately cancel a fine-tune job.
 
-* [createAnswer](docs/openai/README.md#createanswer) - Answers the specified question using the provided documents and examples.
+* [~~createAnswer~~](docs/openai/README.md#createanswer) - Answers the specified question using the provided documents and examples.
 
 The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
-
+ :warning: **Deprecated**
 * [createChatCompletion](docs/openai/README.md#createchatcompletion) - Creates a completion for the chat message
-* [createClassification](docs/openai/README.md#createclassification) - Classifies the specified `query` using provided examples.
+* [~~createClassification~~](docs/openai/README.md#createclassification) - Classifies the specified `query` using provided examples.
 
 The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
 to select the ones most relevant for the particular query. Then, the relevant examples
@@ -77,7 +77,7 @@ are combined with the query to construct a prompt to produce the final label via
 
 Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
 request using the `examples` parameter for quick tests and small scale use cases.
-
+ :warning: **Deprecated**
 * [createCompletion](docs/openai/README.md#createcompletion) - Creates a completion for the provided prompt and parameters
 * [createEdit](docs/openai/README.md#createedit) - Creates a new edit for the provided input, instruction, and parameters.
 * [createEmbedding](docs/openai/README.md#createembedding) - Creates an embedding vector representing the input text.
@@ -93,25 +93,25 @@ Response includes details of the enqueued job including job status and the name 
 * [createImageEdit](docs/openai/README.md#createimageedit) - Creates an edited or extended image given an original image and a prompt.
 * [createImageVariation](docs/openai/README.md#createimagevariation) - Creates a variation of a given image.
 * [createModeration](docs/openai/README.md#createmoderation) - Classifies if text violates OpenAI's Content Policy
-* [createSearch](docs/openai/README.md#createsearch) - The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
+* [~~createSearch~~](docs/openai/README.md#createsearch) - The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
 
 To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
 
 The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-
+ :warning: **Deprecated**
 * [createTranscription](docs/openai/README.md#createtranscription) - Transcribes audio into the input language.
 * [createTranslation](docs/openai/README.md#createtranslation) - Translates audio into into English.
 * [deleteFile](docs/openai/README.md#deletefile) - Delete a file.
 * [deleteModel](docs/openai/README.md#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization.
 * [downloadFile](docs/openai/README.md#downloadfile) - Returns the contents of the specified file
-* [listEngines](docs/openai/README.md#listengines) - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
+* [~~listEngines~~](docs/openai/README.md#listengines) - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability. :warning: **Deprecated**
 * [listFiles](docs/openai/README.md#listfiles) - Returns a list of files that belong to the user's organization.
 * [listFineTuneEvents](docs/openai/README.md#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
 
 * [listFineTunes](docs/openai/README.md#listfinetunes) - List your organization's fine-tuning jobs
 
 * [listModels](docs/openai/README.md#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
-* [retrieveEngine](docs/openai/README.md#retrieveengine) - Retrieves a model instance, providing basic information about it such as the owner and availability.
+* [~~retrieveEngine~~](docs/openai/README.md#retrieveengine) - Retrieves a model instance, providing basic information about it such as the owner and availability. :warning: **Deprecated**
 * [retrieveFile](docs/openai/README.md#retrievefile) - Returns information about a specific file.
 * [retrieveFineTune](docs/openai/README.md#retrievefinetune) - Gets info about the fine-tune job.
 

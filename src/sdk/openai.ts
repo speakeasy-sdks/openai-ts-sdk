@@ -90,6 +90,8 @@ export class OpenAI {
    *
    * The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
    *
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async createAnswer(
     req: shared.CreateAnswerRequest,
@@ -237,6 +239,8 @@ export class OpenAI {
    * Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
    * request using the `examples` parameter for quick tests and small scale use cases.
    *
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async createClassification(
     req: shared.CreateClassificationRequest,
@@ -935,6 +939,8 @@ export class OpenAI {
    *
    * The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
    *
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async createSearch(
     req: operations.CreateSearchRequest,
@@ -1296,6 +1302,8 @@ export class OpenAI {
 
   /**
    * Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async listEngines(
     config?: AxiosRequestConfig
@@ -1528,6 +1536,8 @@ export class OpenAI {
 
   /**
    * Retrieves a model instance, providing basic information about it such as the owner and availability.
+   *
+   * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
    */
   async retrieveEngine(
     req: operations.RetrieveEngineRequest,

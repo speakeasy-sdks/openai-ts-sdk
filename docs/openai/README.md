@@ -8,12 +8,12 @@ The OpenAI REST API
 
 * [cancelFineTune](#cancelfinetune) - Immediately cancel a fine-tune job.
 
-* [createAnswer](#createanswer) - Answers the specified question using the provided documents and examples.
+* [~~createAnswer~~](#createanswer) - Answers the specified question using the provided documents and examples.
 
 The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
-
+ :warning: **Deprecated**
 * [createChatCompletion](#createchatcompletion) - Creates a completion for the chat message
-* [createClassification](#createclassification) - Classifies the specified `query` using provided examples.
+* [~~createClassification~~](#createclassification) - Classifies the specified `query` using provided examples.
 
 The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
 to select the ones most relevant for the particular query. Then, the relevant examples
@@ -22,7 +22,7 @@ are combined with the query to construct a prompt to produce the final label via
 
 Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
 request using the `examples` parameter for quick tests and small scale use cases.
-
+ :warning: **Deprecated**
 * [createCompletion](#createcompletion) - Creates a completion for the provided prompt and parameters
 * [createEdit](#createedit) - Creates a new edit for the provided input, instruction, and parameters.
 * [createEmbedding](#createembedding) - Creates an embedding vector representing the input text.
@@ -38,25 +38,25 @@ Response includes details of the enqueued job including job status and the name 
 * [createImageEdit](#createimageedit) - Creates an edited or extended image given an original image and a prompt.
 * [createImageVariation](#createimagevariation) - Creates a variation of a given image.
 * [createModeration](#createmoderation) - Classifies if text violates OpenAI's Content Policy
-* [createSearch](#createsearch) - The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
+* [~~createSearch~~](#createsearch) - The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
 
 To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
 
 The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-
+ :warning: **Deprecated**
 * [createTranscription](#createtranscription) - Transcribes audio into the input language.
 * [createTranslation](#createtranslation) - Translates audio into into English.
 * [deleteFile](#deletefile) - Delete a file.
 * [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization.
 * [downloadFile](#downloadfile) - Returns the contents of the specified file
-* [listEngines](#listengines) - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
+* [~~listEngines~~](#listengines) - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability. :warning: **Deprecated**
 * [listFiles](#listfiles) - Returns a list of files that belong to the user's organization.
 * [listFineTuneEvents](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
 
 * [listFineTunes](#listfinetunes) - List your organization's fine-tuning jobs
 
 * [listModels](#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
-* [retrieveEngine](#retrieveengine) - Retrieves a model instance, providing basic information about it such as the owner and availability.
+* [~~retrieveEngine~~](#retrieveengine) - Retrieves a model instance, providing basic information about it such as the owner and availability. :warning: **Deprecated**
 * [retrieveFile](#retrievefile) - Returns information about a specific file.
 * [retrieveFineTune](#retrievefinetune) - Gets info about the fine-tune job.
 
@@ -86,12 +86,14 @@ sdk.openAI.cancelFineTune({
 });
 ```
 
-## createAnswer
+## ~~createAnswer~~
 
 Answers the specified question using the provided documents and examples.
 
 The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
 
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -217,7 +219,7 @@ sdk.openAI.createChatCompletion({
 });
 ```
 
-## createClassification
+## ~~createClassification~~
 
 Classifies the specified `query` using provided examples.
 
@@ -229,6 +231,8 @@ are combined with the query to construct a prompt to produce the final label via
 Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
 request using the `examples` parameter for quick tests and small scale use cases.
 
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -547,7 +551,7 @@ sdk.openAI.createModeration({
 });
 ```
 
-## createSearch
+## ~~createSearch~~
 
 The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
 
@@ -555,6 +559,8 @@ To go beyond the 200 document limit, documents can be processed offline and then
 
 The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
 
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -703,9 +709,11 @@ sdk.openAI.downloadFile({
 });
 ```
 
-## listEngines
+## ~~listEngines~~
 
 Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -803,9 +811,11 @@ sdk.openAI.listModels().then((res: ListModelsResponse) => {
 });
 ```
 
-## retrieveEngine
+## ~~retrieveEngine~~
 
 Retrieves a model instance, providing basic information about it such as the owner and availability.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
