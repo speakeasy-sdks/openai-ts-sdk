@@ -38,8 +38,8 @@ export class Gpt {
   public _securityClient: AxiosInstance;
   public _serverURL: string;
   private _language = "typescript";
-  private _sdkVersion = "1.20.0";
-  private _genVersion = "2.28.0";
+  private _sdkVersion = "1.21.0";
+  private _genVersion = "2.29.0";
   private _globals: any;
 
   constructor(props?: SDKProps) {
