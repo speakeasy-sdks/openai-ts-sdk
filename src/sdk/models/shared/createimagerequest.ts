@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
  */
-export enum CreateImageRequestResponseFormatEnum {
+export enum CreateImageRequestResponseFormat {
   Url = "url",
   B64Json = "b64_json",
 }
@@ -16,7 +16,7 @@ export enum CreateImageRequestResponseFormatEnum {
 /**
  * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
  */
-export enum CreateImageRequestSizeEnum {
+export enum CreateImageRequestSize {
   TwoHundredAndFiftySixx256 = "256x256",
   FiveHundredAndTwelvex512 = "512x512",
   OneThousandAndTwentyFourx1024 = "1024x1024",
@@ -42,14 +42,14 @@ export class CreateImageRequest extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "response_format" })
-  responseFormat?: CreateImageRequestResponseFormatEnum;
+  responseFormat?: CreateImageRequestResponseFormat;
 
   /**
    * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
    */
   @SpeakeasyMetadata()
   @Expose({ name: "size" })
-  size?: CreateImageRequestSizeEnum;
+  size?: CreateImageRequestSize;
 
   @SpeakeasyMetadata()
   @Expose({ name: "user" })

@@ -8,7 +8,7 @@ import { Expose } from "class-transformer";
 /**
  * The role of the author of this message.
  */
-export enum ChatCompletionRequestMessageRoleEnum {
+export enum ChatCompletionRequestMessageRole {
   System = "system",
   User = "user",
   Assistant = "assistant",
@@ -34,5 +34,5 @@ export class ChatCompletionRequestMessage extends SpeakeasyBase {
    */
   @SpeakeasyMetadata()
   @Expose({ name: "role" })
-  role: ChatCompletionRequestMessageRoleEnum;
+  role: ChatCompletionRequestMessageRole;
 }

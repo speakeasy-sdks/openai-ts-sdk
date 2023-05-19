@@ -165,7 +165,7 @@ Creates a completion for the chat message
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateChatCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { ChatCompletionRequestMessageRoleEnum, ChatCompletionResponseMessageRoleEnum } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { ChatCompletionRequestMessageRole, ChatCompletionResponseMessageRole } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
@@ -182,22 +182,22 @@ sdk.openAI.createChatCompletion({
     {
       content: "dolorum",
       name: "Antoinette Nikolaus",
-      role: ChatCompletionRequestMessageRoleEnum.User,
+      role: ChatCompletionRequestMessageRole.User,
     },
     {
       content: "hic",
       name: "Everett Breitenberg",
-      role: ChatCompletionRequestMessageRoleEnum.System,
+      role: ChatCompletionRequestMessageRole.System,
     },
     {
       content: "qui",
       name: "Jonathon Klocko",
-      role: ChatCompletionRequestMessageRoleEnum.System,
+      role: ChatCompletionRequestMessageRole.System,
     },
     {
       content: "perferendis",
       name: "Faye Cormier",
-      role: ChatCompletionRequestMessageRoleEnum.User,
+      role: ChatCompletionRequestMessageRole.User,
     },
   ],
   model: "laboriosam",
@@ -451,15 +451,15 @@ Creates an image given a prompt.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateImageRequestResponseFormatEnum, CreateImageRequestSizeEnum } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateImageRequestResponseFormat, CreateImageRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createImage({
   n: 1,
   prompt: "A cute baby sea otter",
-  responseFormat: CreateImageRequestResponseFormatEnum.Url,
-  size: CreateImageRequestSizeEnum.OneThousandAndTwentyFourx1024,
+  responseFormat: CreateImageRequestResponseFormat.Url,
+  size: CreateImageRequestSize.OneThousandAndTwentyFourx1024,
   user: "nihil",
 }).then((res: CreateImageResponse) => {
   if (res.statusCode == 200) {
