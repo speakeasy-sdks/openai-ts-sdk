@@ -9,35 +9,35 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class OpenAIFile extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "bytes" })
-  bytes: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "bytes" })
+    bytes: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  createdAt: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    createdAt: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "filename" })
-  filename: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "filename" })
+    filename: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "purpose" })
-  purpose: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "purpose" })
+    purpose: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "status_details" })
-  statusDetails?: Record<string, any>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "status_details" })
+    statusDetails?: Record<string, any>;
 }

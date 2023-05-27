@@ -9,15 +9,15 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class DeleteModelResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "deleted" })
-  deleted: boolean;
+    @SpeakeasyMetadata()
+    @Expose({ name: "deleted" })
+    deleted: boolean;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 }

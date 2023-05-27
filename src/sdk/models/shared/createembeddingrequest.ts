@@ -6,21 +6,21 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CreateEmbeddingRequest extends SpeakeasyBase {
-  /**
-   * Input text to get embeddings for, encoded as a string or array of tokens. To get embeddings for multiple inputs in a single request, pass an array of strings or array of token arrays. Each input must not exceed 8192 tokens in length.
-   *
-   * @remarks
-   *
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "input" })
-  input: any;
+    /**
+     * Input text to get embeddings for, encoded as a string or array of tokens. To get embeddings for multiple inputs in a single request, pass an array of strings or array of token arrays. Each input must not exceed 8192 tokens in length.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "input" })
+    input: any;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "model" })
-  model: any;
+    @SpeakeasyMetadata()
+    @Expose({ name: "model" })
+    model: any;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "user" })
-  user?: any;
+    @SpeakeasyMetadata()
+    @Expose({ name: "user" })
+    user?: any;
 }

@@ -7,28 +7,26 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class RetrieveFileRequest extends SpeakeasyBase {
-  /**
-   * The ID of the file to use for this request
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=file_id",
-  })
-  fileId: string;
+    /**
+     * The ID of the file to use for this request
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=file_id" })
+    fileId: string;
 }
 
 export class RetrieveFileResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  openAIFile?: shared.OpenAIFile;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    openAIFile?: shared.OpenAIFile;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

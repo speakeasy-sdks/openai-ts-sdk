@@ -9,30 +9,30 @@ import { Expose } from "class-transformer";
  * The role of the author of this message.
  */
 export enum ChatCompletionRequestMessageRole {
-  System = "system",
-  User = "user",
-  Assistant = "assistant",
+    System = "system",
+    User = "user",
+    Assistant = "assistant",
 }
 
 export class ChatCompletionRequestMessage extends SpeakeasyBase {
-  /**
-   * The contents of the message
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "content" })
-  content: string;
+    /**
+     * The contents of the message
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "content" })
+    content: string;
 
-  /**
-   * The name of the user in a multi-user chat
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "name" })
-  name?: string;
+    /**
+     * The name of the user in a multi-user chat
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "name" })
+    name?: string;
 
-  /**
-   * The role of the author of this message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "role" })
-  role: ChatCompletionRequestMessageRole;
+    /**
+     * The role of the author of this message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "role" })
+    role: ChatCompletionRequestMessageRole;
 }

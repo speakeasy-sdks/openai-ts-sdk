@@ -11,59 +11,59 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class FineTune extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  createdAt: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    createdAt: number;
 
-  @SpeakeasyMetadata({ elemType: FineTuneEvent })
-  @Expose({ name: "events" })
-  @Type(() => FineTuneEvent)
-  events?: FineTuneEvent[];
+    @SpeakeasyMetadata({ elemType: FineTuneEvent })
+    @Expose({ name: "events" })
+    @Type(() => FineTuneEvent)
+    events?: FineTuneEvent[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "fine_tuned_model" })
-  fineTunedModel: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "fine_tuned_model" })
+    fineTunedModel: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "hyperparams" })
-  hyperparams: Record<string, any>;
+    @SpeakeasyMetadata()
+    @Expose({ name: "hyperparams" })
+    hyperparams: Record<string, any>;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "model" })
-  model: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "model" })
+    model: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "organization_id" })
-  organizationId: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "organization_id" })
+    organizationId: string;
 
-  @SpeakeasyMetadata({ elemType: OpenAIFile })
-  @Expose({ name: "result_files" })
-  @Type(() => OpenAIFile)
-  resultFiles: OpenAIFile[];
+    @SpeakeasyMetadata({ elemType: OpenAIFile })
+    @Expose({ name: "result_files" })
+    @Type(() => OpenAIFile)
+    resultFiles: OpenAIFile[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "status" })
-  status: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: string;
 
-  @SpeakeasyMetadata({ elemType: OpenAIFile })
-  @Expose({ name: "training_files" })
-  @Type(() => OpenAIFile)
-  trainingFiles: OpenAIFile[];
+    @SpeakeasyMetadata({ elemType: OpenAIFile })
+    @Expose({ name: "training_files" })
+    @Type(() => OpenAIFile)
+    trainingFiles: OpenAIFile[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "updated_at" })
-  updatedAt: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "updated_at" })
+    updatedAt: number;
 
-  @SpeakeasyMetadata({ elemType: OpenAIFile })
-  @Expose({ name: "validation_files" })
-  @Type(() => OpenAIFile)
-  validationFiles: OpenAIFile[];
+    @SpeakeasyMetadata({ elemType: OpenAIFile })
+    @Expose({ name: "validation_files" })
+    @Type(() => OpenAIFile)
+    validationFiles: OpenAIFile[];
 }

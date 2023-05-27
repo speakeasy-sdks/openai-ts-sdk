@@ -6,19 +6,19 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class FineTuneEvent extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "created_at" })
-  createdAt: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "created_at" })
+    createdAt: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "level" })
-  level: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "level" })
+    level: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "message" })
-  message: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 }

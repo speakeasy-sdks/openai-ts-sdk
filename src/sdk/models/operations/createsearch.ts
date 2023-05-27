@@ -7,31 +7,29 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class CreateSearchRequest extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "request, media_type=application/json" })
-  createSearchRequest: shared.CreateSearchRequest;
+    @SpeakeasyMetadata({ data: "request, media_type=application/json" })
+    createSearchRequest: shared.CreateSearchRequest;
 
-  /**
-   * The ID of the engine to use for this request.  You can select one of `ada`, `babbage`, `curie`, or `davinci`.
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=engine_id",
-  })
-  engineId: string;
+    /**
+     * The ID of the engine to use for this request.  You can select one of `ada`, `babbage`, `curie`, or `davinci`.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=engine_id" })
+    engineId: string;
 }
 
 export class CreateSearchResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  createSearchResponse?: shared.CreateSearchResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    createSearchResponse?: shared.CreateSearchResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

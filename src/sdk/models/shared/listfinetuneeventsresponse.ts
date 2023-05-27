@@ -10,12 +10,12 @@ import { Expose, Type } from "class-transformer";
  * OK
  */
 export class ListFineTuneEventsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: FineTuneEvent })
-  @Expose({ name: "data" })
-  @Type(() => FineTuneEvent)
-  data: FineTuneEvent[];
+    @SpeakeasyMetadata({ elemType: FineTuneEvent })
+    @Expose({ name: "data" })
+    @Type(() => FineTuneEvent)
+    data: FineTuneEvent[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 }

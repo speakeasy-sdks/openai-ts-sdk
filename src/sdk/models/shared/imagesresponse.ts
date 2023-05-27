@@ -6,25 +6,25 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
 export class ImagesResponseData extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "b64_json" })
-  b64Json?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "b64_json" })
+    b64Json?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "url" })
-  url?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "url" })
+    url?: string;
 }
 
 /**
  * OK
  */
 export class ImagesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "created" })
-  created: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "created" })
+    created: number;
 
-  @SpeakeasyMetadata({ elemType: ImagesResponseData })
-  @Expose({ name: "data" })
-  @Type(() => ImagesResponseData)
-  data: ImagesResponseData[];
+    @SpeakeasyMetadata({ elemType: ImagesResponseData })
+    @Expose({ name: "data" })
+    @Type(() => ImagesResponseData)
+    data: ImagesResponseData[];
 }

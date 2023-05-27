@@ -5,33 +5,33 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export class CreateFileRequestFile extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
-  content: Uint8Array;
+    @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+    content: Uint8Array;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=file" })
-  file: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=file" })
+    file: string;
 }
 
 export class CreateFileRequest extends SpeakeasyBase {
-  /**
-   * Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.
-   *
-   * @remarks
-   *
-   * If the `purpose` is set to "fine-tune", each line is a JSON record with "prompt" and "completion" fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
-   *
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-  file: CreateFileRequestFile;
+    /**
+     * Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.
+     *
+     * @remarks
+     *
+     * If the `purpose` is set to "fine-tune", each line is a JSON record with "prompt" and "completion" fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, file=true" })
+    file: CreateFileRequestFile;
 
-  /**
-   * The intended purpose of the uploaded documents.
-   *
-   * @remarks
-   *
-   * Use "fine-tune" for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
-   *
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, name=purpose" })
-  purpose: string;
+    /**
+     * The intended purpose of the uploaded documents.
+     *
+     * @remarks
+     *
+     * Use "fine-tune" for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=purpose" })
+    purpose: string;
 }

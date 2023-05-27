@@ -9,19 +9,19 @@ import { Expose } from "class-transformer";
  * OK
  */
 export class Model extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "created" })
-  created: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "created" })
+    created: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "id" })
-  id: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "owned_by" })
-  ownedBy: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "owned_by" })
+    ownedBy: string;
 }

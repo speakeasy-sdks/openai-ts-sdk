@@ -9,49 +9,49 @@ import { Expose } from "class-transformer";
  * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
  */
 export enum CreateImageRequestResponseFormat {
-  Url = "url",
-  B64Json = "b64_json",
+    Url = "url",
+    B64Json = "b64_json",
 }
 
 /**
  * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
  */
 export enum CreateImageRequestSize {
-  TwoHundredAndFiftySixx256 = "256x256",
-  FiveHundredAndTwelvex512 = "512x512",
-  OneThousandAndTwentyFourx1024 = "1024x1024",
+    TwoHundredAndFiftySixx256 = "256x256",
+    FiveHundredAndTwelvex512 = "512x512",
+    OneThousandAndTwentyFourx1024 = "1024x1024",
 }
 
 export class CreateImageRequest extends SpeakeasyBase {
-  /**
-   * The number of images to generate. Must be between 1 and 10.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "n" })
-  n?: number;
+    /**
+     * The number of images to generate. Must be between 1 and 10.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "n" })
+    n?: number;
 
-  /**
-   * A text description of the desired image(s). The maximum length is 1000 characters.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "prompt" })
-  prompt: string;
+    /**
+     * A text description of the desired image(s). The maximum length is 1000 characters.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "prompt" })
+    prompt: string;
 
-  /**
-   * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "response_format" })
-  responseFormat?: CreateImageRequestResponseFormat;
+    /**
+     * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "response_format" })
+    responseFormat?: CreateImageRequestResponseFormat;
 
-  /**
-   * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "size" })
-  size?: CreateImageRequestSize;
+    /**
+     * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "size" })
+    size?: CreateImageRequestSize;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "user" })
-  user?: any;
+    @SpeakeasyMetadata()
+    @Expose({ name: "user" })
+    user?: any;
 }
