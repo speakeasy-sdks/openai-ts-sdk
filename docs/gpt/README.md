@@ -2,7 +2,7 @@
 
 ## Overview
 
-APIs for sampling from and fine-tuning language models
+OpenAI API: APIs for sampling from and fine-tuning language models
 
 ### Available Operations
 

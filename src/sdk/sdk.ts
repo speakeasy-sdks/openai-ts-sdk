@@ -37,8 +37,8 @@ export class SDKConfiguration {
     serverURL: string;
     serverDefaults: any;
     language = "typescript";
-    sdkVersion = "1.26.0";
-    genVersion = "2.35.3";
+    sdkVersion = "1.26.1";
+    genVersion = "2.35.9";
 
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -46,7 +46,7 @@ export class SDKConfiguration {
 }
 
 /**
- * APIs for sampling from and fine-tuning language models
+ * OpenAI API: APIs for sampling from and fine-tuning language models
  */
 export class Gpt {
     /**
