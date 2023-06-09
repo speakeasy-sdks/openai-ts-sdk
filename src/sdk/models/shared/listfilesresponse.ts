@@ -3,17 +3,19 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { OpenAIFile } from "./openaifile";
+import { Expose, Type } from "class-transformer";
 
 /**
  * OK
  */
 export class ListFilesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  data: any[];
+    @SpeakeasyMetadata({ elemType: OpenAIFile })
+    @Expose({ name: "data" })
+    @Type(() => OpenAIFile)
+    data: OpenAIFile[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 }

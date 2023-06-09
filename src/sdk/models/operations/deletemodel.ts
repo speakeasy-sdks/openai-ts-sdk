@@ -7,28 +7,26 @@ import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteModelRequest extends SpeakeasyBase {
-  /**
-   * The model to delete
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=model",
-  })
-  model: string;
+    /**
+     * The model to delete
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=model" })
+    model: string;
 }
 
 export class DeleteModelResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  deleteModelResponse?: shared.DeleteModelResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    deleteModelResponse?: shared.DeleteModelResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

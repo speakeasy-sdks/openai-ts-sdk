@@ -5,56 +5,56 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export class CreateTranslationRequestFile extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
-  content: Uint8Array;
+    @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+    content: Uint8Array;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=file" })
-  file: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=file" })
+    file: string;
 }
 
 export class CreateTranslationRequest extends SpeakeasyBase {
-  /**
-   * The audio file to translate, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
-   *
-   * @remarks
-   *
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-  file: CreateTranslationRequestFile;
+    /**
+     * The audio file to translate, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, file=true" })
+    file: CreateTranslationRequestFile;
 
-  /**
-   * ID of the model to use. Only `whisper-1` is currently available.
-   *
-   * @remarks
-   *
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, name=model" })
-  model: string;
+    /**
+     * ID of the model to use. Only `whisper-1` is currently available.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=model" })
+    model: string;
 
-  /**
-   * An optional text to guide the model's style or continue a previous audio segment. The [prompt](/docs/guides/speech-to-text/prompting) should be in English.
-   *
-   * @remarks
-   *
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, name=prompt" })
-  prompt?: string;
+    /**
+     * An optional text to guide the model's style or continue a previous audio segment. The [prompt](/docs/guides/speech-to-text/prompting) should be in English.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=prompt" })
+    prompt?: string;
 
-  /**
-   * The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.
-   *
-   * @remarks
-   *
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
-  responseFormat?: string;
+    /**
+     * The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
+    responseFormat?: string;
 
-  /**
-   * The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use [log probability](https://en.wikipedia.org/wiki/Log_probability) to automatically increase the temperature until certain thresholds are hit.
-   *
-   * @remarks
-   *
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, name=temperature" })
-  temperature?: number;
+    /**
+     * The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use [log probability](https://en.wikipedia.org/wiki/Log_probability) to automatically increase the temperature until certain thresholds are hit.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=temperature" })
+    temperature?: number;
 }

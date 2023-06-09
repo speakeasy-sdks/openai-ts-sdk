@@ -6,75 +6,75 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
 export class CreateEditResponseChoicesLogprobs extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "text_offset" })
-  textOffset?: number[];
+    @SpeakeasyMetadata()
+    @Expose({ name: "text_offset" })
+    textOffset?: number[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "token_logprobs" })
-  tokenLogprobs?: number[];
+    @SpeakeasyMetadata()
+    @Expose({ name: "token_logprobs" })
+    tokenLogprobs?: number[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "tokens" })
-  tokens?: string[];
+    @SpeakeasyMetadata()
+    @Expose({ name: "tokens" })
+    tokens?: string[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "top_logprobs" })
-  topLogprobs?: Record<string, any>[];
+    @SpeakeasyMetadata()
+    @Expose({ name: "top_logprobs" })
+    topLogprobs?: Record<string, any>[];
 }
 
 export class CreateEditResponseChoices extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "finish_reason" })
-  finishReason?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "finish_reason" })
+    finishReason?: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  index?: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    index?: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "logprobs" })
-  @Type(() => CreateEditResponseChoicesLogprobs)
-  logprobs?: CreateEditResponseChoicesLogprobs;
+    @SpeakeasyMetadata()
+    @Expose({ name: "logprobs" })
+    @Type(() => CreateEditResponseChoicesLogprobs)
+    logprobs?: CreateEditResponseChoicesLogprobs;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "text" })
-  text?: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "text" })
+    text?: string;
 }
 
 export class CreateEditResponseUsage extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "completion_tokens" })
-  completionTokens: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "completion_tokens" })
+    completionTokens: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "prompt_tokens" })
-  promptTokens: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "prompt_tokens" })
+    promptTokens: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_tokens" })
-  totalTokens: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "total_tokens" })
+    totalTokens: number;
 }
 
 /**
  * OK
  */
 export class CreateEditResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateEditResponseChoices })
-  @Expose({ name: "choices" })
-  @Type(() => CreateEditResponseChoices)
-  choices: CreateEditResponseChoices[];
+    @SpeakeasyMetadata({ elemType: CreateEditResponseChoices })
+    @Expose({ name: "choices" })
+    @Type(() => CreateEditResponseChoices)
+    choices: CreateEditResponseChoices[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "created" })
-  created: number;
+    @SpeakeasyMetadata()
+    @Expose({ name: "created" })
+    created: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "usage" })
-  @Type(() => CreateEditResponseUsage)
-  usage: CreateEditResponseUsage;
+    @SpeakeasyMetadata()
+    @Expose({ name: "usage" })
+    @Type(() => CreateEditResponseUsage)
+    usage: CreateEditResponseUsage;
 }

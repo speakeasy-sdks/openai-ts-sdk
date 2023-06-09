@@ -5,49 +5,49 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export class CreateImageEditRequestImage extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
-  content: Uint8Array;
+    @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+    content: Uint8Array;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=image" })
-  image: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=image" })
+    image: string;
 }
 
 export class CreateImageEditRequestMask extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
-  content: Uint8Array;
+    @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+    content: Uint8Array;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=mask" })
-  mask: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=mask" })
+    mask: string;
 }
 
 export class CreateImageEditRequest extends SpeakeasyBase {
-  /**
-   * The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-  image: CreateImageEditRequestImage;
+    /**
+     * The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, file=true" })
+    image: CreateImageEditRequestImage;
 
-  /**
-   * An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-  mask?: CreateImageEditRequestMask;
+    /**
+     * An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, file=true" })
+    mask?: CreateImageEditRequestMask;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=n" })
-  n?: any;
+    @SpeakeasyMetadata({ data: "multipart_form, name=n" })
+    n?: any;
 
-  /**
-   * A text description of the desired image(s). The maximum length is 1000 characters.
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, name=prompt" })
-  prompt: string;
+    /**
+     * A text description of the desired image(s). The maximum length is 1000 characters.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=prompt" })
+    prompt: string;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
-  responseFormat?: any;
+    @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
+    responseFormat?: any;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=size" })
-  size?: any;
+    @SpeakeasyMetadata({ data: "multipart_form, name=size" })
+    size?: any;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=user" })
-  user?: any;
+    @SpeakeasyMetadata({ data: "multipart_form, name=user" })
+    user?: any;
 }

@@ -3,31 +3,30 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class RetrieveModelRequest extends SpeakeasyBase {
-  /**
-   * The ID of the model to use for this request
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=model",
-  })
-  model: string;
+    /**
+     * The ID of the model to use for this request
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=model" })
+    model: string;
 }
 
 export class RetrieveModelResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  model?: any;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    model?: shared.Model;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

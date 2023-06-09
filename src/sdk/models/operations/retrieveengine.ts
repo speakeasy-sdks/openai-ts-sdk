@@ -3,34 +3,33 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import * as shared from "../shared";
 import { AxiosResponse } from "axios";
 
 export class RetrieveEngineRequest extends SpeakeasyBase {
-  /**
-   * The ID of the engine to use for this request
-   *
-   * @remarks
-   *
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=engine_id",
-  })
-  engineId: string;
+    /**
+     * The ID of the engine to use for this request
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=engine_id" })
+    engineId: string;
 }
 
 export class RetrieveEngineResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  engine?: any;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    engine?: shared.Engine;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    @SpeakeasyMetadata()
+    rawResponse?: AxiosResponse;
 }

@@ -8,24 +8,24 @@ import { Expose } from "class-transformer";
 /**
  * The role of the author of this message.
  */
-export enum ChatCompletionResponseMessageRoleEnum {
-  System = "system",
-  User = "user",
-  Assistant = "assistant",
+export enum ChatCompletionResponseMessageRole {
+    System = "system",
+    User = "user",
+    Assistant = "assistant",
 }
 
 export class ChatCompletionResponseMessage extends SpeakeasyBase {
-  /**
-   * The contents of the message
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "content" })
-  content: string;
+    /**
+     * The contents of the message
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "content" })
+    content: string;
 
-  /**
-   * The role of the author of this message.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "role" })
-  role: ChatCompletionResponseMessageRoleEnum;
+    /**
+     * The role of the author of this message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "role" })
+    role: ChatCompletionResponseMessageRole;
 }
