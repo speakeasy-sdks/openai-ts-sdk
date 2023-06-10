@@ -1,0 +1,15 @@
+# CreateCompletionResponse
+
+OK
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `choices`                                                                                   | [CreateCompletionResponseChoices](../../models/shared/createcompletionresponsechoices.md)[] | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `created`                                                                                   | *number*                                                                                    | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `id`                                                                                        | *string*                                                                                    | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `model`                                                                                     | *string*                                                                                    | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `object`                                                                                    | *string*                                                                                    | :heavy_check_mark:                                                                          | N/A                                                                                         |
+| `usage`                                                                                     | [CreateCompletionResponseUsage](../../models/shared/createcompletionresponseusage.md)       | :heavy_minus_sign:                                                                          | N/A                                                                                         |

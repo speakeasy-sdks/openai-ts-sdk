@@ -1,0 +1,10 @@
+# CreateChatCompletionResponseChoices
+
+
+## Fields
+
+| Field                                                                                 | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `finishReason`                                                                        | *string*                                                                              | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `index`                                                                               | *number*                                                                              | :heavy_minus_sign:                                                                    | N/A                                                                                   |
+| `message`                                                                             | [ChatCompletionResponseMessage](../../models/shared/chatcompletionresponsemessage.md) | :heavy_minus_sign:                                                                    | N/A                                                                                   |

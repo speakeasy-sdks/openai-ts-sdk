@@ -5,6 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
+export class CreateCompletionResponseChoicesLogprobsTopLogprobs extends SpeakeasyBase {}
+
 export class CreateCompletionResponseChoicesLogprobs extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "text_offset" })
@@ -18,9 +20,10 @@ export class CreateCompletionResponseChoicesLogprobs extends SpeakeasyBase {
     @Expose({ name: "tokens" })
     tokens?: string[];
 
-    @SpeakeasyMetadata()
+    @SpeakeasyMetadata({ elemType: CreateCompletionResponseChoicesLogprobsTopLogprobs })
     @Expose({ name: "top_logprobs" })
-    topLogprobs?: Record<string, any>[];
+    @Type(() => CreateCompletionResponseChoicesLogprobsTopLogprobs)
+    topLogprobs?: CreateCompletionResponseChoicesLogprobsTopLogprobs[];
 }
 
 export class CreateCompletionResponseChoices extends SpeakeasyBase {

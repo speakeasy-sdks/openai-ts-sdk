@@ -1,0 +1,11 @@
+# CreateEditResponseChoices
+
+
+## Fields
+
+| Field                                                                                         | Type                                                                                          | Required                                                                                      | Description                                                                                   |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `finishReason`                                                                                | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `index`                                                                                       | *number*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `logprobs`                                                                                    | [CreateEditResponseChoicesLogprobs](../../models/shared/createeditresponsechoiceslogprobs.md) | :heavy_minus_sign:                                                                            | N/A                                                                                           |
+| `text`                                                                                        | *string*                                                                                      | :heavy_minus_sign:                                                                            | N/A                                                                                           |

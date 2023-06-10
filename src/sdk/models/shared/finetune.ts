@@ -7,6 +7,8 @@ import { FineTuneEvent } from "./finetuneevent";
 import { OpenAIFile } from "./openaifile";
 import { Expose, Type } from "class-transformer";
 
+export class FineTuneHyperparams extends SpeakeasyBase {}
+
 /**
  * OK
  */
@@ -26,7 +28,8 @@ export class FineTune extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "hyperparams" })
-    hyperparams: Record<string, any>;
+    @Type(() => FineTuneHyperparams)
+    hyperparams: FineTuneHyperparams;
 
     @SpeakeasyMetadata()
     @Expose({ name: "id" })

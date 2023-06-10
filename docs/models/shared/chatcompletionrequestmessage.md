@@ -1,0 +1,10 @@
+# ChatCompletionRequestMessage
+
+
+## Fields
+
+| Field                                                                                       | Type                                                                                        | Required                                                                                    | Description                                                                                 |
+| ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| `content`                                                                                   | *string*                                                                                    | :heavy_check_mark:                                                                          | The contents of the message                                                                 |
+| `name`                                                                                      | *string*                                                                                    | :heavy_minus_sign:                                                                          | The name of the user in a multi-user chat                                                   |
+| `role`                                                                                      | [ChatCompletionRequestMessageRole](../../models/shared/chatcompletionrequestmessagerole.md) | :heavy_check_mark:                                                                          | The role of the author of this message.                                                     |
