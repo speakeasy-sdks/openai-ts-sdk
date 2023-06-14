@@ -49,6 +49,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -63,10 +64,11 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
+                    res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
                 }
                 break;
         }
@@ -121,6 +123,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -136,11 +139,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createAnswerResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateAnswerResponse
                     );
                 }
@@ -151,7 +155,7 @@ export class OpenAI {
     }
 
     /**
-     * Creates a completion for the chat message
+     * Creates a model response for the given chat conversation.
      */
     async createChatCompletion(
         req: shared.CreateChatCompletionRequest,
@@ -192,6 +196,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -208,11 +213,12 @@ export class OpenAI {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createChatCompletionResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateChatCompletionResponse
                     );
                 }
@@ -275,6 +281,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -291,11 +298,12 @@ export class OpenAI {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createClassificationResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateClassificationResponse
                     );
                 }
@@ -306,7 +314,7 @@ export class OpenAI {
     }
 
     /**
-     * Creates a completion for the provided prompt and parameters
+     * Creates a completion for the provided prompt and parameters.
      */
     async createCompletion(
         req: shared.CreateCompletionRequest,
@@ -347,6 +355,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -362,11 +371,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createCompletionResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateCompletionResponse
                     );
                 }
@@ -418,6 +428,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -433,11 +444,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createEditResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateEditResponse
                     );
                 }
@@ -489,6 +501,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -504,11 +517,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createEmbeddingResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateEmbeddingResponse
                     );
                 }
@@ -561,6 +575,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -576,10 +591,11 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.openAIFile = utils.objectToClass(httpRes?.data, shared.OpenAIFile);
+                    res.openAIFile = utils.objectToClass(JSON.parse(decodedRes), shared.OpenAIFile);
                 }
                 break;
         }
@@ -634,6 +650,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -649,10 +666,11 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
+                    res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
                 }
                 break;
         }
@@ -702,6 +720,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -717,10 +736,14 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.imagesResponse = utils.objectToClass(httpRes?.data, shared.ImagesResponse);
+                    res.imagesResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ImagesResponse
+                    );
                 }
                 break;
         }
@@ -770,6 +793,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -785,10 +809,14 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.imagesResponse = utils.objectToClass(httpRes?.data, shared.ImagesResponse);
+                    res.imagesResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ImagesResponse
+                    );
                 }
                 break;
         }
@@ -838,6 +866,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -854,10 +883,14 @@ export class OpenAI {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.imagesResponse = utils.objectToClass(httpRes?.data, shared.ImagesResponse);
+                    res.imagesResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ImagesResponse
+                    );
                 }
                 break;
         }
@@ -907,6 +940,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -922,11 +956,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createModerationResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateModerationResponse
                     );
                 }
@@ -989,6 +1024,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -1004,11 +1040,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createSearchResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateSearchResponse
                     );
                 }
@@ -1060,6 +1097,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -1076,11 +1114,12 @@ export class OpenAI {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createTranscriptionResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateTranscriptionResponse
                     );
                 }
@@ -1132,6 +1171,7 @@ export class OpenAI {
             url: url,
             method: "post",
             headers: headers,
+            responseType: "arraybuffer",
             data: reqBody,
             ...config,
         });
@@ -1147,11 +1187,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.createTranslationResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.CreateTranslationResponse
                     );
                 }
@@ -1191,6 +1232,7 @@ export class OpenAI {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1205,11 +1247,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteFileResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DeleteFileResponse
                     );
                 }
@@ -1249,6 +1292,7 @@ export class OpenAI {
             url: url,
             method: "delete",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1263,11 +1307,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.deleteModelResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.DeleteModelResponse
                     );
                 }
@@ -1307,6 +1352,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1321,10 +1367,11 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.downloadFile200ApplicationJSONString = JSON.stringify(httpRes?.data);
+                    res.downloadFile200ApplicationJSONString = decodedRes;
                 }
                 break;
         }
@@ -1357,6 +1404,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1371,11 +1419,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listEnginesResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ListEnginesResponse
                     );
                 }
@@ -1408,6 +1457,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1422,11 +1472,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listFilesResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ListFilesResponse
                     );
                 }
@@ -1468,6 +1519,7 @@ export class OpenAI {
             url: url + queryParams,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1483,11 +1535,12 @@ export class OpenAI {
                 contentType: contentType,
                 rawResponse: httpRes,
             });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listFineTuneEventsResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ListFineTuneEventsResponse
                     );
                 }
@@ -1521,6 +1574,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1535,11 +1589,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listFineTunesResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ListFineTunesResponse
                     );
                 }
@@ -1572,6 +1627,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1586,11 +1642,12 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.listModelsResponse = utils.objectToClass(
-                        httpRes?.data,
+                        JSON.parse(decodedRes),
                         shared.ListModelsResponse
                     );
                 }
@@ -1632,6 +1689,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1646,10 +1704,11 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.engine = utils.objectToClass(httpRes?.data, shared.Engine);
+                    res.engine = utils.objectToClass(JSON.parse(decodedRes), shared.Engine);
                 }
                 break;
         }
@@ -1687,6 +1746,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1701,10 +1761,11 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.openAIFile = utils.objectToClass(httpRes?.data, shared.OpenAIFile);
+                    res.openAIFile = utils.objectToClass(JSON.parse(decodedRes), shared.OpenAIFile);
                 }
                 break;
         }
@@ -1745,6 +1806,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1759,10 +1821,11 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.fineTune = utils.objectToClass(httpRes?.data, shared.FineTune);
+                    res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
                 }
                 break;
         }
@@ -1800,6 +1863,7 @@ export class OpenAI {
             url: url,
             method: "get",
             headers: headers,
+            responseType: "arraybuffer",
             ...config,
         });
 
@@ -1814,10 +1878,11 @@ export class OpenAI {
             contentType: contentType,
             rawResponse: httpRes,
         });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.model = utils.objectToClass(httpRes?.data, shared.Model);
+                    res.model = utils.objectToClass(JSON.parse(decodedRes), shared.Model);
                 }
                 break;
         }

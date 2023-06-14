@@ -14,7 +14,7 @@ export class CreateTranslationRequestFile extends SpeakeasyBase {
 
 export class CreateTranslationRequest extends SpeakeasyBase {
     /**
-     * The audio file to translate, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
+     * The audio file object (not file name) translate, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
      *
      * @remarks
      *

@@ -57,6 +57,7 @@ src/sdk/models/shared/createchatcompletionresponse.ts
 src/sdk/models/shared/chatcompletionresponsemessage.ts
 src/sdk/models/shared/createchatcompletionrequest.ts
 src/sdk/models/shared/chatcompletionrequestmessage.ts
+src/sdk/models/shared/chatcompletionfunctions.ts
 src/sdk/models/shared/createclassificationresponse.ts
 src/sdk/models/shared/createclassificationrequest.ts
 src/sdk/models/shared/createcompletionresponse.ts
@@ -141,12 +142,17 @@ docs/models/shared/createanswerrequest.md
 docs/models/shared/createchatcompletionresponsechoices.md
 docs/models/shared/createchatcompletionresponseusage.md
 docs/models/shared/createchatcompletionresponse.md
+docs/models/shared/chatcompletionresponsemessagefunctioncall.md
 docs/models/shared/chatcompletionresponsemessagerole.md
 docs/models/shared/chatcompletionresponsemessage.md
+docs/models/shared/createchatcompletionrequestfunctioncall2.md
+docs/models/shared/createchatcompletionrequestfunctioncall1.md
 docs/models/shared/createchatcompletionrequestlogitbias.md
 docs/models/shared/createchatcompletionrequest.md
+docs/models/shared/chatcompletionrequestmessagefunctioncall.md
 docs/models/shared/chatcompletionrequestmessagerole.md
 docs/models/shared/chatcompletionrequestmessage.md
+docs/models/shared/chatcompletionfunctions.md
 docs/models/shared/createclassificationresponseselectedexamples.md
 docs/models/shared/createclassificationresponse.md
 docs/models/shared/createclassificationrequest.md

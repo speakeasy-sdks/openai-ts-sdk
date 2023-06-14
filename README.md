@@ -67,7 +67,7 @@ sdk.openAI.cancelFineTune({
 
 The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
  :warning: **Deprecated**
-* [createChatCompletion](docs/sdks/openai/README.md#createchatcompletion) - Creates a completion for the chat message
+* [createChatCompletion](docs/sdks/openai/README.md#createchatcompletion) - Creates a model response for the given chat conversation.
 * [~~createClassification~~](docs/sdks/openai/README.md#createclassification) - Classifies the specified `query` using provided examples.
 
 The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
@@ -78,7 +78,7 @@ are combined with the query to construct a prompt to produce the final label via
 Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
 request using the `examples` parameter for quick tests and small scale use cases.
  :warning: **Deprecated**
-* [createCompletion](docs/sdks/openai/README.md#createcompletion) - Creates a completion for the provided prompt and parameters
+* [createCompletion](docs/sdks/openai/README.md#createcompletion) - Creates a completion for the provided prompt and parameters.
 * [createEdit](docs/sdks/openai/README.md#createedit) - Creates a new edit for the provided input, instruction, and parameters.
 * [createEmbedding](docs/sdks/openai/README.md#createembedding) - Creates an embedding vector representing the input text.
 * [createFile](docs/sdks/openai/README.md#createfile) - Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.

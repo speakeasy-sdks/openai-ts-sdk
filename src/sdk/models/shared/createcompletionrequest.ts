@@ -74,7 +74,7 @@ export class CreateCompletionRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * The maximum value for `logprobs` is 5. If you need more than this, please contact us through our [Help center](https://help.openai.com) and describe your use case.
+     * The maximum value for `logprobs` is 5.
      *
      */
     @SpeakeasyMetadata()
@@ -86,7 +86,7 @@ export class CreateCompletionRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * The token count of your prompt plus `max_tokens` cannot exceed the model's context length. Most models have a context length of 2048 tokens (except for the newest models, which support 4096).
+     * The token count of your prompt plus `max_tokens` cannot exceed the model's context length. [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_count_tokens_with_tiktoken.ipynb) for counting tokens.
      *
      */
     @SpeakeasyMetadata()
@@ -147,7 +147,7 @@ export class CreateCompletionRequest extends SpeakeasyBase {
     stop?: any;
 
     /**
-     * Whether to stream back partial progress. If set, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message.
+     * Whether to stream back partial progress. If set, tokens will be sent as data-only [server-sent events](https://developer.mozilla.org/en-US/docs/Web/API/Server-sent_events/Using_server-sent_events#Event_stream_format) as they become available, with the stream terminated by a `data: [DONE]` message. [Example Python code](https://github.com/openai/openai-cookbook/blob/main/examples/How_to_stream_completions.ipynb).
      *
      * @remarks
      *

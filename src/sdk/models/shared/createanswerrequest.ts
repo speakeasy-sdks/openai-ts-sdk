@@ -60,7 +60,7 @@ export class CreateAnswerRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * The maximum value for `logprobs` is 5. If you need more than this, please contact us through our [Help center](https://help.openai.com) and describe your use case.
+     * The maximum value for `logprobs` is 5.
      *
      * When `logprobs` is set, `completion` will be automatically added into `expand` to get the logprobs.
      *
