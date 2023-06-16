@@ -29,20 +29,20 @@ export class CreateCompletionResponseChoicesLogprobs extends SpeakeasyBase {
 export class CreateCompletionResponseChoices extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
-    finishReason?: string;
+    finishReason: string;
 
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
-    index?: number;
+    index: number;
 
     @SpeakeasyMetadata()
     @Expose({ name: "logprobs" })
     @Type(() => CreateCompletionResponseChoicesLogprobs)
-    logprobs?: CreateCompletionResponseChoicesLogprobs;
+    logprobs: CreateCompletionResponseChoicesLogprobs;
 
     @SpeakeasyMetadata()
     @Expose({ name: "text" })
-    text?: string;
+    text: string;
 }
 
 export class CreateCompletionResponseUsage extends SpeakeasyBase {
