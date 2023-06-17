@@ -6,10 +6,16 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ChatCompletionResponseMessage } from "./chatcompletionresponsemessage";
 import { Expose, Type } from "class-transformer";
 
+export enum CreateChatCompletionResponseChoicesFinishReason {
+    Stop = "stop",
+    Length = "length",
+    FunctionCall = "function_call",
+}
+
 export class CreateChatCompletionResponseChoices extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
-    finishReason?: string;
+    finishReason?: CreateChatCompletionResponseChoicesFinishReason;
 
     @SpeakeasyMetadata()
     @Expose({ name: "index" })

@@ -5,6 +5,11 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
+export enum CreateEditResponseChoicesFinishReason {
+    Stop = "stop",
+    Length = "length",
+}
+
 export class CreateEditResponseChoicesLogprobsTopLogprobs extends SpeakeasyBase {}
 
 export class CreateEditResponseChoicesLogprobs extends SpeakeasyBase {
@@ -29,7 +34,7 @@ export class CreateEditResponseChoicesLogprobs extends SpeakeasyBase {
 export class CreateEditResponseChoices extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
-    finishReason?: string;
+    finishReason?: CreateEditResponseChoicesFinishReason;
 
     @SpeakeasyMetadata()
     @Expose({ name: "index" })

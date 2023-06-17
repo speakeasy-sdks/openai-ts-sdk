@@ -138,6 +138,7 @@ docs/models/shared/finetuneevent.md
 docs/models/shared/createanswerresponseselecteddocuments.md
 docs/models/shared/createanswerresponse.md
 docs/models/shared/createanswerrequest.md
+docs/models/shared/createchatcompletionresponsechoicesfinishreason.md
 docs/models/shared/createchatcompletionresponsechoices.md
 docs/models/shared/createchatcompletionresponseusage.md
 docs/models/shared/createchatcompletionresponse.md
@@ -155,6 +156,7 @@ docs/models/shared/chatcompletionfunctions.md
 docs/models/shared/createclassificationresponseselectedexamples.md
 docs/models/shared/createclassificationresponse.md
 docs/models/shared/createclassificationrequest.md
+docs/models/shared/createcompletionresponsechoicesfinishreason.md
 docs/models/shared/createcompletionresponsechoiceslogprobstoplogprobs.md
 docs/models/shared/createcompletionresponsechoiceslogprobs.md
 docs/models/shared/createcompletionresponsechoices.md
@@ -162,6 +164,7 @@ docs/models/shared/createcompletionresponseusage.md
 docs/models/shared/createcompletionresponse.md
 docs/models/shared/createcompletionrequestlogitbias.md
 docs/models/shared/createcompletionrequest.md
+docs/models/shared/createeditresponsechoicesfinishreason.md
 docs/models/shared/createeditresponsechoiceslogprobstoplogprobs.md
 docs/models/shared/createeditresponsechoiceslogprobs.md
 docs/models/shared/createeditresponsechoices.md

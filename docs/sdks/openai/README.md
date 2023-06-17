@@ -195,6 +195,7 @@ import {
   ChatCompletionRequestMessageRole,
   ChatCompletionResponseMessageRole,
   CreateChatCompletionRequestFunctionCall1,
+  CreateChatCompletionResponseChoicesFinishReason,
 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
@@ -388,6 +389,7 @@ Creates a completion for the provided prompt and parameters.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateCompletionResponseChoicesFinishReason } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
@@ -444,6 +446,7 @@ Creates a new edit for the provided input, instruction, and parameters.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateEditResponseChoicesFinishReason } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
