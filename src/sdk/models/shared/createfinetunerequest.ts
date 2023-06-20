@@ -5,6 +5,22 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * The name of the base model to fine-tune. You can select one of "ada",
+ *
+ * @remarks
+ * "babbage", "curie", "davinci", or a fine-tuned model created after 2022-04-21.
+ * To learn more about these models, see the
+ * [Models](https://platform.openai.com/docs/models) documentation.
+ *
+ */
+export enum CreateFineTuneRequestModel2 {
+    Ada = "ada",
+    Babbage = "babbage",
+    Curie = "curie",
+    Davinci = "davinci",
+}
+
 export class CreateFineTuneRequest extends SpeakeasyBase {
     /**
      * The batch size to use for training. The batch size is the number of
@@ -110,7 +126,7 @@ export class CreateFineTuneRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "model" })
-    model?: string;
+    model?: any;
 
     /**
      * The number of epochs to train the model for. An epoch refers to one

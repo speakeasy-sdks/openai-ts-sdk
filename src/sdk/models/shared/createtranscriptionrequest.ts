@@ -12,6 +12,16 @@ export class CreateTranscriptionRequestFile extends SpeakeasyBase {
     file: string;
 }
 
+/**
+ * ID of the model to use. Only `whisper-1` is currently available.
+ *
+ * @remarks
+ *
+ */
+export enum CreateTranscriptionRequestModel2 {
+    Whisper1 = "whisper-1",
+}
+
 export class CreateTranscriptionRequest extends SpeakeasyBase {
     /**
      * The audio file object (not file name) to transcribe, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
@@ -37,8 +47,8 @@ export class CreateTranscriptionRequest extends SpeakeasyBase {
      * @remarks
      *
      */
-    @SpeakeasyMetadata({ data: "multipart_form, name=model" })
-    model: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=model;json=true" })
+    model: any;
 
     /**
      * An optional text to guide the model's style or continue a previous audio segment. The [prompt](/docs/guides/speech-to-text/prompting) should match the audio language.

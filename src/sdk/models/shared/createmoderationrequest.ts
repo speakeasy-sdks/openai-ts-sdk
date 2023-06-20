@@ -5,6 +5,19 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * Two content moderations models are available: `text-moderation-stable` and `text-moderation-latest`.
+ *
+ * @remarks
+ *
+ * The default is `text-moderation-latest` which will be automatically upgraded over time. This ensures you are always using our most accurate model. If you use `text-moderation-stable`, we will provide advanced notice before updating the model. Accuracy of `text-moderation-stable` may be slightly lower than for `text-moderation-latest`.
+ *
+ */
+export enum CreateModerationRequestModel2 {
+    TextModerationLatest = "text-moderation-latest",
+    TextModerationStable = "text-moderation-stable",
+}
+
 export class CreateModerationRequest extends SpeakeasyBase {
     /**
      * The input text to classify
@@ -23,5 +36,5 @@ export class CreateModerationRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "model" })
-    model?: string;
+    model?: any;
 }

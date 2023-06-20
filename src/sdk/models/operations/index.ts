@@ -3,9 +3,7 @@
  */
 
 export * from "./cancelfinetune";
-export * from "./createanswer";
 export * from "./createchatcompletion";
-export * from "./createclassification";
 export * from "./createcompletion";
 export * from "./createedit";
 export * from "./createembedding";
@@ -15,18 +13,15 @@ export * from "./createimage";
 export * from "./createimageedit";
 export * from "./createimagevariation";
 export * from "./createmoderation";
-export * from "./createsearch";
 export * from "./createtranscription";
 export * from "./createtranslation";
 export * from "./deletefile";
 export * from "./deletemodel";
 export * from "./downloadfile";
-export * from "./listengines";
 export * from "./listfiles";
 export * from "./listfinetuneevents";
 export * from "./listfinetunes";
 export * from "./listmodels";
-export * from "./retrieveengine";
 export * from "./retrievefile";
 export * from "./retrievefinetune";
 export * from "./retrievemodel";

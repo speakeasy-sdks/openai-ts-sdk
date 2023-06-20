@@ -77,84 +77,6 @@ export class OpenAI {
     }
 
     /**
-     * Answers the specified question using the provided documents and examples.
-     *
-     * The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
-     *
-     *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-    async createAnswer(
-        req: shared.CreateAnswerRequest,
-        config?: AxiosRequestConfig
-    ): Promise<operations.CreateAnswerResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateAnswerRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = baseURL.replace(/\/$/, "") + "/answers";
-
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
-
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        if (reqBody == null || Object.keys(reqBody).length === 0)
-            throw new Error("request body is required");
-        headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "post",
-            headers: headers,
-            responseType: "arraybuffer",
-            data: reqBody,
-            ...config,
-        });
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.CreateAnswerResponse = new operations.CreateAnswerResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createAnswerResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CreateAnswerResponse
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
      * Creates a model response for the given chat conversation.
      */
     async createChatCompletion(
@@ -220,91 +142,6 @@ export class OpenAI {
                     res.createChatCompletionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.CreateChatCompletionResponse
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
-     * Classifies the specified `query` using provided examples.
-     *
-     * The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
-     * to select the ones most relevant for the particular query. Then, the relevant examples
-     * are combined with the query to construct a prompt to produce the final label via the
-     * [completions](/docs/api-reference/completions) endpoint.
-     *
-     * Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
-     * request using the `examples` parameter for quick tests and small scale use cases.
-     *
-     *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-    async createClassification(
-        req: shared.CreateClassificationRequest,
-        config?: AxiosRequestConfig
-    ): Promise<operations.CreateClassificationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateClassificationRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = baseURL.replace(/\/$/, "") + "/classifications";
-
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
-
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        if (reqBody == null || Object.keys(reqBody).length === 0)
-            throw new Error("request body is required");
-        headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "post",
-            headers: headers,
-            responseType: "arraybuffer",
-            data: reqBody,
-            ...config,
-        });
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.CreateClassificationResponse =
-            new operations.CreateClassificationResponse({
-                statusCode: httpRes.status,
-                contentType: contentType,
-                rawResponse: httpRes,
-            });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createClassificationResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CreateClassificationResponse
                     );
                 }
                 break;
@@ -972,90 +809,6 @@ export class OpenAI {
     }
 
     /**
-     * The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
-     *
-     * To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
-     *
-     * The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-     *
-     *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-    async createSearch(
-        req: operations.CreateSearchRequest,
-        config?: AxiosRequestConfig
-    ): Promise<operations.CreateSearchResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.CreateSearchRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(baseURL, "/engines/{engine_id}/search", req);
-
-        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
-
-        try {
-            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(
-                req,
-                "createSearchRequest",
-                "json"
-            );
-        } catch (e: unknown) {
-            if (e instanceof Error) {
-                throw new Error(`Error serializing request body, cause: ${e.message}`);
-            }
-        }
-
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-
-        const headers = { ...reqBodyHeaders, ...config?.headers };
-        if (reqBody == null || Object.keys(reqBody).length === 0)
-            throw new Error("request body is required");
-        headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "post",
-            headers: headers,
-            responseType: "arraybuffer",
-            data: reqBody,
-            ...config,
-        });
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.CreateSearchResponse = new operations.CreateSearchResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.createSearchResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CreateSearchResponse
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
      * Transcribes audio into the input language.
      */
     async createTranscription(
@@ -1130,7 +883,7 @@ export class OpenAI {
     }
 
     /**
-     * Translates audio into into English.
+     * Translates audio into English.
      */
     async createTranslation(
         req: shared.CreateTranslationRequest,
@@ -1380,61 +1133,6 @@ export class OpenAI {
     }
 
     /**
-     * Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
-     *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-    async listEngines(config?: AxiosRequestConfig): Promise<operations.ListEnginesResponse> {
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = baseURL.replace(/\/$/, "") + "/engines";
-
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "get",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.ListEnginesResponse = new operations.ListEnginesResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.listEnginesResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.ListEnginesResponse
-                    );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
      * Returns a list of files that belong to the user's organization.
      */
     async listFiles(config?: AxiosRequestConfig): Promise<operations.ListFilesResponse> {
@@ -1650,65 +1348,6 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.ListModelsResponse
                     );
-                }
-                break;
-        }
-
-        return res;
-    }
-
-    /**
-     * Retrieves a model instance, providing basic information about it such as the owner and availability.
-     *
-     * @deprecated this method will be removed in a future release, please migrate away from it as soon as possible
-     */
-    async retrieveEngine(
-        req: operations.RetrieveEngineRequest,
-        config?: AxiosRequestConfig
-    ): Promise<operations.RetrieveEngineResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new operations.RetrieveEngineRequest(req);
-        }
-
-        const baseURL: string = utils.templateUrl(
-            this.sdkConfiguration.serverURL,
-            this.sdkConfiguration.serverDefaults
-        );
-        const url: string = utils.generateURL(baseURL, "/engines/{engine_id}", req);
-
-        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
-
-        const headers = { ...config?.headers };
-        headers["Accept"] = "application/json";
-        headers[
-            "user-agent"
-        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
-
-        const httpRes: AxiosResponse = await client.request({
-            validateStatus: () => true,
-            url: url,
-            method: "get",
-            headers: headers,
-            responseType: "arraybuffer",
-            ...config,
-        });
-
-        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
-
-        if (httpRes?.status == null) {
-            throw new Error(`status code not found in response: ${httpRes}`);
-        }
-
-        const res: operations.RetrieveEngineResponse = new operations.RetrieveEngineResponse({
-            statusCode: httpRes.status,
-            contentType: contentType,
-            rawResponse: httpRes,
-        });
-        const decodedRes = new TextDecoder().decode(httpRes?.data);
-        switch (true) {
-            case httpRes?.status == 200:
-                if (utils.matchContentType(contentType, `application/json`)) {
-                    res.engine = utils.objectToClass(JSON.parse(decodedRes), shared.Engine);
                 }
                 break;
         }

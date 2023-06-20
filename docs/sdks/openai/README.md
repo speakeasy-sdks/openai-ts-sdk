@@ -8,21 +8,7 @@ The OpenAI REST API
 
 * [cancelFineTune](#cancelfinetune) - Immediately cancel a fine-tune job.
 
-* [~~createAnswer~~](#createanswer) - Answers the specified question using the provided documents and examples.
-
-The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
- :warning: **Deprecated**
 * [createChatCompletion](#createchatcompletion) - Creates a model response for the given chat conversation.
-* [~~createClassification~~](#createclassification) - Classifies the specified `query` using provided examples.
-
-The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
-to select the ones most relevant for the particular query. Then, the relevant examples
-are combined with the query to construct a prompt to produce the final label via the
-[completions](/docs/api-reference/completions) endpoint.
-
-Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
-request using the `examples` parameter for quick tests and small scale use cases.
- :warning: **Deprecated**
 * [createCompletion](#createcompletion) - Creates a completion for the provided prompt and parameters.
 * [createEdit](#createedit) - Creates a new edit for the provided input, instruction, and parameters.
 * [createEmbedding](#createembedding) - Creates an embedding vector representing the input text.
@@ -38,25 +24,17 @@ Response includes details of the enqueued job including job status and the name 
 * [createImageEdit](#createimageedit) - Creates an edited or extended image given an original image and a prompt.
 * [createImageVariation](#createimagevariation) - Creates a variation of a given image.
 * [createModeration](#createmoderation) - Classifies if text violates OpenAI's Content Policy
-* [~~createSearch~~](#createsearch) - The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
-
-To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
-
-The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
- :warning: **Deprecated**
 * [createTranscription](#createtranscription) - Transcribes audio into the input language.
-* [createTranslation](#createtranslation) - Translates audio into into English.
+* [createTranslation](#createtranslation) - Translates audio into English.
 * [deleteFile](#deletefile) - Delete a file.
 * [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization.
 * [downloadFile](#downloadfile) - Returns the contents of the specified file
-* [~~listEngines~~](#listengines) - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability. :warning: **Deprecated**
 * [listFiles](#listfiles) - Returns a list of files that belong to the user's organization.
 * [listFineTuneEvents](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
 
 * [listFineTunes](#listfinetunes) - List your organization's fine-tuning jobs
 
 * [listModels](#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
-* [~~retrieveEngine~~](#retrieveengine) - Retrieves a model instance, providing basic information about it such as the owner and availability. :warning: **Deprecated**
 * [retrieveFile](#retrievefile) - Returns information about a specific file.
 * [retrieveFineTune](#retrievefinetune) - Gets info about the fine-tune job.
 
@@ -99,89 +77,6 @@ sdk.openAI.cancelFineTune({
 **Promise<[operations.CancelFineTuneResponse](../../models/operations/cancelfinetuneresponse.md)>**
 
 
-## ~~createAnswer~~
-
-Answers the specified question using the provided documents and examples.
-
-The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
-
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { Gpt } from "@speakeasy-api/openai";
-import { CreateAnswerResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-
-const sdk = new Gpt();
-
-sdk.openAI.createAnswer({
-  documents: [
-    "provident",
-    "distinctio",
-    "quibusdam",
-  ],
-  examples: [
-    [
-      "corrupti",
-      "illum",
-      "vel",
-      "error",
-    ],
-    [
-      "suscipit",
-      "iure",
-      "magnam",
-    ],
-    [
-      "ipsa",
-      "delectus",
-      "tempora",
-      "suscipit",
-    ],
-  ],
-  examplesContext: "Ottawa, Canada's capital, is located in the east of southern Ontario, near the city of Montréal and the U.S. border.",
-  expand: [
-    "minus",
-    "placeat",
-  ],
-  file: "voluptatum",
-  logitBias: "iusto",
-  logprobs: 568045,
-  maxRerank: 392785,
-  maxTokens: 925597,
-  model: "temporibus",
-  n: 71036,
-  question: "What is the capital of Japan?",
-  returnMetadata: "quis",
-  returnPrompt: false,
-  searchModel: "veritatis",
-  stop: [
-    "["\n"]",
-  ],
-  temperature: 3682.41,
-  user: "repellendus",
-}).then((res: CreateAnswerResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [shared.CreateAnswerRequest](../../models/shared/createanswerrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
-
-
-### Response
-
-**Promise<[operations.CreateAnswerResponse](../../models/operations/createanswerresponse.md)>**
-
-
 ## createChatCompletion
 
 Creates a model response for the given chat conversation.
@@ -195,101 +90,86 @@ import {
   ChatCompletionRequestMessageRole,
   ChatCompletionResponseMessageRole,
   CreateChatCompletionRequestFunctionCall1,
+  CreateChatCompletionRequestModel2,
   CreateChatCompletionResponseChoicesFinishReason,
 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createChatCompletion({
-  frequencyPenalty: 9571.56,
+  frequencyPenalty: 5488.14,
   functionCall: {
-    name: "Teri Strosin",
+    name: "Ellis Mitchell",
   },
   functions: [
     {
-      description: "quod",
-      name: "Deanna Sauer MD",
+      description: "vel",
+      name: "Doug Hoppe",
       parameters: {
-        "occaecati": "fugit",
-        "deleniti": "hic",
+        "ipsa": "delectus",
+        "tempora": "suscipit",
+        "molestiae": "minus",
+        "placeat": "voluptatum",
+      },
+    },
+    {
+      description: "iusto",
+      name: "Charlie Walsh II",
+      parameters: {
+        "deserunt": "perferendis",
+      },
+    },
+    {
+      description: "ipsam",
+      name: "Timmy Satterfield",
+      parameters: {
+        "maiores": "molestiae",
+        "quod": "quod",
+        "esse": "totam",
+        "porro": "dolorum",
+      },
+    },
+    {
+      description: "dicta",
+      name: "Luke McCullough",
+      parameters: {
         "optio": "totam",
-      },
-    },
-    {
-      description: "beatae",
-      name: "Tanya Gleason",
-      parameters: {
-        "esse": "ipsum",
-        "excepturi": "aspernatur",
-        "perferendis": "ad",
-      },
-    },
-    {
-      description: "natus",
-      name: "Sheryl Fadel",
-      parameters: {
-        "saepe": "fuga",
-        "in": "corporis",
-        "iste": "iure",
-        "saepe": "quidem",
-      },
-    },
-    {
-      description: "architecto",
-      name: "Lela Orn",
-      parameters: {
-        "dolorem": "corporis",
+        "beatae": "commodi",
+        "molestiae": "modi",
+        "qui": "impedit",
       },
     },
   ],
   logitBias: {},
-  maxTokens: 128926,
+  maxTokens: 736918,
   messages: [
     {
-      content: "enim",
+      content: "ipsum",
       functionCall: {
-        arguments: "omnis",
-        name: "Ms. Cathy Marks",
+        arguments: "excepturi",
+        name: "Dorothy Hane",
       },
-      name: "Darrin Brakus",
-      role: ChatCompletionRequestMessageRole.Assistant,
-    },
-    {
-      content: "consequuntur",
-      functionCall: {
-        arguments: "repellat",
-        name: "Tracy Fritsch",
-      },
-      name: "Shannon Mueller",
-      role: ChatCompletionRequestMessageRole.System,
-    },
-    {
-      content: "laborum",
-      functionCall: {
-        arguments: "animi",
-        name: "Christina Satterfield",
-      },
-      name: "Mr. Alberta Schuster",
+      name: "Curtis Morissette",
       role: ChatCompletionRequestMessageRole.Function,
     },
     {
-      content: "laborum",
+      content: "fuga",
       functionCall: {
-        arguments: "quasi",
-        name: "Jan Thiel",
+        arguments: "in",
+        name: "Sheryl Kertzmann",
       },
-      name: "Jose Moen",
-      role: ChatCompletionRequestMessageRole.System,
+      name: "Brenda Wisozk",
+      role: ChatCompletionRequestMessageRole.Assistant,
     },
   ],
-  model: "doloremque",
+  model: "gpt-3.5-turbo",
   n: 1,
-  presencePenalty: 4417.11,
-  stop: "maiores",
+  presencePenalty: 2103.82,
+  stop: "explicabo",
   stream: false,
   temperature: 1,
   topP: 1,
-  user: "dicta",
+  user: "nobis",
 }).then((res: CreateChatCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -310,76 +190,6 @@ sdk.openAI.createChatCompletion({
 **Promise<[operations.CreateChatCompletionResponse](../../models/operations/createchatcompletionresponse.md)>**
 
 
-## ~~createClassification~~
-
-Classifies the specified `query` using provided examples.
-
-The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
-to select the ones most relevant for the particular query. Then, the relevant examples
-are combined with the query to construct a prompt to produce the final label via the
-[completions](/docs/api-reference/completions) endpoint.
-
-Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
-request using the `examples` parameter for quick tests and small scale use cases.
-
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { Gpt } from "@speakeasy-api/openai";
-import { CreateClassificationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-
-const sdk = new Gpt();
-
-sdk.openAI.createClassification({
-  examples: [
-    [
-      "iusto",
-      "dicta",
-    ],
-    [
-      "enim",
-      "accusamus",
-      "commodi",
-    ],
-  ],
-  expand: "repudiandae",
-  file: "quae",
-  labels: [
-    "quidem",
-  ],
-  logitBias: "molestias",
-  logprobs: "excepturi",
-  maxExamples: 865103,
-  model: "modi",
-  query: "The plot is not very attractive.",
-  returnMetadata: "praesentium",
-  returnPrompt: "rem",
-  searchModel: "voluptates",
-  temperature: 0,
-  user: "quasi",
-}).then((res: CreateClassificationResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [shared.CreateClassificationRequest](../../models/shared/createclassificationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
-
-
-### Response
-
-**Promise<[operations.CreateClassificationResponse](../../models/operations/createclassificationresponse.md)>**
-
-
 ## createCompletion
 
 Creates a completion for the provided prompt and parameters.
@@ -389,21 +199,23 @@ Creates a completion for the provided prompt and parameters.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateCompletionResponseChoicesFinishReason } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateCompletionRequestModel2, CreateCompletionResponseChoicesFinishReason } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createCompletion({
-  bestOf: 921158,
+  bestOf: 315428,
   echo: false,
-  frequencyPenalty: 5759.47,
+  frequencyPenalty: 6078.31,
   logitBias: {},
-  logprobs: 83112,
+  logprobs: 363711,
   maxTokens: 16,
-  model: "itaque",
+  model: "excepturi",
   n: 1,
-  presencePenalty: 2777.18,
+  presencePenalty: 384.25,
   prompt: [
+    "This is a test.",
+    "This is a test.",
     "This is a test.",
   ],
   stop: [
@@ -446,14 +258,14 @@ Creates a new edit for the provided input, instruction, and parameters.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateEditResponseChoicesFinishReason } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateEditRequestModel2, CreateEditResponseChoicesFinishReason } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createEdit({
   input: "What day of the wek is it?",
   instruction: "Fix the spelling mistakes.",
-  model: "explicabo",
+  model: "text-davinci-edit-001",
   n: 1,
   temperature: 1,
   topP: 1,
@@ -486,17 +298,16 @@ Creates an embedding vector representing the input text.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateEmbeddingResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateEmbeddingRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createEmbedding({
   input: [
-    841386,
-    289406,
-    264730,
+    635059,
   ],
-  model: "qui",
-  user: "aliquid",
+  model: "text-embedding-ada-002",
+  user: "repellat",
 }).then((res: CreateEmbeddingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -532,10 +343,10 @@ const sdk = new Gpt();
 
 sdk.openAI.createFile({
   file: {
-    content: "cupiditate".encode(),
-    file: "quos",
+    content: "mollitia".encode(),
+    file: "occaecati",
   },
-  purpose: "perferendis",
+  purpose: "numquam",
 }).then((res: CreateFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -570,25 +381,24 @@ Response includes details of the enqueued job including job status and the name 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateFineTuneRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createFineTune({
-  batchSize: 164940,
+  batchSize: 414369,
   classificationBetas: [
-    3698.08,
-    46.95,
-    1464.41,
-    6778.17,
+    4746.97,
+    2444.25,
   ],
-  classificationNClasses: 569618,
-  classificationPositiveClass: "tempora",
+  classificationNClasses: 623510,
+  classificationPositiveClass: "quia",
   computeClassificationMetrics: false,
-  learningRateMultiplier: 7037.37,
-  model: "tempore",
-  nEpochs: 288476,
-  promptLossWeight: 9621.89,
-  suffix: "eum",
+  learningRateMultiplier: 3380.07,
+  model: "curie",
+  nEpochs: 674752,
+  promptLossWeight: 6563.3,
+  suffix: "enim",
   trainingFile: "file-ajSREls59WBbvgSzJSVWxMCB",
   validationFile: "file-XjSREls59WBbvgSzJSVWxMCa",
 }).then((res: CreateFineTuneResponse) => {
@@ -629,7 +439,7 @@ sdk.openAI.createImage({
   prompt: "A cute baby sea otter",
   responseFormat: CreateImageRequestResponseFormat.Url,
   size: CreateImageRequestSize.OneThousandAndTwentyFourx1024,
-  user: "non",
+  user: "odit",
 }).then((res: CreateImageResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -664,18 +474,18 @@ const sdk = new Gpt();
 
 sdk.openAI.createImageEdit({
   image: {
-    content: "eligendi".encode(),
-    image: "sint",
+    content: "quo".encode(),
+    image: "sequi",
   },
   mask: {
-    content: "aliquid".encode(),
-    mask: "provident",
+    content: "tenetur".encode(),
+    mask: "ipsam",
   },
-  n: "necessitatibus",
+  n: "id",
   prompt: "A cute baby sea otter wearing a beret",
-  responseFormat: "sint",
-  size: "officia",
-  user: "dolor",
+  responseFormat: "possimus",
+  size: "aut",
+  user: "quasi",
 }).then((res: CreateImageEditResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -710,13 +520,13 @@ const sdk = new Gpt();
 
 sdk.openAI.createImageVariation({
   image: {
-    content: "debitis".encode(),
-    image: "a",
+    content: "error".encode(),
+    image: "temporibus",
   },
-  n: "dolorum",
-  responseFormat: "in",
-  size: "in",
-  user: "illum",
+  n: "laborum",
+  responseFormat: "quasi",
+  size: "reiciendis",
+  user: "voluptatibus",
 }).then((res: CreateImageVariationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -746,6 +556,7 @@ Classifies if text violates OpenAI's Content Policy
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateModerationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateModerationRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
@@ -753,9 +564,8 @@ sdk.openAI.createModeration({
   input: [
     "I want to kill them.",
     "I want to kill them.",
-    "I want to kill them.",
   ],
-  model: "text-moderation-stable",
+  model: CreateModerationRequestModel2.TextModerationStable,
 }).then((res: CreateModerationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -776,57 +586,6 @@ sdk.openAI.createModeration({
 **Promise<[operations.CreateModerationResponse](../../models/operations/createmoderationresponse.md)>**
 
 
-## ~~createSearch~~
-
-The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
-
-To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
-
-The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
-
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { Gpt } from "@speakeasy-api/openai";
-import { CreateSearchResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-
-const sdk = new Gpt();
-
-sdk.openAI.createSearch({
-  createSearchRequest: {
-    documents: [
-      "magnam",
-    ],
-    file: "cumque",
-    maxRerank: 813798,
-    query: "the president",
-    returnMetadata: false,
-    user: "ea",
-  },
-  engineId: "davinci",
-}).then((res: CreateSearchResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.CreateSearchRequest](../../models/operations/createsearchrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
-
-
-### Response
-
-**Promise<[operations.CreateSearchResponse](../../models/operations/createsearchresponse.md)>**
-
-
 ## createTranscription
 
 Transcribes audio into the input language.
@@ -836,19 +595,20 @@ Transcribes audio into the input language.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateTranscriptionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateTranscriptionRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createTranscription({
   file: {
-    content: "aliquid".encode(),
-    file: "laborum",
+    content: "voluptatibus".encode(),
+    file: "ipsa",
   },
-  language: "accusamus",
-  model: "non",
-  prompt: "occaecati",
-  responseFormat: "enim",
-  temperature: 8817.36,
+  language: "omnis",
+  model: "whisper-1",
+  prompt: "cum",
+  responseFormat: "perferendis",
+  temperature: 391.87,
 }).then((res: CreateTranscriptionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -871,25 +631,26 @@ sdk.openAI.createTranscription({
 
 ## createTranslation
 
-Translates audio into into English.
+Translates audio into English.
 
 ### Example Usage
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateTranslationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateTranslationRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createTranslation({
   file: {
-    content: "delectus".encode(),
-    file: "quidem",
+    content: "reprehenderit".encode(),
+    file: "ut",
   },
-  model: "provident",
-  prompt: "nam",
-  responseFormat: "id",
-  temperature: 5013.24,
+  model: CreateTranslationRequestModel2.Whisper1,
+  prompt: "dicta",
+  responseFormat: "corporis",
+  temperature: 2961.4,
 }).then((res: CreateTranslationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -923,7 +684,7 @@ import { DeleteFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operat
 const sdk = new Gpt();
 
 sdk.openAI.deleteFile({
-  fileId: "deleniti",
+  fileId: "iusto",
 }).then((res: DeleteFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -991,7 +752,7 @@ import { DownloadFileResponse } from "@speakeasy-api/openai/dist/sdk/models/oper
 const sdk = new Gpt();
 
 sdk.openAI.downloadFile({
-  fileId: "sapiente",
+  fileId: "dicta",
 }).then((res: DownloadFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1010,39 +771,6 @@ sdk.openAI.downloadFile({
 ### Response
 
 **Promise<[operations.DownloadFileResponse](../../models/operations/downloadfileresponse.md)>**
-
-
-## ~~listEngines~~
-
-Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { Gpt } from "@speakeasy-api/openai";
-import { ListEnginesResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-
-const sdk = new Gpt();
-
-sdk.openAI.listEngines().then((res: ListEnginesResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
-| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
-
-
-### Response
-
-**Promise<[operations.ListEnginesResponse](../../models/operations/listenginesresponse.md)>**
 
 
 ## listFiles
@@ -1175,42 +903,6 @@ sdk.openAI.listModels().then((res: ListModelsResponse) => {
 **Promise<[operations.ListModelsResponse](../../models/operations/listmodelsresponse.md)>**
 
 
-## ~~retrieveEngine~~
-
-Retrieves a model instance, providing basic information about it such as the owner and availability.
-
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
-
-### Example Usage
-
-```typescript
-import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveEngineResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-
-const sdk = new Gpt();
-
-sdk.openAI.retrieveEngine({
-  engineId: "davinci",
-}).then((res: RetrieveEngineResponse) => {
-  if (res.statusCode == 200) {
-    // handle response
-  }
-});
-```
-
-### Parameters
-
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [operations.RetrieveEngineRequest](../../models/operations/retrieveenginerequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
-
-
-### Response
-
-**Promise<[operations.RetrieveEngineResponse](../../models/operations/retrieveengineresponse.md)>**
-
-
 ## retrieveFile
 
 Returns information about a specific file.
@@ -1224,7 +916,7 @@ import { RetrieveFileResponse } from "@speakeasy-api/openai/dist/sdk/models/oper
 const sdk = new Gpt();
 
 sdk.openAI.retrieveFile({
-  fileId: "amet",
+  fileId: "harum",
 }).then((res: RetrieveFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
