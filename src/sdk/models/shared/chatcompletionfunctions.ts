@@ -7,7 +7,7 @@ import { Expose } from "class-transformer";
 
 export class ChatCompletionFunctions extends SpeakeasyBase {
     /**
-     * The description of what the function does.
+     * A description of what the function does, used by the model to choose when and how to call the function.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "description" })
@@ -22,8 +22,12 @@ export class ChatCompletionFunctions extends SpeakeasyBase {
 
     /**
      * The parameters the functions accepts, described as a JSON Schema object. See the [guide](/docs/guides/gpt/function-calling) for examples, and the [JSON Schema reference](https://json-schema.org/understanding-json-schema/) for documentation about the format.
+     *
+     * @remarks
+     *
+     * To describe a function that accepts no parameters, provide the value `{"type": "object", "properties": {}}`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "parameters" })
-    parameters?: Record<string, any>;
+    parameters: Record<string, any>;
 }
