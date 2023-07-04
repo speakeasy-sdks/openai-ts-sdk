@@ -7,7 +7,35 @@ import { FineTuneEvent } from "./finetuneevent";
 import { OpenAIFile } from "./openaifile";
 import { Expose, Type } from "class-transformer";
 
-export class FineTuneHyperparams extends SpeakeasyBase {}
+export class FineTuneHyperparams extends SpeakeasyBase {
+    @SpeakeasyMetadata()
+    @Expose({ name: "batch_size" })
+    batchSize: number;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "classification_n_classes" })
+    classificationNClasses?: number;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "classification_positive_class" })
+    classificationPositiveClass?: string;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "compute_classification_metrics" })
+    computeClassificationMetrics?: boolean;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "learning_rate_multiplier" })
+    learningRateMultiplier: number;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "n_epochs" })
+    nEpochs: number;
+
+    @SpeakeasyMetadata()
+    @Expose({ name: "prompt_loss_weight" })
+    promptLossWeight: number;
+}
 
 /**
  * OK

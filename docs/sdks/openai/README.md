@@ -140,36 +140,35 @@ sdk.openAI.createChatCompletion({
       },
     },
   ],
-  logitBias: {},
-  maxTokens: 736918,
+  logitBias: {
+    "esse": 216550,
+    "excepturi": 135218,
+    "perferendis": 324141,
+  },
+  maxTokens: 617636,
   messages: [
     {
-      content: "ipsum",
+      content: "iste",
       functionCall: {
-        arguments: "excepturi",
-        name: "Dorothy Hane",
+        arguments: "dolor",
+        name: "Lester Welch",
       },
-      name: "Curtis Morissette",
-      role: ChatCompletionRequestMessageRole.Function,
-    },
-    {
-      content: "fuga",
-      functionCall: {
-        arguments: "in",
-        name: "Sheryl Kertzmann",
-      },
-      name: "Brenda Wisozk",
+      name: "Stacy Moore",
       role: ChatCompletionRequestMessageRole.Assistant,
     },
   ],
   model: "gpt-3.5-turbo",
   n: 1,
-  presencePenalty: 2103.82,
-  stop: "explicabo",
+  presencePenalty: 602.25,
+  stop: [
+    "mollitia",
+    "laborum",
+    "dolores",
+  ],
   stream: false,
   temperature: 1,
   topP: 1,
-  user: "nobis",
+  user: "dolorem",
 }).then((res: CreateChatCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -204,24 +203,22 @@ import { CreateCompletionRequestModel2, CreateCompletionResponseChoicesFinishRea
 const sdk = new Gpt();
 
 sdk.openAI.createCompletion({
-  bestOf: 315428,
+  bestOf: 358152,
   echo: false,
-  frequencyPenalty: 6078.31,
-  logitBias: {},
-  logprobs: 363711,
+  frequencyPenalty: 1289.26,
+  logitBias: {
+    "enim": 607831,
+    "nemo": 325047,
+    "excepturi": 38425,
+    "iure": 634274,
+  },
+  logprobs: 988374,
   maxTokens: 16,
-  model: "excepturi",
+  model: CreateCompletionRequestModel2.TextDavinci003,
   n: 1,
-  presencePenalty: 384.25,
-  prompt: [
-    "This is a test.",
-    "This is a test.",
-    "This is a test.",
-  ],
+  presencePenalty: 6527.9,
+  prompt: "This is a test.",
   stop: [
-    "["\n"]",
-    "["\n"]",
-    "["\n"]",
     "["\n"]",
   ],
   stream: false,
@@ -265,7 +262,7 @@ const sdk = new Gpt();
 sdk.openAI.createEdit({
   input: "What day of the wek is it?",
   instruction: "Fix the spelling mistakes.",
-  model: "text-davinci-edit-001",
+  model: CreateEditRequestModel2.TextDavinciEdit001,
   n: 1,
   temperature: 1,
   topP: 1,
@@ -304,10 +301,12 @@ const sdk = new Gpt();
 
 sdk.openAI.createEmbedding({
   input: [
-    635059,
+    253291,
+    414369,
+    466311,
   ],
   model: "text-embedding-ada-002",
-  user: "repellat",
+  user: "velit",
 }).then((res: CreateEmbeddingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -343,10 +342,10 @@ const sdk = new Gpt();
 
 sdk.openAI.createFile({
   file: {
-    content: "mollitia".encode(),
-    file: "occaecati",
+    content: "error".encode(),
+    file: "quia",
   },
-  purpose: "numquam",
+  purpose: "quis",
 }).then((res: CreateFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -386,19 +385,20 @@ import { CreateFineTuneRequestModel2 } from "@speakeasy-api/openai/dist/sdk/mode
 const sdk = new Gpt();
 
 sdk.openAI.createFineTune({
-  batchSize: 414369,
+  batchSize: 110375,
   classificationBetas: [
-    4746.97,
-    2444.25,
+    6563.3,
+    3172.02,
+    1381.83,
   ],
-  classificationNClasses: 623510,
-  classificationPositiveClass: "quia",
+  classificationNClasses: 778346,
+  classificationPositiveClass: "sequi",
   computeClassificationMetrics: false,
-  learningRateMultiplier: 3380.07,
+  learningRateMultiplier: 9495.72,
   model: "curie",
-  nEpochs: 674752,
-  promptLossWeight: 6563.3,
-  suffix: "enim",
+  nEpochs: 662527,
+  promptLossWeight: 8209.94,
+  suffix: "aut",
   trainingFile: "file-ajSREls59WBbvgSzJSVWxMCB",
   validationFile: "file-XjSREls59WBbvgSzJSVWxMCa",
 }).then((res: CreateFineTuneResponse) => {
@@ -439,7 +439,7 @@ sdk.openAI.createImage({
   prompt: "A cute baby sea otter",
   responseFormat: CreateImageRequestResponseFormat.Url,
   size: CreateImageRequestSize.OneThousandAndTwentyFourx1024,
-  user: "odit",
+  user: "quasi",
 }).then((res: CreateImageResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -474,18 +474,18 @@ const sdk = new Gpt();
 
 sdk.openAI.createImageEdit({
   image: {
-    content: "quo".encode(),
-    image: "sequi",
+    content: "error".encode(),
+    image: "temporibus",
   },
   mask: {
-    content: "tenetur".encode(),
-    mask: "ipsam",
+    content: "laborum".encode(),
+    mask: "quasi",
   },
-  n: "id",
+  n: "reiciendis",
   prompt: "A cute baby sea otter wearing a beret",
-  responseFormat: "possimus",
-  size: "aut",
-  user: "quasi",
+  responseFormat: "voluptatibus",
+  size: "vero",
+  user: "nihil",
 }).then((res: CreateImageEditResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -520,13 +520,13 @@ const sdk = new Gpt();
 
 sdk.openAI.createImageVariation({
   image: {
-    content: "error".encode(),
-    image: "temporibus",
+    content: "praesentium".encode(),
+    image: "voluptatibus",
   },
-  n: "laborum",
-  responseFormat: "quasi",
-  size: "reiciendis",
-  user: "voluptatibus",
+  n: "ipsa",
+  responseFormat: "omnis",
+  size: "voluptate",
+  user: "cum",
 }).then((res: CreateImageVariationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -561,11 +561,8 @@ import { CreateModerationRequestModel2 } from "@speakeasy-api/openai/dist/sdk/mo
 const sdk = new Gpt();
 
 sdk.openAI.createModeration({
-  input: [
-    "I want to kill them.",
-    "I want to kill them.",
-  ],
-  model: CreateModerationRequestModel2.TextModerationStable,
+  input: "I want to kill them.",
+  model: "text-moderation-stable",
 }).then((res: CreateModerationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -601,14 +598,14 @@ const sdk = new Gpt();
 
 sdk.openAI.createTranscription({
   file: {
-    content: "voluptatibus".encode(),
-    file: "ipsa",
+    content: "reprehenderit".encode(),
+    file: "ut",
   },
-  language: "omnis",
+  language: "maiores",
   model: "whisper-1",
-  prompt: "cum",
-  responseFormat: "perferendis",
-  temperature: 391.87,
+  prompt: "corporis",
+  responseFormat: "dolore",
+  temperature: 4808.94,
 }).then((res: CreateTranscriptionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -644,13 +641,13 @@ const sdk = new Gpt();
 
 sdk.openAI.createTranslation({
   file: {
-    content: "reprehenderit".encode(),
-    file: "ut",
+    content: "dicta".encode(),
+    file: "harum",
   },
-  model: CreateTranslationRequestModel2.Whisper1,
-  prompt: "dicta",
-  responseFormat: "corporis",
-  temperature: 2961.4,
+  model: "whisper-1",
+  prompt: "accusamus",
+  responseFormat: "commodi",
+  temperature: 9182.36,
 }).then((res: CreateTranslationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -684,7 +681,7 @@ import { DeleteFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operat
 const sdk = new Gpt();
 
 sdk.openAI.deleteFile({
-  fileId: "iusto",
+  fileId: "quae",
 }).then((res: DeleteFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -752,7 +749,7 @@ import { DownloadFileResponse } from "@speakeasy-api/openai/dist/sdk/models/oper
 const sdk = new Gpt();
 
 sdk.openAI.downloadFile({
-  fileId: "dicta",
+  fileId: "ipsum",
 }).then((res: DownloadFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -916,7 +913,7 @@ import { RetrieveFileResponse } from "@speakeasy-api/openai/dist/sdk/models/oper
 const sdk = new Gpt();
 
 sdk.openAI.retrieveFile({
-  fileId: "harum",
+  fileId: "quidem",
 }).then((res: RetrieveFileResponse) => {
   if (res.statusCode == 200) {
     // handle response

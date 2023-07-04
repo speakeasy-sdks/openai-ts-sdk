@@ -3,9 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose, Type } from "class-transformer";
-
-export class OpenAIFileStatusDetails extends SpeakeasyBase {}
+import { Expose } from "class-transformer";
 
 /**
  * OK
@@ -41,6 +39,5 @@ export class OpenAIFile extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "status_details" })
-    @Type(() => OpenAIFileStatusDetails)
-    statusDetails?: OpenAIFileStatusDetails;
+    statusDetails?: string;
 }

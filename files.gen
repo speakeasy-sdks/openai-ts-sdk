@@ -112,7 +112,6 @@ docs/models/operations/retrievemodelrequest.md
 docs/models/operations/retrievemodelresponse.md
 docs/models/shared/finetunehyperparams.md
 docs/models/shared/finetune.md
-docs/models/shared/openaifilestatusdetails.md
 docs/models/shared/openaifile.md
 docs/models/shared/finetuneevent.md
 docs/models/shared/createchatcompletionresponsechoicesfinishreason.md
@@ -124,7 +123,6 @@ docs/models/shared/chatcompletionresponsemessagerole.md
 docs/models/shared/chatcompletionresponsemessage.md
 docs/models/shared/createchatcompletionrequestfunctioncall2.md
 docs/models/shared/createchatcompletionrequestfunctioncall1.md
-docs/models/shared/createchatcompletionrequestlogitbias.md
 docs/models/shared/createchatcompletionrequestmodel2.md
 docs/models/shared/createchatcompletionrequest.md
 docs/models/shared/chatcompletionrequestmessagefunctioncall.md
@@ -132,16 +130,13 @@ docs/models/shared/chatcompletionrequestmessagerole.md
 docs/models/shared/chatcompletionrequestmessage.md
 docs/models/shared/chatcompletionfunctions.md
 docs/models/shared/createcompletionresponsechoicesfinishreason.md
-docs/models/shared/createcompletionresponsechoiceslogprobstoplogprobs.md
 docs/models/shared/createcompletionresponsechoiceslogprobs.md
 docs/models/shared/createcompletionresponsechoices.md
 docs/models/shared/createcompletionresponseusage.md
 docs/models/shared/createcompletionresponse.md
-docs/models/shared/createcompletionrequestlogitbias.md
 docs/models/shared/createcompletionrequestmodel2.md
 docs/models/shared/createcompletionrequest.md
 docs/models/shared/createeditresponsechoicesfinishreason.md
-docs/models/shared/createeditresponsechoiceslogprobstoplogprobs.md
 docs/models/shared/createeditresponsechoiceslogprobs.md
 docs/models/shared/createeditresponsechoices.md
 docs/models/shared/createeditresponseusage.md
