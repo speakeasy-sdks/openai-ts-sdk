@@ -10,7 +10,7 @@ The OpenAI REST API
 
 * [createChatCompletion](#createchatcompletion) - Creates a model response for the given chat conversation.
 * [createCompletion](#createcompletion) - Creates a completion for the provided prompt and parameters.
-* [createEdit](#createedit) - Creates a new edit for the provided input, instruction, and parameters.
+* [~~createEdit~~](#createedit) - Creates a new edit for the provided input, instruction, and parameters. :warning: **Deprecated**
 * [createEmbedding](#createembedding) - Creates an embedding vector representing the input text.
 * [createFile](#createfile) - Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
 
@@ -246,9 +246,11 @@ sdk.openAI.createCompletion({
 **Promise<[operations.CreateCompletionResponse](../../models/operations/createcompletionresponse.md)>**
 
 
-## createEdit
+## ~~createEdit~~
 
 Creates a new edit for the provided input, instruction, and parameters.
+
+> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 

@@ -1,6 +1,6 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 13e9399c8d0f4df4990f9c1ff3b98ef2
+  docChecksum: 0bb43455052751ae97d57d099733aace
   docVersion: 2.0.0
   speakeasyVersion: 1.53.1
   generationVersion: 2.58.2
@@ -10,7 +10,7 @@ generation:
   singleTagPerOp: false
   telemetryEnabled: false
 typescript:
-  version: 2.6.1
+  version: 2.6.2
   author: speakeasy-openai
   maxMethodParams: 0
   packageName: '@speakeasy-api/openai'
