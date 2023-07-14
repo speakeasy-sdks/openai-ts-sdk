@@ -20,7 +20,7 @@ export * from "./createimagerequest";
 export * from "./createimagevariationrequest";
 export * from "./createmoderationrequest";
 export * from "./createmoderationresponse";
-export * from "./createtranscriptionrequest";
+export * from "./createtranscriptionrequest1";
 export * from "./createtranscriptionresponse";
 export * from "./createtranslationrequest";
 export * from "./createtranslationresponse";

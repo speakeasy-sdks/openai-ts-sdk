@@ -10,41 +10,18 @@ export enum CreateEditResponseChoicesFinishReason {
     Length = "length",
 }
 
-export class CreateEditResponseChoicesLogprobs extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "text_offset" })
-    textOffset?: number[];
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "token_logprobs" })
-    tokenLogprobs?: number[];
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "tokens" })
-    tokens?: string[];
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "top_logprobs" })
-    topLogprobs?: Record<string, number>[];
-}
-
 export class CreateEditResponseChoices extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
-    finishReason?: CreateEditResponseChoicesFinishReason;
+    finishReason: CreateEditResponseChoicesFinishReason;
 
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
-    index?: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "logprobs" })
-    @Type(() => CreateEditResponseChoicesLogprobs)
-    logprobs?: CreateEditResponseChoicesLogprobs;
+    index: number;
 
     @SpeakeasyMetadata()
     @Expose({ name: "text" })
-    text?: string;
+    text: string;
 }
 
 export class CreateEditResponseUsage extends SpeakeasyBase {

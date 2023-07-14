@@ -814,11 +814,11 @@ export class OpenAI {
      * Transcribes audio into the input language.
      */
     async createTranscription(
-        req: shared.CreateTranscriptionRequest,
+        req: shared.CreateTranscriptionRequest1,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTranscriptionResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateTranscriptionRequest(req);
+            req = new shared.CreateTranscriptionRequest1(req);
         }
 
         const baseURL: string = utils.templateUrl(

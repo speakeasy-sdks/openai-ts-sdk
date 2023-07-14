@@ -39,6 +39,8 @@ Authorization: Bearer YOUR_API_KEY
 
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";

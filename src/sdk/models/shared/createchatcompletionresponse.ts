@@ -15,16 +15,16 @@ export enum CreateChatCompletionResponseChoicesFinishReason {
 export class CreateChatCompletionResponseChoices extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
-    finishReason?: CreateChatCompletionResponseChoicesFinishReason;
+    finishReason: CreateChatCompletionResponseChoicesFinishReason;
 
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
-    index?: number;
+    index: number;
 
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
     @Type(() => ChatCompletionResponseMessage)
-    message?: ChatCompletionResponseMessage;
+    message: ChatCompletionResponseMessage;
 }
 
 export class CreateChatCompletionResponseUsage extends SpeakeasyBase {

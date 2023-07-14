@@ -88,10 +88,8 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateChatCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import {
   ChatCompletionRequestMessageRole,
-  ChatCompletionResponseMessageRole,
   CreateChatCompletionRequestFunctionCall1,
   CreateChatCompletionRequestModel2,
-  CreateChatCompletionResponseChoicesFinishReason,
 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
@@ -198,7 +196,7 @@ Creates a completion for the provided prompt and parameters.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateCompletionRequestModel2, CreateCompletionResponseChoicesFinishReason } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateCompletionRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
@@ -257,7 +255,7 @@ Creates a new edit for the provided input, instruction, and parameters.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateEditRequestModel2, CreateEditResponseChoicesFinishReason } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateEditRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
@@ -594,7 +592,7 @@ Transcribes audio into the input language.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateTranscriptionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateTranscriptionRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateTranscriptionRequestModel2, CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
@@ -606,7 +604,7 @@ sdk.openAI.createTranscription({
   language: "maiores",
   model: "whisper-1",
   prompt: "corporis",
-  responseFormat: "dolore",
+  responseFormat: CreateTranscriptionRequestResponseFormat.Text,
   temperature: 4808.94,
 }).then((res: CreateTranscriptionResponse) => {
   if (res.statusCode == 200) {
@@ -617,10 +615,10 @@ sdk.openAI.createTranscription({
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [shared.CreateTranscriptionRequest](../../models/shared/createtranscriptionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [shared.CreateTranscriptionRequest1](../../models/shared/createtranscriptionrequest1.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response

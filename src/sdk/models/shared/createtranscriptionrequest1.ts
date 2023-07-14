@@ -22,7 +22,21 @@ export enum CreateTranscriptionRequestModel2 {
     Whisper1 = "whisper-1",
 }
 
-export class CreateTranscriptionRequest extends SpeakeasyBase {
+/**
+ * The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.
+ *
+ * @remarks
+ *
+ */
+export enum CreateTranscriptionRequestResponseFormat {
+    Json = "json",
+    Text = "text",
+    Srt = "srt",
+    VerboseJson = "verbose_json",
+    Vtt = "vtt",
+}
+
+export class CreateTranscriptionRequest1 extends SpeakeasyBase {
     /**
      * The audio file object (not file name) to transcribe, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
      *
@@ -66,7 +80,7 @@ export class CreateTranscriptionRequest extends SpeakeasyBase {
      *
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
-    responseFormat?: string;
+    responseFormat?: CreateTranscriptionRequestResponseFormat;
 
     /**
      * The sampling temperature, between 0 and 1. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic. If set to 0, the model will use [log probability](https://en.wikipedia.org/wiki/Log_probability) to automatically increase the temperature until certain thresholds are hit.
