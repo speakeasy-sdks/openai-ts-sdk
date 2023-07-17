@@ -69,6 +69,13 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -143,6 +150,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.CreateChatCompletionResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -215,6 +229,13 @@ export class OpenAI {
                     res.createCompletionResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.CreateCompletionResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -291,6 +312,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.CreateEditResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -364,6 +392,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.CreateEmbeddingResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -435,6 +470,13 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.openAIFile = utils.objectToClass(JSON.parse(decodedRes), shared.OpenAIFile);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -510,6 +552,13 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -583,6 +632,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.ImagesResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -655,6 +711,13 @@ export class OpenAI {
                     res.imagesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ImagesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -730,6 +793,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.ImagesResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -802,6 +872,13 @@ export class OpenAI {
                     res.createModerationResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.CreateModerationResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -877,6 +954,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.CreateTranscriptionResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -950,6 +1034,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.CreateTranslationResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -1009,6 +1100,13 @@ export class OpenAI {
                     res.deleteFileResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.DeleteFileResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -1070,6 +1168,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.DeleteModelResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -1127,6 +1232,13 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.downloadFile200ApplicationJSONString = decodedRes;
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -1179,6 +1291,13 @@ export class OpenAI {
                     res.listFilesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ListFilesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -1243,6 +1362,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.ListFineTuneEventsResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -1297,6 +1423,13 @@ export class OpenAI {
                         JSON.parse(decodedRes),
                         shared.ListFineTunesResponse
                     );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -1349,6 +1482,13 @@ export class OpenAI {
                     res.listModelsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ListModelsResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
                     );
                 }
                 break;
@@ -1407,6 +1547,13 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.openAIFile = utils.objectToClass(JSON.parse(decodedRes), shared.OpenAIFile);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -1467,6 +1614,13 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
@@ -1524,6 +1678,13 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.model = utils.objectToClass(JSON.parse(decodedRes), shared.Model);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
                 }
                 break;
         }
