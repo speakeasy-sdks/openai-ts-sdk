@@ -20,7 +20,24 @@ export class CreateImageEditRequestMask extends SpeakeasyBase {
     mask: string;
 }
 
-export class CreateImageEditRequest extends SpeakeasyBase {
+/**
+ * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
+ */
+export enum CreateImageEditRequestResponseFormat {
+    Url = "url",
+    B64Json = "b64_json",
+}
+
+/**
+ * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
+ */
+export enum CreateImageEditRequestSize {
+    TwoHundredAndFiftySixx256 = "256x256",
+    FiveHundredAndTwelvex512 = "512x512",
+    OneThousandAndTwentyFourx1024 = "1024x1024",
+}
+
+export class CreateImageEditRequest2 extends SpeakeasyBase {
     /**
      * The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
      */
@@ -33,8 +50,11 @@ export class CreateImageEditRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "multipart_form, file=true" })
     mask?: CreateImageEditRequestMask;
 
+    /**
+     * The number of images to generate. Must be between 1 and 10.
+     */
     @SpeakeasyMetadata({ data: "multipart_form, name=n" })
-    n?: any;
+    n?: number;
 
     /**
      * A text description of the desired image(s). The maximum length is 1000 characters.
@@ -42,12 +62,24 @@ export class CreateImageEditRequest extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "multipart_form, name=prompt" })
     prompt: string;
 
+    /**
+     * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
+     */
     @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
-    responseFormat?: any;
+    responseFormat?: CreateImageEditRequestResponseFormat;
 
+    /**
+     * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
+     */
     @SpeakeasyMetadata({ data: "multipart_form, name=size" })
-    size?: any;
+    size?: CreateImageEditRequestSize;
 
+    /**
+     * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
+     *
+     * @remarks
+     *
+     */
     @SpeakeasyMetadata({ data: "multipart_form, name=user" })
-    user?: any;
+    user?: string;
 }

@@ -46,7 +46,12 @@ export enum CreateChatCompletionRequestModel2 {
 
 export class CreateChatCompletionRequest extends SpeakeasyBase {
     /**
-     * completions_frequency_penalty_description
+     * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.
+     *
+     * @remarks
+     *
+     * [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
+     *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "frequency_penalty" })
@@ -114,7 +119,12 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
     n?: number;
 
     /**
-     * completions_presence_penalty_description
+     * Number between -2.0 and 2.0. Positive values penalize new tokens based on whether they appear in the text so far, increasing the model's likelihood to talk about new topics.
+     *
+     * @remarks
+     *
+     * [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
+     *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "presence_penalty" })
@@ -141,20 +151,36 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
     stream?: boolean;
 
     /**
-     * completions_temperature_description
+     * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+     *
+     * @remarks
+     *
+     * We generally recommend altering this or `top_p` but not both.
+     *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "temperature" })
     temperature?: number;
 
     /**
-     * completions_top_p_description
+     * An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
+     *
+     * @remarks
+     *
+     * We generally recommend altering this or `temperature` but not both.
+     *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "top_p" })
     topP?: number;
 
+    /**
+     * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
+     *
+     * @remarks
+     *
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "user" })
-    user?: any;
+    user?: string;
 }

@@ -61,8 +61,8 @@ src/sdk/models/shared/createfilerequest.ts
 src/sdk/models/shared/createfinetunerequest.ts
 src/sdk/models/shared/imagesresponse.ts
 src/sdk/models/shared/createimagerequest.ts
-src/sdk/models/shared/createimageeditrequest.ts
-src/sdk/models/shared/createimagevariationrequest.ts
+src/sdk/models/shared/createimageeditrequest2.ts
+src/sdk/models/shared/createimagevariationrequest2.ts
 src/sdk/models/shared/createmoderationresponse.ts
 src/sdk/models/shared/createmoderationrequest.ts
 src/sdk/models/shared/createtranscriptionresponse.ts
@@ -77,6 +77,7 @@ src/sdk/models/shared/listfinetunesresponse.ts
 src/sdk/models/shared/listmodelsresponse.ts
 src/sdk/models/shared/model.ts
 src/sdk/models/shared/index.ts
+src/sdk/models/errors/index.ts
 docs/sdks/gpt/README.md
 docs/sdks/openai/README.md
 USAGE.md
@@ -159,9 +160,13 @@ docs/models/shared/createimagerequestsize.md
 docs/models/shared/createimagerequest.md
 docs/models/shared/createimageeditrequestimage.md
 docs/models/shared/createimageeditrequestmask.md
-docs/models/shared/createimageeditrequest.md
+docs/models/shared/createimageeditrequestresponseformat.md
+docs/models/shared/createimageeditrequestsize.md
+docs/models/shared/createimageeditrequest2.md
 docs/models/shared/createimagevariationrequestimage.md
-docs/models/shared/createimagevariationrequest.md
+docs/models/shared/createimagevariationrequestresponseformat.md
+docs/models/shared/createimagevariationrequestsize.md
+docs/models/shared/createimagevariationrequest2.md
 docs/models/shared/createmoderationresponseresultscategories.md
 docs/models/shared/createmoderationresponseresultscategoryscores.md
 docs/models/shared/createmoderationresponseresults.md

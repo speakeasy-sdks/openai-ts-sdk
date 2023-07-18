@@ -166,7 +166,7 @@ sdk.openAI.createChatCompletion({
   stream: false,
   temperature: 1,
   topP: 1,
-  user: "dolorem",
+  user: "user-1234",
 }).then((res: CreateChatCompletionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -201,24 +201,20 @@ import { CreateCompletionRequestModel2 } from "@speakeasy-api/openai/dist/sdk/mo
 const sdk = new Gpt();
 
 sdk.openAI.createCompletion({
-  bestOf: 358152,
+  bestOf: 210382,
   echo: false,
-  frequencyPenalty: 1289.26,
+  frequencyPenalty: 3581.52,
   logitBias: {
-    "enim": 607831,
-    "nemo": 325047,
-    "excepturi": 38425,
-    "iure": 634274,
+    "nobis": 315428,
   },
-  logprobs: 988374,
+  logprobs: 607831,
   maxTokens: 16,
-  model: CreateCompletionRequestModel2.TextDavinci003,
+  model: "minima",
   n: 1,
-  presencePenalty: 6527.9,
+  presencePenalty: 5701.97,
   prompt: "This is a test.",
-  stop: [
-    "["\n"]",
-  ],
+  stop: "
+",
   stream: false,
   suffix: "test.",
   temperature: 1,
@@ -301,12 +297,23 @@ const sdk = new Gpt();
 
 sdk.openAI.createEmbedding({
   input: [
-    253291,
-    414369,
-    466311,
+    [
+      652790,
+    ],
+    [
+      635059,
+    ],
+    [
+      995300,
+    ],
+    [
+      581850,
+      253291,
+      414369,
+    ],
   ],
   model: "text-embedding-ada-002",
-  user: "velit",
+  user: "user-1234",
 }).then((res: CreateEmbeddingResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -342,10 +349,10 @@ const sdk = new Gpt();
 
 sdk.openAI.createFile({
   file: {
-    content: "error".encode(),
-    file: "quia",
+    content: "molestiae".encode(),
+    file: "velit",
   },
-  purpose: "quis",
+  purpose: "error",
 }).then((res: CreateFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -385,20 +392,19 @@ import { CreateFineTuneRequestModel2 } from "@speakeasy-api/openai/dist/sdk/mode
 const sdk = new Gpt();
 
 sdk.openAI.createFineTune({
-  batchSize: 110375,
+  batchSize: 158969,
   classificationBetas: [
-    6563.3,
-    3172.02,
-    1381.83,
+    1103.75,
+    6747.52,
   ],
-  classificationNClasses: 778346,
-  classificationPositiveClass: "sequi",
+  classificationNClasses: 656330,
+  classificationPositiveClass: "enim",
   computeClassificationMetrics: false,
-  learningRateMultiplier: 9495.72,
-  model: "curie",
-  nEpochs: 662527,
-  promptLossWeight: 8209.94,
-  suffix: "aut",
+  learningRateMultiplier: 1381.83,
+  model: CreateFineTuneRequestModel2.Curie,
+  nEpochs: 196582,
+  promptLossWeight: 9495.72,
+  suffix: "ipsam",
   trainingFile: "file-ajSREls59WBbvgSzJSVWxMCB",
   validationFile: "file-XjSREls59WBbvgSzJSVWxMCa",
 }).then((res: CreateFineTuneResponse) => {
@@ -439,7 +445,7 @@ sdk.openAI.createImage({
   prompt: "A cute baby sea otter",
   responseFormat: CreateImageRequestResponseFormat.Url,
   size: CreateImageRequestSize.OneThousandAndTwentyFourx1024,
-  user: "quasi",
+  user: "user-1234",
 }).then((res: CreateImageResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -469,23 +475,24 @@ Creates an edited or extended image given an original image and a prompt.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateImageEditRequestResponseFormat, CreateImageEditRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createImageEdit({
   image: {
-    content: "error".encode(),
-    image: "temporibus",
+    content: "id".encode(),
+    image: "possimus",
   },
   mask: {
-    content: "laborum".encode(),
+    content: "aut".encode(),
     mask: "quasi",
   },
-  n: "reiciendis",
+  n: 1,
   prompt: "A cute baby sea otter wearing a beret",
-  responseFormat: "voluptatibus",
-  size: "vero",
-  user: "nihil",
+  responseFormat: CreateImageEditRequestResponseFormat.Url,
+  size: CreateImageEditRequestSize.OneThousandAndTwentyFourx1024,
+  user: "user-1234",
 }).then((res: CreateImageEditResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -495,10 +502,10 @@ sdk.openAI.createImageEdit({
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.CreateImageEditRequest](../../models/shared/createimageeditrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [shared.CreateImageEditRequest2](../../models/shared/createimageeditrequest2.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
@@ -515,18 +522,19 @@ Creates a variation of a given image.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageVariationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { CreateImageVariationRequestResponseFormat, CreateImageVariationRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 const sdk = new Gpt();
 
 sdk.openAI.createImageVariation({
   image: {
-    content: "praesentium".encode(),
-    image: "voluptatibus",
+    content: "error".encode(),
+    image: "temporibus",
   },
-  n: "ipsa",
-  responseFormat: "omnis",
-  size: "voluptate",
-  user: "cum",
+  n: 1,
+  responseFormat: CreateImageVariationRequestResponseFormat.Url,
+  size: CreateImageVariationRequestSize.OneThousandAndTwentyFourx1024,
+  user: "user-1234",
 }).then((res: CreateImageVariationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -536,10 +544,10 @@ sdk.openAI.createImageVariation({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [shared.CreateImageVariationRequest](../../models/shared/createimagevariationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [shared.CreateImageVariationRequest2](../../models/shared/createimagevariationrequest2.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
@@ -561,8 +569,10 @@ import { CreateModerationRequestModel2 } from "@speakeasy-api/openai/dist/sdk/mo
 const sdk = new Gpt();
 
 sdk.openAI.createModeration({
-  input: "I want to kill them.",
-  model: "text-moderation-stable",
+  input: [
+    "I want to kill them.",
+  ],
+  model: CreateModerationRequestModel2.TextModerationStable,
 }).then((res: CreateModerationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -598,14 +608,14 @@ const sdk = new Gpt();
 
 sdk.openAI.createTranscription({
   file: {
-    content: "reprehenderit".encode(),
-    file: "ut",
+    content: "voluptatibus".encode(),
+    file: "vero",
   },
-  language: "maiores",
-  model: "whisper-1",
-  prompt: "corporis",
-  responseFormat: CreateTranscriptionRequestResponseFormat.Text,
-  temperature: 4808.94,
+  language: "nihil",
+  model: CreateTranscriptionRequestModel2.Whisper1,
+  prompt: "voluptatibus",
+  responseFormat: CreateTranscriptionRequestResponseFormat.Json,
+  temperature: 6048.46,
 }).then((res: CreateTranscriptionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -641,13 +651,13 @@ const sdk = new Gpt();
 
 sdk.openAI.createTranslation({
   file: {
-    content: "dicta".encode(),
-    file: "harum",
+    content: "voluptate".encode(),
+    file: "cum",
   },
   model: "whisper-1",
-  prompt: "accusamus",
-  responseFormat: "commodi",
-  temperature: 9182.36,
+  prompt: "doloremque",
+  responseFormat: "reprehenderit",
+  temperature: 2828.07,
 }).then((res: CreateTranslationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -681,7 +691,7 @@ import { DeleteFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operat
 const sdk = new Gpt();
 
 sdk.openAI.deleteFile({
-  fileId: "quae",
+  fileId: "maiores",
 }).then((res: DeleteFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -749,7 +759,7 @@ import { DownloadFileResponse } from "@speakeasy-api/openai/dist/sdk/models/oper
 const sdk = new Gpt();
 
 sdk.openAI.downloadFile({
-  fileId: "ipsum",
+  fileId: "dicta",
 }).then((res: DownloadFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -913,7 +923,7 @@ import { RetrieveFileResponse } from "@speakeasy-api/openai/dist/sdk/models/oper
 const sdk = new Gpt();
 
 sdk.openAI.retrieveFile({
-  fileId: "quidem",
+  fileId: "corporis",
 }).then((res: RetrieveFileResponse) => {
   if (res.statusCode == 200) {
     // handle response

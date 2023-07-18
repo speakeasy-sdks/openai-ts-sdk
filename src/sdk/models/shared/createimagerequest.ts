@@ -51,7 +51,13 @@ export class CreateImageRequest extends SpeakeasyBase {
     @Expose({ name: "size" })
     size?: CreateImageRequestSize;
 
+    /**
+     * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
+     *
+     * @remarks
+     *
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "user" })
-    user?: any;
+    user?: string;
 }

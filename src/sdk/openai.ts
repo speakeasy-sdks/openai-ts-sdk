@@ -3,6 +3,7 @@
  */
 
 import * as utils from "../internal/utils";
+import * as errors from "./models/errors";
 import * as operations from "./models/operations";
 import * as shared from "./models/shared";
 import { SDKConfiguration } from "./sdk";
@@ -650,11 +651,11 @@ export class OpenAI {
      * Creates an edited or extended image given an original image and a prompt.
      */
     async createImageEdit(
-        req: shared.CreateImageEditRequest,
+        req: shared.CreateImageEditRequest2,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateImageEditResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateImageEditRequest(req);
+            req = new shared.CreateImageEditRequest2(req);
         }
 
         const baseURL: string = utils.templateUrl(
@@ -730,11 +731,11 @@ export class OpenAI {
      * Creates a variation of a given image.
      */
     async createImageVariation(
-        req: shared.CreateImageVariationRequest,
+        req: shared.CreateImageVariationRequest2,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateImageVariationResponse> {
         if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateImageVariationRequest(req);
+            req = new shared.CreateImageVariationRequest2(req);
         }
 
         const baseURL: string = utils.templateUrl(

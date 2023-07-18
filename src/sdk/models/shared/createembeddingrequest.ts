@@ -6,7 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * model_description
+ * ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models/overview) for descriptions of them.
+ *
+ * @remarks
+ *
  */
 export enum CreateEmbeddingRequestModel2 {
     TextEmbeddingAda002 = "text-embedding-ada-002",
@@ -24,13 +27,22 @@ export class CreateEmbeddingRequest extends SpeakeasyBase {
     input: any;
 
     /**
-     * model_description
+     * ID of the model to use. You can use the [List models](/docs/api-reference/models/list) API to see all of your available models, or see our [Model overview](/docs/models/overview) for descriptions of them.
+     *
+     * @remarks
+     *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "model" })
     model: any;
 
+    /**
+     * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
+     *
+     * @remarks
+     *
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "user" })
-    user?: any;
+    user?: string;
 }
