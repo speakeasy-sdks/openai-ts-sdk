@@ -357,3 +357,11 @@ Based on:
 - Speakeasy CLI 1.62.1 (2.70.2) https://github.com/speakeasy-api/speakeasy
 ### Releases
 - [NPM v2.11.1] https://www.npmjs.com/package/@speakeasy-api/openai/v/2.11.1 - .
+
+## 2023-07-22 01:08:59
+### Changes
+Based on:
+- OpenAPI Doc 2.0.0 https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+- Speakeasy CLI 1.64.0 (2.71.0) https://github.com/speakeasy-api/speakeasy
+### Releases
+- [NPM v2.12.0] https://www.npmjs.com/package/@speakeasy-api/openai/v/2.12.0 - .
