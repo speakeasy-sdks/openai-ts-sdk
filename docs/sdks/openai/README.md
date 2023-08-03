@@ -244,7 +244,7 @@ sdk.openAI.createCompletion({
 
 Creates a new edit for the provided input, instruction, and parameters.
 
-> :warning: **DEPRECATED**: this method will be removed in a future release, please migrate away from it as soon as possible.
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
