@@ -3,60 +3,79 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { CompletionUsage } from "./completionusage";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
+ *
+ * @remarks
+ * or `length` if the maximum number of tokens specified in the request was reached.
+ *
+ */
 export enum CreateEditResponseChoicesFinishReason {
     Stop = "stop",
     Length = "length",
 }
 
 export class CreateEditResponseChoices extends SpeakeasyBase {
+    /**
+     * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
+     *
+     * @remarks
+     * or `length` if the maximum number of tokens specified in the request was reached.
+     *
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
     finishReason: CreateEditResponseChoicesFinishReason;
 
+    /**
+     * The index of the choice in the list of choices.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
     index: number;
 
+    /**
+     * The edited result.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "text" })
     text: string;
-}
-
-export class CreateEditResponseUsage extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "completion_tokens" })
-    completionTokens: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "prompt_tokens" })
-    promptTokens: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "total_tokens" })
-    totalTokens: number;
 }
 
 /**
  * OK
  */
 export class CreateEditResponse extends SpeakeasyBase {
+    /**
+     * A list of edit choices. Can be more than one if `n` is greater than 1.
+     */
     @SpeakeasyMetadata({ elemType: CreateEditResponseChoices })
     @Expose({ name: "choices" })
     @Type(() => CreateEditResponseChoices)
     choices: CreateEditResponseChoices[];
 
+    /**
+     * A unix timestamp of when the edit was created.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "created" })
     created: number;
 
+    /**
+     * The object type, which is always `edit`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
     object: string;
 
+    /**
+     * Usage statistics for the completion request.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "usage" })
-    @Type(() => CreateEditResponseUsage)
-    usage: CreateEditResponseUsage;
+    @Type(() => CompletionUsage)
+    usage: CompletionUsage;
 }

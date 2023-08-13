@@ -3,8 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { CompletionUsage } from "./completionusage";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
+ *
+ * @remarks
+ * or `length` if the maximum number of tokens specified in the request was reached.
+ *
+ */
 export enum CreateCompletionResponseChoicesFinishReason {
     Stop = "stop",
     Length = "length",
@@ -29,6 +37,13 @@ export class CreateCompletionResponseChoicesLogprobs extends SpeakeasyBase {
 }
 
 export class CreateCompletionResponseChoices extends SpeakeasyBase {
+    /**
+     * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
+     *
+     * @remarks
+     * or `length` if the maximum number of tokens specified in the request was reached.
+     *
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
     finishReason: CreateCompletionResponseChoicesFinishReason;
@@ -47,47 +62,54 @@ export class CreateCompletionResponseChoices extends SpeakeasyBase {
     text: string;
 }
 
-export class CreateCompletionResponseUsage extends SpeakeasyBase {
-    @SpeakeasyMetadata()
-    @Expose({ name: "completion_tokens" })
-    completionTokens: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "prompt_tokens" })
-    promptTokens: number;
-
-    @SpeakeasyMetadata()
-    @Expose({ name: "total_tokens" })
-    totalTokens: number;
-}
-
 /**
- * OK
+ * Represents a completion response from the API. Note: both the streamed and non-streamed response objects share the same shape (unlike the chat endpoint).
+ *
+ * @remarks
+ *
  */
 export class CreateCompletionResponse extends SpeakeasyBase {
+    /**
+     * The list of completion choices the model generated for the input prompt.
+     */
     @SpeakeasyMetadata({ elemType: CreateCompletionResponseChoices })
     @Expose({ name: "choices" })
     @Type(() => CreateCompletionResponseChoices)
     choices: CreateCompletionResponseChoices[];
 
+    /**
+     * The Unix timestamp of when the completion was created.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "created" })
     created: number;
 
+    /**
+     * A unique identifier for the completion.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The model used for completion.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "model" })
     model: string;
 
+    /**
+     * The object type, which is always "text_completion"
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
     object: string;
 
+    /**
+     * Usage statistics for the completion request.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "usage" })
-    @Type(() => CreateCompletionResponseUsage)
-    usage?: CreateCompletionResponseUsage;
+    @Type(() => CompletionUsage)
+    usage?: CompletionUsage;
 }

@@ -38,7 +38,7 @@ export enum CreateTranscriptionRequestResponseFormat {
 
 export class CreateTranscriptionRequest1 extends SpeakeasyBase {
     /**
-     * The audio file object (not file name) to transcribe, in one of these formats: mp3, mp4, mpeg, mpga, m4a, wav, or webm.
+     * The audio file object (not file name) to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
      *
      * @remarks
      *

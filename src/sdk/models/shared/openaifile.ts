@@ -6,37 +6,67 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * OK
+ * The `File` object represents a document that has been uploaded to OpenAI.
+ *
+ * @remarks
+ *
  */
 export class OpenAIFile extends SpeakeasyBase {
+    /**
+     * The size of the file in bytes.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "bytes" })
     bytes: number;
 
+    /**
+     * The unix timestamp for when the file was created.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "created_at" })
     createdAt: number;
 
+    /**
+     * The name of the file.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "filename" })
     filename: string;
 
+    /**
+     * The file identifier, which can be referenced in the API endpoints.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The object type, which is always "file".
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
     object: string;
 
+    /**
+     * The intended purpose of the file. Currently, only "fine-tune" is supported.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "purpose" })
     purpose: string;
 
+    /**
+     * The current status of the file, which can be either `uploaded`, `processed`, `pending`, `error`, `deleting` or `deleted`.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
     status?: string;
 
+    /**
+     * Additional details about the status of the file. If the file is in the `error` state, this will include a message describing the error.
+     *
+     * @remarks
+     *
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "status_details" })
     statusDetails?: string;

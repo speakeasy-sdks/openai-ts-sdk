@@ -6,21 +6,33 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
- * OK
+ * Describes an OpenAI model offering that can be used with the API.
  */
 export class Model extends SpeakeasyBase {
+    /**
+     * The date and time when the model was created.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "created" })
     created: number;
 
+    /**
+     * The model identifier, which can be referenced in the API endpoints.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The object type, which is always "model".
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
     object: string;
 
+    /**
+     * The organization that owns the model.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "owned_by" })
     ownedBy: string;

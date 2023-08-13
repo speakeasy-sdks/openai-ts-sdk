@@ -5,94 +5,160 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
+/**
+ * A list of the categories, and whether they are flagged or not.
+ */
 export class CreateModerationResponseResultsCategories extends SpeakeasyBase {
+    /**
+     * Whether the content was flagged as 'hate'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "hate" })
     hate: boolean;
 
+    /**
+     * Whether the content was flagged as 'hate/threatening'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "hate/threatening" })
     hateThreatening: boolean;
 
+    /**
+     * Whether the content was flagged as 'self-harm'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "self-harm" })
     selfHarm: boolean;
 
+    /**
+     * Whether the content was flagged as 'sexual'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "sexual" })
     sexual: boolean;
 
+    /**
+     * Whether the content was flagged as 'sexual/minors'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "sexual/minors" })
     sexualMinors: boolean;
 
+    /**
+     * Whether the content was flagged as 'violence'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "violence" })
     violence: boolean;
 
+    /**
+     * Whether the content was flagged as 'violence/graphic'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "violence/graphic" })
     violenceGraphic: boolean;
 }
 
+/**
+ * A list of the categories along with their scores as predicted by model.
+ */
 export class CreateModerationResponseResultsCategoryScores extends SpeakeasyBase {
+    /**
+     * The score for the category 'hate'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "hate" })
     hate: number;
 
+    /**
+     * The score for the category 'hate/threatening'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "hate/threatening" })
     hateThreatening: number;
 
+    /**
+     * The score for the category 'self-harm'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "self-harm" })
     selfHarm: number;
 
+    /**
+     * The score for the category 'sexual'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "sexual" })
     sexual: number;
 
+    /**
+     * The score for the category 'sexual/minors'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "sexual/minors" })
     sexualMinors: number;
 
+    /**
+     * The score for the category 'violence'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "violence" })
     violence: number;
 
+    /**
+     * The score for the category 'violence/graphic'.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "violence/graphic" })
     violenceGraphic: number;
 }
 
 export class CreateModerationResponseResults extends SpeakeasyBase {
+    /**
+     * A list of the categories, and whether they are flagged or not.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "categories" })
     @Type(() => CreateModerationResponseResultsCategories)
     categories: CreateModerationResponseResultsCategories;
 
+    /**
+     * A list of the categories along with their scores as predicted by model.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "category_scores" })
     @Type(() => CreateModerationResponseResultsCategoryScores)
     categoryScores: CreateModerationResponseResultsCategoryScores;
 
+    /**
+     * Whether the content violates [OpenAI's usage policies](/policies/usage-policies).
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "flagged" })
     flagged: boolean;
 }
 
 /**
- * OK
+ * Represents policy compliance report by OpenAI's content moderation model against a given input.
  */
 export class CreateModerationResponse extends SpeakeasyBase {
+    /**
+     * The unique identifier for the moderation request.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
 
+    /**
+     * The model used to generate the moderation results.
+     */
     @SpeakeasyMetadata()
     @Expose({ name: "model" })
     model: string;
 
+    /**
+     * A list of moderation objects.
+     */
     @SpeakeasyMetadata({ elemType: CreateModerationResponseResults })
     @Expose({ name: "results" })
     @Type(() => CreateModerationResponseResults)
