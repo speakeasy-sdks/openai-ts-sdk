@@ -52,6 +52,7 @@ src/sdk/models/shared/chatcompletionresponsemessage.ts
 src/sdk/models/shared/createchatcompletionrequest.ts
 src/sdk/models/shared/chatcompletionrequestmessage.ts
 src/sdk/models/shared/chatcompletionfunctions.ts
+src/sdk/models/shared/chatcompletionfunctioncalloption.ts
 src/sdk/models/shared/createcompletionresponse.ts
 src/sdk/models/shared/createcompletionrequest.ts
 src/sdk/models/shared/createeditresponse.ts
@@ -126,7 +127,6 @@ docs/models/shared/completionusage.md
 docs/models/shared/chatcompletionresponsemessagefunctioncall.md
 docs/models/shared/chatcompletionresponsemessagerole.md
 docs/models/shared/chatcompletionresponsemessage.md
-docs/models/shared/createchatcompletionrequestfunctioncall2.md
 docs/models/shared/createchatcompletionrequestfunctioncall1.md
 docs/models/shared/createchatcompletionrequestmodel2.md
 docs/models/shared/createchatcompletionrequest.md
@@ -134,6 +134,7 @@ docs/models/shared/chatcompletionrequestmessagefunctioncall.md
 docs/models/shared/chatcompletionrequestmessagerole.md
 docs/models/shared/chatcompletionrequestmessage.md
 docs/models/shared/chatcompletionfunctions.md
+docs/models/shared/chatcompletionfunctioncalloption.md
 docs/models/shared/createcompletionresponsechoicesfinishreason.md
 docs/models/shared/createcompletionresponsechoiceslogprobs.md
 docs/models/shared/createcompletionresponsechoices.md
