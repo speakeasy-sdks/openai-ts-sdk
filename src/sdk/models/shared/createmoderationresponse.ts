@@ -10,49 +10,77 @@ import { Expose, Type } from "class-transformer";
  */
 export class CreateModerationResponseResultsCategories extends SpeakeasyBase {
     /**
-     * Whether the content was flagged as 'hate'.
+     * Content that expresses, incites, or promotes harassing language towards any target.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "harassment" })
+    harassment: boolean;
+
+    /**
+     * Harassment content that also includes violence or serious harm towards any target.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "harassment/threatening" })
+    harassmentThreatening: boolean;
+
+    /**
+     * Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harrassment.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hate" })
     hate: boolean;
 
     /**
-     * Whether the content was flagged as 'hate/threatening'.
+     * Hateful content that also includes violence or serious harm towards the targeted group based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hate/threatening" })
     hateThreatening: boolean;
 
     /**
-     * Whether the content was flagged as 'self-harm'.
+     * Content that promotes, encourages, or depicts acts of self-harm, such as suicide, cutting, and eating disorders.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "self-harm" })
     selfHarm: boolean;
 
     /**
-     * Whether the content was flagged as 'sexual'.
+     * Content that encourages performing acts of self-harm, such as suicide, cutting, and eating disorders, or that gives instructions or advice on how to commit such acts.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "self-harm/instructions" })
+    selfHarmInstructions: boolean;
+
+    /**
+     * Content where the speaker expresses that they are engaging or intend to engage in acts of self-harm, such as suicide, cutting, and eating disorders.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "self-harm/intent" })
+    selfHarmIntent: boolean;
+
+    /**
+     * Content meant to arouse sexual excitement, such as the description of sexual activity, or that promotes sexual services (excluding sex education and wellness).
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sexual" })
     sexual: boolean;
 
     /**
-     * Whether the content was flagged as 'sexual/minors'.
+     * Sexual content that includes an individual who is under 18 years old.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "sexual/minors" })
     sexualMinors: boolean;
 
     /**
-     * Whether the content was flagged as 'violence'.
+     * Content that depicts death, violence, or physical injury.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "violence" })
     violence: boolean;
 
     /**
-     * Whether the content was flagged as 'violence/graphic'.
+     * Content that depicts death, violence, or physical injury in graphic detail.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "violence/graphic" })
@@ -63,6 +91,20 @@ export class CreateModerationResponseResultsCategories extends SpeakeasyBase {
  * A list of the categories along with their scores as predicted by model.
  */
 export class CreateModerationResponseResultsCategoryScores extends SpeakeasyBase {
+    /**
+     * The score for the category 'harassment'.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "harassment" })
+    harassment: number;
+
+    /**
+     * The score for the category 'harassment/threatening'.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "harassment/threatening" })
+    harassmentThreatening: number;
+
     /**
      * The score for the category 'hate'.
      */
@@ -83,6 +125,20 @@ export class CreateModerationResponseResultsCategoryScores extends SpeakeasyBase
     @SpeakeasyMetadata()
     @Expose({ name: "self-harm" })
     selfHarm: number;
+
+    /**
+     * The score for the category 'self-harm/instructions'.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "self-harm/instructions" })
+    selfHarmInstructions: number;
+
+    /**
+     * The score for the category 'self-harm/intent'.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "self-harm/intent" })
+    selfHarmIntent: number;
 
     /**
      * The score for the category 'sexual'.
