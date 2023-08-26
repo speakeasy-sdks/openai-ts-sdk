@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: 572d9e3dcdaa71e8e84657184b7c2c7a
   docVersion: 2.0.0
-  speakeasyVersion: 1.74.11
-  generationVersion: 2.87.1
+  speakeasyVersion: 1.74.16
+  generationVersion: 2.88.2
 generation:
   sdkClassName: gpt
   sdkFlattening: true
@@ -11,11 +11,11 @@ generation:
   telemetryEnabled: false
 features:
   typescript:
-    core: 2.82.1
+    core: 2.83.1
     deprecations: 2.81.1
     globalServerURLs: 2.82.0
 typescript:
-  version: 2.18.3
+  version: 2.19.0
   author: speakeasy-openai
   maxMethodParams: 0
   packageName: '@speakeasy-api/openai'
