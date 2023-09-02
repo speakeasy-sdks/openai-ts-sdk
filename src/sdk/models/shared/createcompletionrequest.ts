@@ -12,6 +12,8 @@ import { Expose } from "class-transformer";
  *
  */
 export enum CreateCompletionRequestModel2 {
+    Babbage002 = "babbage-002",
+    Davinci002 = "davinci-002",
     TextDavinci003 = "text-davinci-003",
     TextDavinci002 = "text-davinci-002",
     TextDavinci001 = "text-davinci-001",
@@ -51,7 +53,7 @@ export class CreateCompletionRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
+     * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
      *
      */
     @SpeakeasyMetadata()
@@ -123,7 +125,7 @@ export class CreateCompletionRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
+     * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
      *
      */
     @SpeakeasyMetadata()

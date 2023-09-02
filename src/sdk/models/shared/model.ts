@@ -10,7 +10,7 @@ import { Expose } from "class-transformer";
  */
 export class Model extends SpeakeasyBase {
     /**
-     * The date and time when the model was created.
+     * The Unix timestamp (in seconds) when the model was created.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "created" })

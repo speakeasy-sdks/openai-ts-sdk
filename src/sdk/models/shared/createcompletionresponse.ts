@@ -78,7 +78,7 @@ export class CreateCompletionResponse extends SpeakeasyBase {
     choices: CreateCompletionResponseChoices[];
 
     /**
-     * The Unix timestamp of when the completion was created.
+     * The Unix timestamp (in seconds) of when the completion was created.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "created" })

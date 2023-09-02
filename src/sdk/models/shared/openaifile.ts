@@ -20,7 +20,7 @@ export class OpenAIFile extends SpeakeasyBase {
     bytes: number;
 
     /**
-     * The unix timestamp for when the file was created.
+     * The Unix timestamp (in seconds) for when the file was created.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "created_at" })

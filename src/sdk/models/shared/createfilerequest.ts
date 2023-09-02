@@ -18,7 +18,7 @@ export class CreateFileRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * If the `purpose` is set to "fine-tune", each line is a JSON record with "prompt" and "completion" fields representing your [training examples](/docs/guides/fine-tuning/prepare-training-data).
+     * If the `purpose` is set to "fine-tune", the file will be used for fine-tuning.
      *
      */
     @SpeakeasyMetadata({ data: "multipart_form, file=true" })
@@ -29,7 +29,7 @@ export class CreateFileRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * Use "fine-tune" for [Fine-tuning](/docs/api-reference/fine-tunes). This allows us to validate the format of the uploaded file.
+     * Use "fine-tune" for [fine-tuning](/docs/api-reference/fine-tuning). This allows us to validate the format of the uploaded file.
      *
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=purpose" })

@@ -6,7 +6,9 @@ The OpenAI REST API
 
 ### Available Operations
 
-* [cancelFineTune](#cancelfinetune) - Immediately cancel a fine-tune job.
+* [~~cancelFineTune~~](#cancelfinetune) - Immediately cancel a fine-tune job.
+ :warning: **Deprecated**
+* [cancelFineTuningJob](#cancelfinetuningjob) - Immediately cancel a fine-tune job.
 
 * [createChatCompletion](#createchatcompletion) - Creates a model response for the given chat conversation.
 * [createCompletion](#createcompletion) - Creates a completion for the provided prompt and parameters.
@@ -14,11 +16,17 @@ The OpenAI REST API
 * [createEmbedding](#createembedding) - Creates an embedding vector representing the input text.
 * [createFile](#createfile) - Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
 
-* [createFineTune](#createfinetune) - Creates a job that fine-tunes a specified model from a given dataset.
+* [~~createFineTune~~](#createfinetune) - Creates a job that fine-tunes a specified model from a given dataset.
 
 Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
+ :warning: **Deprecated**
+* [createFineTuningJob](#createfinetuningjob) - Creates a job that fine-tunes a specified model from a given dataset.
+
+Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
 
 * [createImage](#createimage) - Creates an image given a prompt.
 * [createImageEdit](#createimageedit) - Creates an edited or extended image given an original image and a prompt.
@@ -27,25 +35,35 @@ Response includes details of the enqueued job including job status and the name 
 * [createTranscription](#createtranscription) - Transcribes audio into the input language.
 * [createTranslation](#createtranslation) - Translates audio into English.
 * [deleteFile](#deletefile) - Delete a file.
-* [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization.
+* [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
 * [downloadFile](#downloadfile) - Returns the contents of the specified file
 * [listFiles](#listfiles) - Returns a list of files that belong to the user's organization.
-* [listFineTuneEvents](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
-
-* [listFineTunes](#listfinetunes) - List your organization's fine-tuning jobs
+* [~~listFineTuneEvents~~](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
+ :warning: **Deprecated**
+* [~~listFineTunes~~](#listfinetunes) - List your organization's fine-tuning jobs
+ :warning: **Deprecated**
+* [listFineTuningEvents](#listfinetuningevents) - Get status updates for a fine-tuning job.
 
 * [listModels](#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
-* [retrieveFile](#retrievefile) - Returns information about a specific file.
-* [retrieveFineTune](#retrievefinetune) - Gets info about the fine-tune job.
+* [listPaginatedFineTuningJobs](#listpaginatedfinetuningjobs) - List your organization's fine-tuning jobs
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+* [retrieveFile](#retrievefile) - Returns information about a specific file.
+* [~~retrieveFineTune~~](#retrievefinetune) - Gets info about the fine-tune job.
+
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
+ :warning: **Deprecated**
+* [retrieveFineTuningJob](#retrievefinetuningjob) - Get info about a fine-tuning job.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
 
 * [retrieveModel](#retrievemodel) - Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
 
-## cancelFineTune
+## ~~cancelFineTune~~
 
 Immediately cancel a fine-tune job.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -75,6 +93,41 @@ sdk.openAI.cancelFineTune({
 ### Response
 
 **Promise<[operations.CancelFineTuneResponse](../../models/operations/cancelfinetuneresponse.md)>**
+
+
+## cancelFineTuningJob
+
+Immediately cancel a fine-tune job.
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { CancelFineTuningJobResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+const sdk = new Gpt();
+
+sdk.openAI.cancelFineTuningJob({
+  fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+}).then((res: CancelFineTuningJobResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                      | Type                                                                                           | Required                                                                                       | Description                                                                                    |
+| ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------- |
+| `request`                                                                                      | [operations.CancelFineTuningJobRequest](../../models/operations/cancelfinetuningjobrequest.md) | :heavy_check_mark:                                                                             | The request object to use for the request.                                                     |
+| `config`                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                   | :heavy_minus_sign:                                                                             | Available config options for making requests.                                                  |
+
+
+### Response
+
+**Promise<[operations.CancelFineTuningJobResponse](../../models/operations/cancelfinetuningjobresponse.md)>**
 
 
 ## createChatCompletion
@@ -373,14 +426,16 @@ sdk.openAI.createFile({
 **Promise<[operations.CreateFileResponse](../../models/operations/createfileresponse.md)>**
 
 
-## createFineTune
+## ~~createFineTune~~
 
 Creates a job that fine-tunes a specified model from a given dataset.
 
 Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -405,8 +460,8 @@ sdk.openAI.createFineTune({
   nEpochs: 196582,
   promptLossWeight: 9495.72,
   suffix: "ipsam",
-  trainingFile: "file-ajSREls59WBbvgSzJSVWxMCB",
-  validationFile: "file-XjSREls59WBbvgSzJSVWxMCa",
+  trainingFile: "file-abc123",
+  validationFile: "file-abc123",
 }).then((res: CreateFineTuneResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -425,6 +480,55 @@ sdk.openAI.createFineTune({
 ### Response
 
 **Promise<[operations.CreateFineTuneResponse](../../models/operations/createfinetuneresponse.md)>**
+
+
+## createFineTuningJob
+
+Creates a job that fine-tunes a specified model from a given dataset.
+
+Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { CreateFineTuningJobResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import {
+  CreateFineTuningJobRequestHyperparametersNEpochs1,
+  CreateFineTuningJobRequestModel2,
+} from "@speakeasy-api/openai/dist/sdk/models/shared";
+
+const sdk = new Gpt();
+
+sdk.openAI.createFineTuningJob({
+  hyperparameters: {
+    nEpochs: 820994,
+  },
+  model: "gpt-3.5-turbo",
+  suffix: "quasi",
+  trainingFile: "file-abc123",
+  validationFile: "file-abc123",
+}).then((res: CreateFineTuningJobResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [shared.CreateFineTuningJobRequest](../../models/shared/createfinetuningjobrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+
+
+### Response
+
+**Promise<[operations.CreateFineTuningJobResponse](../../models/operations/createfinetuningjobresponse.md)>**
 
 
 ## createImage
@@ -481,11 +585,11 @@ const sdk = new Gpt();
 
 sdk.openAI.createImageEdit({
   image: {
-    content: "id".encode(),
-    image: "possimus",
+    content: "error".encode(),
+    image: "temporibus",
   },
   mask: {
-    content: "aut".encode(),
+    content: "laborum".encode(),
     mask: "quasi",
   },
   n: 1,
@@ -528,8 +632,8 @@ const sdk = new Gpt();
 
 sdk.openAI.createImageVariation({
   image: {
-    content: "error".encode(),
-    image: "temporibus",
+    content: "reiciendis".encode(),
+    image: "voluptatibus",
   },
   n: 1,
   responseFormat: CreateImageVariationRequestResponseFormat.Url,
@@ -571,6 +675,7 @@ const sdk = new Gpt();
 sdk.openAI.createModeration({
   input: [
     "I want to kill them.",
+    "I want to kill them.",
   ],
   model: CreateModerationRequestModel2.TextModerationStable,
 }).then((res: CreateModerationResponse) => {
@@ -609,13 +714,13 @@ const sdk = new Gpt();
 sdk.openAI.createTranscription({
   file: {
     content: "voluptatibus".encode(),
-    file: "vero",
+    file: "ipsa",
   },
-  language: "nihil",
-  model: CreateTranscriptionRequestModel2.Whisper1,
-  prompt: "voluptatibus",
+  language: "omnis",
+  model: "whisper-1",
+  prompt: "cum",
   responseFormat: CreateTranscriptionRequestResponseFormat.Json,
-  temperature: 6048.46,
+  temperature: 391.87,
 }).then((res: CreateTranscriptionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -651,13 +756,13 @@ const sdk = new Gpt();
 
 sdk.openAI.createTranslation({
   file: {
-    content: "voluptate".encode(),
-    file: "cum",
+    content: "reprehenderit".encode(),
+    file: "ut",
   },
-  model: "whisper-1",
-  prompt: "doloremque",
-  responseFormat: "reprehenderit",
-  temperature: 2828.07,
+  model: CreateTranslationRequestModel2.Whisper1,
+  prompt: "dicta",
+  responseFormat: "corporis",
+  temperature: 2961.4,
 }).then((res: CreateTranslationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -691,7 +796,7 @@ import { DeleteFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operat
 const sdk = new Gpt();
 
 sdk.openAI.deleteFile({
-  fileId: "maiores",
+  fileId: "iusto",
 }).then((res: DeleteFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -714,7 +819,7 @@ sdk.openAI.deleteFile({
 
 ## deleteModel
 
-Delete a fine-tuned model. You must have the Owner role in your organization.
+Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
 
 ### Example Usage
 
@@ -725,7 +830,7 @@ import { DeleteModelResponse } from "@speakeasy-api/openai/dist/sdk/models/opera
 const sdk = new Gpt();
 
 sdk.openAI.deleteModel({
-  model: "curie:ft-acmeco-2021-03-03-21-44-20",
+  model: "ft:gpt-3.5-turbo:acemeco:suffix:abc123",
 }).then((res: DeleteModelResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -811,10 +916,12 @@ sdk.openAI.listFiles().then((res: ListFilesResponse) => {
 **Promise<[operations.ListFilesResponse](../../models/operations/listfilesresponse.md)>**
 
 
-## listFineTuneEvents
+## ~~listFineTuneEvents~~
 
 Get fine-grained status updates for a fine-tune job.
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -847,10 +954,12 @@ sdk.openAI.listFineTuneEvents({
 **Promise<[operations.ListFineTuneEventsResponse](../../models/operations/listfinetuneeventsresponse.md)>**
 
 
-## listFineTunes
+## ~~listFineTunes~~
 
 List your organization's fine-tuning jobs
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -877,6 +986,43 @@ sdk.openAI.listFineTunes().then((res: ListFineTunesResponse) => {
 ### Response
 
 **Promise<[operations.ListFineTunesResponse](../../models/operations/listfinetunesresponse.md)>**
+
+
+## listFineTuningEvents
+
+Get status updates for a fine-tuning job.
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { ListFineTuningEventsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+const sdk = new Gpt();
+
+sdk.openAI.listFineTuningEvents({
+  after: "harum",
+  fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+  limit: 317983,
+}).then((res: ListFineTuningEventsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListFineTuningEventsRequest](../../models/operations/listfinetuningeventsrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
+
+
+### Response
+
+**Promise<[operations.ListFineTuningEventsResponse](../../models/operations/listfinetuningeventsresponse.md)>**
 
 
 ## listModels
@@ -910,6 +1056,42 @@ sdk.openAI.listModels().then((res: ListModelsResponse) => {
 **Promise<[operations.ListModelsResponse](../../models/operations/listmodelsresponse.md)>**
 
 
+## listPaginatedFineTuningJobs
+
+List your organization's fine-tuning jobs
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { ListPaginatedFineTuningJobsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+const sdk = new Gpt();
+
+sdk.openAI.listPaginatedFineTuningJobs({
+  after: "accusamus",
+  limit: 414263,
+}).then((res: ListPaginatedFineTuningJobsResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                                      | Type                                                                                                           | Required                                                                                                       | Description                                                                                                    |
+| -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------------------- |
+| `request`                                                                                                      | [operations.ListPaginatedFineTuningJobsRequest](../../models/operations/listpaginatedfinetuningjobsrequest.md) | :heavy_check_mark:                                                                                             | The request object to use for the request.                                                                     |
+| `config`                                                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                   | :heavy_minus_sign:                                                                                             | Available config options for making requests.                                                                  |
+
+
+### Response
+
+**Promise<[operations.ListPaginatedFineTuningJobsResponse](../../models/operations/listpaginatedfinetuningjobsresponse.md)>**
+
+
 ## retrieveFile
 
 Returns information about a specific file.
@@ -923,7 +1105,7 @@ import { RetrieveFileResponse } from "@speakeasy-api/openai/dist/sdk/models/oper
 const sdk = new Gpt();
 
 sdk.openAI.retrieveFile({
-  fileId: "corporis",
+  fileId: "repudiandae",
 }).then((res: RetrieveFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -944,12 +1126,14 @@ sdk.openAI.retrieveFile({
 **Promise<[operations.RetrieveFileResponse](../../models/operations/retrievefileresponse.md)>**
 
 
-## retrieveFineTune
+## ~~retrieveFineTune~~
 
 Gets info about the fine-tune job.
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
 
+
+> :warning: **DEPRECATED**: This will be removed in a future release, please migrate away from it as soon as possible.
 
 ### Example Usage
 
@@ -981,6 +1165,43 @@ sdk.openAI.retrieveFineTune({
 **Promise<[operations.RetrieveFineTuneResponse](../../models/operations/retrievefinetuneresponse.md)>**
 
 
+## retrieveFineTuningJob
+
+Get info about a fine-tuning job.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { RetrieveFineTuningJobResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+const sdk = new Gpt();
+
+sdk.openAI.retrieveFineTuningJob({
+  fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+}).then((res: RetrieveFineTuningJobResponse) => {
+  if (res.statusCode == 200) {
+    // handle response
+  }
+});
+```
+
+### Parameters
+
+| Parameter                                                                                          | Type                                                                                               | Required                                                                                           | Description                                                                                        |
+| -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| `request`                                                                                          | [operations.RetrieveFineTuningJobRequest](../../models/operations/retrievefinetuningjobrequest.md) | :heavy_check_mark:                                                                                 | The request object to use for the request.                                                         |
+| `config`                                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                       | :heavy_minus_sign:                                                                                 | Available config options for making requests.                                                      |
+
+
+### Response
+
+**Promise<[operations.RetrieveFineTuningJobResponse](../../models/operations/retrievefinetuningjobresponse.md)>**
+
+
 ## retrieveModel
 
 Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
@@ -994,7 +1215,7 @@ import { RetrieveModelResponse } from "@speakeasy-api/openai/dist/sdk/models/ope
 const sdk = new Gpt();
 
 sdk.openAI.retrieveModel({
-  model: "text-davinci-001",
+  model: "gpt-3.5-turbo",
 }).then((res: RetrieveModelResponse) => {
   if (res.statusCode == 200) {
     // handle response

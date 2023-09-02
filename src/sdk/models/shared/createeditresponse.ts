@@ -47,6 +47,8 @@ export class CreateEditResponseChoices extends SpeakeasyBase {
 
 /**
  * OK
+ *
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export class CreateEditResponse extends SpeakeasyBase {
     /**
@@ -58,7 +60,7 @@ export class CreateEditResponse extends SpeakeasyBase {
     choices: CreateEditResponseChoices[];
 
     /**
-     * A unix timestamp of when the edit was created.
+     * The Unix timestamp (in seconds) of when the edit was created.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "created" })

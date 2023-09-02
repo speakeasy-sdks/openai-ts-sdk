@@ -8,7 +8,7 @@ import { OpenAIFile } from "./openaifile";
 import { Expose, Type } from "class-transformer";
 
 /**
- * The hyperparameters used for the fine-tuning job. See the [Fine-tuning Guide](/docs/guides/fine-tuning/hyperparameters) for more details.
+ * The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/hyperparameters) for more details.
  */
 export class FineTuneHyperparams extends SpeakeasyBase {
     /**
@@ -85,14 +85,16 @@ export class FineTuneHyperparams extends SpeakeasyBase {
 }
 
 /**
- * The `FineTune` object represents a fine-tuning job that has been created through the API.
+ * The `FineTune` object represents a legacy fine-tune job that has been created through the API.
  *
  * @remarks
  *
+ *
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export class FineTune extends SpeakeasyBase {
     /**
-     * The unix timestamp for when the fine-tuning job was created.
+     * The Unix timestamp (in seconds) for when the fine-tuning job was created.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "created_at" })
@@ -114,7 +116,7 @@ export class FineTune extends SpeakeasyBase {
     fineTunedModel: string;
 
     /**
-     * The hyperparameters used for the fine-tuning job. See the [Fine-tuning Guide](/docs/guides/fine-tuning/hyperparameters) for more details.
+     * The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/hyperparameters) for more details.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hyperparams" })
@@ -158,7 +160,7 @@ export class FineTune extends SpeakeasyBase {
     resultFiles: OpenAIFile[];
 
     /**
-     * The current status of the fine-tuning job, which can be either `created`, `pending`, `running`, `succeeded`, `failed`, or `cancelled`.
+     * The current status of the fine-tuning job, which can be either `created`, `running`, `succeeded`, `failed`, or `cancelled`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
@@ -173,7 +175,7 @@ export class FineTune extends SpeakeasyBase {
     trainingFiles: OpenAIFile[];
 
     /**
-     * The unix timestamp for when the fine-tuning job was last updated.
+     * The Unix timestamp (in seconds) for when the fine-tuning job was last updated.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "updated_at" })

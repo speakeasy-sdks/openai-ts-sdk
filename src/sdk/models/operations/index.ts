@@ -3,12 +3,14 @@
  */
 
 export * from "./cancelfinetune";
+export * from "./cancelfinetuningjob";
 export * from "./createchatcompletion";
 export * from "./createcompletion";
 export * from "./createedit";
 export * from "./createembedding";
 export * from "./createfile";
 export * from "./createfinetune";
+export * from "./createfinetuningjob";
 export * from "./createimage";
 export * from "./createimageedit";
 export * from "./createimagevariation";
@@ -21,7 +23,10 @@ export * from "./downloadfile";
 export * from "./listfiles";
 export * from "./listfinetuneevents";
 export * from "./listfinetunes";
+export * from "./listfinetuningevents";
 export * from "./listmodels";
+export * from "./listpaginatedfinetuningjobs";
 export * from "./retrievefile";
 export * from "./retrievefinetune";
+export * from "./retrievefinetuningjob";
 export * from "./retrievemodel";

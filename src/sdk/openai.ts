@@ -23,6 +23,8 @@ export class OpenAI {
     /**
      * Immediately cancel a fine-tune job.
      *
+     *
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async cancelFineTune(
         req: operations.CancelFineTuneRequest,
@@ -72,6 +74,80 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Immediately cancel a fine-tune job.
+     *
+     */
+    async cancelFineTuningJob(
+        req: operations.CancelFineTuningJobRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.CancelFineTuningJobResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.CancelFineTuningJobRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/fine_tuning/jobs/{fine_tuning_job_id}/cancel",
+            req
+        );
+
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.CancelFineTuningJobResponse =
+            new operations.CancelFineTuningJobResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.fineTuningJob = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FineTuningJob
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -497,8 +573,10 @@ export class OpenAI {
      *
      * Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
      *
-     * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
+     * [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
      *
+     *
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async createFineTune(
         req: shared.CreateFineTuneRequest,
@@ -561,6 +639,93 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Creates a job that fine-tunes a specified model from a given dataset.
+     *
+     * Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+     *
+     * [Learn more about fine-tuning](/docs/guides/fine-tuning)
+     *
+     */
+    async createFineTuningJob(
+        req: shared.CreateFineTuningJobRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.CreateFineTuningJobResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new shared.CreateFineTuningJobRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = baseURL.replace(/\/$/, "") + "/fine_tuning/jobs";
+
+        let [reqBodyHeaders, reqBody]: [object, any] = [{}, {}];
+
+        try {
+            [reqBodyHeaders, reqBody] = utils.serializeRequestBody(req, "request", "json");
+        } catch (e: unknown) {
+            if (e instanceof Error) {
+                throw new Error(`Error serializing request body, cause: ${e.message}`);
+            }
+        }
+
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+
+        const headers = { ...reqBodyHeaders, ...config?.headers };
+        if (reqBody == null || Object.keys(reqBody).length === 0)
+            throw new Error("request body is required");
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "post",
+            headers: headers,
+            responseType: "arraybuffer",
+            data: reqBody,
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.CreateFineTuningJobResponse =
+            new operations.CreateFineTuningJobResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.fineTuningJob = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FineTuningJob
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -1132,7 +1297,7 @@ export class OpenAI {
     }
 
     /**
-     * Delete a fine-tuned model. You must have the Owner role in your organization.
+     * Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
      */
     async deleteModel(
         req: operations.DeleteModelRequest,
@@ -1328,6 +1493,8 @@ export class OpenAI {
     /**
      * Get fine-grained status updates for a fine-tune job.
      *
+     *
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listFineTuneEvents(
         req: operations.ListFineTuneEventsRequest,
@@ -1399,6 +1566,8 @@ export class OpenAI {
     /**
      * List your organization's fine-tuning jobs
      *
+     *
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async listFineTunes(config?: AxiosRequestConfig): Promise<operations.ListFineTunesResponse> {
         const baseURL: string = utils.templateUrl(
@@ -1443,6 +1612,81 @@ export class OpenAI {
                     res.listFineTunesResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ListFineTunesResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get status updates for a fine-tuning job.
+     *
+     */
+    async listFineTuningEvents(
+        req: operations.ListFineTuningEventsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListFineTuningEventsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListFineTuningEventsRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/fine_tuning/jobs/{fine_tuning_job_id}/events",
+            req
+        );
+
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListFineTuningEventsResponse =
+            new operations.ListFineTuningEventsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listFineTuningJobEventsResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ListFineTuningJobEventsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1504,6 +1748,77 @@ export class OpenAI {
                     res.listModelsResponse = utils.objectToClass(
                         JSON.parse(decodedRes),
                         shared.ListModelsResponse
+                    );
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * List your organization's fine-tuning jobs
+     *
+     */
+    async listPaginatedFineTuningJobs(
+        req: operations.ListPaginatedFineTuningJobsRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListPaginatedFineTuningJobsResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.ListPaginatedFineTuningJobsRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = baseURL.replace(/\/$/, "") + "/fine_tuning/jobs";
+
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url + queryParams,
+            method: "get",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.ListPaginatedFineTuningJobsResponse =
+            new operations.ListPaginatedFineTuningJobsResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.listPaginatedFineTuningJobsResponse = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.ListPaginatedFineTuningJobsResponse
                     );
                 } else {
                     throw new errors.SDKError(
@@ -1587,8 +1902,10 @@ export class OpenAI {
     /**
      * Gets info about the fine-tune job.
      *
-     * [Learn more about Fine-tuning](/docs/guides/fine-tuning)
+     * [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
      *
+     *
+     * @deprecated method: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     async retrieveFineTune(
         req: operations.RetrieveFineTuneRequest,
@@ -1638,6 +1955,82 @@ export class OpenAI {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
                     res.fineTune = utils.objectToClass(JSON.parse(decodedRes), shared.FineTune);
+                } else {
+                    throw new errors.SDKError(
+                        "unknown content-type received: " + contentType,
+                        httpRes.status,
+                        decodedRes,
+                        httpRes
+                    );
+                }
+                break;
+        }
+
+        return res;
+    }
+
+    /**
+     * Get info about a fine-tuning job.
+     *
+     * [Learn more about fine-tuning](/docs/guides/fine-tuning)
+     *
+     */
+    async retrieveFineTuningJob(
+        req: operations.RetrieveFineTuningJobRequest,
+        config?: AxiosRequestConfig
+    ): Promise<operations.RetrieveFineTuningJobResponse> {
+        if (!(req instanceof utils.SpeakeasyBase)) {
+            req = new operations.RetrieveFineTuningJobRequest(req);
+        }
+
+        const baseURL: string = utils.templateUrl(
+            this.sdkConfiguration.serverURL,
+            this.sdkConfiguration.serverDefaults
+        );
+        const url: string = utils.generateURL(
+            baseURL,
+            "/fine_tuning/jobs/{fine_tuning_job_id}",
+            req
+        );
+
+        const client: AxiosInstance = this.sdkConfiguration.defaultClient;
+
+        const headers = { ...config?.headers };
+        headers["Accept"] = "application/json";
+
+        headers[
+            "user-agent"
+        ] = `speakeasy-sdk/${this.sdkConfiguration.language} ${this.sdkConfiguration.sdkVersion} ${this.sdkConfiguration.genVersion} ${this.sdkConfiguration.openapiDocVersion}`;
+
+        const httpRes: AxiosResponse = await client.request({
+            validateStatus: () => true,
+            url: url,
+            method: "get",
+            headers: headers,
+            responseType: "arraybuffer",
+            ...config,
+        });
+
+        const contentType: string = httpRes?.headers?.["content-type"] ?? "";
+
+        if (httpRes?.status == null) {
+            throw new Error(`status code not found in response: ${httpRes}`);
+        }
+
+        const res: operations.RetrieveFineTuningJobResponse =
+            new operations.RetrieveFineTuningJobResponse({
+                statusCode: httpRes.status,
+                contentType: contentType,
+                rawResponse: httpRes,
+            });
+        const decodedRes = new TextDecoder().decode(httpRes?.data);
+        switch (true) {
+            case httpRes?.status == 200:
+                if (utils.matchContentType(contentType, `application/json`)) {
+                    res.fineTuningJob = utils.objectToClass(
+                        JSON.parse(decodedRes),
+                        shared.FineTuningJob
+                    );
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,

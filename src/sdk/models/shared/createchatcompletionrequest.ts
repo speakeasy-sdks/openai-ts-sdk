@@ -38,7 +38,7 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
+     * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
      *
      */
     @SpeakeasyMetadata()
@@ -111,7 +111,7 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * [See more information about frequency and presence penalties.](/docs/api-reference/parameter-details)
+     * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
      *
      */
     @SpeakeasyMetadata()

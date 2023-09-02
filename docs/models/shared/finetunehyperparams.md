@@ -1,6 +1,6 @@
 # FineTuneHyperparams
 
-The hyperparameters used for the fine-tuning job. See the [Fine-tuning Guide](/docs/guides/fine-tuning/hyperparameters) for more details.
+The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/hyperparameters) for more details.
 
 
 ## Fields

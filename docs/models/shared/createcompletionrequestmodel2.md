@@ -8,6 +8,8 @@ ID of the model to use. You can use the [List models](/docs/api-reference/models
 
 | Name             | Value            |
 | ---------------- | ---------------- |
+| `Babbage002`     | babbage-002      |
+| `Davinci002`     | davinci-002      |
 | `TextDavinci003` | text-davinci-003 |
 | `TextDavinci002` | text-davinci-002 |
 | `TextDavinci001` | text-davinci-001 |
