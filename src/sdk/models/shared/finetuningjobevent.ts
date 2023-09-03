@@ -17,6 +17,10 @@ export class FineTuningJobEvent extends SpeakeasyBase {
     createdAt: number;
 
     @SpeakeasyMetadata()
+    @Expose({ name: "id" })
+    id: string;
+
+    @SpeakeasyMetadata()
     @Expose({ name: "level" })
     level: FineTuningJobEventLevel;
 
