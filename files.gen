@@ -90,6 +90,7 @@ src/sdk/models/shared/finetuningjobevent.ts
 src/sdk/models/shared/listmodelsresponse.ts
 src/sdk/models/shared/model.ts
 src/sdk/models/shared/listpaginatedfinetuningjobsresponse.ts
+src/sdk/models/shared/security.ts
 src/sdk/models/shared/index.ts
 src/sdk/models/errors/index.ts
 docs/sdks/gpt/README.md
@@ -221,4 +222,5 @@ docs/models/shared/finetuningjobevent.md
 docs/models/shared/listmodelsresponse.md
 docs/models/shared/model.md
 docs/models/shared/listpaginatedfinetuningjobsresponse.md
+docs/models/shared/security.md
 .gitattributes

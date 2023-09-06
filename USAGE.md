@@ -5,7 +5,11 @@
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.cancelFineTune({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",

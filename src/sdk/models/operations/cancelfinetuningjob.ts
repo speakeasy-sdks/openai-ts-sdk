@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class CancelFineTuningJobRequest extends SpeakeasyBase {
     /**
-     * The ID of the fine-tuning job to cancel
+     * The ID of the fine-tuning job to cancel.
      *
      * @remarks
      *

@@ -44,3 +44,4 @@ export * from "./listmodelsresponse";
 export * from "./listpaginatedfinetuningjobsresponse";
 export * from "./model";
 export * from "./openaifile";
+export * from "./security";

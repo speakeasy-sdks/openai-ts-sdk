@@ -96,7 +96,7 @@ export class FineTuningJob extends SpeakeasyBase {
     organizationId: string;
 
     /**
-     * The compiled results files for the fine-tuning job.
+     * The compiled results file ID(s) for the fine-tuning job. You can retrieve the results with the [Files API](/docs/api-reference/files/retrieve-contents).
      */
     @SpeakeasyMetadata({ elemType: OpenAIFile })
     @Expose({ name: "result_files" })
@@ -111,21 +111,21 @@ export class FineTuningJob extends SpeakeasyBase {
     status: string;
 
     /**
-     * The total number of billable tokens processed by this fine tuning job.
+     * The total number of billable tokens processed by this fine-tuning job.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trained_tokens" })
     trainedTokens: number;
 
     /**
-     * The file ID used for training.
+     * The file ID used for training. You can retrieve the training data with the [Files API](/docs/api-reference/files/retrieve-contents).
      */
     @SpeakeasyMetadata()
     @Expose({ name: "training_file" })
     trainingFile: string;
 
     /**
-     * The file ID used for validation.
+     * The file ID used for validation. You can retrieve the validation results with the [Files API](/docs/api-reference/files/retrieve-contents).
      */
     @SpeakeasyMetadata()
     @Expose({ name: "validation_file" })

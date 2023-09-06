@@ -45,7 +45,11 @@ Authorization: Bearer YOUR_API_KEY
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.cancelFineTune({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
@@ -93,7 +97,7 @@ Response includes details of the enqueued job including job status and the name 
 * [createTranslation](docs/sdks/openai/README.md#createtranslation) - Translates audio into English.
 * [deleteFile](docs/sdks/openai/README.md#deletefile) - Delete a file.
 * [deleteModel](docs/sdks/openai/README.md#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
-* [downloadFile](docs/sdks/openai/README.md#downloadfile) - Returns the contents of the specified file
+* [downloadFile](docs/sdks/openai/README.md#downloadfile) - Returns the contents of the specified file.
 * [listFiles](docs/sdks/openai/README.md#listfiles) - Returns a list of files that belong to the user's organization.
 * [~~listFineTuneEvents~~](docs/sdks/openai/README.md#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
  :warning: **Deprecated**

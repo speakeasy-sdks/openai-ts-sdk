@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class RetrieveFineTuningJobRequest extends SpeakeasyBase {
     /**
-     * The ID of the fine-tuning job
+     * The ID of the fine-tuning job.
      *
      * @remarks
      *

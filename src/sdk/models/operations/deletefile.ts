@@ -8,7 +8,7 @@ import { AxiosResponse } from "axios";
 
 export class DeleteFileRequest extends SpeakeasyBase {
     /**
-     * The ID of the file to use for this request
+     * The ID of the file to use for this request.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=file_id" })
     fileId: string;

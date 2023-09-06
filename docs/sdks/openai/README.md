@@ -36,7 +36,7 @@ Response includes details of the enqueued job including job status and the name 
 * [createTranslation](#createtranslation) - Translates audio into English.
 * [deleteFile](#deletefile) - Delete a file.
 * [deleteModel](#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
-* [downloadFile](#downloadfile) - Returns the contents of the specified file
+* [downloadFile](#downloadfile) - Returns the contents of the specified file.
 * [listFiles](#listfiles) - Returns a list of files that belong to the user's organization.
 * [~~listFineTuneEvents~~](#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
  :warning: **Deprecated**
@@ -71,7 +71,11 @@ Immediately cancel a fine-tune job.
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.cancelFineTune({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
@@ -106,7 +110,11 @@ Immediately cancel a fine-tune job.
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelFineTuningJobResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.cancelFineTuningJob({
   fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
@@ -145,7 +153,11 @@ import {
   CreateChatCompletionRequestModel2,
 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createChatCompletion({
   frequencyPenalty: 5488.14,
@@ -251,7 +263,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateCompletionRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createCompletion({
   bestOf: 210382,
@@ -306,7 +322,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateEditRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createEdit({
   input: "What day of the wek is it?",
@@ -346,7 +366,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateEmbeddingResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateEmbeddingRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createEmbedding({
   input: [
@@ -398,7 +422,11 @@ Upload a file that contains document(s) to be used across various endpoints/feat
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createFile({
   file: {
@@ -444,7 +472,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateFineTuneRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createFineTune({
   batchSize: 158969,
@@ -501,7 +533,11 @@ import {
   CreateFineTuningJobRequestModel2,
 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createFineTuningJob({
   hyperparameters: {
@@ -542,7 +578,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateImageRequestResponseFormat, CreateImageRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createImage({
   n: 1,
@@ -581,7 +621,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateImageEditRequestResponseFormat, CreateImageEditRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createImageEdit({
   image: {
@@ -628,7 +672,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageVariationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateImageVariationRequestResponseFormat, CreateImageVariationRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createImageVariation({
   image: {
@@ -670,7 +718,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateModerationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateModerationRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createModeration({
   input: [
@@ -709,7 +761,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateTranscriptionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateTranscriptionRequestModel2, CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createTranscription({
   file: {
@@ -752,7 +808,11 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateTranslationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateTranslationRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.createTranslation({
   file: {
@@ -793,7 +853,11 @@ Delete a file.
 import { Gpt } from "@speakeasy-api/openai";
 import { DeleteFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.deleteFile({
   fileId: "iusto",
@@ -827,7 +891,11 @@ Delete a fine-tuned model. You must have the Owner role in your organization to 
 import { Gpt } from "@speakeasy-api/openai";
 import { DeleteModelResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.deleteModel({
   model: "ft:gpt-3.5-turbo:acemeco:suffix:abc123",
@@ -853,7 +921,7 @@ sdk.openAI.deleteModel({
 
 ## downloadFile
 
-Returns the contents of the specified file
+Returns the contents of the specified file.
 
 ### Example Usage
 
@@ -861,7 +929,11 @@ Returns the contents of the specified file
 import { Gpt } from "@speakeasy-api/openai";
 import { DownloadFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.downloadFile({
   fileId: "dicta",
@@ -895,7 +967,11 @@ Returns a list of files that belong to the user's organization.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListFilesResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.listFiles().then((res: ListFilesResponse) => {
   if (res.statusCode == 200) {
@@ -929,7 +1005,11 @@ Get fine-grained status updates for a fine-tune job.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListFineTuneEventsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.listFineTuneEvents({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
@@ -967,7 +1047,11 @@ List your organization's fine-tuning jobs
 import { Gpt } from "@speakeasy-api/openai";
 import { ListFineTunesResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.listFineTunes().then((res: ListFineTunesResponse) => {
   if (res.statusCode == 200) {
@@ -999,7 +1083,11 @@ Get status updates for a fine-tuning job.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListFineTuningEventsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.listFineTuningEvents({
   after: "harum",
@@ -1035,7 +1123,11 @@ Lists the currently available models, and provides basic information about each 
 import { Gpt } from "@speakeasy-api/openai";
 import { ListModelsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.listModels().then((res: ListModelsResponse) => {
   if (res.statusCode == 200) {
@@ -1067,7 +1159,11 @@ List your organization's fine-tuning jobs
 import { Gpt } from "@speakeasy-api/openai";
 import { ListPaginatedFineTuningJobsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.listPaginatedFineTuningJobs({
   after: "accusamus",
@@ -1102,7 +1198,11 @@ Returns information about a specific file.
 import { Gpt } from "@speakeasy-api/openai";
 import { RetrieveFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.retrieveFile({
   fileId: "repudiandae",
@@ -1141,7 +1241,11 @@ Gets info about the fine-tune job.
 import { Gpt } from "@speakeasy-api/openai";
 import { RetrieveFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.retrieveFineTune({
   fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
@@ -1178,7 +1282,11 @@ Get info about a fine-tuning job.
 import { Gpt } from "@speakeasy-api/openai";
 import { RetrieveFineTuningJobResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.retrieveFineTuningJob({
   fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
@@ -1212,7 +1320,11 @@ Retrieves a model instance, providing basic information about the model such as 
 import { Gpt } from "@speakeasy-api/openai";
 import { RetrieveModelResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt();
+const sdk = new Gpt({
+  security: {
+    apiKeyAuth: "",
+  },
+});
 
 sdk.openAI.retrieveModel({
   model: "gpt-3.5-turbo",
