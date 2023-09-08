@@ -1,7 +1,5 @@
 # ImagesResponse
 
-OK
-
 
 ## Fields
 

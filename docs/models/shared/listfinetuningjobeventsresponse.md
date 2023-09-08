@@ -1,7 +1,5 @@
 # ListFineTuningJobEventsResponse
 
-OK
-
 
 ## Fields
 

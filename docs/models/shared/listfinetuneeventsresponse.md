@@ -1,7 +1,5 @@
 # ListFineTuneEventsResponse
 
-OK
-
 
 ## Fields
 

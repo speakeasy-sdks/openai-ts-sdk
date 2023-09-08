@@ -1,7 +1,5 @@
 # ListModelsResponse
 
-OK
-
 
 ## Fields
 

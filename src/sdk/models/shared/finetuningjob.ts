@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { OpenAIFile } from "./openaifile";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -46,14 +45,14 @@ export class FineTuningJob extends SpeakeasyBase {
     createdAt: number;
 
     /**
-     * The name of the fine-tuned model that is being created.
+     * The name of the fine-tuned model that is being created. The value will be null if the fine-tuning job is still running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "fine_tuned_model" })
     fineTunedModel: string;
 
     /**
-     * The Unix timestamp (in seconds) for when the fine-tuning job was finished.
+     * The Unix timestamp (in seconds) for when the fine-tuning job was finished. The value will be null if the fine-tuning job is still running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "finished_at" })
@@ -98,10 +97,9 @@ export class FineTuningJob extends SpeakeasyBase {
     /**
      * The compiled results file ID(s) for the fine-tuning job. You can retrieve the results with the [Files API](/docs/api-reference/files/retrieve-contents).
      */
-    @SpeakeasyMetadata({ elemType: OpenAIFile })
+    @SpeakeasyMetadata()
     @Expose({ name: "result_files" })
-    @Type(() => OpenAIFile)
-    resultFiles: OpenAIFile[];
+    resultFiles: string[];
 
     /**
      * The current status of the fine-tuning job, which can be either `created`, `pending`, `running`, `succeeded`, `failed`, or `cancelled`.
@@ -111,7 +109,7 @@ export class FineTuningJob extends SpeakeasyBase {
     status: string;
 
     /**
-     * The total number of billable tokens processed by this fine-tuning job.
+     * The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "trained_tokens" })

@@ -1,7 +1,5 @@
 # CreateTranscriptionResponse
 
-OK
-
 
 ## Fields
 

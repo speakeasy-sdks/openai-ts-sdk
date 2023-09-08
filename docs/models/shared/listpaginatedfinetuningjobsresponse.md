@@ -1,7 +1,5 @@
 # ListPaginatedFineTuningJobsResponse
 
-OK
-
 
 ## Fields
 

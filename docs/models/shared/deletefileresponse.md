@@ -1,7 +1,5 @@
 # DeleteFileResponse
 
-OK
-
 
 ## Fields
 

@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Image } from "./image";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ImagesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "created" })

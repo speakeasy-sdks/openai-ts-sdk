@@ -5,9 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * OK
- */
 export class DeleteFileResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "deleted" })

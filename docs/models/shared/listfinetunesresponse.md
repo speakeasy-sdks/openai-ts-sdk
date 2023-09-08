@@ -1,7 +1,5 @@
 # ListFineTunesResponse
 
-OK
-
 
 ## Fields
 

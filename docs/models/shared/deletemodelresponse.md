@@ -1,7 +1,5 @@
 # DeleteModelResponse
 
-OK
-
 
 ## Fields
 

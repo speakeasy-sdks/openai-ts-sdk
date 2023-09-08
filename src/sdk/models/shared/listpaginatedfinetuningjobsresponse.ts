@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { FineTuningJob } from "./finetuningjob";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ListPaginatedFineTuningJobsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: FineTuningJob })
     @Expose({ name: "data" })

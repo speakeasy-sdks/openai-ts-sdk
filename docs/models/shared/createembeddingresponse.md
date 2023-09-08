@@ -1,7 +1,5 @@
 # CreateEmbeddingResponse
 
-OK
-
 
 ## Fields
 

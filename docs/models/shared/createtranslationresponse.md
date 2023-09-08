@@ -1,7 +1,5 @@
 # CreateTranslationResponse
 
-OK
-
 
 ## Fields
 

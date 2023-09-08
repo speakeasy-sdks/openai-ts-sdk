@@ -6,9 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { FineTune } from "./finetune";
 import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ListFineTunesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: FineTune })
     @Expose({ name: "data" })
