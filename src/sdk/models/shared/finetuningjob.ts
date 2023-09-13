@@ -6,6 +6,32 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
 /**
+ * For fine-tuning jobs that have `failed`, this will contain more information on the cause of the failure.
+ */
+export class FineTuningJobError extends SpeakeasyBase {
+    /**
+     * A machine-readable error code.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "code" })
+    code?: string;
+
+    /**
+     * A human-readable error message.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "message" })
+    message?: string;
+
+    /**
+     * The parameter that was invalid, usually `training_file` or `validation_file`. This field will be null if the failure was not parameter-specific.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "param" })
+    param?: string;
+}
+
+/**
  * The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
  *
  * @remarks
@@ -43,6 +69,14 @@ export class FineTuningJob extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "created_at" })
     createdAt: number;
+
+    /**
+     * For fine-tuning jobs that have `failed`, this will contain more information on the cause of the failure.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "error" })
+    @Type(() => FineTuningJobError)
+    error: FineTuningJobError;
 
     /**
      * The name of the fine-tuned model that is being created. The value will be null if the fine-tuning job is still running.

@@ -140,6 +140,7 @@ docs/models/shared/finetunehyperparams.md
 docs/models/shared/finetune.md
 docs/models/shared/openaifile.md
 docs/models/shared/finetuneevent.md
+docs/models/shared/finetuningjoberror.md
 docs/models/shared/finetuningjobhyperparametersnepochs1.md
 docs/models/shared/finetuningjobhyperparameters.md
 docs/models/shared/finetuningjob.md

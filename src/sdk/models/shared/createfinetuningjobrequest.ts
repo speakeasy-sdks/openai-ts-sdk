@@ -66,7 +66,7 @@ export class CreateFineTuningJobRequest extends SpeakeasyBase {
     model: any;
 
     /**
-     * A string of up to 40 characters that will be added to your fine-tuned model name.
+     * A string of up to 18 characters that will be added to your fine-tuned model name.
      *
      * @remarks
      *
