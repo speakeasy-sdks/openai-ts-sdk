@@ -10,12 +10,14 @@ import { Expose, Type } from "class-transformer";
  * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
  *
  * @remarks
- * or `length` if the maximum number of tokens specified in the request was reached.
+ * `length` if the maximum number of tokens specified in the request was reached,
+ * or `content_filter` if content was omitted due to a flag from our content filters.
  *
  */
 export enum CreateCompletionResponseChoicesFinishReason {
     Stop = "stop",
     Length = "length",
+    ContentFilter = "content_filter",
 }
 
 export class CreateCompletionResponseChoicesLogprobs extends SpeakeasyBase {
@@ -41,7 +43,8 @@ export class CreateCompletionResponseChoices extends SpeakeasyBase {
      * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
      *
      * @remarks
-     * or `length` if the maximum number of tokens specified in the request was reached.
+     * `length` if the maximum number of tokens specified in the request was reached,
+     * or `content_filter` if content was omitted due to a flag from our content filters.
      *
      */
     @SpeakeasyMetadata()
