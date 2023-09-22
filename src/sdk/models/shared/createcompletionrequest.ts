@@ -14,6 +14,7 @@ import { Expose } from "class-transformer";
 export enum CreateCompletionRequestModel2 {
     Babbage002 = "babbage-002",
     Davinci002 = "davinci-002",
+    Gpt35TurboInstruct = "gpt-3.5-turbo-instruct",
     TextDavinci003 = "text-davinci-003",
     TextDavinci002 = "text-davinci-002",
     TextDavinci001 = "text-davinci-001",

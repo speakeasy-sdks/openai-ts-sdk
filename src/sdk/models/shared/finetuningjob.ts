@@ -14,28 +14,28 @@ export class FineTuningJobError extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "code" })
-    code?: string;
+    code: string;
 
     /**
      * A human-readable error message.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
-    message?: string;
+    message: string;
 
     /**
      * The parameter that was invalid, usually `training_file` or `validation_file`. This field will be null if the failure was not parameter-specific.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "param" })
-    param?: string;
+    param: string;
 }
 
 /**
  * The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
  *
  * @remarks
- * "Auto" decides the optimal number of epochs based on the size of the dataset. If setting the number manually, we support any number between 1 and 50 epochs.
+ * "auto" decides the optimal number of epochs based on the size of the dataset. If setting the number manually, we support any number between 1 and 50 epochs.
  */
 export enum FineTuningJobHyperparametersNEpochs1 {
     Auto = "auto",
@@ -49,11 +49,11 @@ export class FineTuningJobHyperparameters extends SpeakeasyBase {
      * The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
      *
      * @remarks
-     * "Auto" decides the optimal number of epochs based on the size of the dataset. If setting the number manually, we support any number between 1 and 50 epochs.
+     * "auto" decides the optimal number of epochs based on the size of the dataset. If setting the number manually, we support any number between 1 and 50 epochs.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "n_epochs" })
-    nEpochs?: any;
+    nEpochs: any;
 }
 
 /**
@@ -90,7 +90,7 @@ export class FineTuningJob extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "finished_at" })
-    finishedAt?: number;
+    finishedAt: number;
 
     /**
      * The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/fine-tuning) for more details.
@@ -136,7 +136,7 @@ export class FineTuningJob extends SpeakeasyBase {
     resultFiles: string[];
 
     /**
-     * The current status of the fine-tuning job, which can be either `created`, `pending`, `running`, `succeeded`, `failed`, or `cancelled`.
+     * The current status of the fine-tuning job, which can be either `validating_files`, `queued`, `running`, `succeeded`, `failed`, or `cancelled`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
