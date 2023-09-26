@@ -621,3 +621,13 @@ Based on:
 - [typescript v2.22.8] .
 ### Releases
 - [NPM v2.22.8] https://www.npmjs.com/package/@speakeasy-api/openai/v/2.22.8 - .
+
+## 2023-09-26 00:55:14
+### Changes
+Based on:
+- OpenAPI Doc 2.0.0 https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+- Speakeasy CLI 1.91.0 (2.129.1) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v2.23.0] .
+### Releases
+- [NPM v2.23.0] https://www.npmjs.com/package/@speakeasy-api/openai/v/2.23.0 - .
