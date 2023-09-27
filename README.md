@@ -63,7 +63,7 @@ sdk.openAI.cancelFineTune({
 ## Available Resources and Operations
 
 
-### [OpenAI](docs/sdks/openai/README.md)
+### [openAI](docs/sdks/openai/README.md)
 
 * [~~cancelFineTune~~](docs/sdks/openai/README.md#cancelfinetune) - Immediately cancel a fine-tune job.
  :warning: **Deprecated**
