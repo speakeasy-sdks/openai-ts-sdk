@@ -1,4 +1,4 @@
-# CreateImageEditRequest2
+# CreateImageEditRequest
 
 
 ## Fields

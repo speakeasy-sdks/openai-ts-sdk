@@ -36,7 +36,7 @@ export enum CreateTranscriptionRequestResponseFormat {
     Vtt = "vtt",
 }
 
-export class CreateTranscriptionRequest1 extends SpeakeasyBase {
+export class CreateTranscriptionRequest extends SpeakeasyBase {
     /**
      * The audio file object (not file name) to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
      *

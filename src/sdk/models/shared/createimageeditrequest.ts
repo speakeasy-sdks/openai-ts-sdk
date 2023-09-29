@@ -37,7 +37,7 @@ export enum CreateImageEditRequestSize {
     OneThousandAndTwentyFourx1024 = "1024x1024",
 }
 
-export class CreateImageEditRequest2 extends SpeakeasyBase {
+export class CreateImageEditRequest extends SpeakeasyBase {
     /**
      * The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
      */

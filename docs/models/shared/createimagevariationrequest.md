@@ -1,4 +1,4 @@
-# CreateImageVariationRequest2
+# CreateImageVariationRequest
 
 
 ## Fields

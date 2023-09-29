@@ -161,39 +161,39 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.createChatCompletion({
-  frequencyPenalty: 5488.14,
+  frequencyPenalty: 7707.26,
   functionCall: {
-    name: "Ellis Mitchell",
+    name: "Diesel Money",
   },
   functions: [
     {
-      description: "illum",
-      name: "Sabrina Oberbrunner",
+      description: "Progressive radical model",
+      name: "Account International incidunt",
       parameters: {
-        "magnam": "debitis",
+        "eum": "Meadows",
       },
     },
   ],
   logitBias: {
-    "ipsa": 963663,
+    "eos": 206153,
   },
-  maxTokens: 272656,
+  maxTokens: 29019,
   messages: [
     {
-      content: "suscipit",
+      content: "Northeast frictionless Park",
       functionCall: {
-        arguments: "molestiae",
-        name: "Irving Lehner",
+        arguments: "Future Southeast",
+        name: "Southeast",
       },
-      name: "Mrs. Sophie Smith MD",
-      role: ChatCompletionRequestMessageRole.System,
+      name: "Faso",
+      role: ChatCompletionRequestMessageRole.User,
     },
   ],
   model: "gpt-3.5-turbo",
   n: 1,
-  presencePenalty: 8326.2,
+  presencePenalty: 9408.67,
   stop: [
-    "quo",
+    "tangible",
   ],
   stream: false,
   temperature: 1,
@@ -237,22 +237,20 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.createCompletion({
-  bestOf: 140350,
+  bestOf: 160667,
   echo: false,
-  frequencyPenalty: 8700.13,
+  frequencyPenalty: 141.61,
   logitBias: {
-    "at": 978619,
+    "velit": 254881,
   },
-  logprobs: 473608,
+  logprobs: 877910,
   maxTokens: 16,
-  model: CreateCompletionRequestModel2.TextBabbage001,
+  model: CreateCompletionRequestModel2.TextCurie001,
   n: 1,
-  presencePenalty: 4614.79,
-  prompt: [
-    780529,
-  ],
+  presencePenalty: 7232.16,
+  prompt: "This is a test.",
   stop: [
-    "["\n"]",
+    "[\"\n\"]",
   ],
   stream: false,
   suffix: "test.",
@@ -344,7 +342,9 @@ const sdk = new Gpt({
 
 sdk.openAI.createEmbedding({
   input: [
-    639921,
+    [
+      115613,
+    ],
   ],
   model: CreateEmbeddingRequestModel2.TextEmbeddingAda002,
   user: "user-1234",
@@ -387,10 +387,10 @@ const sdk = new Gpt({
 
 sdk.openAI.createFile({
   file: {
-    content: "fugit".encode(),
-    file: "deleniti",
+    content: "`'$Z`(L/RH" as bytes <<<>>>,
+    file: "Rap National",
   },
-  purpose: "hic",
+  purpose: "Female synergistic Maine",
 }).then((res: CreateFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -436,18 +436,18 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.createFineTune({
-  batchSize: 758616,
+  batchSize: 763928,
   classificationBetas: [
-    5218.48,
+    3993.02,
   ],
-  classificationNClasses: 105907,
-  classificationPositiveClass: "commodi",
+  classificationNClasses: 172686,
+  classificationPositiveClass: "male Buckinghamshire",
   computeClassificationMetrics: false,
-  learningRateMultiplier: 4736,
-  model: "curie",
-  nEpochs: 186332,
-  promptLossWeight: 7742.34,
-  suffix: "cum",
+  learningRateMultiplier: 4447.26,
+  model: CreateFineTuneRequestModel2.Curie,
+  nEpochs: 441380,
+  promptLossWeight: 37.22,
+  suffix: "Reggae Gorgeous synthesizing",
   trainingFile: "file-abc123",
   validationFile: "file-abc123",
 }).then((res: CreateFineTuneResponse) => {
@@ -500,7 +500,7 @@ sdk.openAI.createFineTuningJob({
     nEpochs: CreateFineTuningJobRequestHyperparametersNEpochs1.Auto,
   },
   model: "gpt-3.5-turbo",
-  suffix: "excepturi",
+  suffix: "Thallium",
   trainingFile: "file-abc123",
   validationFile: "file-abc123",
 }).then((res: CreateFineTuningJobResponse) => {
@@ -585,12 +585,12 @@ const sdk = new Gpt({
 
 sdk.openAI.createImageEdit({
   image: {
-    content: "aspernatur".encode(),
-    image: "perferendis",
+    content: "0]/(|3W_T9" as bytes <<<>>>,
+    image: "https://loremflickr.com/640/480",
   },
   mask: {
-    content: "ad".encode(),
-    mask: "natus",
+    content: "`^YjrpxopK" as bytes <<<>>>,
+    mask: "Rap Dodge Incredible",
   },
   n: 1,
   prompt: "A cute baby sea otter wearing a beret",
@@ -606,10 +606,10 @@ sdk.openAI.createImageEdit({
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [shared.CreateImageEditRequest2](../../models/shared/createimageeditrequest2.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `request`                                                                      | [shared.CreateImageEditRequest](../../models/shared/createimageeditrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -636,8 +636,8 @@ const sdk = new Gpt({
 
 sdk.openAI.createImageVariation({
   image: {
-    content: "sed".encode(),
-    image: "iste",
+    content: "`YY7PCrWuK" as bytes <<<>>>,
+    image: "https://loremflickr.com/640/480",
   },
   n: 1,
   responseFormat: CreateImageVariationRequestResponseFormat.Url,
@@ -652,10 +652,10 @@ sdk.openAI.createImageVariation({
 
 ### Parameters
 
-| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
-| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
-| `request`                                                                                  | [shared.CreateImageVariationRequest2](../../models/shared/createimagevariationrequest2.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
-| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [shared.CreateImageVariationRequest](../../models/shared/createimagevariationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
@@ -681,7 +681,9 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.createModeration({
-  input: "I want to kill them.",
+  input: [
+    "I want to kill them.",
+  ],
   model: CreateModerationRequestModel2.TextModerationStable,
 }).then((res: CreateModerationResponse) => {
   if (res.statusCode == 200) {
@@ -722,14 +724,14 @@ const sdk = new Gpt({
 
 sdk.openAI.createTranscription({
   file: {
-    content: "laboriosam".encode(),
-    file: "hic",
+    content: "\#BbTW'zX9" as bytes <<<>>>,
+    file: "Buckinghamshire",
   },
-  language: "saepe",
-  model: CreateTranscriptionRequestModel2.Whisper1,
-  prompt: "in",
-  responseFormat: CreateTranscriptionRequestResponseFormat.Text,
-  temperature: 6130.64,
+  language: "teal Titanium",
+  model: "whisper-1",
+  prompt: "Mendelevium Kansas behind",
+  responseFormat: CreateTranscriptionRequestResponseFormat.Json,
+  temperature: 3694.44,
 }).then((res: CreateTranscriptionResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -739,10 +741,10 @@ sdk.openAI.createTranscription({
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [shared.CreateTranscriptionRequest1](../../models/shared/createtranscriptionrequest1.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [shared.CreateTranscriptionRequest](../../models/shared/createtranscriptionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
@@ -769,13 +771,13 @@ const sdk = new Gpt({
 
 sdk.openAI.createTranslation({
   file: {
-    content: "iure".encode(),
-    file: "saepe",
+    content: "M57UL;W3rx" as bytes <<<>>>,
+    file: "Reggae Toys silver",
   },
   model: CreateTranslationRequestModel2.Whisper1,
-  prompt: "architecto",
-  responseFormat: "ipsa",
-  temperature: 9698.1,
+  prompt: "Soft East Frozen",
+  responseFormat: "Analyst aboard relocate",
+  temperature: 6003.73,
 }).then((res: CreateTranslationResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -813,7 +815,7 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.deleteFile({
-  fileId: "est",
+  fileId: "yellow kiddingly white",
 }).then((res: DeleteFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -889,7 +891,7 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.downloadFile({
-  fileId: "mollitia",
+  fileId: "Maserati Bronze Audi",
 }).then((res: DownloadFileResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1043,9 +1045,9 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.listFineTuningEvents({
-  after: "laborum",
+  after: "phew silver Consultant",
   fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-  limit: 170909,
+  limit: 104325,
 }).then((res: ListFineTuningEventsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1119,8 +1121,8 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.listPaginatedFineTuningJobs({
-  after: "dolorem",
-  limit: 358152,
+  after: "GB voluptate",
+  limit: 374490,
 }).then((res: ListPaginatedFineTuningJobsResponse) => {
   if (res.statusCode == 200) {
     // handle response
@@ -1158,7 +1160,7 @@ const sdk = new Gpt({
 });
 
 sdk.openAI.retrieveFile({
-  fileId: "explicabo",
+  fileId: "online Facilitator enfold",
 }).then((res: RetrieveFileResponse) => {
   if (res.statusCode == 200) {
     // handle response

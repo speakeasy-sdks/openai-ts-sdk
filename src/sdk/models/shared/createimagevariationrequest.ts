@@ -29,7 +29,7 @@ export enum CreateImageVariationRequestSize {
     OneThousandAndTwentyFourx1024 = "1024x1024",
 }
 
-export class CreateImageVariationRequest2 extends SpeakeasyBase {
+export class CreateImageVariationRequest extends SpeakeasyBase {
     /**
      * The image to use as the basis for the variation(s). Must be a valid PNG file, less than 4MB, and square.
      */
