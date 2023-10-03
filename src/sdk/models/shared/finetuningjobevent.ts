@@ -11,6 +11,9 @@ export enum FineTuningJobEventLevel {
     Error = "error",
 }
 
+/**
+ * Fine-tuning job event object
+ */
 export class FineTuningJobEvent extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "created_at" })

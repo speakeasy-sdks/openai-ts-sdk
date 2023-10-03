@@ -1,5 +1,7 @@
 # FineTuningJobEvent
 
+Fine-tuning job event object
+
 
 ## Fields
 

@@ -5,6 +5,11 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+/**
+ * Fine-tune event object
+ *
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
 export class FineTuneEvent extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "created_at" })

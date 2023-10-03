@@ -14,7 +14,7 @@ export class CreateFileRequestFile extends SpeakeasyBase {
 
 export class CreateFileRequest extends SpeakeasyBase {
     /**
-     * Name of the [JSON Lines](https://jsonlines.readthedocs.io/en/latest/) file to be uploaded.
+     * The file object (not file name) to be uploaded.
      *
      * @remarks
      *
@@ -25,11 +25,11 @@ export class CreateFileRequest extends SpeakeasyBase {
     file: CreateFileRequestFile;
 
     /**
-     * The intended purpose of the uploaded documents.
+     * The intended purpose of the uploaded file.
      *
      * @remarks
      *
-     * Use "fine-tune" for [fine-tuning](/docs/api-reference/fine-tuning). This allows us to validate the format of the uploaded file.
+     * Use "fine-tune" for [fine-tuning](/docs/api-reference/fine-tuning). This allows us to validate the format of the uploaded file is correct for fine-tuning.
      *
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=purpose" })
