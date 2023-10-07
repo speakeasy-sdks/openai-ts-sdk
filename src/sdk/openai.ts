@@ -441,13 +441,9 @@ export class OpenAI {
      * Creates an embedding vector representing the input text.
      */
     async createEmbedding(
-        req: shared.CreateEmbeddingRequest,
+        req: Record<string, any>,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateEmbeddingResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateEmbeddingRequest(req);
-        }
-
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -530,13 +526,9 @@ export class OpenAI {
      *
      */
     async createFile(
-        req: shared.CreateFileRequest,
+        req: Record<string, any>,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateFileResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateFileRequest(req);
-        }
-
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -1154,13 +1146,9 @@ export class OpenAI {
      * Transcribes audio into the input language.
      */
     async createTranscription(
-        req: shared.CreateTranscriptionRequest,
+        req: Record<string, any>,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTranscriptionResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateTranscriptionRequest(req);
-        }
-
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -1243,13 +1231,9 @@ export class OpenAI {
      * Translates audio into English.
      */
     async createTranslation(
-        req: shared.CreateTranslationRequest,
+        req: Record<string, any>,
         config?: AxiosRequestConfig
     ): Promise<operations.CreateTranslationResponse> {
-        if (!(req instanceof utils.SpeakeasyBase)) {
-            req = new shared.CreateTranslationRequest(req);
-        }
-
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults

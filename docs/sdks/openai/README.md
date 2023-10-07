@@ -70,21 +70,22 @@ Immediately cancel a fine-tune job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CancelFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.cancelFineTune({
-  fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-}).then((res: CancelFineTuneResponse) => {
+  const res = await sdk.openAI.cancelFineTune({
+    fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -109,21 +110,22 @@ Immediately cancel a fine-tune job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CancelFineTuningJobResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.cancelFineTuningJob({
-  fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-}).then((res: CancelFineTuningJobResponse) => {
+  const res = await sdk.openAI.cancelFineTuningJob({
+    fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -147,63 +149,50 @@ Creates a model response for the given chat conversation.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateChatCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import {
-  ChatCompletionRequestMessageRole,
-  CreateChatCompletionRequestFunctionCall1,
-  CreateChatCompletionRequestModel2,
-} from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { ChatCompletionRequestMessageRole } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createChatCompletion({
-  frequencyPenalty: 7707.26,
-  functionCall: {
-    name: "Diesel Money",
-  },
-  functions: [
-    {
-      description: "Progressive radical model",
-      name: "Account International incidunt",
-      parameters: {
-        "eum": "Meadows",
+  const res = await sdk.openAI.createChatCompletion({
+    functionCall: "Hybrid",
+    functions: [
+      {
+        name: "Hoboken reinvent Web",
+        parameters: {
+          "Southeast": "International",
+        },
       },
+    ],
+    logitBias: {
+      "incidunt": 432116,
     },
-  ],
-  logitBias: {
-    "eos": 206153,
-  },
-  maxTokens: 29019,
-  messages: [
-    {
-      content: "Northeast frictionless Park",
-      functionCall: {
-        arguments: "Future Southeast",
-        name: "Southeast",
+    messages: [
+      {
+        content: "abbreviate",
+        functionCall: {
+          arguments: "Directives Chair",
+          name: "Northeast frictionless Park",
+        },
+        role: ChatCompletionRequestMessageRole.Assistant,
       },
-      name: "Faso",
-      role: ChatCompletionRequestMessageRole.User,
-    },
-  ],
-  model: "gpt-3.5-turbo",
-  n: 1,
-  presencePenalty: 9408.67,
-  stop: [
-    "tangible",
-  ],
-  stream: false,
-  temperature: 1,
-  topP: 1,
-  user: "user-1234",
-}).then((res: CreateChatCompletionResponse) => {
+    ],
+    model: "gpt-3.5-turbo",
+    n: 1,
+    stop: "Future",
+    temperature: 1,
+    topP: 1,
+    user: "user-1234",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -227,41 +216,33 @@ Creates a completion for the provided prompt and parameters.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateCompletionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateCompletionRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createCompletion({
-  bestOf: 160667,
-  echo: false,
-  frequencyPenalty: 141.61,
-  logitBias: {
-    "velit": 254881,
-  },
-  logprobs: 877910,
-  maxTokens: 16,
-  model: CreateCompletionRequestModel2.TextCurie001,
-  n: 1,
-  presencePenalty: 7232.16,
-  prompt: "This is a test.",
-  stop: [
-    "[\"\n\"]",
-  ],
-  stream: false,
-  suffix: "test.",
-  temperature: 1,
-  topP: 1,
-  user: "user-1234",
-}).then((res: CreateCompletionResponse) => {
+  const res = await sdk.openAI.createCompletion({
+    logitBias: {
+      "red": 242695,
+    },
+    maxTokens: 16,
+    model: "Fresh",
+    n: 1,
+    prompt: "Reggae",
+    stop: "Fluorine",
+    suffix: "test.",
+    temperature: 1,
+    topP: 1,
+    user: "user-1234",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -287,27 +268,27 @@ Creates a new edit for the provided input, instruction, and parameters.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateEditRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createEdit({
-  input: "What day of the wek is it?",
-  instruction: "Fix the spelling mistakes.",
-  model: "text-davinci-edit-001",
-  n: 1,
-  temperature: 1,
-  topP: 1,
-}).then((res: CreateEditResponse) => {
+  const res = await sdk.openAI.createEdit({
+    input: "What day of the wek is it?",
+    instruction: "Fix the spelling mistakes.",
+    model: "text-davinci-edit-001",
+    n: 1,
+    temperature: 1,
+    topP: 1,
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -331,36 +312,30 @@ Creates an embedding vector representing the input text.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateEmbeddingResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateEmbeddingRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createEmbedding({
-  input: [
-    [
-      115613,
-    ],
-  ],
-  model: CreateEmbeddingRequestModel2.TextEmbeddingAda002,
-  user: "user-1234",
-}).then((res: CreateEmbeddingResponse) => {
+  const res = await sdk.openAI.createEmbedding({
+    "chief": "compressing",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.CreateEmbeddingRequest](../../models/shared/createembeddingrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [Record<string, any>](../../models//.md)                     | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -377,33 +352,30 @@ Upload a file that can be used across various endpoints/features. Currently, the
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createFile({
-  file: {
-    content: "`'$Z`(L/RH" as bytes <<<>>>,
-    file: "Rap National",
-  },
-  purpose: "Female synergistic Maine",
-}).then((res: CreateFileResponse) => {
+  const res = await sdk.openAI.createFile({
+    "Associate": "Miami",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `request`                                                            | [shared.CreateFileRequest](../../models/shared/createfilerequest.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
-| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [Record<string, any>](../../models//.md)                     | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -426,35 +398,30 @@ Response includes details of the enqueued job including job status and the name 
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateFineTuneRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createFineTune({
-  batchSize: 763928,
-  classificationBetas: [
-    3993.02,
-  ],
-  classificationNClasses: 172686,
-  classificationPositiveClass: "male Buckinghamshire",
-  computeClassificationMetrics: false,
-  learningRateMultiplier: 4447.26,
-  model: CreateFineTuneRequestModel2.Curie,
-  nEpochs: 441380,
-  promptLossWeight: 37.22,
-  suffix: "Reggae Gorgeous synthesizing",
-  trainingFile: "file-abc123",
-  validationFile: "file-abc123",
-}).then((res: CreateFineTuneResponse) => {
+  const res = await sdk.openAI.createFineTune({
+    classificationBetas: [
+      0.6,
+      1,
+      1.5,
+      2,
+    ],
+    model: "curie",
+    trainingFile: "file-abc123",
+    validationFile: "file-abc123",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -483,31 +450,27 @@ Response includes details of the enqueued job including job status and the name 
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateFineTuningJobResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import {
-  CreateFineTuningJobRequestHyperparametersNEpochs1,
-  CreateFineTuningJobRequestModel2,
-} from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createFineTuningJob({
-  hyperparameters: {
-    nEpochs: CreateFineTuningJobRequestHyperparametersNEpochs1.Auto,
-  },
-  model: "gpt-3.5-turbo",
-  suffix: "Thallium",
-  trainingFile: "file-abc123",
-  validationFile: "file-abc123",
-}).then((res: CreateFineTuningJobResponse) => {
+  const res = await sdk.openAI.createFineTuningJob({
+    hyperparameters: {
+      nEpochs: "empower",
+    },
+    model: "gpt-3.5-turbo",
+    trainingFile: "file-abc123",
+    validationFile: "file-abc123",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -531,26 +494,27 @@ Creates an image given a prompt.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateImageResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateImageRequestResponseFormat, CreateImageRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createImage({
-  n: 1,
-  prompt: "A cute baby sea otter",
-  responseFormat: CreateImageRequestResponseFormat.Url,
-  size: CreateImageRequestSize.OneThousandAndTwentyFourx1024,
-  user: "user-1234",
-}).then((res: CreateImageResponse) => {
+  const res = await sdk.openAI.createImage({
+    n: 1,
+    prompt: "A cute baby sea otter",
+    responseFormat: CreateImageRequestResponseFormat.Url,
+    size: CreateImageRequestSize.OneThousandAndTwentyFourx1024,
+    user: "user-1234",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -574,34 +538,35 @@ Creates an edited or extended image given an original image and a prompt.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateImageEditResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateImageEditRequestResponseFormat, CreateImageEditRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createImageEdit({
-  image: {
-    content: "0]/(|3W_T9" as bytes <<<>>>,
-    image: "https://loremflickr.com/640/480",
-  },
-  mask: {
-    content: "`^YjrpxopK" as bytes <<<>>>,
-    mask: "Rap Dodge Incredible",
-  },
-  n: 1,
-  prompt: "A cute baby sea otter wearing a beret",
-  responseFormat: CreateImageEditRequestResponseFormat.Url,
-  size: CreateImageEditRequestSize.OneThousandAndTwentyFourx1024,
-  user: "user-1234",
-}).then((res: CreateImageEditResponse) => {
+  const res = await sdk.openAI.createImageEdit({
+    image: {
+      content: "0]/(|3W_T9" as bytes <<<>>>,
+      image: "https://loremflickr.com/640/480",
+    },
+    mask: {
+      content: "`^YjrpxopK" as bytes <<<>>>,
+      mask: "Rap Dodge Incredible",
+    },
+    n: 1,
+    prompt: "A cute baby sea otter wearing a beret",
+    responseFormat: CreateImageEditRequestResponseFormat.Url,
+    size: CreateImageEditRequestSize.OneThousandAndTwentyFourx1024,
+    user: "user-1234",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -625,29 +590,30 @@ Creates a variation of a given image.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateImageVariationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateImageVariationRequestResponseFormat, CreateImageVariationRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createImageVariation({
-  image: {
-    content: "`YY7PCrWuK" as bytes <<<>>>,
-    image: "https://loremflickr.com/640/480",
-  },
-  n: 1,
-  responseFormat: CreateImageVariationRequestResponseFormat.Url,
-  size: CreateImageVariationRequestSize.OneThousandAndTwentyFourx1024,
-  user: "user-1234",
-}).then((res: CreateImageVariationResponse) => {
+  const res = await sdk.openAI.createImageVariation({
+    image: {
+      content: "`YY7PCrWuK" as bytes <<<>>>,
+      image: "https://loremflickr.com/640/480",
+    },
+    n: 1,
+    responseFormat: CreateImageVariationRequestResponseFormat.Url,
+    size: CreateImageVariationRequestSize.OneThousandAndTwentyFourx1024,
+    user: "user-1234",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -671,25 +637,23 @@ Classifies if text violates OpenAI's Content Policy
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateModerationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateModerationRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createModeration({
-  input: [
-    "I want to kill them.",
-  ],
-  model: CreateModerationRequestModel2.TextModerationStable,
-}).then((res: CreateModerationResponse) => {
+  const res = await sdk.openAI.createModeration({
+    input: "stable",
+    model: "text-moderation-stable",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -713,38 +677,30 @@ Transcribes audio into the input language.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateTranscriptionResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateTranscriptionRequestModel2, CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createTranscription({
-  file: {
-    content: "\#BbTW'zX9" as bytes <<<>>>,
-    file: "Buckinghamshire",
-  },
-  language: "teal Titanium",
-  model: "whisper-1",
-  prompt: "Mendelevium Kansas behind",
-  responseFormat: CreateTranscriptionRequestResponseFormat.Json,
-  temperature: 3694.44,
-}).then((res: CreateTranscriptionResponse) => {
+  const res = await sdk.openAI.createTranscription({
+    "Lead": "neutral",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [shared.CreateTranscriptionRequest](../../models/shared/createtranscriptionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [Record<string, any>](../../models//.md)                     | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -760,37 +716,30 @@ Translates audio into English.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateTranslationResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
-import { CreateTranslationRequestModel2 } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.createTranslation({
-  file: {
-    content: "M57UL;W3rx" as bytes <<<>>>,
-    file: "Reggae Toys silver",
-  },
-  model: CreateTranslationRequestModel2.Whisper1,
-  prompt: "Soft East Frozen",
-  responseFormat: "Analyst aboard relocate",
-  temperature: 6003.73,
-}).then((res: CreateTranslationResponse) => {
+  const res = await sdk.openAI.createTranslation({
+    "DRAM": "Granite",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [shared.CreateTranslationRequest](../../models/shared/createtranslationrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `request`                                                    | [Record<string, any>](../../models//.md)                     | :heavy_check_mark:                                           | The request object to use for the request.                   |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |
 
 
 ### Response
@@ -806,21 +755,22 @@ Delete a file.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { DeleteFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.deleteFile({
-  fileId: "yellow kiddingly white",
-}).then((res: DeleteFileResponse) => {
+  const res = await sdk.openAI.deleteFile({
+    fileId: "yellow kiddingly white",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -844,21 +794,22 @@ Delete a fine-tuned model. You must have the Owner role in your organization to 
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { DeleteModelResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.deleteModel({
-  model: "ft:gpt-3.5-turbo:acemeco:suffix:abc123",
-}).then((res: DeleteModelResponse) => {
+  const res = await sdk.openAI.deleteModel({
+    model: "ft:gpt-3.5-turbo:acemeco:suffix:abc123",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -882,21 +833,22 @@ Returns the contents of the specified file.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { DownloadFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.downloadFile({
-  fileId: "Maserati Bronze Audi",
-}).then((res: DownloadFileResponse) => {
+  const res = await sdk.openAI.downloadFile({
+    fileId: "Maserati Bronze Audi",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -920,19 +872,20 @@ Returns a list of files that belong to the user's organization.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { ListFilesResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.listFiles().then((res: ListFilesResponse) => {
+  const res = await sdk.openAI.listFiles();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -958,22 +911,22 @@ Get fine-grained status updates for a fine-tune job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { ListFineTuneEventsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.listFineTuneEvents({
-  fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-  stream: false,
-}).then((res: ListFineTuneEventsResponse) => {
+  const res = await sdk.openAI.listFineTuneEvents({
+    fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -1000,19 +953,20 @@ List your organization's fine-tuning jobs
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { ListFineTunesResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.listFineTunes().then((res: ListFineTunesResponse) => {
+  const res = await sdk.openAI.listFineTunes();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -1036,23 +990,22 @@ Get status updates for a fine-tuning job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { ListFineTuningEventsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.listFineTuningEvents({
-  after: "phew silver Consultant",
-  fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-  limit: 104325,
-}).then((res: ListFineTuningEventsResponse) => {
+  const res = await sdk.openAI.listFineTuningEvents({
+    fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -1076,19 +1029,20 @@ Lists the currently available models, and provides basic information about each 
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { ListModelsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.listModels().then((res: ListModelsResponse) => {
+  const res = await sdk.openAI.listModels();
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -1112,22 +1066,20 @@ List your organization's fine-tuning jobs
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { ListPaginatedFineTuningJobsResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.listPaginatedFineTuningJobs({
-  after: "GB voluptate",
-  limit: 374490,
-}).then((res: ListPaginatedFineTuningJobsResponse) => {
+  const res = await sdk.openAI.listPaginatedFineTuningJobs({});
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -1151,21 +1103,22 @@ Returns information about a specific file.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveFileResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.retrieveFile({
-  fileId: "online Facilitator enfold",
-}).then((res: RetrieveFileResponse) => {
+  const res = await sdk.openAI.retrieveFile({
+    fileId: "online Facilitator enfold",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -1194,21 +1147,22 @@ Gets info about the fine-tune job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveFineTuneResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.retrieveFineTune({
-  fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-}).then((res: RetrieveFineTuneResponse) => {
+  const res = await sdk.openAI.retrieveFineTune({
+    fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -1235,21 +1189,22 @@ Get info about a fine-tuning job.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveFineTuningJobResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.retrieveFineTuningJob({
-  fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-}).then((res: RetrieveFineTuningJobResponse) => {
+  const res = await sdk.openAI.retrieveFineTuningJob({
+    fineTuningJobId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters
@@ -1273,21 +1228,22 @@ Retrieves a model instance, providing basic information about the model such as 
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { RetrieveModelResponse } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const sdk = new Gpt({
-  security: {
-    apiKeyAuth: "",
-  },
-});
+(async() => {
+  const sdk = new Gpt({
+    security: {
+      apiKeyAuth: "",
+    },
+  });
 
-sdk.openAI.retrieveModel({
-  model: "gpt-3.5-turbo",
-}).then((res: RetrieveModelResponse) => {
+  const res = await sdk.openAI.retrieveModel({
+    model: "gpt-3.5-turbo",
+  });
+
   if (res.statusCode == 200) {
     // handle response
   }
-});
+})();
 ```
 
 ### Parameters

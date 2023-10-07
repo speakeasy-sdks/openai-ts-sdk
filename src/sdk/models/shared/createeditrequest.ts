@@ -5,14 +5,6 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * ID of the model to use. You can use the `text-davinci-edit-001` or `code-davinci-edit-001` model with this endpoint.
- */
-export enum CreateEditRequestModel2 {
-    TextDavinciEdit001 = "text-davinci-edit-001",
-    CodeDavinciEdit001 = "code-davinci-edit-001",
-}
-
 export class CreateEditRequest extends SpeakeasyBase {
     /**
      * The input text to use as a starting point for the edit.

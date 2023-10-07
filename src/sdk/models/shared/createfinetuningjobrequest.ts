@@ -6,17 +6,6 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
 /**
- * The number of epochs to train the model for. An epoch refers to one
- *
- * @remarks
- * full cycle through the training dataset.
- *
- */
-export enum CreateFineTuningJobRequestHyperparametersNEpochs1 {
-    Auto = "auto",
-}
-
-/**
  * The hyperparameters used for the fine-tuning job.
  */
 export class CreateFineTuningJobRequestHyperparameters extends SpeakeasyBase {
@@ -30,19 +19,6 @@ export class CreateFineTuningJobRequestHyperparameters extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "n_epochs" })
     nEpochs?: any;
-}
-
-/**
- * The name of the model to fine-tune. You can select one of the
- *
- * @remarks
- * [supported models](/docs/guides/fine-tuning/what-models-can-be-fine-tuned).
- *
- */
-export enum CreateFineTuningJobRequestModel2 {
-    Babbage002 = "babbage-002",
-    Davinci002 = "davinci-002",
-    Gpt35Turbo = "gpt-3.5-turbo",
 }
 
 export class CreateFineTuningJobRequest extends SpeakeasyBase {

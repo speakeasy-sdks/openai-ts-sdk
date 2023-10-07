@@ -7,34 +7,6 @@ import { ChatCompletionFunctions } from "./chatcompletionfunctions";
 import { ChatCompletionRequestMessage } from "./chatcompletionrequestmessage";
 import { Expose, Type } from "class-transformer";
 
-/**
- * Controls how the model calls functions. "none" means the model will not call a function and instead generates a message. "auto" means the model can pick between generating a message or calling a function.  Specifying a particular function via `{"name": "my_function"}` forces the model to call that function. "none" is the default when no functions are present. "auto" is the default if functions are present.
- *
- * @remarks
- *
- */
-export enum CreateChatCompletionRequestFunctionCall1 {
-    None = "none",
-    Auto = "auto",
-}
-
-/**
- * ID of the model to use. See the [model endpoint compatibility](/docs/models/model-endpoint-compatibility) table for details on which models work with the Chat API.
- */
-export enum CreateChatCompletionRequestModel2 {
-    Gpt4 = "gpt-4",
-    Gpt40314 = "gpt-4-0314",
-    Gpt40613 = "gpt-4-0613",
-    Gpt432k = "gpt-4-32k",
-    Gpt432k0314 = "gpt-4-32k-0314",
-    Gpt432k0613 = "gpt-4-32k-0613",
-    Gpt35Turbo = "gpt-3.5-turbo",
-    Gpt35Turbo16k = "gpt-3.5-turbo-16k",
-    Gpt35Turbo0301 = "gpt-3.5-turbo-0301",
-    Gpt35Turbo0613 = "gpt-3.5-turbo-0613",
-    Gpt35Turbo16k0613 = "gpt-3.5-turbo-16k-0613",
-}
-
 export class CreateChatCompletionRequest extends SpeakeasyBase {
     /**
      * Number between -2.0 and 2.0. Positive values penalize new tokens based on their existing frequency in the text so far, decreasing the model's likelihood to repeat the same line verbatim.

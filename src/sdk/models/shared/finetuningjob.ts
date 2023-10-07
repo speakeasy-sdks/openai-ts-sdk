@@ -32,16 +32,6 @@ export class FineTuningJobError extends SpeakeasyBase {
 }
 
 /**
- * The number of epochs to train the model for. An epoch refers to one full cycle through the training dataset.
- *
- * @remarks
- * "auto" decides the optimal number of epochs based on the size of the dataset. If setting the number manually, we support any number between 1 and 50 epochs.
- */
-export enum FineTuningJobHyperparametersNEpochs1 {
-    Auto = "auto",
-}
-
-/**
  * The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/fine-tuning) for more details.
  */
 export class FineTuningJobHyperparameters extends SpeakeasyBase {
