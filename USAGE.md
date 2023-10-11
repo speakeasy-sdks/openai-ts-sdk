@@ -3,6 +3,7 @@
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
+import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Gpt({
@@ -11,8 +12,12 @@ import { Gpt } from "@speakeasy-api/openai";
     },
   });
 
-  const res = await sdk.openAI.cancelFineTune({
-    fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
+  const res = await sdk.audio.createTranscription({
+    file: {
+      content: "\#BbTW'zX9" as bytes <<<>>>,
+      file: "Buckinghamshire",
+    },
+    model: "whisper-1",
   });
 
   if (res.statusCode == 200) {

@@ -3,7 +3,23 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { Expose, Type } from "class-transformer";
+
+/**
+ * The hyperparameters used for the fine-tuning job.
+ */
+export class CreateFineTuneRequestHyperparameters extends SpeakeasyBase {
+    /**
+     * The number of epochs to train the model for. An epoch refers to one
+     *
+     * @remarks
+     * full cycle through the training dataset.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "n_epochs" })
+    nEpochs?: any;
+}
 
 export class CreateFineTuneRequest extends SpeakeasyBase {
     /**
@@ -82,6 +98,14 @@ export class CreateFineTuneRequest extends SpeakeasyBase {
     computeClassificationMetrics?: boolean;
 
     /**
+     * The hyperparameters used for the fine-tuning job.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "hyperparameters" })
+    @Type(() => CreateFineTuneRequestHyperparameters)
+    hyperparameters?: CreateFineTuneRequestHyperparameters;
+
+    /**
      * The learning rate multiplier to use for training.
      *
      * @remarks
@@ -111,17 +135,6 @@ export class CreateFineTuneRequest extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "model" })
     model?: any;
-
-    /**
-     * The number of epochs to train the model for. An epoch refers to one
-     *
-     * @remarks
-     * full cycle through the training dataset.
-     *
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "n_epochs" })
-    nEpochs?: number;
 
     /**
      * The weight to use for loss on the prompt tokens. This controls how

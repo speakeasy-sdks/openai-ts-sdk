@@ -3,8 +3,18 @@
  */
 
 import * as utils from "../internal/utils";
+import { Audio } from "./audio";
+import { Chat } from "./chat";
+import { Completions } from "./completions";
+import { Edits } from "./edits";
+import { Embeddings } from "./embeddings";
+import { Files } from "./files";
+import { FineTunes } from "./finetunes";
+import { FineTuning } from "./finetuning";
+import { Images } from "./images";
+import { Models } from "./models";
 import * as shared from "./models/shared";
-import { OpenAI } from "./openai";
+import { Moderations } from "./moderations";
 import axios from "axios";
 import { AxiosInstance } from "axios";
 
@@ -49,9 +59,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "2.0.0";
-    sdkVersion = "2.26.0";
-    genVersion = "2.150.0";
-    userAgent = "speakeasy-sdk/typescript 2.26.0 2.150.0 2.0.0 @speakeasy-api/openai";
+    sdkVersion = "2.26.1";
+    genVersion = "2.152.1";
+    userAgent = "speakeasy-sdk/typescript 2.26.1 2.152.1 2.0.0 @speakeasy-api/openai";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -63,9 +73,49 @@ export class SDKConfiguration {
  */
 export class Gpt {
     /**
-     * The OpenAI REST API
+     * Learn how to turn audio into text.
      */
-    public openAI: OpenAI;
+    public audio: Audio;
+    /**
+     * Given a list of messages comprising a conversation, the model will return a response.
+     */
+    public chat: Chat;
+    /**
+     * Given a prompt, the model will return one or more predicted completions, and can also return the probabilities of alternative tokens at each position.
+     */
+    public completions: Completions;
+    /**
+     * Given a prompt and an instruction, the model will return an edited version of the prompt.
+     */
+    public edits: Edits;
+    /**
+     * Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms.
+     */
+    public embeddings: Embeddings;
+    /**
+     * Files are used to upload documents that can be used with features like fine-tuning.
+     */
+    public files: Files;
+    /**
+     * Manage legacy fine-tuning jobs to tailor a model to your specific training data.
+     */
+    public fineTunes: FineTunes;
+    /**
+     * Manage fine-tuning jobs to tailor a model to your specific training data.
+     */
+    public fineTuning: FineTuning;
+    /**
+     * Given a prompt and/or an input image, the model will generate a new image.
+     */
+    public images: Images;
+    /**
+     * List and describe the various models available in the API.
+     */
+    public models: Models;
+    /**
+     * Given a input text, outputs if the model classifies it as violating OpenAI's content policy.
+     */
+    public moderations: Moderations;
 
     private sdkConfiguration: SDKConfiguration;
 
@@ -85,6 +135,16 @@ export class Gpt {
             retryConfig: props?.retryConfig,
         });
 
-        this.openAI = new OpenAI(this.sdkConfiguration);
+        this.audio = new Audio(this.sdkConfiguration);
+        this.chat = new Chat(this.sdkConfiguration);
+        this.completions = new Completions(this.sdkConfiguration);
+        this.edits = new Edits(this.sdkConfiguration);
+        this.embeddings = new Embeddings(this.sdkConfiguration);
+        this.files = new Files(this.sdkConfiguration);
+        this.fineTunes = new FineTunes(this.sdkConfiguration);
+        this.fineTuning = new FineTuning(this.sdkConfiguration);
+        this.images = new Images(this.sdkConfiguration);
+        this.models = new Models(this.sdkConfiguration);
+        this.moderations = new Moderations(this.sdkConfiguration);
     }
 }
