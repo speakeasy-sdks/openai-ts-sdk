@@ -174,6 +174,7 @@ docs/models/shared/createeditrequest.md
 docs/models/shared/createembeddingresponseusage.md
 docs/models/shared/createembeddingresponse.md
 docs/models/shared/embedding.md
+docs/models/shared/createembeddingrequestencodingformat.md
 docs/models/shared/createembeddingrequest.md
 docs/models/shared/openaifile.md
 docs/models/shared/createfilerequestfile.md

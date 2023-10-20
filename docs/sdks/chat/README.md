@@ -30,28 +30,28 @@ import { ChatCompletionRequestMessageRole } from "@speakeasy-api/openai/dist/sdk
     functionCall: "Hybrid",
     functions: [
       {
-        name: "Hoboken reinvent Web",
+        name: "Diesel",
         parameters: {
-          "Southeast": "International",
+          "Money": "Web",
         },
       },
     ],
     logitBias: {
-      "incidunt": 432116,
+      "Southeast": 652538,
     },
     messages: [
       {
-        content: "abbreviate",
+        content: "Planner",
         functionCall: {
-          arguments: "Directives Chair",
-          name: "Northeast frictionless Park",
+          arguments: "Modern",
+          name: "alarm",
         },
-        role: ChatCompletionRequestMessageRole.Assistant,
+        role: ChatCompletionRequestMessageRole.System,
       },
     ],
     model: "gpt-3.5-turbo",
     n: 1,
-    stop: "Future",
+    stop: "Chair",
     temperature: 1,
     topP: 1,
     user: "user-1234",

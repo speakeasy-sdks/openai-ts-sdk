@@ -17,6 +17,7 @@ Creates an embedding vector representing the input text.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
+import { CreateEmbeddingRequestEncodingFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Gpt({
@@ -26,6 +27,7 @@ import { Gpt } from "@speakeasy-api/openai";
   });
 
   const res = await sdk.embeddings.createEmbedding({
+    encodingFormat: CreateEmbeddingRequestEncodingFormat.Float,
     input: "The quick brown fox jumped over the lazy dog",
     model: "text-embedding-ada-002",
     user: "user-1234",

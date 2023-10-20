@@ -34,9 +34,9 @@ import { Gpt } from "@speakeasy-api/openai";
   const res = await sdk.files.createFile({
     file: {
       content: "`'$Z`(L/RH" as bytes <<<>>>,
-      file: "Rap National",
+      file: "Persevering",
     },
-    purpose: "Female synergistic Maine",
+    purpose: "produce",
   });
 
   if (res.statusCode == 200) {
@@ -75,7 +75,7 @@ import { Gpt } from "@speakeasy-api/openai";
   });
 
   const res = await sdk.files.deleteFile({
-    fileId: "yellow kiddingly white",
+    fileId: "Porsche",
   });
 
   if (res.statusCode == 200) {
@@ -114,7 +114,7 @@ import { Gpt } from "@speakeasy-api/openai";
   });
 
   const res = await sdk.files.downloadFile({
-    fileId: "Maserati Bronze Audi",
+    fileId: "gosh",
   });
 
   if (res.statusCode == 200) {
@@ -189,7 +189,7 @@ import { Gpt } from "@speakeasy-api/openai";
   });
 
   const res = await sdk.files.retrieveFile({
-    fileId: "online Facilitator enfold",
+    fileId: "Developer",
   });
 
   if (res.statusCode == 200) {
