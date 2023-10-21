@@ -27,13 +27,13 @@ import { Gpt } from "@speakeasy-api/openai";
 
   const res = await sdk.completions.createCompletion({
     logitBias: {
-      "red": 242695,
+      "key": 160667,
     },
     maxTokens: 16,
-    model: "Fresh",
+    model: "string",
     n: 1,
-    prompt: "Reggae",
-    stop: "Fluorine",
+    prompt: "string",
+    stop: "string",
     suffix: "test.",
     temperature: 1,
     topP: 1,

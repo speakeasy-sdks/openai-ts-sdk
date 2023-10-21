@@ -51,7 +51,7 @@ export class CreateTranscriptionRequest extends SpeakeasyBase {
      * @remarks
      *
      */
-    @SpeakeasyMetadata({ data: "multipart_form, name=model;json=true" })
+    @SpeakeasyMetadata({ data: "multipart_form, name=model" })
     model: any;
 
     /**

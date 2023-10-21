@@ -26,7 +26,7 @@ import { Gpt } from "@speakeasy-api/openai";
   });
 
   const res = await sdk.moderations.createModeration({
-    input: "stable",
+    input: "string",
     model: "text-moderation-stable",
   });
 

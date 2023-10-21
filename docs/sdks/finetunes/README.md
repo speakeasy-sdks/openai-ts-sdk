@@ -97,7 +97,7 @@ import { Gpt } from "@speakeasy-api/openai";
       2,
     ],
     hyperparameters: {
-      nEpochs: "plum",
+      nEpochs: "string",
     },
     model: "curie",
     trainingFile: "file-abc123",

@@ -30,7 +30,7 @@ import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/
   const res = await sdk.audio.createTranscription({
     file: {
       content: "\#BbTW'zX9" as bytes <<<>>>,
-      file: "green",
+      file: "string",
     },
     model: "whisper-1",
   });
@@ -73,7 +73,7 @@ import { Gpt } from "@speakeasy-api/openai";
   const res = await sdk.audio.createTranslation({
     file: {
       content: "M57UL;W3rx" as bytes <<<>>>,
-      file: "Bicycle",
+      file: "string",
     },
     model: "whisper-1",
   });

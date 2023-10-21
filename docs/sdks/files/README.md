@@ -34,9 +34,9 @@ import { Gpt } from "@speakeasy-api/openai";
   const res = await sdk.files.createFile({
     file: {
       content: "`'$Z`(L/RH" as bytes <<<>>>,
-      file: "Persevering",
+      file: "string",
     },
-    purpose: "produce",
+    purpose: "string",
   });
 
   if (res.statusCode == 200) {
@@ -75,7 +75,7 @@ import { Gpt } from "@speakeasy-api/openai";
   });
 
   const res = await sdk.files.deleteFile({
-    fileId: "Porsche",
+    fileId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -114,7 +114,7 @@ import { Gpt } from "@speakeasy-api/openai";
   });
 
   const res = await sdk.files.downloadFile({
-    fileId: "gosh",
+    fileId: "string",
   });
 
   if (res.statusCode == 200) {
@@ -189,7 +189,7 @@ import { Gpt } from "@speakeasy-api/openai";
   });
 
   const res = await sdk.files.retrieveFile({
-    fileId: "Developer",
+    fileId: "string",
   });
 
   if (res.statusCode == 200) {

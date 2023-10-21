@@ -87,7 +87,7 @@ import { Gpt } from "@speakeasy-api/openai";
 
   const res = await sdk.fineTuning.createFineTuningJob({
     hyperparameters: {
-      nEpochs: "empower",
+      nEpochs: "string",
     },
     model: "gpt-3.5-turbo",
     trainingFile: "file-abc123",

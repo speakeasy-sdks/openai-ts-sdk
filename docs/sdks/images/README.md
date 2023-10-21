@@ -79,7 +79,7 @@ import { CreateImageEditRequestResponseFormat, CreateImageEditRequestSize } from
     },
     mask: {
       content: "`^YjrpxopK" as bytes <<<>>>,
-      mask: "plum",
+      mask: "string",
     },
     n: 1,
     prompt: "A cute baby sea otter wearing a beret",

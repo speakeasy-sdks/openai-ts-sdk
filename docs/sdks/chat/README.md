@@ -27,31 +27,31 @@ import { ChatCompletionRequestMessageRole } from "@speakeasy-api/openai/dist/sdk
   });
 
   const res = await sdk.chat.createChatCompletion({
-    functionCall: "Hybrid",
+    functionCall: "string",
     functions: [
       {
-        name: "Diesel",
+        name: "string",
         parameters: {
-          "Money": "Web",
+          "key": "string",
         },
       },
     ],
     logitBias: {
-      "Southeast": 652538,
+      "key": 770726,
     },
     messages: [
       {
-        content: "Planner",
+        content: "string",
         functionCall: {
-          arguments: "Modern",
-          name: "alarm",
+          arguments: "string",
+          name: "string",
         },
-        role: ChatCompletionRequestMessageRole.System,
+        role: ChatCompletionRequestMessageRole.Assistant,
       },
     ],
     model: "gpt-3.5-turbo",
     n: 1,
-    stop: "Chair",
+    stop: "string",
     temperature: 1,
     topP: 1,
     user: "user-1234",

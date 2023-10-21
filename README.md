@@ -53,7 +53,7 @@ import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/
   const res = await sdk.audio.createTranscription({
     file: {
       content: "\#BbTW'zX9" as bytes <<<>>>,
-      file: "green",
+      file: "string",
     },
     model: "whisper-1",
   });
