@@ -5,11 +5,8 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-/**
- * OK
- */
 export class CreateTranscriptionResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "text" })
-  text: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "text" })
+    text: string;
 }

@@ -6,45 +6,55 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 export class CreateEditRequest extends SpeakeasyBase {
-  /**
-   * The input text to use as a starting point for the edit.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "input" })
-  input?: string;
+    /**
+     * The input text to use as a starting point for the edit.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "input" })
+    input?: string;
 
-  /**
-   * The instruction that tells the model how to edit the prompt.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "instruction" })
-  instruction: string;
+    /**
+     * The instruction that tells the model how to edit the prompt.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "instruction" })
+    instruction: string;
 
-  /**
-   * ID of the model to use. You can use the `text-davinci-edit-001` or `code-davinci-edit-001` model with this endpoint.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "model" })
-  model: string;
+    /**
+     * ID of the model to use. You can use the `text-davinci-edit-001` or `code-davinci-edit-001` model with this endpoint.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "model" })
+    model: any;
 
-  /**
-   * How many edits to generate for the input and instruction.
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "n" })
-  n?: number;
+    /**
+     * How many edits to generate for the input and instruction.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "n" })
+    n?: number;
 
-  /**
-   * completions_temperature_description
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "temperature" })
-  temperature?: number;
+    /**
+     * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+     *
+     * @remarks
+     *
+     * We generally recommend altering this or `top_p` but not both.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "temperature" })
+    temperature?: number;
 
-  /**
-   * completions_top_p_description
-   */
-  @SpeakeasyMetadata()
-  @Expose({ name: "top_p" })
-  topP?: number;
+    /**
+     * An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.
+     *
+     * @remarks
+     *
+     * We generally recommend altering this or `temperature` but not both.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "top_p" })
+    topP?: number;
 }

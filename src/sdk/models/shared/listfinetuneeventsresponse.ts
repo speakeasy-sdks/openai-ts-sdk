@@ -3,17 +3,16 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { FineTuneEvent } from "./finetuneevent";
+import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
 export class ListFineTuneEventsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  data: any[];
+    @SpeakeasyMetadata({ elemType: FineTuneEvent })
+    @Expose({ name: "data" })
+    @Type(() => FineTuneEvent)
+    data: FineTuneEvent[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 }
