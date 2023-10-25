@@ -2,8 +2,8 @@ configVersion: 1.0.0
 management:
   docChecksum: b421f9981e573fbdad69da1d6fbac49f
   docVersion: 2.0.0
-  speakeasyVersion: 1.104.0
-  generationVersion: 2.169.0
+  speakeasyVersion: 1.107.0
+  generationVersion: 2.171.0
 generation:
   repoURL: https://github.com/speakeasy-sdks/openai-ts-sdk.git
   sdkClassName: gpt
@@ -12,12 +12,12 @@ generation:
   telemetryEnabled: false
 features:
   typescript:
-    core: 2.93.0
+    core: 2.94.0
     deprecations: 2.81.1
     globalSecurity: 2.82.0
     globalServerURLs: 2.82.0
 typescript:
-  version: 2.27.0
+  version: 2.28.0
   author: speakeasy-openai
   flattenGlobalSecurity: false
   installationURL: https://github.com/speakeasy-sdks/openai-ts-sdk
