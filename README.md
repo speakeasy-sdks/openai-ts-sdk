@@ -40,88 +40,237 @@ Authorization: Bearer YOUR_API_KEY
 ## SDK Example Usage
 <!-- Start SDK Example Usage -->
 ```typescript
-import {
-  CancelFineTuneRequest,
-  CancelFineTuneResponse
-} from "@speakeasy-api/openai/dist/sdk/models/operations";
-
-import { AxiosError } from "axios";
 import { Gpt } from "@speakeasy-api/openai";
-const sdk = new Gpt();
+import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const req: CancelFineTuneRequest = {
-  fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-};
+(async() => {
+  const sdk = new Gpt({
+    apiKeyAuth: "",
+  });
 
-sdk.openAI.cancelFineTune(req).then((res: CancelFineTuneResponse | AxiosError) => {
-   // handle response
-});
+  const res = await sdk.audio.createTranscription({
+    file: {
+      content: "\#BbTW'zX9" as bytes <<<>>>,
+      file: "string",
+    },
+    model: "whisper-1",
+  });
+
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
 ```
 <!-- End SDK Example Usage -->
 
 <!-- Start SDK Available Operations -->
-## SDK Available Operations
+## Available Resources and Operations
 
 
-### openAI
+### [audio](docs/sdks/audio/README.md)
 
-* `cancelFineTune` - Immediately cancel a fine-tune job.
+* [createTranscription](docs/sdks/audio/README.md#createtranscription) - Transcribes audio into the input language.
+* [createTranslation](docs/sdks/audio/README.md#createtranslation) - Translates audio into English.
 
-* `createAnswer` - Answers the specified question using the provided documents and examples.
+### [chat](docs/sdks/chat/README.md)
 
-The endpoint first [searches](/docs/api-reference/searches) over provided documents or files to find relevant context. The relevant context is combined with the provided examples and question to create the prompt for [completion](/docs/api-reference/completions).
+* [createChatCompletion](docs/sdks/chat/README.md#createchatcompletion) - Creates a model response for the given chat conversation.
 
-* `createChatCompletion` - Creates a completion for the chat message
-* `createClassification` - Classifies the specified `query` using provided examples.
+### [completions](docs/sdks/completions/README.md)
 
-The endpoint first [searches](/docs/api-reference/searches) over the labeled examples
-to select the ones most relevant for the particular query. Then, the relevant examples
-are combined with the query to construct a prompt to produce the final label via the
-[completions](/docs/api-reference/completions) endpoint.
+* [createCompletion](docs/sdks/completions/README.md#createcompletion) - Creates a completion for the provided prompt and parameters.
 
-Labeled examples can be provided via an uploaded `file`, or explicitly listed in the
-request using the `examples` parameter for quick tests and small scale use cases.
+### [edits](docs/sdks/edits/README.md)
 
-* `createCompletion` - Creates a completion for the provided prompt and parameters
-* `createEdit` - Creates a new edit for the provided input, instruction, and parameters.
-* `createEmbedding` - Creates an embedding vector representing the input text.
-* `createFile` - Upload a file that contains document(s) to be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please contact us if you need to increase the storage limit.
+* [~~createEdit~~](docs/sdks/edits/README.md#createedit) - Creates a new edit for the provided input, instruction, and parameters. :warning: **Deprecated**
 
-* `createFineTune` - Creates a job that fine-tunes a specified model from a given dataset.
+### [embeddings](docs/sdks/embeddings/README.md)
+
+* [createEmbedding](docs/sdks/embeddings/README.md#createembedding) - Creates an embedding vector representing the input text.
+
+### [files](docs/sdks/files/README.md)
+
+* [createFile](docs/sdks/files/README.md#createfile) - Upload a file that can be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please [contact us](https://help.openai.com/) if you need to increase the storage limit.
+
+* [deleteFile](docs/sdks/files/README.md#deletefile) - Delete a file.
+* [downloadFile](docs/sdks/files/README.md#downloadfile) - Returns the contents of the specified file.
+* [listFiles](docs/sdks/files/README.md#listfiles) - Returns a list of files that belong to the user's organization.
+* [retrieveFile](docs/sdks/files/README.md#retrievefile) - Returns information about a specific file.
+
+### [fineTunes](docs/sdks/finetunes/README.md)
+
+* [~~cancelFineTune~~](docs/sdks/finetunes/README.md#cancelfinetune) - Immediately cancel a fine-tune job.
+ :warning: **Deprecated**
+* [~~createFineTune~~](docs/sdks/finetunes/README.md#createfinetune) - Creates a job that fine-tunes a specified model from a given dataset.
 
 Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
+ :warning: **Deprecated**
+* [~~listFineTuneEvents~~](docs/sdks/finetunes/README.md#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
+ :warning: **Deprecated**
+* [~~listFineTunes~~](docs/sdks/finetunes/README.md#listfinetunes) - List your organization's fine-tuning jobs
+ :warning: **Deprecated**
+* [~~retrieveFineTune~~](docs/sdks/finetunes/README.md#retrievefinetune) - Gets info about the fine-tune job.
 
-* `createImage` - Creates an image given a prompt.
-* `createImageEdit` - Creates an edited or extended image given an original image and a prompt.
-* `createImageVariation` - Creates a variation of a given image.
-* `createModeration` - Classifies if text violates OpenAI's Content Policy
-* `createSearch` - The search endpoint computes similarity scores between provided query and documents. Documents can be passed directly to the API if there are no more than 200 of them.
+[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
+ :warning: **Deprecated**
 
-To go beyond the 200 document limit, documents can be processed offline and then used for efficient retrieval at query time. When `file` is set, the search endpoint searches over all the documents in the given file and returns up to the `max_rerank` number of documents. These documents will be returned along with their search scores.
+### [fineTuning](docs/sdks/finetuning/README.md)
 
-The similarity score is a positive score that usually ranges from 0 to 300 (but can sometimes go higher), where a score above 200 usually means the document is semantically similar to the query.
+* [cancelFineTuningJob](docs/sdks/finetuning/README.md#cancelfinetuningjob) - Immediately cancel a fine-tune job.
 
-* `createTranscription` - Transcribes audio into the input language.
-* `createTranslation` - Translates audio into into English.
-* `deleteFile` - Delete a file.
-* `deleteModel` - Delete a fine-tuned model. You must have the Owner role in your organization.
-* `downloadFile` - Returns the contents of the specified file
-* `listEngines` - Lists the currently available (non-finetuned) models, and provides basic information about each one such as the owner and availability.
-* `listFiles` - Returns a list of files that belong to the user's organization.
-* `listFineTuneEvents` - Get fine-grained status updates for a fine-tune job.
+* [createFineTuningJob](docs/sdks/finetuning/README.md#createfinetuningjob) - Creates a job that fine-tunes a specified model from a given dataset.
 
-* `listFineTunes` - List your organization's fine-tuning jobs
+Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 
-* `listModels` - Lists the currently available models, and provides basic information about each one such as the owner and availability.
-* `retrieveEngine` - Retrieves a model instance, providing basic information about it such as the owner and availability.
-* `retrieveFile` - Returns information about a specific file.
-* `retrieveFineTune` - Gets info about the fine-tune job.
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
 
-[Learn more about Fine-tuning](/docs/guides/fine-tuning)
+* [listFineTuningEvents](docs/sdks/finetuning/README.md#listfinetuningevents) - Get status updates for a fine-tuning job.
 
-* `retrieveModel` - Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
+* [listPaginatedFineTuningJobs](docs/sdks/finetuning/README.md#listpaginatedfinetuningjobs) - List your organization's fine-tuning jobs
+
+* [retrieveFineTuningJob](docs/sdks/finetuning/README.md#retrievefinetuningjob) - Get info about a fine-tuning job.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+
+### [images](docs/sdks/images/README.md)
+
+* [createImage](docs/sdks/images/README.md#createimage) - Creates an image given a prompt.
+* [createImageEdit](docs/sdks/images/README.md#createimageedit) - Creates an edited or extended image given an original image and a prompt.
+* [createImageVariation](docs/sdks/images/README.md#createimagevariation) - Creates a variation of a given image.
+
+### [models](docs/sdks/models/README.md)
+
+* [deleteModel](docs/sdks/models/README.md#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
+* [listModels](docs/sdks/models/README.md#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
+* [retrieveModel](docs/sdks/models/README.md#retrievemodel) - Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
+
+### [moderations](docs/sdks/moderations/README.md)
+
+* [createModeration](docs/sdks/moderations/README.md#createmoderation) - Classifies if text violates OpenAI's Content Policy
 <!-- End SDK Available Operations -->
+
+
+
+<!-- Start Dev Containers -->
+
+
+
+<!-- End Dev Containers -->
+
+
+
+<!-- Start Error Handling -->
+# Error Handling
+
+Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+
+<!-- End Error Handling -->
+
+
+
+<!-- Start Server Selection -->
+# Server Selection
+
+## Select Server by Index
+
+You can override the default server globally by passing a server index to the `serverIdx: number` optional parameter when initializing the SDK client instance. The selected server will then be used as the default on the operations that use it. This table lists the indexes associated with the available servers:
+
+| # | Server | Variables |
+| - | ------ | --------- |
+| 0 | `https://api.openai.com/v1` | None |
+
+For example:
+
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
+
+(async() => {
+  const sdk = new Gpt({
+    apiKeyAuth: "",
+    serverIdx: 0,
+  });
+
+  const res = await sdk.audio.createTranscription({
+    file: {
+      content: "\#BbTW'zX9" as bytes <<<>>>,
+      file: "string",
+    },
+    model: "whisper-1",
+  });
+
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+
+
+## Override Server URL Per-Client
+
+The default server can also be overridden globally by passing a URL to the `serverURL: str` optional parameter when initializing the SDK client instance. For example:
+
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
+
+(async() => {
+  const sdk = new Gpt({
+    apiKeyAuth: "",
+    serverURL: "https://api.openai.com/v1",
+  });
+
+  const res = await sdk.audio.createTranscription({
+    file: {
+      content: "\#BbTW'zX9" as bytes <<<>>>,
+      file: "string",
+    },
+    model: "whisper-1",
+  });
+
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+<!-- End Server Selection -->
+
+
+
+<!-- Start Custom HTTP Client -->
+# Custom HTTP Client
+
+The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+
+
+For example, you could specify a header for every request that your sdk makes as follows:
+
+```typescript
+from @speakeasy-api/openai import Gpt;
+import axios;
+
+const httpClient = axios.create({
+    headers: {'x-custom-header': 'someValue'}
+})
+
+
+const sdk = new Gpt({defaultClient: httpClient});
+```
+
+
+<!-- End Custom HTTP Client -->
+
+<!-- Placeholder for Future Speakeasy SDK Sections -->
+
+
 
 ### SDK Generated by [Speakeasy](https://docs.speakeasyapi.dev/docs/using-speakeasy/client-sdks)

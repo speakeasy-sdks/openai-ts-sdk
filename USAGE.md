@@ -1,20 +1,27 @@
 <!-- Start SDK Example Usage -->
+
+
 ```typescript
-import {
-  CancelFineTuneRequest,
-  CancelFineTuneResponse
-} from "@speakeasy-api/openai/dist/sdk/models/operations";
-
-import { AxiosError } from "axios";
 import { Gpt } from "@speakeasy-api/openai";
-const sdk = new Gpt();
+import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-const req: CancelFineTuneRequest = {
-  fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-};
+(async() => {
+  const sdk = new Gpt({
+    apiKeyAuth: "",
+  });
 
-sdk.openAI.cancelFineTune(req).then((res: CancelFineTuneResponse | AxiosError) => {
-   // handle response
-});
+  const res = await sdk.audio.createTranscription({
+    file: {
+      content: "\#BbTW'zX9" as bytes <<<>>>,
+      file: "string",
+    },
+    model: "whisper-1",
+  });
+
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
 ```
 <!-- End SDK Example Usage -->

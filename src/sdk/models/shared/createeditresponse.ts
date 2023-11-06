@@ -3,78 +3,81 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { CompletionUsage } from "./completionusage";
 import { Expose, Type } from "class-transformer";
 
-export class CreateEditResponseChoicesLogprobs extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "text_offset" })
-  textOffset?: number[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "token_logprobs" })
-  tokenLogprobs?: number[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "tokens" })
-  tokens?: string[];
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "top_logprobs" })
-  topLogprobs?: Record<string, any>[];
+/**
+ * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
+ *
+ * @remarks
+ * `length` if the maximum number of tokens specified in the request was reached,
+ * or `content_filter` if content was omitted due to a flag from our content filters.
+ *
+ */
+export enum CreateEditResponseChoicesFinishReason {
+    Stop = "stop",
+    Length = "length",
 }
 
 export class CreateEditResponseChoices extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "finish_reason" })
-  finishReason?: string;
+    /**
+     * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
+     *
+     * @remarks
+     * `length` if the maximum number of tokens specified in the request was reached,
+     * or `content_filter` if content was omitted due to a flag from our content filters.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "finish_reason" })
+    finishReason: CreateEditResponseChoicesFinishReason;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "index" })
-  index?: number;
+    /**
+     * The index of the choice in the list of choices.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "index" })
+    index: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "logprobs" })
-  @Type(() => CreateEditResponseChoicesLogprobs)
-  logprobs?: CreateEditResponseChoicesLogprobs;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "text" })
-  text?: string;
-}
-
-export class CreateEditResponseUsage extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "completion_tokens" })
-  completionTokens: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "prompt_tokens" })
-  promptTokens: number;
-
-  @SpeakeasyMetadata()
-  @Expose({ name: "total_tokens" })
-  totalTokens: number;
+    /**
+     * The edited result.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "text" })
+    text: string;
 }
 
 /**
- * OK
+ * @deprecated class: This will be removed in a future release, please migrate away from it as soon as possible.
  */
 export class CreateEditResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata({ elemType: CreateEditResponseChoices })
-  @Expose({ name: "choices" })
-  @Type(() => CreateEditResponseChoices)
-  choices: CreateEditResponseChoices[];
+    /**
+     * A list of edit choices. Can be more than one if `n` is greater than 1.
+     */
+    @SpeakeasyMetadata({ elemType: CreateEditResponseChoices })
+    @Expose({ name: "choices" })
+    @Type(() => CreateEditResponseChoices)
+    choices: CreateEditResponseChoices[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "created" })
-  created: number;
+    /**
+     * The Unix timestamp (in seconds) of when the edit was created.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "created" })
+    created: number;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    /**
+     * The object type, which is always `edit`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: string;
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "usage" })
-  @Type(() => CreateEditResponseUsage)
-  usage: CreateEditResponseUsage;
+    /**
+     * Usage statistics for the completion request.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "usage" })
+    @Type(() => CompletionUsage)
+    usage: CompletionUsage;
 }
