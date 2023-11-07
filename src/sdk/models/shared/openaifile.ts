@@ -6,14 +6,39 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
+ * The object type, which is always `file`.
+ */
+export enum OpenAIFileObject {
+    File = "file",
+}
+
+/**
+ * The intended purpose of the file. Supported values are `fine-tune`, `fine-tune-results`, `assistants`, and `assistants_output`.
+ */
+export enum OpenAIFilePurpose {
+    FineTune = "fine-tune",
+    FineTuneResults = "fine-tune-results",
+    Assistants = "assistants",
+    AssistantsOutput = "assistants_output",
+}
+
+/**
+ * Deprecated. The current status of the file, which can be either `uploaded`, `processed`, or `error`.
+ *
+ * @deprecated enum: This will be removed in a future release, please migrate away from it as soon as possible.
+ */
+export enum OpenAIFileStatus {
+    Uploaded = "uploaded",
+    Processed = "processed",
+    Error = "error",
+}
+
+/**
  * The `File` object represents a document that has been uploaded to OpenAI.
- *
- * @remarks
- *
  */
 export class OpenAIFile extends SpeakeasyBase {
     /**
-     * The size of the file in bytes.
+     * The size of the file, in bytes.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "bytes" })
@@ -41,31 +66,32 @@ export class OpenAIFile extends SpeakeasyBase {
     id: string;
 
     /**
-     * The object type, which is always "file".
+     * The object type, which is always `file`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: OpenAIFileObject;
 
     /**
-     * The intended purpose of the file. Currently, only "fine-tune" is supported.
+     * The intended purpose of the file. Supported values are `fine-tune`, `fine-tune-results`, `assistants`, and `assistants_output`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "purpose" })
-    purpose: string;
+    purpose: OpenAIFilePurpose;
 
     /**
-     * The current status of the file, which can be either `uploaded`, `processed`, `pending`, `error`, `deleting` or `deleted`.
+     * Deprecated. The current status of the file, which can be either `uploaded`, `processed`, or `error`.
+     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status?: string;
+    status: OpenAIFileStatus;
 
     /**
-     * Additional details about the status of the file. If the file is in the `error` state, this will include a message describing the error.
+     * Deprecated. For details on why a fine-tuning training file failed validation, see the `error` field on `fine_tuning.job`.
      *
-     * @remarks
-     *
+     * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status_details" })

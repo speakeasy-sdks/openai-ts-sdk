@@ -17,6 +17,13 @@ export class Image extends SpeakeasyBase {
     b64Json?: string;
 
     /**
+     * The prompt that was used to generate the image, if there was any revision to the prompt.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "revised_prompt" })
+    revisedPrompt?: string;
+
+    /**
      * The URL of the generated image, if `response_format` is `url` (default).
      */
     @SpeakeasyMetadata()

@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * A list of the categories, and whether they are flagged or not.
  */
-export class CreateModerationResponseResultsCategories extends SpeakeasyBase {
+export class Categories extends SpeakeasyBase {
     /**
      * Content that expresses, incites, or promotes harassing language towards any target.
      */
@@ -90,7 +90,7 @@ export class CreateModerationResponseResultsCategories extends SpeakeasyBase {
 /**
  * A list of the categories along with their scores as predicted by model.
  */
-export class CreateModerationResponseResultsCategoryScores extends SpeakeasyBase {
+export class CategoryScores extends SpeakeasyBase {
     /**
      * The score for the category 'harassment'.
      */
@@ -169,22 +169,22 @@ export class CreateModerationResponseResultsCategoryScores extends SpeakeasyBase
     violenceGraphic: number;
 }
 
-export class CreateModerationResponseResults extends SpeakeasyBase {
+export class Results extends SpeakeasyBase {
     /**
      * A list of the categories, and whether they are flagged or not.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "categories" })
-    @Type(() => CreateModerationResponseResultsCategories)
-    categories: CreateModerationResponseResultsCategories;
+    @Type(() => Categories)
+    categories: Categories;
 
     /**
      * A list of the categories along with their scores as predicted by model.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "category_scores" })
-    @Type(() => CreateModerationResponseResultsCategoryScores)
-    categoryScores: CreateModerationResponseResultsCategoryScores;
+    @Type(() => CategoryScores)
+    categoryScores: CategoryScores;
 
     /**
      * Whether the content violates [OpenAI's usage policies](/policies/usage-policies).
@@ -215,8 +215,8 @@ export class CreateModerationResponse extends SpeakeasyBase {
     /**
      * A list of moderation objects.
      */
-    @SpeakeasyMetadata({ elemType: CreateModerationResponseResults })
+    @SpeakeasyMetadata({ elemType: Results })
     @Expose({ name: "results" })
-    @Type(() => CreateModerationResponseResults)
-    results: CreateModerationResponseResults[];
+    @Type(() => Results)
+    results: Results[];
 }

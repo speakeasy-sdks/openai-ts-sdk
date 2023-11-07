@@ -1,5 +1,5 @@
 # FineTunes
-(*fineTunes*)
+(*.fineTunes*)
 
 ## Overview
 

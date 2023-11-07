@@ -9,15 +9,15 @@ export class CreateImageEditRequestImage extends SpeakeasyBase {
     content: Uint8Array;
 
     @SpeakeasyMetadata({ data: "multipart_form, name=image" })
-    image: string;
+    fileName: string;
 }
 
-export class CreateImageEditRequestMask extends SpeakeasyBase {
+export class Mask extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "multipart_form, content=true" })
     content: Uint8Array;
 
     @SpeakeasyMetadata({ data: "multipart_form, name=mask" })
-    mask: string;
+    fileName: string;
 }
 
 /**
@@ -31,7 +31,7 @@ export enum CreateImageEditRequestResponseFormat {
 /**
  * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
  */
-export enum CreateImageEditRequestSize {
+export enum Size {
     TwoHundredAndFiftySixx256 = "256x256",
     FiveHundredAndTwelvex512 = "512x512",
     OneThousandAndTwentyFourx1024 = "1024x1024",
@@ -48,7 +48,13 @@ export class CreateImageEditRequest extends SpeakeasyBase {
      * An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
      */
     @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-    mask?: CreateImageEditRequestMask;
+    mask?: Mask;
+
+    /**
+     * The model to use for image generation. Only `dall-e-2` is supported at this time.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=model" })
+    model?: any;
 
     /**
      * The number of images to generate. Must be between 1 and 10.
@@ -72,7 +78,7 @@ export class CreateImageEditRequest extends SpeakeasyBase {
      * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=size" })
-    size?: CreateImageEditRequestSize;
+    size?: Size;
 
     /**
      * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).

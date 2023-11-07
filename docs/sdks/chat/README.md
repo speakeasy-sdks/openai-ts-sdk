@@ -1,5 +1,5 @@
 # Chat
-(*chat*)
+(*.chat*)
 
 ## Overview
 
@@ -17,7 +17,7 @@ Creates a model response for the given chat conversation.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { ChatCompletionRequestMessageRole } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { ChatCompletionToolType, CreateChatCompletionRequestType } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Gpt({
@@ -38,19 +38,27 @@ import { ChatCompletionRequestMessageRole } from "@speakeasy-api/openai/dist/sdk
       "key": 770726,
     },
     messages: [
-      {
-        content: "string",
-        functionCall: {
-          arguments: "string",
-          name: "string",
-        },
-        role: ChatCompletionRequestMessageRole.Assistant,
-      },
+      "string",
     ],
     model: "gpt-3.5-turbo",
     n: 1,
+    responseFormat: {
+      type: CreateChatCompletionRequestType.JsonObject,
+    },
     stop: "string",
     temperature: 1,
+    toolChoice: "string",
+    tools: [
+      {
+        function: {
+          name: "string",
+          parameters: {
+            "key": "string",
+          },
+        },
+        type: ChatCompletionToolType.Function,
+      },
+    ],
     topP: 1,
     user: "user-1234",
   });

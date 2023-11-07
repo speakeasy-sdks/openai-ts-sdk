@@ -13,29 +13,30 @@ import { Expose, Type } from "class-transformer";
  * @remarks
  * `length` if the maximum number of tokens specified in the request was reached,
  * `content_filter` if content was omitted due to a flag from our content filters,
- * or `function_call` if the model called a function.
+ * `tool_calls` if the model called a tool, or `function_call` (deprecated) if the model called a function.
  *
  */
-export enum CreateChatCompletionResponseChoicesFinishReason {
+export enum FinishReason {
     Stop = "stop",
     Length = "length",
-    FunctionCall = "function_call",
+    ToolCalls = "tool_calls",
     ContentFilter = "content_filter",
+    FunctionCall = "function_call",
 }
 
-export class CreateChatCompletionResponseChoices extends SpeakeasyBase {
+export class Choices extends SpeakeasyBase {
     /**
      * The reason the model stopped generating tokens. This will be `stop` if the model hit a natural stop point or a provided stop sequence,
      *
      * @remarks
      * `length` if the maximum number of tokens specified in the request was reached,
      * `content_filter` if content was omitted due to a flag from our content filters,
-     * or `function_call` if the model called a function.
+     * `tool_calls` if the model called a tool, or `function_call` (deprecated) if the model called a function.
      *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
-    finishReason: CreateChatCompletionResponseChoicesFinishReason;
+    finishReason: FinishReason;
 
     /**
      * The index of the choice in the list of choices.
@@ -54,16 +55,23 @@ export class CreateChatCompletionResponseChoices extends SpeakeasyBase {
 }
 
 /**
+ * The object type, which is always `chat.completion`.
+ */
+export enum CreateChatCompletionResponseObject {
+    ChatCompletion = "chat.completion",
+}
+
+/**
  * Represents a chat completion response returned by model, based on the provided input.
  */
 export class CreateChatCompletionResponse extends SpeakeasyBase {
     /**
      * A list of chat completion choices. Can be more than one if `n` is greater than 1.
      */
-    @SpeakeasyMetadata({ elemType: CreateChatCompletionResponseChoices })
+    @SpeakeasyMetadata({ elemType: Choices })
     @Expose({ name: "choices" })
-    @Type(() => CreateChatCompletionResponseChoices)
-    choices: CreateChatCompletionResponseChoices[];
+    @Type(() => Choices)
+    choices: Choices[];
 
     /**
      * The Unix timestamp (in seconds) of when the chat completion was created.
@@ -91,7 +99,19 @@ export class CreateChatCompletionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: CreateChatCompletionResponseObject;
+
+    /**
+     * This fingerprint represents the backend configuration that the model runs with.
+     *
+     * @remarks
+     *
+     * Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "system_fingerprint" })
+    systemFingerprint?: string;
 
     /**
      * Usage statistics for the completion request.

@@ -5,6 +5,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+export enum FineTuneEventObject {
+    FineTuneEvent = "fine-tune-event",
+}
+
 /**
  * Fine-tune event object
  *
@@ -25,5 +29,5 @@ export class FineTuneEvent extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: FineTuneEventObject;
 }

@@ -1,5 +1,5 @@
 # Images
-(*images*)
+(*.images*)
 
 ## Overview
 
@@ -19,7 +19,7 @@ Creates an image given a prompt.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateImageRequestResponseFormat, CreateImageRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateImageRequestResponseFormat, CreateImageRequestSize, Quality, Style } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Gpt({
@@ -27,10 +27,13 @@ import { CreateImageRequestResponseFormat, CreateImageRequestSize } from "@speak
   });
 
   const res = await sdk.images.createImage({
+    model: "dall-e-3",
     n: 1,
     prompt: "A cute baby sea otter",
+    quality: Quality.Standard,
     responseFormat: CreateImageRequestResponseFormat.Url,
     size: CreateImageRequestSize.OneThousandAndTwentyFourx1024,
+    style: Style.Vivid,
     user: "user-1234",
   });
 
@@ -62,7 +65,7 @@ Creates an edited or extended image given an original image and a prompt.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateImageEditRequestResponseFormat, CreateImageEditRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateImageEditRequestResponseFormat, Size } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 (async() => {
   const sdk = new Gpt({
@@ -71,17 +74,18 @@ import { CreateImageEditRequestResponseFormat, CreateImageEditRequestSize } from
 
   const res = await sdk.images.createImageEdit({
     image: {
-      content: "0]/(|3W_T9" as bytes <<<>>>,
-      image: "https://loremflickr.com/640/480",
+      content: new TextEncoder().encode("0x3e31F4cec5"),
+      fileName: "facilitator_gosh_hatchback.mpe",
     },
     mask: {
-      content: "`^YjrpxopK" as bytes <<<>>>,
-      mask: "string",
+      content: new TextEncoder().encode("0xFC5456e4eC"),
+      fileName: "electric_cambridgeshire.jpeg",
     },
+    model: "dall-e-2",
     n: 1,
     prompt: "A cute baby sea otter wearing a beret",
     responseFormat: CreateImageEditRequestResponseFormat.Url,
-    size: CreateImageEditRequestSize.OneThousandAndTwentyFourx1024,
+    size: Size.OneThousandAndTwentyFourx1024,
     user: "user-1234",
   });
 
@@ -122,9 +126,10 @@ import { CreateImageVariationRequestResponseFormat, CreateImageVariationRequestS
 
   const res = await sdk.images.createImageVariation({
     image: {
-      content: "`YY7PCrWuK" as bytes <<<>>>,
-      image: "https://loremflickr.com/640/480",
+      content: new TextEncoder().encode("0xfdd5b8DcDa"),
+      fileName: "fantastic.gif",
     },
+    model: "dall-e-2",
     n: 1,
     responseFormat: CreateImageVariationRequestResponseFormat.Url,
     size: CreateImageVariationRequestSize.OneThousandAndTwentyFourx1024,

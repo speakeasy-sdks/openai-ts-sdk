@@ -9,11 +9,11 @@ export class CreateTranscriptionRequestFile extends SpeakeasyBase {
     content: Uint8Array;
 
     @SpeakeasyMetadata({ data: "multipart_form, name=file" })
-    file: string;
+    fileName: string;
 }
 
 /**
- * The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.
+ * The format of the transcript output, in one of these options: `json`, `text`, `srt`, `verbose_json`, or `vtt`.
  *
  * @remarks
  *
@@ -64,7 +64,7 @@ export class CreateTranscriptionRequest extends SpeakeasyBase {
     prompt?: string;
 
     /**
-     * The format of the transcript output, in one of these options: json, text, srt, verbose_json, or vtt.
+     * The format of the transcript output, in one of these options: `json`, `text`, `srt`, `verbose_json`, or `vtt`.
      *
      * @remarks
      *

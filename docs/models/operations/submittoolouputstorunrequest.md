@@ -1,0 +1,10 @@
+# SubmitToolOuputsToRunRequest
+
+
+## Fields
+
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `submitToolOutputsRunRequest`                                                            | [shared.SubmitToolOutputsRunRequest](../../models/shared/submittooloutputsrunrequest.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `runId`                                                                                  | *string*                                                                                 | :heavy_check_mark:                                                                       | The ID of the run that requires the tool output submission.                              |
+| `threadId`                                                                               | *string*                                                                                 | :heavy_check_mark:                                                                       | The ID of the [thread](/docs/api-reference/threads) to which this run belongs.           |

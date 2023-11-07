@@ -6,6 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Model } from "./model";
 import { Expose, Type } from "class-transformer";
 
+export enum ListModelsResponseObject {
+    List = "list",
+}
+
 export class ListModelsResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: Model })
     @Expose({ name: "data" })
@@ -14,5 +18,5 @@ export class ListModelsResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: ListModelsResponseObject;
 }

@@ -14,7 +14,7 @@ import { Expose, Type } from "class-transformer";
  * or `content_filter` if content was omitted due to a flag from our content filters.
  *
  */
-export enum CreateEditResponseChoicesFinishReason {
+export enum CreateEditResponseFinishReason {
     Stop = "stop",
     Length = "length",
 }
@@ -30,7 +30,7 @@ export class CreateEditResponseChoices extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
-    finishReason: CreateEditResponseChoicesFinishReason;
+    finishReason: CreateEditResponseFinishReason;
 
     /**
      * The index of the choice in the list of choices.
@@ -45,6 +45,13 @@ export class CreateEditResponseChoices extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "text" })
     text: string;
+}
+
+/**
+ * The object type, which is always `edit`.
+ */
+export enum CreateEditResponseObject {
+    Edit = "edit",
 }
 
 /**
@@ -71,7 +78,7 @@ export class CreateEditResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: CreateEditResponseObject;
 
     /**
      * Usage statistics for the completion request.

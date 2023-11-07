@@ -1,5 +1,5 @@
 # FineTuning
-(*fineTuning*)
+(*.fineTuning*)
 
 ## Overview
 
@@ -84,6 +84,8 @@ import { Gpt } from "@speakeasy-api/openai";
 
   const res = await sdk.fineTuning.createFineTuningJob({
     hyperparameters: {
+      batchSize: "string",
+      learningRateMultiplier: "string",
       nEpochs: "string",
     },
     model: "gpt-3.5-turbo",

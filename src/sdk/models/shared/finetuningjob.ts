@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * For fine-tuning jobs that have `failed`, this will contain more information on the cause of the failure.
  */
-export class FineTuningJobError extends SpeakeasyBase {
+export class ErrorT extends SpeakeasyBase {
     /**
      * A machine-readable error code.
      */
@@ -47,6 +47,25 @@ export class FineTuningJobHyperparameters extends SpeakeasyBase {
 }
 
 /**
+ * The object type, which is always "fine_tuning.job".
+ */
+export enum FineTuningJobObject {
+    FineTuningJob = "fine_tuning.job",
+}
+
+/**
+ * The current status of the fine-tuning job, which can be either `validating_files`, `queued`, `running`, `succeeded`, `failed`, or `cancelled`.
+ */
+export enum Status {
+    ValidatingFiles = "validating_files",
+    Queued = "queued",
+    Running = "running",
+    Succeeded = "succeeded",
+    Failed = "failed",
+    Cancelled = "cancelled",
+}
+
+/**
  * The `fine_tuning.job` object represents a fine-tuning job that has been created through the API.
  *
  * @remarks
@@ -65,8 +84,8 @@ export class FineTuningJob extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "error" })
-    @Type(() => FineTuningJobError)
-    error: FineTuningJobError;
+    @Type(() => ErrorT)
+    error: ErrorT;
 
     /**
      * The name of the fine-tuned model that is being created. The value will be null if the fine-tuning job is still running.
@@ -109,7 +128,7 @@ export class FineTuningJob extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: FineTuningJobObject;
 
     /**
      * The organization that owns the fine-tuning job.
@@ -130,7 +149,7 @@ export class FineTuningJob extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })
-    status: string;
+    status: Status;
 
     /**
      * The total number of billable tokens processed by this fine-tuning job. The value will be null if the fine-tuning job is still running.

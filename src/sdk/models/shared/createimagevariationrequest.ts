@@ -9,7 +9,7 @@ export class CreateImageVariationRequestImage extends SpeakeasyBase {
     content: Uint8Array;
 
     @SpeakeasyMetadata({ data: "multipart_form, name=image" })
-    image: string;
+    fileName: string;
 }
 
 /**
@@ -37,7 +37,13 @@ export class CreateImageVariationRequest extends SpeakeasyBase {
     image: CreateImageVariationRequestImage;
 
     /**
-     * The number of images to generate. Must be between 1 and 10.
+     * The model to use for image generation. Only `dall-e-2` is supported at this time.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=model" })
+    model?: any;
+
+    /**
+     * The number of images to generate. Must be between 1 and 10. For `dall-e-3`, only `n=1` is supported.
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=n" })
     n?: number;

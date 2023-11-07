@@ -3,14 +3,14 @@
  */
 
 import * as utils from "../internal/utils";
-import * as errors from "./models/errors";
-import * as operations from "./models/operations";
-import * as shared from "./models/shared";
+import * as errors from "../sdk/models/errors";
+import * as operations from "../sdk/models/operations";
+import * as shared from "../sdk/models/shared";
 import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * Files are used to upload documents that can be used with features like fine-tuning.
+ * Files are used to upload documents that can be used with features like Assistants and Fine-tuning.
  */
 
 export class Files {
@@ -21,7 +21,11 @@ export class Files {
     }
 
     /**
-     * Upload a file that can be used across various endpoints/features. Currently, the size of all the files uploaded by one organization can be up to 1 GB. Please [contact us](https://help.openai.com/) if you need to increase the storage limit.
+     * Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.
+     *
+     * The size of individual files for can be a maximum of 512MB. See the [Assistants Tools guide](/docs/assistants/tools) to learn more about the types of files supported. The Fine-tuning API only supports `.jsonl` files.
+     *
+     * Please [contact us](https://help.openai.com/) if you need to increase these storage limits.
      *
      */
     async createFile(
@@ -230,7 +234,7 @@ export class Files {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(contentType, `application/json`)) {
-                    res.downloadFile200ApplicationJSONString = decodedRes;
+                    res.res = decodedRes;
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + contentType,
@@ -248,7 +252,13 @@ export class Files {
     /**
      * Returns a list of files that belong to the user's organization.
      */
-    async listFiles(config?: AxiosRequestConfig): Promise<operations.ListFilesResponse> {
+    async listFiles(
+        purpose?: string,
+        config?: AxiosRequestConfig
+    ): Promise<operations.ListFilesResponse> {
+        const req = new operations.ListFilesRequest({
+            purpose: purpose,
+        });
         const baseURL: string = utils.templateUrl(
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
@@ -264,13 +274,14 @@ export class Files {
         }
         const properties = utils.parseSecurityProperties(globalSecurity);
         const headers: RawAxiosRequestHeaders = { ...config?.headers, ...properties.headers };
+        const queryParams: string = utils.serializeQueryParams(req);
         headers["Accept"] = "application/json";
 
         headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: url + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",

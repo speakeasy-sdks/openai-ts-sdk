@@ -6,6 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { FineTune } from "./finetune";
 import { Expose, Type } from "class-transformer";
 
+export enum ListFineTunesResponseObject {
+    List = "list",
+}
+
 export class ListFineTunesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: FineTune })
     @Expose({ name: "data" })
@@ -14,5 +18,5 @@ export class ListFineTunesResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: ListFineTunesResponseObject;
 }

@@ -6,6 +6,13 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
+ * The object type, which is always "model".
+ */
+export enum ModelObject {
+    Model = "model",
+}
+
+/**
  * Describes an OpenAI model offering that can be used with the API.
  */
 export class Model extends SpeakeasyBase {
@@ -28,7 +35,7 @@ export class Model extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: ModelObject;
 
     /**
      * The organization that owns the model.

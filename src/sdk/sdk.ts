@@ -3,6 +3,9 @@
  */
 
 import * as utils from "../internal/utils";
+import * as shared from "../sdk/models/shared";
+import { Assistant } from "./assistant";
+import { Assistants } from "./assistants";
 import { Audio } from "./audio";
 import { Chat } from "./chat";
 import { Completions } from "./completions";
@@ -13,7 +16,6 @@ import { FineTunes } from "./finetunes";
 import { FineTuning } from "./finetuning";
 import { Images } from "./images";
 import { Models } from "./models";
-import * as shared from "./models/shared";
 import { Moderations } from "./moderations";
 import axios from "axios";
 import { AxiosInstance } from "axios";
@@ -56,9 +58,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "2.0.0";
-    sdkVersion = "2.0.0";
-    genVersion = "2.173.0";
-    userAgent = "speakeasy-sdk/typescript 2.0.0 2.173.0 2.0.0 @speakeasy-api/openai";
+    sdkVersion = "3.0.0";
+    genVersion = "2.181.1";
+    userAgent = "speakeasy-sdk/typescript 3.0.0 2.181.1 2.0.0 @speakeasy-api/openai";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -70,7 +72,12 @@ export class SDKConfiguration {
  */
 export class Gpt {
     /**
-     * Learn how to turn audio into text.
+     * Build Assistants that can call models and use tools.
+     */
+    public assistants: Assistants;
+    public assistant: Assistant;
+    /**
+     * Learn how to turn audio into text or text into audio.
      */
     public audio: Audio;
     /**
@@ -90,7 +97,7 @@ export class Gpt {
      */
     public embeddings: Embeddings;
     /**
-     * Files are used to upload documents that can be used with features like fine-tuning.
+     * Files are used to upload documents that can be used with features like Assistants and Fine-tuning.
      */
     public files: Files;
     /**
@@ -133,6 +140,8 @@ export class Gpt {
             retryConfig: props?.retryConfig,
         });
 
+        this.assistants = new Assistants(this.sdkConfiguration);
+        this.assistant = new Assistant(this.sdkConfiguration);
         this.audio = new Audio(this.sdkConfiguration);
         this.chat = new Chat(this.sdkConfiguration);
         this.completions = new Completions(this.sdkConfiguration);

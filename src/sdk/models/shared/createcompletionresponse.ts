@@ -14,13 +14,13 @@ import { Expose, Type } from "class-transformer";
  * or `content_filter` if content was omitted due to a flag from our content filters.
  *
  */
-export enum CreateCompletionResponseChoicesFinishReason {
+export enum CreateCompletionResponseFinishReason {
     Stop = "stop",
     Length = "length",
     ContentFilter = "content_filter",
 }
 
-export class CreateCompletionResponseChoicesLogprobs extends SpeakeasyBase {
+export class Logprobs extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "text_offset" })
     textOffset?: number[];
@@ -49,7 +49,7 @@ export class CreateCompletionResponseChoices extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "finish_reason" })
-    finishReason: CreateCompletionResponseChoicesFinishReason;
+    finishReason: CreateCompletionResponseFinishReason;
 
     @SpeakeasyMetadata()
     @Expose({ name: "index" })
@@ -57,12 +57,19 @@ export class CreateCompletionResponseChoices extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "logprobs" })
-    @Type(() => CreateCompletionResponseChoicesLogprobs)
-    logprobs: CreateCompletionResponseChoicesLogprobs;
+    @Type(() => Logprobs)
+    logprobs: Logprobs;
 
     @SpeakeasyMetadata()
     @Expose({ name: "text" })
     text: string;
+}
+
+/**
+ * The object type, which is always "text_completion"
+ */
+export enum CreateCompletionResponseObject {
+    TextCompletion = "text_completion",
 }
 
 /**
@@ -106,7 +113,19 @@ export class CreateCompletionResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: CreateCompletionResponseObject;
+
+    /**
+     * This fingerprint represents the backend configuration that the model runs with.
+     *
+     * @remarks
+     *
+     * Can be used in conjunction with the `seed` request parameter to understand when backend changes have been made that might impact determinism.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "system_fingerprint" })
+    systemFingerprint?: string;
 
     /**
      * Usage statistics for the completion request.

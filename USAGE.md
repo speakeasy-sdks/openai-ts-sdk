@@ -3,25 +3,21 @@
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
-  const sdk = new Gpt({
-    apiKeyAuth: "",
-  });
+(async () => {
+    const sdk = new Gpt({
+        apiKeyAuth: "",
+    });
+    const runId: string = "string";
+    const threadId: string = "string";
 
-  const res = await sdk.audio.createTranscription({
-    file: {
-      content: "\#BbTW'zX9" as bytes <<<>>>,
-      file: "string",
-    },
-    model: "whisper-1",
-  });
+    const res = await sdk.assistants.cancelRun(runId, threadId);
 
-
-  if (res.statusCode == 200) {
-    // handle response
-  }
+    if (res.statusCode == 200) {
+        // handle response
+    }
 })();
+
 ```
 <!-- End SDK Example Usage -->

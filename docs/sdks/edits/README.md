@@ -1,5 +1,5 @@
 # Edits
-(*edits*)
+(*.edits*)
 
 ## Overview
 

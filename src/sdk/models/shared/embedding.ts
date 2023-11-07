@@ -6,6 +6,13 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
 /**
+ * The object type, which is always "embedding".
+ */
+export enum EmbeddingObject {
+    Embedding = "embedding",
+}
+
+/**
  * Represents an embedding vector returned by embedding endpoint.
  *
  * @remarks
@@ -34,5 +41,5 @@ export class Embedding extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: EmbeddingObject;
 }

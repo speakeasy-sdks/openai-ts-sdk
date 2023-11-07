@@ -5,6 +5,10 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
+export enum DeleteFileResponseObject {
+    File = "file",
+}
+
 export class DeleteFileResponse extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "deleted" })
@@ -16,5 +20,5 @@ export class DeleteFileResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: DeleteFileResponseObject;
 }

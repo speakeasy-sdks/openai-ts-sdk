@@ -5,10 +5,14 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose } from "class-transformer";
 
-export enum FineTuningJobEventLevel {
+export enum Level {
     Info = "info",
     Warn = "warn",
     Error = "error",
+}
+
+export enum FineTuningJobEventObject {
+    FineTuningJobEvent = "fine_tuning.job.event",
 }
 
 /**
@@ -25,7 +29,7 @@ export class FineTuningJobEvent extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "level" })
-    level: FineTuningJobEventLevel;
+    level: Level;
 
     @SpeakeasyMetadata()
     @Expose({ name: "message" })
@@ -33,5 +37,5 @@ export class FineTuningJobEvent extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: FineTuningJobEventObject;
 }

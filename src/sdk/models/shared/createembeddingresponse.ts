@@ -7,9 +7,16 @@ import { Embedding } from "./embedding";
 import { Expose, Type } from "class-transformer";
 
 /**
+ * The object type, which is always "embedding".
+ */
+export enum CreateEmbeddingResponseObject {
+    Embedding = "embedding",
+}
+
+/**
  * The usage information for the request.
  */
-export class CreateEmbeddingResponseUsage extends SpeakeasyBase {
+export class Usage extends SpeakeasyBase {
     /**
      * The number of tokens used by the prompt.
      */
@@ -46,13 +53,13 @@ export class CreateEmbeddingResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: CreateEmbeddingResponseObject;
 
     /**
      * The usage information for the request.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "usage" })
-    @Type(() => CreateEmbeddingResponseUsage)
-    usage: CreateEmbeddingResponseUsage;
+    @Type(() => Usage)
+    usage: Usage;
 }

@@ -4,34 +4,45 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
-export class CreateFileRequestFile extends SpeakeasyBase {
+export class File extends SpeakeasyBase {
     @SpeakeasyMetadata({ data: "multipart_form, content=true" })
     content: Uint8Array;
 
     @SpeakeasyMetadata({ data: "multipart_form, name=file" })
-    file: string;
+    fileName: string;
+}
+
+/**
+ * The intended purpose of the uploaded file.
+ *
+ * @remarks
+ *
+ * Use "fine-tune" for [Fine-tuning](/docs/api-reference/fine-tuning) and "assistants" for [Assistants](/docs/api-reference/assistants) and [Messages](/docs/api-reference/messages). This allows us to validate the format of the uploaded file is correct for fine-tuning.
+ *
+ */
+export enum Purpose {
+    FineTune = "fine-tune",
+    Assistants = "assistants",
 }
 
 export class CreateFileRequest extends SpeakeasyBase {
     /**
-     * The file object (not file name) to be uploaded.
+     * The File object (not file name) to be uploaded.
      *
      * @remarks
      *
-     * If the `purpose` is set to "fine-tune", the file will be used for fine-tuning.
-     *
      */
     @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-    file: CreateFileRequestFile;
+    file: File;
 
     /**
      * The intended purpose of the uploaded file.
      *
      * @remarks
      *
-     * Use "fine-tune" for [fine-tuning](/docs/api-reference/fine-tuning). This allows us to validate the format of the uploaded file is correct for fine-tuning.
+     * Use "fine-tune" for [Fine-tuning](/docs/api-reference/fine-tuning) and "assistants" for [Assistants](/docs/api-reference/assistants) and [Messages](/docs/api-reference/messages). This allows us to validate the format of the uploaded file is correct for fine-tuning.
      *
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=purpose" })
-    purpose: string;
+    purpose: Purpose;
 }

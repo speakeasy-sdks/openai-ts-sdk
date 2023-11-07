@@ -3,7 +3,7 @@
 
 ## Fields
 
-| Field                                         | Type                                          | Required                                      | Description                                   |
-| --------------------------------------------- | --------------------------------------------- | --------------------------------------------- | --------------------------------------------- |
-| `data`                                        | [FineTune](../../models/shared/finetune.md)[] | :heavy_check_mark:                            | N/A                                           |
-| `object`                                      | *string*                                      | :heavy_check_mark:                            | N/A                                           |
+| Field                                                                                    | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `data`                                                                                   | [shared.FineTune](../../models/shared/finetune.md)[]                                     | :heavy_check_mark:                                                                       | N/A                                                                                      |
+| `object`                                                                                 | [shared.ListFineTunesResponseObject](../../models/shared/listfinetunesresponseobject.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |

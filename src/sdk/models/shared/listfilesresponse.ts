@@ -6,6 +6,10 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { OpenAIFile } from "./openaifile";
 import { Expose, Type } from "class-transformer";
 
+export enum ListFilesResponseObject {
+    List = "list",
+}
+
 export class ListFilesResponse extends SpeakeasyBase {
     @SpeakeasyMetadata({ elemType: OpenAIFile })
     @Expose({ name: "data" })
@@ -14,5 +18,5 @@ export class ListFilesResponse extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: ListFilesResponseObject;
 }

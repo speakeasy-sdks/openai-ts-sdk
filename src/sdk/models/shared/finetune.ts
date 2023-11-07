@@ -10,7 +10,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The hyperparameters used for the fine-tuning job. See the [fine-tuning guide](/docs/guides/legacy-fine-tuning/hyperparameters) for more details.
  */
-export class FineTuneHyperparams extends SpeakeasyBase {
+export class Hyperparams extends SpeakeasyBase {
     /**
      * The batch size to use for training. The batch size is the number of
      *
@@ -85,6 +85,13 @@ export class FineTuneHyperparams extends SpeakeasyBase {
 }
 
 /**
+ * The object type, which is always "fine-tune".
+ */
+export enum FineTuneObject {
+    FineTune = "fine-tune",
+}
+
+/**
  * The `FineTune` object represents a legacy fine-tune job that has been created through the API.
  *
  * @remarks
@@ -120,8 +127,8 @@ export class FineTune extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hyperparams" })
-    @Type(() => FineTuneHyperparams)
-    hyperparams: FineTuneHyperparams;
+    @Type(() => Hyperparams)
+    hyperparams: Hyperparams;
 
     /**
      * The object identifier, which can be referenced in the API endpoints.
@@ -142,7 +149,7 @@ export class FineTune extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
-    object: string;
+    object: FineTuneObject;
 
     /**
      * The organization that owns the fine-tuning job.

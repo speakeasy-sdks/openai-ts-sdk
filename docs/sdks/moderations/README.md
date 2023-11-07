@@ -1,5 +1,5 @@
 # Moderations
-(*moderations*)
+(*.moderations*)
 
 ## Overview
 

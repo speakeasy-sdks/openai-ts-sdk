@@ -10,10 +10,32 @@ import { Expose, Type } from "class-transformer";
  */
 export class CreateFineTuningJobRequestHyperparameters extends SpeakeasyBase {
     /**
-     * The number of epochs to train the model for. An epoch refers to one
+     * Number of examples in each batch. A larger batch size means that model parameters
      *
      * @remarks
-     * full cycle through the training dataset.
+     * are updated less frequently, but with lower variance.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "batch_size" })
+    batchSize?: any;
+
+    /**
+     * Scaling factor for the learning rate. A smaller learning rate may be useful to avoid
+     *
+     * @remarks
+     * overfitting.
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "learning_rate_multiplier" })
+    learningRateMultiplier?: any;
+
+    /**
+     * The number of epochs to train the model for. An epoch refers to one full cycle
+     *
+     * @remarks
+     * through the training dataset.
      *
      */
     @SpeakeasyMetadata()

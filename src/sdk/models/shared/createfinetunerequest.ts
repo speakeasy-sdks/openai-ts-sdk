@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The hyperparameters used for the fine-tuning job.
  */
-export class CreateFineTuneRequestHyperparameters extends SpeakeasyBase {
+export class Hyperparameters extends SpeakeasyBase {
     /**
      * The number of epochs to train the model for. An epoch refers to one
      *
@@ -102,8 +102,8 @@ export class CreateFineTuneRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hyperparameters" })
-    @Type(() => CreateFineTuneRequestHyperparameters)
-    hyperparameters?: CreateFineTuneRequestHyperparameters;
+    @Type(() => Hyperparameters)
+    hyperparameters?: Hyperparameters;
 
     /**
      * The learning rate multiplier to use for training.

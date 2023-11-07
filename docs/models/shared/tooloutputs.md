@@ -1,0 +1,9 @@
+# ToolOutputs
+
+
+## Fields
+
+| Field                                                                                                            | Type                                                                                                             | Required                                                                                                         | Description                                                                                                      |
+| ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------------------------------- |
+| `output`                                                                                                         | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | The output of the tool call to be submitted to continue the run.                                                 |
+| `toolCallId`                                                                                                     | *string*                                                                                                         | :heavy_minus_sign:                                                                                               | The ID of the tool call in the `required_action` object within the run object the output is being submitted for. |
