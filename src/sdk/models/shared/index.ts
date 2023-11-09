@@ -46,6 +46,7 @@ export * from "./finetune";
 export * from "./finetuneevent";
 export * from "./finetuningjob";
 export * from "./finetuningjobevent";
+export * from "./functionobject";
 export * from "./image";
 export * from "./imagesresponse";
 export * from "./listassistantfilesresponse";

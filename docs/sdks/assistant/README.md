@@ -1,5 +1,5 @@
 # Assistant
-(*.assistant*)
+(*assistant*)
 
 ### Available Operations
 
@@ -33,7 +33,6 @@ const assistantId: string = "string";
 
   const res = await sdk.assistant.modifyAssistant(modifyAssistantRequest, assistantId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -42,14 +41,18 @@ const assistantId: string = "string";
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `modifyAssistantRequest`                                                       | [shared.ModifyAssistantRequest](../../models/shared/modifyassistantrequest.md) | :heavy_check_mark:                                                             | N/A                                                                            |
-| `assistantId`                                                                  | *string*                                                                       | :heavy_check_mark:                                                             | The ID of the assistant to modify.                                             |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `modifyAssistantRequest`                                                              | [shared.ModifyAssistantRequest](../../../sdk/models/shared/modifyassistantrequest.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `assistantId`                                                                         | *string*                                                                              | :heavy_check_mark:                                                                    | The ID of the assistant to modify.                                                    |
+| `config`                                                                              | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                          | :heavy_minus_sign:                                                                    | Available config options for making requests.                                         |
 
 
 ### Response
 
-**Promise<[operations.ModifyAssistantResponse](../../models/operations/modifyassistantresponse.md)>**
+**Promise<[operations.ModifyAssistantResponse](../../sdk/models/operations/modifyassistantresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

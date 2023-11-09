@@ -41,14 +41,14 @@ export class RunStepObjectLastError extends SpeakeasyBase {
 export class RunStepObjectMetadata extends SpeakeasyBase {}
 
 /**
- * The object type, which is always `assistant.run.step``.
+ * The object type, which is always `thread.run.step``.
  */
 export enum RunStepObjectObject {
-    AssistantRunStep = "assistant.run.step",
+    ThreadRunStep = "thread.run.step",
 }
 
 /**
- * The status of the run, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
+ * The status of the run step, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
  */
 export enum RunStepObjectStatus {
     InProgress = "in_progress",
@@ -142,7 +142,7 @@ export class RunStepObject extends SpeakeasyBase {
     metadata: RunStepObjectMetadata;
 
     /**
-     * The object type, which is always `assistant.run.step``.
+     * The object type, which is always `thread.run.step``.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })
@@ -156,7 +156,7 @@ export class RunStepObject extends SpeakeasyBase {
     runId: string;
 
     /**
-     * The status of the run, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
+     * The status of the run step, which can be either `in_progress`, `cancelled`, `failed`, `completed`, or `expired`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "status" })

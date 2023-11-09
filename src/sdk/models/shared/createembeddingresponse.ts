@@ -7,10 +7,10 @@ import { Embedding } from "./embedding";
 import { Expose, Type } from "class-transformer";
 
 /**
- * The object type, which is always "embedding".
+ * The object type, which is always "list".
  */
 export enum CreateEmbeddingResponseObject {
-    Embedding = "embedding",
+    List = "list",
 }
 
 /**
@@ -49,7 +49,7 @@ export class CreateEmbeddingResponse extends SpeakeasyBase {
     model: string;
 
     /**
-     * The object type, which is always "embedding".
+     * The object type, which is always "list".
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })

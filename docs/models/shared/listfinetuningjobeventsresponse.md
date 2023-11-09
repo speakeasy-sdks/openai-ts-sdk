@@ -1,9 +1,0 @@
-# ListFineTuningJobEventsResponse
-
-
-## Fields
-
-| Field                                                                                                        | Type                                                                                                         | Required                                                                                                     | Description                                                                                                  |
-| ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------------------ |
-| `data`                                                                                                       | [shared.FineTuningJobEvent](../../models/shared/finetuningjobevent.md)[]                                     | :heavy_check_mark:                                                                                           | N/A                                                                                                          |
-| `object`                                                                                                     | [shared.ListFineTuningJobEventsResponseObject](../../models/shared/listfinetuningjobeventsresponseobject.md) | :heavy_check_mark:                                                                                           | N/A                                                                                                          |

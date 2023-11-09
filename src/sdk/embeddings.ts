@@ -35,7 +35,7 @@ export class Embeddings {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/embeddings";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/embeddings";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -67,7 +67,7 @@ export class Embeddings {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

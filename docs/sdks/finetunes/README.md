@@ -1,5 +1,5 @@
 # FineTunes
-(*.fineTunes*)
+(*fineTunes*)
 
 ## Overview
 
@@ -45,7 +45,6 @@ const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
   const res = await sdk.fineTunes.cancelFineTune(fineTuneId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -62,8 +61,12 @@ const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
 ### Response
 
-**Promise<[operations.CancelFineTuneResponse](../../models/operations/cancelfinetuneresponse.md)>**
+**Promise<[operations.CancelFineTuneResponse](../../sdk/models/operations/cancelfinetuneresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~createFineTune~~
 
@@ -101,7 +104,6 @@ import { Gpt } from "@speakeasy-api/openai";
     validationFile: "file-abc123",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -110,16 +112,20 @@ import { Gpt } from "@speakeasy-api/openai";
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `request`                                                                    | [shared.CreateFineTuneRequest](../../models/shared/createfinetunerequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
+| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
+| `request`                                                                        | [shared.CreateFineTuneRequest](../../sdk/models/shared/createfinetunerequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
+| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
 
 
 ### Response
 
-**Promise<[operations.CreateFineTuneResponse](../../models/operations/createfinetuneresponse.md)>**
+**Promise<[operations.CreateFineTuneResponse](../../sdk/models/operations/createfinetuneresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~listFineTuneEvents~~
 
@@ -143,7 +149,6 @@ const stream: boolean = false;
 
   const res = await sdk.fineTunes.listFineTuneEvents(fineTuneId, stream);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -161,8 +166,12 @@ const stream: boolean = false;
 
 ### Response
 
-**Promise<[operations.ListFineTuneEventsResponse](../../models/operations/listfinetuneeventsresponse.md)>**
+**Promise<[operations.ListFineTuneEventsResponse](../../sdk/models/operations/listfinetuneeventsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~listFineTunes~~
 
@@ -183,7 +192,6 @@ import { Gpt } from "@speakeasy-api/openai";
 
   const res = await sdk.fineTunes.listFineTunes();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -199,8 +207,12 @@ import { Gpt } from "@speakeasy-api/openai";
 
 ### Response
 
-**Promise<[operations.ListFineTunesResponse](../../models/operations/listfinetunesresponse.md)>**
+**Promise<[operations.ListFineTunesResponse](../../sdk/models/operations/listfinetunesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## ~~retrieveFineTune~~
 
@@ -225,7 +237,6 @@ const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
   const res = await sdk.fineTunes.retrieveFineTune(fineTuneId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -242,5 +253,9 @@ const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
 ### Response
 
-**Promise<[operations.RetrieveFineTuneResponse](../../models/operations/retrievefinetuneresponse.md)>**
+**Promise<[operations.RetrieveFineTuneResponse](../../sdk/models/operations/retrievefinetuneresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

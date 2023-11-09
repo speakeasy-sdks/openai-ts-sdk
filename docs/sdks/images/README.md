@@ -1,5 +1,5 @@
 # Images
-(*.images*)
+(*images*)
 
 ## Overview
 
@@ -37,7 +37,6 @@ import { CreateImageRequestResponseFormat, CreateImageRequestSize, Quality, Styl
     user: "user-1234",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,16 +45,20 @@ import { CreateImageRequestResponseFormat, CreateImageRequestSize, Quality, Styl
 
 ### Parameters
 
-| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
-| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
-| `request`                                                              | [shared.CreateImageRequest](../../models/shared/createimagerequest.md) | :heavy_check_mark:                                                     | The request object to use for the request.                             |
-| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
+| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
+| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
+| `request`                                                                  | [shared.CreateImageRequest](../../sdk/models/shared/createimagerequest.md) | :heavy_check_mark:                                                         | The request object to use for the request.                                 |
+| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
 
 
 ### Response
 
-**Promise<[operations.CreateImageResponse](../../models/operations/createimageresponse.md)>**
+**Promise<[operations.CreateImageResponse](../../sdk/models/operations/createimageresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createImageEdit
 
@@ -89,7 +92,6 @@ import { CreateImageEditRequestResponseFormat, Size } from "@speakeasy-api/opena
     user: "user-1234",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -98,16 +100,20 @@ import { CreateImageEditRequestResponseFormat, Size } from "@speakeasy-api/opena
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.CreateImageEditRequest](../../models/shared/createimageeditrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [shared.CreateImageEditRequest](../../sdk/models/shared/createimageeditrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.CreateImageEditResponse](../../models/operations/createimageeditresponse.md)>**
+**Promise<[operations.CreateImageEditResponse](../../sdk/models/operations/createimageeditresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createImageVariation
 
@@ -136,7 +142,6 @@ import { CreateImageVariationRequestResponseFormat, CreateImageVariationRequestS
     user: "user-1234",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -145,13 +150,17 @@ import { CreateImageVariationRequestResponseFormat, CreateImageVariationRequestS
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [shared.CreateImageVariationRequest](../../models/shared/createimagevariationrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [shared.CreateImageVariationRequest](../../sdk/models/shared/createimagevariationrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.CreateImageVariationResponse](../../models/operations/createimagevariationresponse.md)>**
+**Promise<[operations.CreateImageVariationResponse](../../sdk/models/operations/createimagevariationresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

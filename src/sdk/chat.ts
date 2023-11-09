@@ -35,7 +35,7 @@ export class Chat {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/chat/completions";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/chat/completions";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -67,7 +67,7 @@ export class Chat {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

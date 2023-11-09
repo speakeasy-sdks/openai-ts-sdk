@@ -36,7 +36,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/threads/{thread_id}/runs/{run_id}/cancel",
             req
@@ -57,7 +57,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -109,7 +109,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/assistants";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/assistants";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -141,7 +141,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -198,7 +198,11 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/assistants/{assistant_id}/files", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/assistants/{assistant_id}/files",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -234,7 +238,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -292,7 +296,11 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}/messages", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/threads/{thread_id}/messages",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -328,7 +336,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -385,7 +393,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}/runs", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/threads/{thread_id}/runs", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -417,7 +425,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -470,7 +478,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/threads";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/threads";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -495,14 +503,13 @@ export class Assistants {
             ...config?.headers,
             ...properties.headers,
         };
-        if (reqBody == null) throw new Error("request body is required");
         headers["Accept"] = "application/json";
 
         headers["user-agent"] = this.sdkConfiguration.userAgent;
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -558,7 +565,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/threads/runs";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/threads/runs";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -590,7 +597,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -643,7 +650,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/assistants/{assistant_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/assistants/{assistant_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -660,7 +667,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -716,7 +723,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/assistants/{assistant_id}/files/{file_id}",
             req
@@ -737,7 +744,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -792,7 +799,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/threads/{thread_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -809,7 +816,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "delete",
             headers: headers,
             responseType: "arraybuffer",
@@ -863,7 +870,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/assistants/{assistant_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/assistants/{assistant_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -880,7 +887,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -936,7 +943,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/assistants/{assistant_id}/files/{file_id}",
             req
@@ -957,7 +964,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1013,7 +1020,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/threads/{thread_id}/messages/{message_id}",
             req
@@ -1034,7 +1041,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1092,7 +1099,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/threads/{thread_id}/messages/{message_id}/files/{file_id}",
             req
@@ -1113,7 +1120,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1169,7 +1176,11 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}/runs/{run_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/threads/{thread_id}/runs/{run_id}",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -1186,7 +1197,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1241,7 +1252,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/threads/{thread_id}/runs/{run_id}/steps/{step_id}",
             req
@@ -1262,7 +1273,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1316,7 +1327,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/threads/{thread_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -1333,7 +1344,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1388,7 +1399,11 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/assistants/{assistant_id}/files", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/assistants/{assistant_id}/files",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -1406,7 +1421,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1467,7 +1482,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/assistants";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/assistants";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -1485,7 +1500,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1540,7 +1555,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/threads/{thread_id}/messages/{message_id}/files",
             req
@@ -1562,7 +1577,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1617,7 +1632,11 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}/messages", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/threads/{thread_id}/messages",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -1635,7 +1654,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1690,7 +1709,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/threads/{thread_id}/runs/{run_id}/steps",
             req
@@ -1712,7 +1731,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1767,7 +1786,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}/runs", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/threads/{thread_id}/runs", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -1785,7 +1804,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -1843,7 +1862,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/threads/{thread_id}/messages/{message_id}",
             req
@@ -1883,7 +1902,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -1942,7 +1961,11 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}/runs/{run_id}", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/threads/{thread_id}/runs/{run_id}",
+            req
+        );
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -1974,7 +1997,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -2028,7 +2051,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/threads/{thread_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/threads/{thread_id}", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -2064,7 +2087,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -2124,7 +2147,7 @@ export class Assistants {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/threads/{thread_id}/runs/{run_id}/submit_tool_outputs",
             req
@@ -2164,7 +2187,7 @@ export class Assistants {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

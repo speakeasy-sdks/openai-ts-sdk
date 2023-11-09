@@ -35,7 +35,7 @@ export class Images {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/images/generations";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/images/generations";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -67,7 +67,7 @@ export class Images {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -123,7 +123,7 @@ export class Images {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/images/edits";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/images/edits";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -155,7 +155,7 @@ export class Images {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -211,7 +211,7 @@ export class Images {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/images/variations";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/images/variations";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -243,7 +243,7 @@ export class Images {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

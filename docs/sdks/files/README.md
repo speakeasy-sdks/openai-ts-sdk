@@ -1,5 +1,5 @@
 # Files
-(*.files*)
+(*files*)
 
 ## Overview
 
@@ -46,7 +46,6 @@ import { Purpose } from "@speakeasy-api/openai/dist/sdk/models/shared";
     purpose: Purpose.FineTune,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -55,16 +54,20 @@ import { Purpose } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `request`                                                            | [shared.CreateFileRequest](../../models/shared/createfilerequest.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
-| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [shared.CreateFileRequest](../../sdk/models/shared/createfilerequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response
 
-**Promise<[operations.CreateFileResponse](../../models/operations/createfileresponse.md)>**
+**Promise<[operations.CreateFileResponse](../../sdk/models/operations/createfileresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteFile
 
@@ -84,7 +87,6 @@ const fileId: string = "string";
 
   const res = await sdk.files.deleteFile(fileId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -101,8 +103,12 @@ const fileId: string = "string";
 
 ### Response
 
-**Promise<[operations.DeleteFileResponse](../../models/operations/deletefileresponse.md)>**
+**Promise<[operations.DeleteFileResponse](../../sdk/models/operations/deletefileresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## downloadFile
 
@@ -122,7 +128,6 @@ const fileId: string = "string";
 
   const res = await sdk.files.downloadFile(fileId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -139,8 +144,12 @@ const fileId: string = "string";
 
 ### Response
 
-**Promise<[operations.DownloadFileResponse](../../models/operations/downloadfileresponse.md)>**
+**Promise<[operations.DownloadFileResponse](../../sdk/models/operations/downloadfileresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listFiles
 
@@ -160,7 +169,6 @@ const purpose: string = "string";
 
   const res = await sdk.files.listFiles(purpose);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -177,8 +185,12 @@ const purpose: string = "string";
 
 ### Response
 
-**Promise<[operations.ListFilesResponse](../../models/operations/listfilesresponse.md)>**
+**Promise<[operations.ListFilesResponse](../../sdk/models/operations/listfilesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## retrieveFile
 
@@ -198,7 +210,6 @@ const fileId: string = "string";
 
   const res = await sdk.files.retrieveFile(fileId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -215,5 +226,9 @@ const fileId: string = "string";
 
 ### Response
 
-**Promise<[operations.RetrieveFileResponse](../../models/operations/retrievefileresponse.md)>**
+**Promise<[operations.RetrieveFileResponse](../../sdk/models/operations/retrievefileresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

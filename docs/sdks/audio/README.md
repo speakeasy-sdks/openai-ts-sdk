@@ -1,5 +1,5 @@
 # Audio
-(*.audio*)
+(*audio*)
 
 ## Overview
 
@@ -32,7 +32,6 @@ import { CreateSpeechRequestResponseFormat, Voice } from "@speakeasy-api/openai/
     voice: Voice.Shimmer,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -41,16 +40,20 @@ import { CreateSpeechRequestResponseFormat, Voice } from "@speakeasy-api/openai/
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [shared.CreateSpeechRequest](../../models/shared/createspeechrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [shared.CreateSpeechRequest](../../sdk/models/shared/createspeechrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
 
-**Promise<[operations.CreateSpeechResponse](../../models/operations/createspeechresponse.md)>**
+**Promise<[operations.CreateSpeechResponse](../../sdk/models/operations/createspeechresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createTranscription
 
@@ -75,7 +78,6 @@ import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/
     model: "whisper-1",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -84,16 +86,20 @@ import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [shared.CreateTranscriptionRequest](../../models/shared/createtranscriptionrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [shared.CreateTranscriptionRequest](../../sdk/models/shared/createtranscriptionrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.CreateTranscriptionResponse](../../models/operations/createtranscriptionresponse.md)>**
+**Promise<[operations.CreateTranscriptionResponse](../../sdk/models/operations/createtranscriptionresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createTranslation
 
@@ -117,7 +123,6 @@ import { Gpt } from "@speakeasy-api/openai";
     model: "whisper-1",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -126,13 +131,17 @@ import { Gpt } from "@speakeasy-api/openai";
 
 ### Parameters
 
-| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
-| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
-| `request`                                                                          | [shared.CreateTranslationRequest](../../models/shared/createtranslationrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
-| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
+| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
+| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| `request`                                                                              | [shared.CreateTranslationRequest](../../sdk/models/shared/createtranslationrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
+| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
 
 
 ### Response
 
-**Promise<[operations.CreateTranslationResponse](../../models/operations/createtranslationresponse.md)>**
+**Promise<[operations.CreateTranslationResponse](../../sdk/models/operations/createtranslationresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

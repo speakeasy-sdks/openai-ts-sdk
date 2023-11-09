@@ -35,7 +35,7 @@ export class FineTuning {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/fine_tuning/jobs/{fine_tuning_job_id}/cancel",
             req
@@ -56,7 +56,7 @@ export class FineTuning {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -117,7 +117,7 @@ export class FineTuning {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/fine_tuning/jobs";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/fine_tuning/jobs";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -149,7 +149,7 @@ export class FineTuning {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -210,7 +210,7 @@ export class FineTuning {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/fine_tuning/jobs/{fine_tuning_job_id}/events",
             req
@@ -232,7 +232,7 @@ export class FineTuning {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -290,7 +290,7 @@ export class FineTuning {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/fine_tuning/jobs";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/fine_tuning/jobs";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -308,7 +308,7 @@ export class FineTuning {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -366,7 +366,7 @@ export class FineTuning {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(
+        const operationUrl: string = utils.generateURL(
             baseURL,
             "/fine_tuning/jobs/{fine_tuning_job_id}",
             req
@@ -387,7 +387,7 @@ export class FineTuning {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",

@@ -42,10 +42,10 @@ export class LastError extends SpeakeasyBase {
 export class RunObjectMetadata extends SpeakeasyBase {}
 
 /**
- * The object type, which is always `assistant.run`.
+ * The object type, which is always `thread.run`.
  */
 export enum RunObjectObject {
-    AssistantRun = "assistant.run",
+    ThreadRun = "thread.run",
 }
 
 /**
@@ -196,7 +196,7 @@ export class RunObject extends SpeakeasyBase {
     model: string;
 
     /**
-     * The object type, which is always `assistant.run`.
+     * The object type, which is always `thread.run`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })

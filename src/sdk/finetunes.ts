@@ -37,7 +37,11 @@ export class FineTunes {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/fine-tunes/{fine_tune_id}/cancel", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/fine-tunes/{fine_tune_id}/cancel",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -54,7 +58,7 @@ export class FineTunes {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -113,7 +117,7 @@ export class FineTunes {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/fine-tunes";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/fine-tunes";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -145,7 +149,7 @@ export class FineTunes {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -202,7 +206,11 @@ export class FineTunes {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/fine-tunes/{fine_tune_id}/events", req);
+        const operationUrl: string = utils.generateURL(
+            baseURL,
+            "/fine-tunes/{fine_tune_id}/events",
+            req
+        );
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -220,7 +228,7 @@ export class FineTunes {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url + queryParams,
+            url: operationUrl + queryParams,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -272,7 +280,7 @@ export class FineTunes {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/fine-tunes";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/fine-tunes";
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -289,7 +297,7 @@ export class FineTunes {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",
@@ -348,7 +356,7 @@ export class FineTunes {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/fine-tunes/{fine_tune_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/fine-tunes/{fine_tune_id}", req);
         const client: AxiosInstance = this.sdkConfiguration.defaultClient;
         let globalSecurity = this.sdkConfiguration.security;
         if (typeof globalSecurity === "function") {
@@ -365,7 +373,7 @@ export class FineTunes {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "get",
             headers: headers,
             responseType: "arraybuffer",

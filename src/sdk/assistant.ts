@@ -32,7 +32,7 @@ export class Assistant {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = utils.generateURL(baseURL, "/assistants/{assistant_id}", req);
+        const operationUrl: string = utils.generateURL(baseURL, "/assistants/{assistant_id}", req);
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -68,7 +68,7 @@ export class Assistant {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

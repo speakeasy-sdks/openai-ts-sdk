@@ -35,7 +35,7 @@ export class Audio {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/audio/speech";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/audio/speech";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -67,7 +67,7 @@ export class Audio {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -120,7 +120,7 @@ export class Audio {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/audio/transcriptions";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/audio/transcriptions";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -152,7 +152,7 @@ export class Audio {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",
@@ -209,7 +209,7 @@ export class Audio {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/audio/translations";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/audio/translations";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -241,7 +241,7 @@ export class Audio {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

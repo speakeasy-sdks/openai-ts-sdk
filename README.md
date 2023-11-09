@@ -64,7 +64,7 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
 ## Available Resources and Operations
 
 
-### [.assistants](docs/sdks/assistants/README.md)
+### [assistants](docs/sdks/assistants/README.md)
 
 * [cancelRun](docs/sdks/assistants/README.md#cancelrun) - Cancels a run that is `in_progress`.
 * [createAssistant](docs/sdks/assistants/README.md#createassistant) - Create an assistant with a model and instructions.
@@ -95,33 +95,33 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
 * [submitToolOuputsToRun](docs/sdks/assistants/README.md#submittoolouputstorun) - When a run has the `status: "requires_action"` and `required_action.type` is `submit_tool_outputs`, this endpoint can be used to submit the outputs from the tool calls once they're all completed. All outputs must be submitted in a single request.
 
 
-### [.assistant](docs/sdks/assistant/README.md)
+### [assistant](docs/sdks/assistant/README.md)
 
 * [modifyAssistant](docs/sdks/assistant/README.md#modifyassistant) - Modifies an assistant.
 
-### [.audio](docs/sdks/audio/README.md)
+### [audio](docs/sdks/audio/README.md)
 
 * [createSpeech](docs/sdks/audio/README.md#createspeech) - Generates audio from the input text.
 * [createTranscription](docs/sdks/audio/README.md#createtranscription) - Transcribes audio into the input language.
 * [createTranslation](docs/sdks/audio/README.md#createtranslation) - Translates audio into English.
 
-### [.chat](docs/sdks/chat/README.md)
+### [chat](docs/sdks/chat/README.md)
 
 * [createChatCompletion](docs/sdks/chat/README.md#createchatcompletion) - Creates a model response for the given chat conversation.
 
-### [.completions](docs/sdks/completions/README.md)
+### [completions](docs/sdks/completions/README.md)
 
 * [createCompletion](docs/sdks/completions/README.md#createcompletion) - Creates a completion for the provided prompt and parameters.
 
-### [.edits](docs/sdks/edits/README.md)
+### [edits](docs/sdks/edits/README.md)
 
 * [~~createEdit~~](docs/sdks/edits/README.md#createedit) - Creates a new edit for the provided input, instruction, and parameters. :warning: **Deprecated**
 
-### [.embeddings](docs/sdks/embeddings/README.md)
+### [embeddings](docs/sdks/embeddings/README.md)
 
 * [createEmbedding](docs/sdks/embeddings/README.md#createembedding) - Creates an embedding vector representing the input text.
 
-### [.files](docs/sdks/files/README.md)
+### [files](docs/sdks/files/README.md)
 
 * [createFile](docs/sdks/files/README.md#createfile) - Upload a file that can be used across various endpoints/features. The size of all the files uploaded by one organization can be up to 100 GB.
 
@@ -134,7 +134,7 @@ Please [contact us](https://help.openai.com/) if you need to increase these stor
 * [listFiles](docs/sdks/files/README.md#listfiles) - Returns a list of files that belong to the user's organization.
 * [retrieveFile](docs/sdks/files/README.md#retrievefile) - Returns information about a specific file.
 
-### [.fineTunes](docs/sdks/finetunes/README.md)
+### [fineTunes](docs/sdks/finetunes/README.md)
 
 * [~~cancelFineTune~~](docs/sdks/finetunes/README.md#cancelfinetune) - Immediately cancel a fine-tune job.
  :warning: **Deprecated**
@@ -153,7 +153,7 @@ Response includes details of the enqueued job including job status and the name 
 [Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
  :warning: **Deprecated**
 
-### [.fineTuning](docs/sdks/finetuning/README.md)
+### [fineTuning](docs/sdks/finetuning/README.md)
 
 * [cancelFineTuningJob](docs/sdks/finetuning/README.md#cancelfinetuningjob) - Immediately cancel a fine-tune job.
 
@@ -172,19 +172,19 @@ Response includes details of the enqueued job including job status and the name 
 [Learn more about fine-tuning](/docs/guides/fine-tuning)
 
 
-### [.images](docs/sdks/images/README.md)
+### [images](docs/sdks/images/README.md)
 
 * [createImage](docs/sdks/images/README.md#createimage) - Creates an image given a prompt.
 * [createImageEdit](docs/sdks/images/README.md#createimageedit) - Creates an edited or extended image given an original image and a prompt.
 * [createImageVariation](docs/sdks/images/README.md#createimagevariation) - Creates a variation of a given image.
 
-### [.models](docs/sdks/models/README.md)
+### [models](docs/sdks/models/README.md)
 
 * [deleteModel](docs/sdks/models/README.md#deletemodel) - Delete a fine-tuned model. You must have the Owner role in your organization to delete a model.
 * [listModels](docs/sdks/models/README.md#listmodels) - Lists the currently available models, and provides basic information about each one such as the owner and availability.
 * [retrieveModel](docs/sdks/models/README.md#retrievemodel) - Retrieves a model instance, providing basic information about the model such as the owner and permissioning.
 
-### [.moderations](docs/sdks/moderations/README.md)
+### [moderations](docs/sdks/moderations/README.md)
 
 * [createModeration](docs/sdks/moderations/README.md#createmoderation) - Classifies if text violates OpenAI's Content Policy
 <!-- End SDK Available Operations -->
@@ -200,7 +200,37 @@ Response includes details of the enqueued job including job status and the name 
 <!-- Start Error Handling -->
 # Error Handling
 
-Handling errors in your SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+Handling errors in this SDK should largely match your expectations.  All operations return a response object or throw an error.  If Error objects are specified in your OpenAPI Spec, the SDK will throw the appropriate Error type.
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
+
+
+## Example
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+(async () => {
+    const sdk = new Gpt({
+        apiKeyAuth: "",
+    });
+    const runId: string = "string";
+    const threadId: string = "string";
+
+    let res;
+    try {
+        res = await sdk.assistants.cancelRun(runId, threadId);
+    } catch (e) {}
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+})();
+
+```
 <!-- End Error Handling -->
 
 
@@ -292,12 +322,11 @@ const sdk = new Gpt({defaultClient: httpClient});
 
 
 <!-- Start Authentication -->
-
 # Authentication
 
 ## Per-Client Security Schemes
 
-Your SDK supports the following security scheme globally:
+This SDK supports the following security scheme globally:
 
 | Name         | Type         | Scheme       |
 | ------------ | ------------ | ------------ |

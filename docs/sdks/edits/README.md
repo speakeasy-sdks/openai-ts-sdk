@@ -1,5 +1,5 @@
 # Edits
-(*.edits*)
+(*edits*)
 
 ## Overview
 
@@ -34,7 +34,6 @@ import { Gpt } from "@speakeasy-api/openai";
     topP: 1,
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -43,13 +42,17 @@ import { Gpt } from "@speakeasy-api/openai";
 
 ### Parameters
 
-| Parameter                                                            | Type                                                                 | Required                                                             | Description                                                          |
-| -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- | -------------------------------------------------------------------- |
-| `request`                                                            | [shared.CreateEditRequest](../../models/shared/createeditrequest.md) | :heavy_check_mark:                                                   | The request object to use for the request.                           |
-| `config`                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)         | :heavy_minus_sign:                                                   | Available config options for making requests.                        |
+| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
+| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
+| `request`                                                                | [shared.CreateEditRequest](../../sdk/models/shared/createeditrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
+| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
 
 
 ### Response
 
-**Promise<[operations.CreateEditResponse](../../models/operations/createeditresponse.md)>**
+**Promise<[operations.CreateEditResponse](../../sdk/models/operations/createeditresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

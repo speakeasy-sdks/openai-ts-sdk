@@ -1,5 +1,5 @@
 # FineTuning
-(*.fineTuning*)
+(*fineTuning*)
 
 ## Overview
 
@@ -43,7 +43,6 @@ const fineTuningJobId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
   const res = await sdk.fineTuning.cancelFineTuningJob(fineTuningJobId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -60,8 +59,12 @@ const fineTuningJobId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
 ### Response
 
-**Promise<[operations.CancelFineTuningJobResponse](../../models/operations/cancelfinetuningjobresponse.md)>**
+**Promise<[operations.CancelFineTuningJobResponse](../../sdk/models/operations/cancelfinetuningjobresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createFineTuningJob
 
@@ -93,7 +96,6 @@ import { Gpt } from "@speakeasy-api/openai";
     validationFile: "file-abc123",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -102,16 +104,20 @@ import { Gpt } from "@speakeasy-api/openai";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `request`                                                                              | [shared.CreateFineTuningJobRequest](../../models/shared/createfinetuningjobrequest.md) | :heavy_check_mark:                                                                     | The request object to use for the request.                                             |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [shared.CreateFineTuningJobRequest](../../sdk/models/shared/createfinetuningjobrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
 
 
 ### Response
 
-**Promise<[operations.CreateFineTuningJobResponse](../../models/operations/createfinetuningjobresponse.md)>**
+**Promise<[operations.CreateFineTuningJobResponse](../../sdk/models/operations/createfinetuningjobresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listFineTuningEvents
 
@@ -134,7 +140,6 @@ const limit: number = 896841;
 
   const res = await sdk.fineTuning.listFineTuningEvents(fineTuningJobId, after, limit);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -153,8 +158,12 @@ const limit: number = 896841;
 
 ### Response
 
-**Promise<[operations.ListFineTuningEventsResponse](../../models/operations/listfinetuningeventsresponse.md)>**
+**Promise<[operations.ListFineTuningEventsResponse](../../sdk/models/operations/listfinetuningeventsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listPaginatedFineTuningJobs
 
@@ -176,7 +185,6 @@ const limit: number = 385496;
 
   const res = await sdk.fineTuning.listPaginatedFineTuningJobs(after, limit);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -194,8 +202,12 @@ const limit: number = 385496;
 
 ### Response
 
-**Promise<[operations.ListPaginatedFineTuningJobsResponse](../../models/operations/listpaginatedfinetuningjobsresponse.md)>**
+**Promise<[operations.ListPaginatedFineTuningJobsResponse](../../sdk/models/operations/listpaginatedfinetuningjobsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## retrieveFineTuningJob
 
@@ -218,7 +230,6 @@ const fineTuningJobId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
   const res = await sdk.fineTuning.retrieveFineTuningJob(fineTuningJobId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -235,5 +246,9 @@ const fineTuningJobId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
 ### Response
 
-**Promise<[operations.RetrieveFineTuningJobResponse](../../models/operations/retrievefinetuningjobresponse.md)>**
+**Promise<[operations.RetrieveFineTuningJobResponse](../../sdk/models/operations/retrievefinetuningjobresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

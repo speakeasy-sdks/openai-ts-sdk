@@ -1,5 +1,5 @@
 # Embeddings
-(*.embeddings*)
+(*embeddings*)
 
 ## Overview
 
@@ -31,7 +31,6 @@ import { EncodingFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
     user: "user-1234",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -40,13 +39,17 @@ import { EncodingFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.CreateEmbeddingRequest](../../models/shared/createembeddingrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [shared.CreateEmbeddingRequest](../../sdk/models/shared/createembeddingrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.CreateEmbeddingResponse](../../models/operations/createembeddingresponse.md)>**
+**Promise<[operations.CreateEmbeddingResponse](../../sdk/models/operations/createembeddingresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

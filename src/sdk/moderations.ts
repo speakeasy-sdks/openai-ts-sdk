@@ -35,7 +35,7 @@ export class Moderations {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/moderations";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/moderations";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -67,7 +67,7 @@ export class Moderations {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

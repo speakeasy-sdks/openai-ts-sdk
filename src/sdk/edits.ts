@@ -37,7 +37,7 @@ export class Edits {
             this.sdkConfiguration.serverURL,
             this.sdkConfiguration.serverDefaults
         );
-        const url: string = baseURL.replace(/\/$/, "") + "/edits";
+        const operationUrl: string = baseURL.replace(/\/$/, "") + "/edits";
 
         let [reqBodyHeaders, reqBody]: [object, any] = [{}, null];
 
@@ -69,7 +69,7 @@ export class Edits {
 
         const httpRes: AxiosResponse = await client.request({
             validateStatus: () => true,
-            url: url,
+            url: operationUrl,
             method: "post",
             headers: headers,
             responseType: "arraybuffer",

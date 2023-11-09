@@ -1,5 +1,5 @@
 # Assistants
-(*.assistants*)
+(*assistants*)
 
 ## Overview
 
@@ -55,7 +55,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.cancelRun(runId, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -73,8 +72,12 @@ const threadId: string = "string";
 
 ### Response
 
-**Promise<[operations.CancelRunResponse](../../models/operations/cancelrunresponse.md)>**
+**Promise<[operations.CancelRunResponse](../../sdk/models/operations/cancelrunresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createAssistant
 
@@ -101,7 +104,6 @@ import { Gpt } from "@speakeasy-api/openai";
     ],
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -110,16 +112,20 @@ import { Gpt } from "@speakeasy-api/openai";
 
 ### Parameters
 
-| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
-| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
-| `request`                                                                      | [shared.CreateAssistantRequest](../../models/shared/createassistantrequest.md) | :heavy_check_mark:                                                             | The request object to use for the request.                                     |
-| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `request`                                                                          | [shared.CreateAssistantRequest](../../sdk/models/shared/createassistantrequest.md) | :heavy_check_mark:                                                                 | The request object to use for the request.                                         |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
 
-**Promise<[operations.CreateAssistantResponse](../../models/operations/createassistantresponse.md)>**
+**Promise<[operations.CreateAssistantResponse](../../sdk/models/operations/createassistantresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createAssistantFile
 
@@ -143,7 +149,6 @@ const assistantId: string = "file-AF1WoRqd3aJAHsqc9NY7iL8F";
 
   const res = await sdk.assistants.createAssistantFile(createAssistantFileRequest, assistantId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -152,17 +157,21 @@ const assistantId: string = "file-AF1WoRqd3aJAHsqc9NY7iL8F";
 
 ### Parameters
 
-| Parameter                                                                              | Type                                                                                   | Required                                                                               | Description                                                                            | Example                                                                                |
-| -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------- |
-| `createAssistantFileRequest`                                                           | [shared.CreateAssistantFileRequest](../../models/shared/createassistantfilerequest.md) | :heavy_check_mark:                                                                     | N/A                                                                                    |                                                                                        |
-| `assistantId`                                                                          | *string*                                                                               | :heavy_check_mark:                                                                     | The ID of the assistant for which to create a File.<br/>                               | file-AF1WoRqd3aJAHsqc9NY7iL8F                                                          |
-| `config`                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                           | :heavy_minus_sign:                                                                     | Available config options for making requests.                                          |                                                                                        |
+| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
+| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
+| `createAssistantFileRequest`                                                                  | [shared.CreateAssistantFileRequest](../../../sdk/models/shared/createassistantfilerequest.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
+| `assistantId`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the assistant for which to create a File.<br/>                                      | file-AF1WoRqd3aJAHsqc9NY7iL8F                                                                 |
+| `config`                                                                                      | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                  | :heavy_minus_sign:                                                                            | Available config options for making requests.                                                 |                                                                                               |
 
 
 ### Response
 
-**Promise<[operations.CreateAssistantFileResponse](../../models/operations/createassistantfileresponse.md)>**
+**Promise<[operations.CreateAssistantFileResponse](../../sdk/models/operations/createassistantfileresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createMessage
 
@@ -191,7 +200,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.createMessage(createMessageRequest, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -200,17 +208,21 @@ const threadId: string = "string";
 
 ### Parameters
 
-| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
-| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
-| `createMessageRequest`                                                       | [shared.CreateMessageRequest](../../models/shared/createmessagerequest.md)   | :heavy_check_mark:                                                           | N/A                                                                          |
-| `threadId`                                                                   | *string*                                                                     | :heavy_check_mark:                                                           | The ID of the [thread](/docs/api-reference/threads) to create a message for. |
-| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `createMessageRequest`                                                            | [shared.CreateMessageRequest](../../../sdk/models/shared/createmessagerequest.md) | :heavy_check_mark:                                                                | N/A                                                                               |
+| `threadId`                                                                        | *string*                                                                          | :heavy_check_mark:                                                                | The ID of the [thread](/docs/api-reference/threads) to create a message for.      |
+| `config`                                                                          | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                      | :heavy_minus_sign:                                                                | Available config options for making requests.                                     |
 
 
 ### Response
 
-**Promise<[operations.CreateMessageResponse](../../models/operations/createmessageresponse.md)>**
+**Promise<[operations.CreateMessageResponse](../../sdk/models/operations/createmessageresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createRun
 
@@ -238,7 +250,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.createRun(createRunRequest, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -247,17 +258,21 @@ const threadId: string = "string";
 
 ### Parameters
 
-| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `createRunRequest`                                                 | [shared.CreateRunRequest](../../models/shared/createrunrequest.md) | :heavy_check_mark:                                                 | N/A                                                                |
-| `threadId`                                                         | *string*                                                           | :heavy_check_mark:                                                 | The ID of the thread to run.                                       |
-| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `createRunRequest`                                                        | [shared.CreateRunRequest](../../../sdk/models/shared/createrunrequest.md) | :heavy_check_mark:                                                        | N/A                                                                       |
+| `threadId`                                                                | *string*                                                                  | :heavy_check_mark:                                                        | The ID of the thread to run.                                              |
+| `config`                                                                  | [AxiosRequestConfig](https://axios-http.com/docs/req_config)              | :heavy_minus_sign:                                                        | Available config options for making requests.                             |
 
 
 ### Response
 
-**Promise<[operations.CreateRunResponse](../../models/operations/createrunresponse.md)>**
+**Promise<[operations.CreateRunResponse](../../sdk/models/operations/createrunresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createThread
 
@@ -288,7 +303,6 @@ import { CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/
     metadata: {},
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -297,16 +311,20 @@ import { CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [shared.CreateThreadRequest](../../models/shared/createthreadrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [shared.CreateThreadRequest](../../sdk/models/shared/createthreadrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
 
-**Promise<[operations.CreateThreadResponse](../../models/operations/createthreadresponse.md)>**
+**Promise<[operations.CreateThreadResponse](../../sdk/models/operations/createthreadresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## createThreadAndRun
 
@@ -344,7 +362,6 @@ import { CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/
     ],
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -353,16 +370,20 @@ import { CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/
 
 ### Parameters
 
-| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
-| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
-| `request`                                                                            | [shared.CreateThreadAndRunRequest](../../models/shared/createthreadandrunrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
-| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
+| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
+| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
+| `request`                                                                                | [shared.CreateThreadAndRunRequest](../../sdk/models/shared/createthreadandrunrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
+| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
 
 
 ### Response
 
-**Promise<[operations.CreateThreadAndRunResponse](../../models/operations/createthreadandrunresponse.md)>**
+**Promise<[operations.CreateThreadAndRunResponse](../../sdk/models/operations/createthreadandrunresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteAssistant
 
@@ -382,7 +403,6 @@ const assistantId: string = "string";
 
   const res = await sdk.assistants.deleteAssistant(assistantId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -399,8 +419,12 @@ const assistantId: string = "string";
 
 ### Response
 
-**Promise<[operations.DeleteAssistantResponse](../../models/operations/deleteassistantresponse.md)>**
+**Promise<[operations.DeleteAssistantResponse](../../sdk/models/operations/deleteassistantresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteAssistantFile
 
@@ -421,7 +445,6 @@ const fileId: string = "string";
 
   const res = await sdk.assistants.deleteAssistantFile(assistantId, fileId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -439,8 +462,12 @@ const fileId: string = "string";
 
 ### Response
 
-**Promise<[operations.DeleteAssistantFileResponse](../../models/operations/deleteassistantfileresponse.md)>**
+**Promise<[operations.DeleteAssistantFileResponse](../../sdk/models/operations/deleteassistantfileresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## deleteThread
 
@@ -460,7 +487,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.deleteThread(threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -477,8 +503,12 @@ const threadId: string = "string";
 
 ### Response
 
-**Promise<[operations.DeleteThreadResponse](../../models/operations/deletethreadresponse.md)>**
+**Promise<[operations.DeleteThreadResponse](../../sdk/models/operations/deletethreadresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getAssistant
 
@@ -498,7 +528,6 @@ const assistantId: string = "string";
 
   const res = await sdk.assistants.getAssistant(assistantId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -515,8 +544,12 @@ const assistantId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetAssistantResponse](../../models/operations/getassistantresponse.md)>**
+**Promise<[operations.GetAssistantResponse](../../sdk/models/operations/getassistantresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getAssistantFile
 
@@ -537,7 +570,6 @@ const fileId: string = "string";
 
   const res = await sdk.assistants.getAssistantFile(assistantId, fileId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -555,8 +587,12 @@ const fileId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetAssistantFileResponse](../../models/operations/getassistantfileresponse.md)>**
+**Promise<[operations.GetAssistantFileResponse](../../sdk/models/operations/getassistantfileresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getMessage
 
@@ -577,7 +613,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.getMessage(messageId, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -595,8 +630,12 @@ const threadId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetMessageResponse](../../models/operations/getmessageresponse.md)>**
+**Promise<[operations.GetMessageResponse](../../sdk/models/operations/getmessageresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getMessageFile
 
@@ -618,7 +657,6 @@ const threadId: string = "thread_AF1WoRqd3aJAHsqc9NY7iL8F";
 
   const res = await sdk.assistants.getMessageFile(fileId, messageId, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -637,8 +675,12 @@ const threadId: string = "thread_AF1WoRqd3aJAHsqc9NY7iL8F";
 
 ### Response
 
-**Promise<[operations.GetMessageFileResponse](../../models/operations/getmessagefileresponse.md)>**
+**Promise<[operations.GetMessageFileResponse](../../sdk/models/operations/getmessagefileresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getRun
 
@@ -659,7 +701,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.getRun(runId, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -677,8 +718,12 @@ const threadId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetRunResponse](../../models/operations/getrunresponse.md)>**
+**Promise<[operations.GetRunResponse](../../sdk/models/operations/getrunresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getRunStep
 
@@ -700,7 +745,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.getRunStep(runId, stepId, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -719,8 +763,12 @@ const threadId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetRunStepResponse](../../models/operations/getrunstepresponse.md)>**
+**Promise<[operations.GetRunStepResponse](../../sdk/models/operations/getrunstepresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## getThread
 
@@ -740,7 +788,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.getThread(threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -757,8 +804,12 @@ const threadId: string = "string";
 
 ### Response
 
-**Promise<[operations.GetThreadResponse](../../models/operations/getthreadresponse.md)>**
+**Promise<[operations.GetThreadResponse](../../sdk/models/operations/getthreadresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listAssistantFiles
 
@@ -779,7 +830,6 @@ import { Order } from "@speakeasy-api/openai/dist/sdk/models/operations";
     assistantId: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -788,16 +838,20 @@ import { Order } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
 ### Parameters
 
-| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
-| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
-| `request`                                                                                    | [operations.ListAssistantFilesRequest](../../models/operations/listassistantfilesrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
-| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
+| Parameter                                                                                        | Type                                                                                             | Required                                                                                         | Description                                                                                      |
+| ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------------ |
+| `request`                                                                                        | [operations.ListAssistantFilesRequest](../../sdk/models/operations/listassistantfilesrequest.md) | :heavy_check_mark:                                                                               | The request object to use for the request.                                                       |
+| `config`                                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                     | :heavy_minus_sign:                                                                               | Available config options for making requests.                                                    |
 
 
 ### Response
 
-**Promise<[operations.ListAssistantFilesResponse](../../models/operations/listassistantfilesresponse.md)>**
+**Promise<[operations.ListAssistantFilesResponse](../../sdk/models/operations/listassistantfilesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listAssistants
 
@@ -820,7 +874,6 @@ const order: QueryParamOrder = QueryParamOrder.Asc;
 
   const res = await sdk.assistants.listAssistants(after, before, limit, order);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -834,14 +887,18 @@ const order: QueryParamOrder = QueryParamOrder.Asc;
 | `after`                                                                                                                                                                                                                                                                                | *string*                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.<br/>   |
 | `before`                                                                                                                                                                                                                                                                               | *string*                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.<br/> |
 | `limit`                                                                                                                                                                                                                                                                                | *number*                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.<br/>                                                                                                                                                                        |
-| `order`                                                                                                                                                                                                                                                                                | [operations.QueryParamOrder](../../models/operations/queryparamorder.md)                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.<br/>                                                                                                                                                               |
+| `order`                                                                                                                                                                                                                                                                                | [operations.QueryParamOrder](../../../sdk/models/operations/queryparamorder.md)                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.<br/>                                                                                                                                                               |
 | `config`                                                                                                                                                                                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | Available config options for making requests.                                                                                                                                                                                                                                          |
 
 
 ### Response
 
-**Promise<[operations.ListAssistantsResponse](../../models/operations/listassistantsresponse.md)>**
+**Promise<[operations.ListAssistantsResponse](../../sdk/models/operations/listassistantsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listMessageFiles
 
@@ -863,7 +920,6 @@ import { ListMessageFilesQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/
     threadId: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -872,16 +928,20 @@ import { ListMessageFilesQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `request`                                                                                | [operations.ListMessageFilesRequest](../../models/operations/listmessagefilesrequest.md) | :heavy_check_mark:                                                                       | The request object to use for the request.                                               |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `request`                                                                                    | [operations.ListMessageFilesRequest](../../sdk/models/operations/listmessagefilesrequest.md) | :heavy_check_mark:                                                                           | The request object to use for the request.                                                   |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
 
-**Promise<[operations.ListMessageFilesResponse](../../models/operations/listmessagefilesresponse.md)>**
+**Promise<[operations.ListMessageFilesResponse](../../sdk/models/operations/listmessagefilesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listMessages
 
@@ -902,7 +962,6 @@ import { ListMessagesQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/mode
     threadId: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -911,16 +970,20 @@ import { ListMessagesQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/mode
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListMessagesRequest](../../models/operations/listmessagesrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListMessagesRequest](../../sdk/models/operations/listmessagesrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.ListMessagesResponse](../../models/operations/listmessagesresponse.md)>**
+**Promise<[operations.ListMessagesResponse](../../sdk/models/operations/listmessagesresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listRunSteps
 
@@ -942,7 +1005,6 @@ import { ListRunStepsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/mode
     threadId: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -951,16 +1013,20 @@ import { ListRunStepsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/mode
 
 ### Parameters
 
-| Parameter                                                                        | Type                                                                             | Required                                                                         | Description                                                                      |
-| -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- | -------------------------------------------------------------------------------- |
-| `request`                                                                        | [operations.ListRunStepsRequest](../../models/operations/listrunstepsrequest.md) | :heavy_check_mark:                                                               | The request object to use for the request.                                       |
-| `config`                                                                         | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                     | :heavy_minus_sign:                                                               | Available config options for making requests.                                    |
+| Parameter                                                                            | Type                                                                                 | Required                                                                             | Description                                                                          |
+| ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------ |
+| `request`                                                                            | [operations.ListRunStepsRequest](../../sdk/models/operations/listrunstepsrequest.md) | :heavy_check_mark:                                                                   | The request object to use for the request.                                           |
+| `config`                                                                             | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                         | :heavy_minus_sign:                                                                   | Available config options for making requests.                                        |
 
 
 ### Response
 
-**Promise<[operations.ListRunStepsResponse](../../models/operations/listrunstepsresponse.md)>**
+**Promise<[operations.ListRunStepsResponse](../../sdk/models/operations/listrunstepsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listRuns
 
@@ -981,7 +1047,6 @@ import { ListRunsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/o
     threadId: "string",
   });
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -990,16 +1055,20 @@ import { ListRunsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/o
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `request`                                                                | [operations.ListRunsRequest](../../models/operations/listrunsrequest.md) | :heavy_check_mark:                                                       | The request object to use for the request.                               |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `request`                                                                    | [operations.ListRunsRequest](../../sdk/models/operations/listrunsrequest.md) | :heavy_check_mark:                                                           | The request object to use for the request.                                   |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
 
-**Promise<[operations.ListRunsResponse](../../models/operations/listrunsresponse.md)>**
+**Promise<[operations.ListRunsResponse](../../sdk/models/operations/listrunsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## modifyMessage
 
@@ -1024,7 +1093,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.modifyMessage(modifyMessageRequest, messageId, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -1033,18 +1101,22 @@ const threadId: string = "string";
 
 ### Parameters
 
-| Parameter                                                                  | Type                                                                       | Required                                                                   | Description                                                                |
-| -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- | -------------------------------------------------------------------------- |
-| `modifyMessageRequest`                                                     | [shared.ModifyMessageRequest](../../models/shared/modifymessagerequest.md) | :heavy_check_mark:                                                         | N/A                                                                        |
-| `messageId`                                                                | *string*                                                                   | :heavy_check_mark:                                                         | The ID of the message to modify.                                           |
-| `threadId`                                                                 | *string*                                                                   | :heavy_check_mark:                                                         | The ID of the thread to which this message belongs.                        |
-| `config`                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)               | :heavy_minus_sign:                                                         | Available config options for making requests.                              |
+| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
+| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
+| `modifyMessageRequest`                                                            | [shared.ModifyMessageRequest](../../../sdk/models/shared/modifymessagerequest.md) | :heavy_check_mark:                                                                | N/A                                                                               |
+| `messageId`                                                                       | *string*                                                                          | :heavy_check_mark:                                                                | The ID of the message to modify.                                                  |
+| `threadId`                                                                        | *string*                                                                          | :heavy_check_mark:                                                                | The ID of the thread to which this message belongs.                               |
+| `config`                                                                          | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                      | :heavy_minus_sign:                                                                | Available config options for making requests.                                     |
 
 
 ### Response
 
-**Promise<[operations.ModifyMessageResponse](../../models/operations/modifymessageresponse.md)>**
+**Promise<[operations.ModifyMessageResponse](../../sdk/models/operations/modifymessageresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## modifyRun
 
@@ -1069,7 +1141,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.modifyRun(modifyRunRequest, runId, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -1078,18 +1149,22 @@ const threadId: string = "string";
 
 ### Parameters
 
-| Parameter                                                          | Type                                                               | Required                                                           | Description                                                        |
-| ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ | ------------------------------------------------------------------ |
-| `modifyRunRequest`                                                 | [shared.ModifyRunRequest](../../models/shared/modifyrunrequest.md) | :heavy_check_mark:                                                 | N/A                                                                |
-| `runId`                                                            | *string*                                                           | :heavy_check_mark:                                                 | The ID of the run to modify.                                       |
-| `threadId`                                                         | *string*                                                           | :heavy_check_mark:                                                 | The ID of the [thread](/docs/api-reference/threads) that was run.  |
-| `config`                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)       | :heavy_minus_sign:                                                 | Available config options for making requests.                      |
+| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
+| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
+| `modifyRunRequest`                                                        | [shared.ModifyRunRequest](../../../sdk/models/shared/modifyrunrequest.md) | :heavy_check_mark:                                                        | N/A                                                                       |
+| `runId`                                                                   | *string*                                                                  | :heavy_check_mark:                                                        | The ID of the run to modify.                                              |
+| `threadId`                                                                | *string*                                                                  | :heavy_check_mark:                                                        | The ID of the [thread](/docs/api-reference/threads) that was run.         |
+| `config`                                                                  | [AxiosRequestConfig](https://axios-http.com/docs/req_config)              | :heavy_minus_sign:                                                        | Available config options for making requests.                             |
 
 
 ### Response
 
-**Promise<[operations.ModifyRunResponse](../../models/operations/modifyrunresponse.md)>**
+**Promise<[operations.ModifyRunResponse](../../sdk/models/operations/modifyrunresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## modifyThread
 
@@ -1113,7 +1188,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.modifyThread(modifyThreadRequest, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -1122,17 +1196,21 @@ const threadId: string = "string";
 
 ### Parameters
 
-| Parameter                                                                | Type                                                                     | Required                                                                 | Description                                                              |
-| ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ | ------------------------------------------------------------------------ |
-| `modifyThreadRequest`                                                    | [shared.ModifyThreadRequest](../../models/shared/modifythreadrequest.md) | :heavy_check_mark:                                                       | N/A                                                                      |
-| `threadId`                                                               | *string*                                                                 | :heavy_check_mark:                                                       | The ID of the thread to modify. Only the `metadata` can be modified.     |
-| `config`                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)             | :heavy_minus_sign:                                                       | Available config options for making requests.                            |
+| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
+| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
+| `modifyThreadRequest`                                                           | [shared.ModifyThreadRequest](../../../sdk/models/shared/modifythreadrequest.md) | :heavy_check_mark:                                                              | N/A                                                                             |
+| `threadId`                                                                      | *string*                                                                        | :heavy_check_mark:                                                              | The ID of the thread to modify. Only the `metadata` can be modified.            |
+| `config`                                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                    | :heavy_minus_sign:                                                              | Available config options for making requests.                                   |
 
 
 ### Response
 
-**Promise<[operations.ModifyThreadResponse](../../models/operations/modifythreadresponse.md)>**
+**Promise<[operations.ModifyThreadResponse](../../sdk/models/operations/modifythreadresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## submitToolOuputsToRun
 
@@ -1160,7 +1238,6 @@ const threadId: string = "string";
 
   const res = await sdk.assistants.submitToolOuputsToRun(submitToolOutputsRunRequest, runId, threadId);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -1169,15 +1246,19 @@ const threadId: string = "string";
 
 ### Parameters
 
-| Parameter                                                                                | Type                                                                                     | Required                                                                                 | Description                                                                              |
-| ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------------- |
-| `submitToolOutputsRunRequest`                                                            | [shared.SubmitToolOutputsRunRequest](../../models/shared/submittooloutputsrunrequest.md) | :heavy_check_mark:                                                                       | N/A                                                                                      |
-| `runId`                                                                                  | *string*                                                                                 | :heavy_check_mark:                                                                       | The ID of the run that requires the tool output submission.                              |
-| `threadId`                                                                               | *string*                                                                                 | :heavy_check_mark:                                                                       | The ID of the [thread](/docs/api-reference/threads) to which this run belongs.           |
-| `config`                                                                                 | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                             | :heavy_minus_sign:                                                                       | Available config options for making requests.                                            |
+| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
+| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
+| `submitToolOutputsRunRequest`                                                                   | [shared.SubmitToolOutputsRunRequest](../../../sdk/models/shared/submittooloutputsrunrequest.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
+| `runId`                                                                                         | *string*                                                                                        | :heavy_check_mark:                                                                              | The ID of the run that requires the tool output submission.                                     |
+| `threadId`                                                                                      | *string*                                                                                        | :heavy_check_mark:                                                                              | The ID of the [thread](/docs/api-reference/threads) to which this run belongs.                  |
+| `config`                                                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                    | :heavy_minus_sign:                                                                              | Available config options for making requests.                                                   |
 
 
 ### Response
 
-**Promise<[operations.SubmitToolOuputsToRunResponse](../../models/operations/submittoolouputstorunresponse.md)>**
+**Promise<[operations.SubmitToolOuputsToRunResponse](../../sdk/models/operations/submittoolouputstorunresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |

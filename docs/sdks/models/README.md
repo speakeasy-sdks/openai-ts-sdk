@@ -1,5 +1,5 @@
 # Models
-(*.models*)
+(*models*)
 
 ## Overview
 
@@ -29,7 +29,6 @@ const model: string = "ft:gpt-3.5-turbo:acemeco:suffix:abc123";
 
   const res = await sdk.models.deleteModel(model);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -46,8 +45,12 @@ const model: string = "ft:gpt-3.5-turbo:acemeco:suffix:abc123";
 
 ### Response
 
-**Promise<[operations.DeleteModelResponse](../../models/operations/deletemodelresponse.md)>**
+**Promise<[operations.DeleteModelResponse](../../sdk/models/operations/deletemodelresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## listModels
 
@@ -65,7 +68,6 @@ import { Gpt } from "@speakeasy-api/openai";
 
   const res = await sdk.models.listModels();
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -81,8 +83,12 @@ import { Gpt } from "@speakeasy-api/openai";
 
 ### Response
 
-**Promise<[operations.ListModelsResponse](../../models/operations/listmodelsresponse.md)>**
+**Promise<[operations.ListModelsResponse](../../sdk/models/operations/listmodelsresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
 
 ## retrieveModel
 
@@ -102,7 +108,6 @@ const model: string = "gpt-3.5-turbo";
 
   const res = await sdk.models.retrieveModel(model);
 
-
   if (res.statusCode == 200) {
     // handle response
   }
@@ -119,5 +124,9 @@ const model: string = "gpt-3.5-turbo";
 
 ### Response
 
-**Promise<[operations.RetrieveModelResponse](../../models/operations/retrievemodelresponse.md)>**
+**Promise<[operations.RetrieveModelResponse](../../sdk/models/operations/retrievemodelresponse.md)>**
+### Errors
 
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
