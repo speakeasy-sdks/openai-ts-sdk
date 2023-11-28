@@ -1,4 +1,4 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
@@ -18,4 +18,4 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
 })();
 
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

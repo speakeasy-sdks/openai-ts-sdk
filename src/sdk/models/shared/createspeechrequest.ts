@@ -16,7 +16,7 @@ export enum CreateSpeechRequestResponseFormat {
 }
 
 /**
- * The voice to use when generating the audio. Supported voices are `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`.
+ * The voice to use when generating the audio. Supported voices are `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`. Previews of the voices are available in the [Text to speech guide](/docs/guides/text-to-speech/voice-options).
  */
 export enum Voice {
     Alloy = "alloy",
@@ -60,7 +60,7 @@ export class CreateSpeechRequest extends SpeakeasyBase {
     speed?: number;
 
     /**
-     * The voice to use when generating the audio. Supported voices are `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`.
+     * The voice to use when generating the audio. Supported voices are `alloy`, `echo`, `fable`, `onyx`, `nova`, and `shimmer`. Previews of the voices are available in the [Text to speech guide](/docs/guides/text-to-speech/voice-options).
      */
     @SpeakeasyMetadata()
     @Expose({ name: "voice" })

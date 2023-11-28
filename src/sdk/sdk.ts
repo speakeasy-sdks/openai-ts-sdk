@@ -4,7 +4,6 @@
 
 import * as utils from "../internal/utils";
 import * as shared from "../sdk/models/shared";
-import { Assistant } from "./assistant";
 import { Assistants } from "./assistants";
 import { Audio } from "./audio";
 import { Chat } from "./chat";
@@ -58,9 +57,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "2.0.0";
-    sdkVersion = "3.0.5";
-    genVersion = "2.194.1";
-    userAgent = "speakeasy-sdk/typescript 3.0.5 2.194.1 2.0.0 @speakeasy-api/openai";
+    sdkVersion = "3.0.6";
+    genVersion = "2.202.2";
+    userAgent = "speakeasy-sdk/typescript 3.0.6 2.202.2 2.0.0 @speakeasy-api/openai";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -75,7 +74,6 @@ export class Gpt {
      * Build Assistants that can call models and use tools.
      */
     public assistants: Assistants;
-    public assistant: Assistant;
     /**
      * Learn how to turn audio into text or text into audio.
      */
@@ -141,7 +139,6 @@ export class Gpt {
         });
 
         this.assistants = new Assistants(this.sdkConfiguration);
-        this.assistant = new Assistant(this.sdkConfiguration);
         this.audio = new Audio(this.sdkConfiguration);
         this.chat = new Chat(this.sdkConfiguration);
         this.completions = new Completions(this.sdkConfiguration);

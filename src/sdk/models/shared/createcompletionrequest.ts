@@ -35,7 +35,7 @@ export class CreateCompletionRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
+     * [See more information about frequency and presence penalties.](/docs/guides/text-generation/parameter-details)
      *
      */
     @SpeakeasyMetadata()
@@ -107,7 +107,7 @@ export class CreateCompletionRequest extends SpeakeasyBase {
      *
      * @remarks
      *
-     * [See more information about frequency and presence penalties.](/docs/guides/gpt/parameter-details)
+     * [See more information about frequency and presence penalties.](/docs/guides/text-generation/parameter-details)
      *
      */
     @SpeakeasyMetadata()

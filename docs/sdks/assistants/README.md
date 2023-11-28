@@ -30,6 +30,7 @@ Build Assistants that can call models and use tools.
 * [listMessages](#listmessages) - Returns a list of messages for a given thread.
 * [listRunSteps](#listrunsteps) - Returns a list of run steps belonging to a run.
 * [listRuns](#listruns) - Returns a list of runs belonging to a thread.
+* [modifyAssistant](#modifyassistant) - Modifies an assistant.
 * [modifyMessage](#modifymessage) - Modifies a message.
 * [modifyRun](#modifyrun) - Modifies a run.
 * [modifyThread](#modifythread) - Modifies a thread.
@@ -145,7 +146,7 @@ import { CreateAssistantFileRequest } from "@speakeasy-api/openai/dist/sdk/model
 const createAssistantFileRequest: CreateAssistantFileRequest = {
   fileId: "string",
 };
-const assistantId: string = "file-AF1WoRqd3aJAHsqc9NY7iL8F";
+const assistantId: string = "file-abc123";
 
   const res = await sdk.assistants.createAssistantFile(createAssistantFileRequest, assistantId);
 
@@ -160,7 +161,7 @@ const assistantId: string = "file-AF1WoRqd3aJAHsqc9NY7iL8F";
 | Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
 | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
 | `createAssistantFileRequest`                                                                  | [shared.CreateAssistantFileRequest](../../../sdk/models/shared/createassistantfilerequest.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `assistantId`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the assistant for which to create a File.<br/>                                      | file-AF1WoRqd3aJAHsqc9NY7iL8F                                                                 |
+| `assistantId`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the assistant for which to create a File.<br/>                                      | file-abc123                                                                                   |
 | `config`                                                                                      | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                  | :heavy_minus_sign:                                                                            | Available config options for making requests.                                                 |                                                                                               |
 
 
@@ -651,9 +652,9 @@ import { GetMessageFileRequest } from "@speakeasy-api/openai/dist/sdk/models/ope
   const sdk = new Gpt({
     apiKeyAuth: "",
   });
-const fileId: string = "file-AF1WoRqd3aJAHsqc9NY7iL8F";
-const messageId: string = "msg_AF1WoRqd3aJAHsqc9NY7iL8F";
-const threadId: string = "thread_AF1WoRqd3aJAHsqc9NY7iL8F";
+const fileId: string = "file-abc123";
+const messageId: string = "msg_abc123";
+const threadId: string = "thread_abc123";
 
   const res = await sdk.assistants.getMessageFile(fileId, messageId, threadId);
 
@@ -667,9 +668,9 @@ const threadId: string = "thread_AF1WoRqd3aJAHsqc9NY7iL8F";
 
 | Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
 | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
-| `fileId`                                                     | *string*                                                     | :heavy_check_mark:                                           | The ID of the file being retrieved.                          | file-AF1WoRqd3aJAHsqc9NY7iL8F                                |
-| `messageId`                                                  | *string*                                                     | :heavy_check_mark:                                           | The ID of the message the file belongs to.                   | msg_AF1WoRqd3aJAHsqc9NY7iL8F                                 |
-| `threadId`                                                   | *string*                                                     | :heavy_check_mark:                                           | The ID of the thread to which the message and File belong.   | thread_AF1WoRqd3aJAHsqc9NY7iL8F                              |
+| `fileId`                                                     | *string*                                                     | :heavy_check_mark:                                           | The ID of the file being retrieved.                          | file-abc123                                                  |
+| `messageId`                                                  | *string*                                                     | :heavy_check_mark:                                           | The ID of the message the file belongs to.                   | msg_abc123                                                   |
+| `threadId`                                                   | *string*                                                     | :heavy_check_mark:                                           | The ID of the thread to which the message and File belong.   | thread_abc123                                                |
 | `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
 
 
@@ -1064,6 +1065,58 @@ import { ListRunsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/o
 ### Response
 
 **Promise<[operations.ListRunsResponse](../../sdk/models/operations/listrunsresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 400-600         | */*             |
+
+## modifyAssistant
+
+Modifies an assistant.
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { ModifyAssistantRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
+import { ModifyAssistantRequest, ModifyAssistantRequestMetadata } from "@speakeasy-api/openai/dist/sdk/models/shared";
+
+(async() => {
+  const sdk = new Gpt({
+    apiKeyAuth: "",
+  });
+const modifyAssistantRequest: ModifyAssistantRequest = {
+  fileIds: [
+    "string",
+  ],
+  metadata: {},
+  tools: [
+    "string",
+  ],
+};
+const assistantId: string = "string";
+
+  const res = await sdk.assistants.modifyAssistant(modifyAssistantRequest, assistantId);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+})();
+```
+
+### Parameters
+
+| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
+| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
+| `modifyAssistantRequest`                                                              | [shared.ModifyAssistantRequest](../../../sdk/models/shared/modifyassistantrequest.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
+| `assistantId`                                                                         | *string*                                                                              | :heavy_check_mark:                                                                    | The ID of the assistant to modify.                                                    |
+| `config`                                                                              | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                          | :heavy_minus_sign:                                                                    | Available config options for making requests.                                         |
+
+
+### Response
+
+**Promise<[operations.ModifyAssistantResponse](../../sdk/models/operations/modifyassistantresponse.md)>**
 ### Errors
 
 | Error Object    | Status Code     | Content Type    |

@@ -1,5 +1,4 @@
 src/sdk/assistants.ts
-src/sdk/assistant.ts
 src/sdk/audio.ts
 src/sdk/chat.ts
 src/sdk/completions.ts
@@ -54,11 +53,11 @@ src/sdk/models/operations/listmessagefiles.ts
 src/sdk/models/operations/listmessages.ts
 src/sdk/models/operations/listrunsteps.ts
 src/sdk/models/operations/listruns.ts
+src/sdk/models/operations/modifyassistant.ts
 src/sdk/models/operations/modifymessage.ts
 src/sdk/models/operations/modifyrun.ts
 src/sdk/models/operations/modifythread.ts
 src/sdk/models/operations/submittoolouputstorun.ts
-src/sdk/models/operations/modifyassistant.ts
 src/sdk/models/operations/createspeech.ts
 src/sdk/models/operations/createtranscription.ts
 src/sdk/models/operations/createtranslation.ts
@@ -111,11 +110,11 @@ src/sdk/models/shared/listmessagefilesresponse.ts
 src/sdk/models/shared/listmessagesresponse.ts
 src/sdk/models/shared/listrunstepsresponse.ts
 src/sdk/models/shared/listrunsresponse.ts
+src/sdk/models/shared/modifyassistantrequest.ts
 src/sdk/models/shared/modifymessagerequest.ts
 src/sdk/models/shared/modifyrunrequest.ts
 src/sdk/models/shared/modifythreadrequest.ts
 src/sdk/models/shared/submittooloutputsrunrequest.ts
-src/sdk/models/shared/modifyassistantrequest.ts
 src/sdk/models/shared/createspeechrequest.ts
 src/sdk/models/shared/createtranscriptionresponse.ts
 src/sdk/models/shared/createtranscriptionrequest.ts
@@ -164,7 +163,6 @@ src/sdk/models/shared/security.ts
 src/sdk/models/errors/index.ts
 src/sdk/models/operations/index.ts
 src/sdk/models/shared/index.ts
-USAGE.md
 docs/sdk/models/operations/cancelrunrequest.md
 docs/sdk/models/operations/cancelrunresponse.md
 docs/sdk/models/operations/createassistantresponse.md
@@ -214,6 +212,8 @@ docs/sdk/models/operations/listrunstepsresponse.md
 docs/sdk/models/operations/listrunsqueryparamorder.md
 docs/sdk/models/operations/listrunsrequest.md
 docs/sdk/models/operations/listrunsresponse.md
+docs/sdk/models/operations/modifyassistantrequest.md
+docs/sdk/models/operations/modifyassistantresponse.md
 docs/sdk/models/operations/modifymessagerequest.md
 docs/sdk/models/operations/modifymessageresponse.md
 docs/sdk/models/operations/modifyrunrequest.md
@@ -222,8 +222,6 @@ docs/sdk/models/operations/modifythreadrequest.md
 docs/sdk/models/operations/modifythreadresponse.md
 docs/sdk/models/operations/submittoolouputstorunrequest.md
 docs/sdk/models/operations/submittoolouputstorunresponse.md
-docs/sdk/models/operations/modifyassistantrequest.md
-docs/sdk/models/operations/modifyassistantresponse.md
 docs/sdk/models/operations/createspeechresponse.md
 docs/sdk/models/operations/createtranscriptionresponse.md
 docs/sdk/models/operations/createtranslationresponse.md
@@ -323,6 +321,8 @@ docs/sdk/models/shared/listmessagefilesresponse.md
 docs/sdk/models/shared/listmessagesresponse.md
 docs/sdk/models/shared/listrunstepsresponse.md
 docs/sdk/models/shared/listrunsresponse.md
+docs/sdk/models/shared/modifyassistantrequestmetadata.md
+docs/sdk/models/shared/modifyassistantrequest.md
 docs/sdk/models/shared/modifymessagerequestmetadata.md
 docs/sdk/models/shared/modifymessagerequest.md
 docs/sdk/models/shared/modifyrunrequestmetadata.md
@@ -331,8 +331,6 @@ docs/sdk/models/shared/modifythreadrequestmetadata.md
 docs/sdk/models/shared/modifythreadrequest.md
 docs/sdk/models/shared/tooloutputs.md
 docs/sdk/models/shared/submittooloutputsrunrequest.md
-docs/sdk/models/shared/modifyassistantrequestmetadata.md
-docs/sdk/models/shared/modifyassistantrequest.md
 docs/sdk/models/shared/createspeechrequestresponseformat.md
 docs/sdk/models/shared/voice.md
 docs/sdk/models/shared/createspeechrequest.md
@@ -444,7 +442,6 @@ docs/sdk/models/shared/createmoderationrequest.md
 docs/sdk/models/shared/security.md
 docs/sdks/gpt/README.md
 docs/sdks/assistants/README.md
-docs/sdks/assistant/README.md
 docs/sdks/audio/README.md
 docs/sdks/chat/README.md
 docs/sdks/completions/README.md
@@ -456,4 +453,5 @@ docs/sdks/finetuning/README.md
 docs/sdks/images/README.md
 docs/sdks/models/README.md
 docs/sdks/moderations/README.md
+USAGE.md
 .gitattributes
