@@ -33,9 +33,9 @@ Please [contact us](https://help.openai.com/) if you need to increase these stor
 import { Gpt } from "@speakeasy-api/openai";
 import { Purpose } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.files.createFile({
@@ -49,7 +49,9 @@ import { Purpose } from "@speakeasy-api/openai/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -79,9 +81,9 @@ Delete a file.
 import { Gpt } from "@speakeasy-api/openai";
 import { DeleteFileRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const fileId: string = "string";
 
@@ -90,7 +92,9 @@ const fileId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -120,9 +124,9 @@ Returns the contents of the specified file.
 import { Gpt } from "@speakeasy-api/openai";
 import { DownloadFileRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const fileId: string = "string";
 
@@ -131,7 +135,9 @@ const fileId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -161,9 +167,9 @@ Returns a list of files that belong to the user's organization.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListFilesRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const purpose: string = "string";
 
@@ -172,7 +178,9 @@ const purpose: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -202,9 +210,9 @@ Returns information about a specific file.
 import { Gpt } from "@speakeasy-api/openai";
 import { RetrieveFileRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const fileId: string = "string";
 
@@ -213,7 +221,9 @@ const fileId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

@@ -19,9 +19,9 @@ Creates an embedding vector representing the input text.
 import { Gpt } from "@speakeasy-api/openai";
 import { EncodingFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.embeddings.createEmbedding({
@@ -34,7 +34,9 @@ import { EncodingFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

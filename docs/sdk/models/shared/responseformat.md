@@ -1,6 +1,6 @@
 # ResponseFormat
 
-An object specifying the format that the model must output. 
+An object specifying the format that the model must output.
 
 Setting to `{ "type": "json_object" }` enables JSON mode, which guarantees the message the model generates is valid JSON.
 

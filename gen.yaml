@@ -1,9 +1,9 @@
 configVersion: 1.0.0
 management:
-  docChecksum: 61e4c615dd501c46a816eae174e3c9bd
+  docChecksum: c37537c8a7fb1f5292a1e702660e12c5
   docVersion: 2.0.0
-  speakeasyVersion: 1.123.0
-  generationVersion: 2.202.2
+  speakeasyVersion: 1.126.0
+  generationVersion: 2.213.3
 generation:
   comments: {}
   sdkClassName: gpt
@@ -12,13 +12,13 @@ generation:
     optionalPropertyRendering: withExample
 features:
   typescript:
-    core: 3.1.4
+    core: 3.3.0
     deprecations: 2.81.1
     flattening: 2.81.1
-    globalSecurity: 2.82.0
+    globalSecurity: 2.82.1
     globalServerURLs: 2.82.1
 typescript:
-  version: 3.0.6
+  version: 3.1.0
   author: speakeasy-openai
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: true
@@ -37,3 +37,4 @@ typescript:
   packageName: '@speakeasy-api/openai'
   published: true
   repoSubDirectory: .
+  templateVersion: v1

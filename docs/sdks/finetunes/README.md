@@ -37,9 +37,9 @@ Immediately cancel a fine-tune job.
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelFineTuneRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
@@ -48,7 +48,9 @@ const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -84,9 +86,9 @@ Response includes details of the enqueued job including job status and the name 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.fineTunes.createFineTune({
@@ -107,7 +109,9 @@ import { Gpt } from "@speakeasy-api/openai";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -140,9 +144,9 @@ Get fine-grained status updates for a fine-tune job.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListFineTuneEventsRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 const stream: boolean = false;
@@ -152,7 +156,9 @@ const stream: boolean = false;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -185,9 +191,9 @@ List your organization's fine-tuning jobs
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.fineTunes.listFineTunes();
@@ -195,7 +201,9 @@ import { Gpt } from "@speakeasy-api/openai";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -229,9 +237,9 @@ Gets info about the fine-tune job.
 import { Gpt } from "@speakeasy-api/openai";
 import { RetrieveFineTuneRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
 
@@ -240,7 +248,9 @@ const fineTuneId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

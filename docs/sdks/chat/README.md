@@ -19,9 +19,9 @@ Creates a model response for the given chat conversation.
 import { Gpt } from "@speakeasy-api/openai";
 import { ChatCompletionToolType, CreateChatCompletionRequestType } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.chat.createChatCompletion({
@@ -66,7 +66,9 @@ import { ChatCompletionToolType, CreateChatCompletionRequestType } from "@speake
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

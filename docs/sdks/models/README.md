@@ -21,9 +21,9 @@ Delete a fine-tuned model. You must have the Owner role in your organization to 
 import { Gpt } from "@speakeasy-api/openai";
 import { DeleteModelRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const model: string = "ft:gpt-3.5-turbo:acemeco:suffix:abc123";
 
@@ -32,7 +32,9 @@ const model: string = "ft:gpt-3.5-turbo:acemeco:suffix:abc123";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -61,9 +63,9 @@ Lists the currently available models, and provides basic information about each 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.models.listModels();
@@ -71,7 +73,9 @@ import { Gpt } from "@speakeasy-api/openai";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -100,9 +104,9 @@ Retrieves a model instance, providing basic information about the model such as 
 import { Gpt } from "@speakeasy-api/openai";
 import { RetrieveModelRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const model: string = "gpt-3.5-turbo";
 
@@ -111,7 +115,9 @@ const model: string = "gpt-3.5-turbo";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

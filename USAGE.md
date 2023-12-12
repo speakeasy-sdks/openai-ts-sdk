@@ -3,9 +3,9 @@
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new Gpt({
-        apiKeyAuth: "",
+        apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
     const runId: string = "string";
     const threadId: string = "string";
@@ -15,7 +15,9 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 <!-- End SDK Example Usage [usage] -->

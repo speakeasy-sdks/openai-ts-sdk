@@ -18,9 +18,9 @@ Classifies if text violates OpenAI's Content Policy
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.moderations.createModeration({
@@ -31,7 +31,9 @@ import { Gpt } from "@speakeasy-api/openai";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

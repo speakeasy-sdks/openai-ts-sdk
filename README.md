@@ -46,9 +46,9 @@ Authorization: Bearer YOUR_API_KEY
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new Gpt({
-        apiKeyAuth: "",
+        apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
     const runId: string = "string";
     const threadId: string = "string";
@@ -58,7 +58,9 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 <!-- End SDK Example Usage [usage] -->
@@ -207,9 +209,9 @@ Example
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new Gpt({
-        apiKeyAuth: "",
+        apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
     const runId: string = "string";
     const threadId: string = "string";
@@ -217,12 +219,19 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
     let res;
     try {
         res = await sdk.assistants.cancelRun(runId, threadId);
-    } catch (e) {}
+    } catch (err) {
+        if (err instanceof errors.SDKError) {
+            console.error(err); // handle exception
+            throw err;
+        }
+    }
 
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 <!-- End Error Handling [errors] -->
@@ -246,10 +255,10 @@ You can override the default server globally by passing a server index to the `s
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new Gpt({
         serverIdx: 0,
-        apiKeyAuth: "",
+        apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
     const runId: string = "string";
     const threadId: string = "string";
@@ -259,7 +268,9 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 
@@ -271,10 +282,10 @@ The default server can also be overridden globally by passing a URL to the `serv
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new Gpt({
         serverURL: "https://api.openai.com/v1",
-        apiKeyAuth: "",
+        apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
     const runId: string = "string";
     const threadId: string = "string";
@@ -284,7 +295,9 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 <!-- End Server Selection [server] -->
@@ -294,13 +307,13 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
 <!-- Start Custom HTTP Client [http-client] -->
 ## Custom HTTP Client
 
-The Typescript SDK makes API calls using the (axios)[https://axios-http.com/docs/intro] HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
+The Typescript SDK makes API calls using the [axios](https://axios-http.com/docs/intro) HTTP library.  In order to provide a convenient way to configure timeouts, cookies, proxies, custom headers, and other low-level configuration, you can initialize the SDK client with a custom `AxiosInstance` object.
 
 For example, you could specify a header for every request that your sdk makes as follows:
 
 ```typescript
-from @speakeasy-api/openai import Gpt;
-import axios;
+import { @speakeasy-api/openai } from "Gpt";
+import axios from "axios";
 
 const httpClient = axios.create({
     headers: {'x-custom-header': 'someValue'}
@@ -328,9 +341,9 @@ To authenticate with the API the `apiKeyAuth` parameter must be set when initial
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async () => {
+async function run() {
     const sdk = new Gpt({
-        apiKeyAuth: "",
+        apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
     const runId: string = "string";
     const threadId: string = "string";
@@ -340,7 +353,9 @@ import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operatio
     if (res.statusCode == 200) {
         // handle response
     }
-})();
+}
+
+run();
 
 ```
 <!-- End Authentication [security] -->

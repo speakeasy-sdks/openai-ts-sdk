@@ -21,9 +21,9 @@ Generates audio from the input text.
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateSpeechRequestResponseFormat, Voice } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.audio.createSpeech({
@@ -35,7 +35,9 @@ import { CreateSpeechRequestResponseFormat, Voice } from "@speakeasy-api/openai/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -65,9 +67,9 @@ Transcribes audio into the input language.
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.audio.createTranscription({
@@ -81,7 +83,9 @@ import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -110,9 +114,9 @@ Translates audio into English.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.audio.createTranslation({
@@ -126,7 +130,9 @@ import { Gpt } from "@speakeasy-api/openai";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

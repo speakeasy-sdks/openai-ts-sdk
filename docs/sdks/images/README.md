@@ -21,9 +21,9 @@ Creates an image given a prompt.
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageRequestResponseFormat, CreateImageRequestSize, Quality, Style } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.images.createImage({
@@ -40,7 +40,9 @@ import { CreateImageRequestResponseFormat, CreateImageRequestSize, Quality, Styl
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -70,9 +72,9 @@ Creates an edited or extended image given an original image and a prompt.
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageEditRequestResponseFormat, Size } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.images.createImageEdit({
@@ -95,7 +97,9 @@ import { CreateImageEditRequestResponseFormat, Size } from "@speakeasy-api/opena
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -125,9 +129,9 @@ Creates a variation of a given image.
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateImageVariationRequestResponseFormat, CreateImageVariationRequestSize } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.images.createImageVariation({
@@ -145,7 +149,9 @@ import { CreateImageVariationRequestResponseFormat, CreateImageVariationRequestS
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters

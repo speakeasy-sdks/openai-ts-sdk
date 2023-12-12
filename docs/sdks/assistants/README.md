@@ -47,9 +47,9 @@ Cancels a run that is `in_progress`.
 import { Gpt } from "@speakeasy-api/openai";
 import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const runId: string = "string";
 const threadId: string = "string";
@@ -59,7 +59,9 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -89,9 +91,9 @@ Create an assistant with a model and instructions.
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.assistants.createAssistant({
@@ -108,7 +110,9 @@ import { Gpt } from "@speakeasy-api/openai";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -139,9 +143,9 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateAssistantFileRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateAssistantFileRequest } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const createAssistantFileRequest: CreateAssistantFileRequest = {
   fileId: "string",
@@ -153,16 +157,18 @@ const assistantId: string = "file-abc123";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                     | Type                                                                                          | Required                                                                                      | Description                                                                                   | Example                                                                                       |
-| --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- | --------------------------------------------------------------------------------------------- |
-| `createAssistantFileRequest`                                                                  | [shared.CreateAssistantFileRequest](../../../sdk/models/shared/createassistantfilerequest.md) | :heavy_check_mark:                                                                            | N/A                                                                                           |                                                                                               |
-| `assistantId`                                                                                 | *string*                                                                                      | :heavy_check_mark:                                                                            | The ID of the assistant for which to create a File.<br/>                                      | file-abc123                                                                                   |
-| `config`                                                                                      | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                  | :heavy_minus_sign:                                                                            | Available config options for making requests.                                                 |                                                                                               |
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                | Example                                                                                    |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `createAssistantFileRequest`                                                               | [shared.CreateAssistantFileRequest](../../sdk/models/shared/createassistantfilerequest.md) | :heavy_check_mark:                                                                         | N/A                                                                                        |                                                                                            |
+| `assistantId`                                                                              | *string*                                                                                   | :heavy_check_mark:                                                                         | The ID of the assistant for which to create a File.<br/>                                   | file-abc123                                                                                |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |                                                                                            |
 
 
 ### Response
@@ -185,9 +191,9 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateMessageRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateMessageRequest, CreateMessageRequestMetadata, CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const createMessageRequest: CreateMessageRequest = {
   content: "string",
@@ -204,16 +210,18 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `createMessageRequest`                                                            | [shared.CreateMessageRequest](../../../sdk/models/shared/createmessagerequest.md) | :heavy_check_mark:                                                                | N/A                                                                               |
-| `threadId`                                                                        | *string*                                                                          | :heavy_check_mark:                                                                | The ID of the [thread](/docs/api-reference/threads) to create a message for.      |
-| `config`                                                                          | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                      | :heavy_minus_sign:                                                                | Available config options for making requests.                                     |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `createMessageRequest`                                                         | [shared.CreateMessageRequest](../../sdk/models/shared/createmessagerequest.md) | :heavy_check_mark:                                                             | N/A                                                                            |
+| `threadId`                                                                     | *string*                                                                       | :heavy_check_mark:                                                             | The ID of the [thread](/docs/api-reference/threads) to create a message for.   |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -236,9 +244,9 @@ import { Gpt } from "@speakeasy-api/openai";
 import { CreateRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { CreateRunRequest, CreateRunRequestMetadata } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const createRunRequest: CreateRunRequest = {
   assistantId: "string",
@@ -254,16 +262,18 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `createRunRequest`                                                        | [shared.CreateRunRequest](../../../sdk/models/shared/createrunrequest.md) | :heavy_check_mark:                                                        | N/A                                                                       |
-| `threadId`                                                                | *string*                                                                  | :heavy_check_mark:                                                        | The ID of the thread to run.                                              |
-| `config`                                                                  | [AxiosRequestConfig](https://axios-http.com/docs/req_config)              | :heavy_minus_sign:                                                        | Available config options for making requests.                             |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `createRunRequest`                                                     | [shared.CreateRunRequest](../../sdk/models/shared/createrunrequest.md) | :heavy_check_mark:                                                     | N/A                                                                    |
+| `threadId`                                                             | *string*                                                               | :heavy_check_mark:                                                     | The ID of the thread to run.                                           |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
 
 
 ### Response
@@ -285,9 +295,9 @@ Create a thread.
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.assistants.createThread({
@@ -307,7 +317,9 @@ import { CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -337,9 +349,9 @@ Create a thread and run it in one request.
 import { Gpt } from "@speakeasy-api/openai";
 import { CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.assistants.createThreadAndRun({
@@ -366,7 +378,9 @@ import { CreateMessageRequestRole } from "@speakeasy-api/openai/dist/sdk/models/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -396,9 +410,9 @@ Delete an assistant.
 import { Gpt } from "@speakeasy-api/openai";
 import { DeleteAssistantRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const assistantId: string = "string";
 
@@ -407,7 +421,9 @@ const assistantId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -437,9 +453,9 @@ Delete an assistant file.
 import { Gpt } from "@speakeasy-api/openai";
 import { DeleteAssistantFileRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const assistantId: string = "string";
 const fileId: string = "string";
@@ -449,7 +465,9 @@ const fileId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -480,9 +498,9 @@ Delete a thread.
 import { Gpt } from "@speakeasy-api/openai";
 import { DeleteThreadRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const threadId: string = "string";
 
@@ -491,7 +509,9 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -521,9 +541,9 @@ Retrieves an assistant.
 import { Gpt } from "@speakeasy-api/openai";
 import { GetAssistantRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const assistantId: string = "string";
 
@@ -532,7 +552,9 @@ const assistantId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -562,9 +584,9 @@ Retrieves an AssistantFile.
 import { Gpt } from "@speakeasy-api/openai";
 import { GetAssistantFileRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const assistantId: string = "string";
 const fileId: string = "string";
@@ -574,7 +596,9 @@ const fileId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -605,9 +629,9 @@ Retrieve a message.
 import { Gpt } from "@speakeasy-api/openai";
 import { GetMessageRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const messageId: string = "string";
 const threadId: string = "string";
@@ -617,7 +641,9 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -648,9 +674,9 @@ Retrieves a message file.
 import { Gpt } from "@speakeasy-api/openai";
 import { GetMessageFileRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const fileId: string = "file-abc123";
 const messageId: string = "msg_abc123";
@@ -661,7 +687,9 @@ const threadId: string = "thread_abc123";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -693,9 +721,9 @@ Retrieves a run.
 import { Gpt } from "@speakeasy-api/openai";
 import { GetRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const runId: string = "string";
 const threadId: string = "string";
@@ -705,7 +733,9 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -736,9 +766,9 @@ Retrieves a run step.
 import { Gpt } from "@speakeasy-api/openai";
 import { GetRunStepRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const runId: string = "string";
 const stepId: string = "string";
@@ -749,7 +779,9 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -781,9 +813,9 @@ Retrieves a thread.
 import { Gpt } from "@speakeasy-api/openai";
 import { GetThreadRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const threadId: string = "string";
 
@@ -792,7 +824,9 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -822,9 +856,9 @@ Returns a list of assistant files.
 import { Gpt } from "@speakeasy-api/openai";
 import { Order } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.assistants.listAssistantFiles({
@@ -834,7 +868,9 @@ import { Order } from "@speakeasy-api/openai/dist/sdk/models/operations";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -864,9 +900,9 @@ Returns a list of assistants.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListAssistantsRequest, QueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const after: string = "string";
 const before: string = "string";
@@ -878,7 +914,9 @@ const order: QueryParamOrder = QueryParamOrder.Asc;
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -888,7 +926,7 @@ const order: QueryParamOrder = QueryParamOrder.Asc;
 | `after`                                                                                                                                                                                                                                                                                | *string*                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A cursor for use in pagination. `after` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include after=obj_foo in order to fetch the next page of the list.<br/>   |
 | `before`                                                                                                                                                                                                                                                                               | *string*                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A cursor for use in pagination. `before` is an object ID that defines your place in the list. For instance, if you make a list request and receive 100 objects, ending with obj_foo, your subsequent call can include before=obj_foo in order to fetch the previous page of the list.<br/> |
 | `limit`                                                                                                                                                                                                                                                                                | *number*                                                                                                                                                                                                                                                                               | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | A limit on the number of objects to be returned. Limit can range between 1 and 100, and the default is 20.<br/>                                                                                                                                                                        |
-| `order`                                                                                                                                                                                                                                                                                | [operations.QueryParamOrder](../../../sdk/models/operations/queryparamorder.md)                                                                                                                                                                                                        | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.<br/>                                                                                                                                                               |
+| `order`                                                                                                                                                                                                                                                                                | [operations.QueryParamOrder](../../sdk/models/operations/queryparamorder.md)                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | Sort order by the `created_at` timestamp of the objects. `asc` for ascending order and `desc` for descending order.<br/>                                                                                                                                                               |
 | `config`                                                                                                                                                                                                                                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                                                                                                                                                                                                           | :heavy_minus_sign:                                                                                                                                                                                                                                                                     | Available config options for making requests.                                                                                                                                                                                                                                          |
 
 
@@ -911,9 +949,9 @@ Returns a list of message files.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListMessageFilesQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.assistants.listMessageFiles({
@@ -924,7 +962,9 @@ import { ListMessageFilesQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -954,9 +994,9 @@ Returns a list of messages for a given thread.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListMessagesQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.assistants.listMessages({
@@ -966,7 +1006,9 @@ import { ListMessagesQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/mode
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -996,9 +1038,9 @@ Returns a list of run steps belonging to a run.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListRunStepsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.assistants.listRunSteps({
@@ -1009,7 +1051,9 @@ import { ListRunStepsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/mode
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -1039,9 +1083,9 @@ Returns a list of runs belonging to a thread.
 import { Gpt } from "@speakeasy-api/openai";
 import { ListRunsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 
   const res = await sdk.assistants.listRuns({
@@ -1051,7 +1095,9 @@ import { ListRunsQueryParamOrder } from "@speakeasy-api/openai/dist/sdk/models/o
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
@@ -1082,9 +1128,9 @@ import { Gpt } from "@speakeasy-api/openai";
 import { ModifyAssistantRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { ModifyAssistantRequest, ModifyAssistantRequestMetadata } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const modifyAssistantRequest: ModifyAssistantRequest = {
   fileIds: [
@@ -1102,16 +1148,18 @@ const assistantId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                             | Type                                                                                  | Required                                                                              | Description                                                                           |
-| ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- | ------------------------------------------------------------------------------------- |
-| `modifyAssistantRequest`                                                              | [shared.ModifyAssistantRequest](../../../sdk/models/shared/modifyassistantrequest.md) | :heavy_check_mark:                                                                    | N/A                                                                                   |
-| `assistantId`                                                                         | *string*                                                                              | :heavy_check_mark:                                                                    | The ID of the assistant to modify.                                                    |
-| `config`                                                                              | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                          | :heavy_minus_sign:                                                                    | Available config options for making requests.                                         |
+| Parameter                                                                          | Type                                                                               | Required                                                                           | Description                                                                        |
+| ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- | ---------------------------------------------------------------------------------- |
+| `modifyAssistantRequest`                                                           | [shared.ModifyAssistantRequest](../../sdk/models/shared/modifyassistantrequest.md) | :heavy_check_mark:                                                                 | N/A                                                                                |
+| `assistantId`                                                                      | *string*                                                                           | :heavy_check_mark:                                                                 | The ID of the assistant to modify.                                                 |
+| `config`                                                                           | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                       | :heavy_minus_sign:                                                                 | Available config options for making requests.                                      |
 
 
 ### Response
@@ -1134,9 +1182,9 @@ import { Gpt } from "@speakeasy-api/openai";
 import { ModifyMessageRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { ModifyMessageRequest, ModifyMessageRequestMetadata } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const modifyMessageRequest: ModifyMessageRequest = {
   metadata: {},
@@ -1149,17 +1197,19 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                         | Type                                                                              | Required                                                                          | Description                                                                       |
-| --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- | --------------------------------------------------------------------------------- |
-| `modifyMessageRequest`                                                            | [shared.ModifyMessageRequest](../../../sdk/models/shared/modifymessagerequest.md) | :heavy_check_mark:                                                                | N/A                                                                               |
-| `messageId`                                                                       | *string*                                                                          | :heavy_check_mark:                                                                | The ID of the message to modify.                                                  |
-| `threadId`                                                                        | *string*                                                                          | :heavy_check_mark:                                                                | The ID of the thread to which this message belongs.                               |
-| `config`                                                                          | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                      | :heavy_minus_sign:                                                                | Available config options for making requests.                                     |
+| Parameter                                                                      | Type                                                                           | Required                                                                       | Description                                                                    |
+| ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ | ------------------------------------------------------------------------------ |
+| `modifyMessageRequest`                                                         | [shared.ModifyMessageRequest](../../sdk/models/shared/modifymessagerequest.md) | :heavy_check_mark:                                                             | N/A                                                                            |
+| `messageId`                                                                    | *string*                                                                       | :heavy_check_mark:                                                             | The ID of the message to modify.                                               |
+| `threadId`                                                                     | *string*                                                                       | :heavy_check_mark:                                                             | The ID of the thread to which this message belongs.                            |
+| `config`                                                                       | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                   | :heavy_minus_sign:                                                             | Available config options for making requests.                                  |
 
 
 ### Response
@@ -1182,9 +1232,9 @@ import { Gpt } from "@speakeasy-api/openai";
 import { ModifyRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { ModifyRunRequest, ModifyRunRequestMetadata } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const modifyRunRequest: ModifyRunRequest = {
   metadata: {},
@@ -1197,17 +1247,19 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                 | Type                                                                      | Required                                                                  | Description                                                               |
-| ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- | ------------------------------------------------------------------------- |
-| `modifyRunRequest`                                                        | [shared.ModifyRunRequest](../../../sdk/models/shared/modifyrunrequest.md) | :heavy_check_mark:                                                        | N/A                                                                       |
-| `runId`                                                                   | *string*                                                                  | :heavy_check_mark:                                                        | The ID of the run to modify.                                              |
-| `threadId`                                                                | *string*                                                                  | :heavy_check_mark:                                                        | The ID of the [thread](/docs/api-reference/threads) that was run.         |
-| `config`                                                                  | [AxiosRequestConfig](https://axios-http.com/docs/req_config)              | :heavy_minus_sign:                                                        | Available config options for making requests.                             |
+| Parameter                                                              | Type                                                                   | Required                                                               | Description                                                            |
+| ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- | ---------------------------------------------------------------------- |
+| `modifyRunRequest`                                                     | [shared.ModifyRunRequest](../../sdk/models/shared/modifyrunrequest.md) | :heavy_check_mark:                                                     | N/A                                                                    |
+| `runId`                                                                | *string*                                                               | :heavy_check_mark:                                                     | The ID of the run to modify.                                           |
+| `threadId`                                                             | *string*                                                               | :heavy_check_mark:                                                     | The ID of the [thread](/docs/api-reference/threads) that was run.      |
+| `config`                                                               | [AxiosRequestConfig](https://axios-http.com/docs/req_config)           | :heavy_minus_sign:                                                     | Available config options for making requests.                          |
 
 
 ### Response
@@ -1230,9 +1282,9 @@ import { Gpt } from "@speakeasy-api/openai";
 import { ModifyThreadRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { ModifyThreadRequest, ModifyThreadRequestMetadata } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const modifyThreadRequest: ModifyThreadRequest = {
   metadata: {},
@@ -1244,16 +1296,18 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                       | Type                                                                            | Required                                                                        | Description                                                                     |
-| ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- | ------------------------------------------------------------------------------- |
-| `modifyThreadRequest`                                                           | [shared.ModifyThreadRequest](../../../sdk/models/shared/modifythreadrequest.md) | :heavy_check_mark:                                                              | N/A                                                                             |
-| `threadId`                                                                      | *string*                                                                        | :heavy_check_mark:                                                              | The ID of the thread to modify. Only the `metadata` can be modified.            |
-| `config`                                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                    | :heavy_minus_sign:                                                              | Available config options for making requests.                                   |
+| Parameter                                                                    | Type                                                                         | Required                                                                     | Description                                                                  |
+| ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- | ---------------------------------------------------------------------------- |
+| `modifyThreadRequest`                                                        | [shared.ModifyThreadRequest](../../sdk/models/shared/modifythreadrequest.md) | :heavy_check_mark:                                                           | N/A                                                                          |
+| `threadId`                                                                   | *string*                                                                     | :heavy_check_mark:                                                           | The ID of the thread to modify. Only the `metadata` can be modified.         |
+| `config`                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                 | :heavy_minus_sign:                                                           | Available config options for making requests.                                |
 
 
 ### Response
@@ -1277,9 +1331,9 @@ import { Gpt } from "@speakeasy-api/openai";
 import { SubmitToolOuputsToRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 import { SubmitToolOutputsRunRequest, ToolOutputs } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
-(async() => {
+async function run() {
   const sdk = new Gpt({
-    apiKeyAuth: "",
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const submitToolOutputsRunRequest: SubmitToolOutputsRunRequest = {
   toolOutputs: [
@@ -1294,17 +1348,19 @@ const threadId: string = "string";
   if (res.statusCode == 200) {
     // handle response
   }
-})();
+}
+
+run();
 ```
 
 ### Parameters
 
-| Parameter                                                                                       | Type                                                                                            | Required                                                                                        | Description                                                                                     |
-| ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------------- |
-| `submitToolOutputsRunRequest`                                                                   | [shared.SubmitToolOutputsRunRequest](../../../sdk/models/shared/submittooloutputsrunrequest.md) | :heavy_check_mark:                                                                              | N/A                                                                                             |
-| `runId`                                                                                         | *string*                                                                                        | :heavy_check_mark:                                                                              | The ID of the run that requires the tool output submission.                                     |
-| `threadId`                                                                                      | *string*                                                                                        | :heavy_check_mark:                                                                              | The ID of the [thread](/docs/api-reference/threads) to which this run belongs.                  |
-| `config`                                                                                        | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                    | :heavy_minus_sign:                                                                              | Available config options for making requests.                                                   |
+| Parameter                                                                                    | Type                                                                                         | Required                                                                                     | Description                                                                                  |
+| -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------- |
+| `submitToolOutputsRunRequest`                                                                | [shared.SubmitToolOutputsRunRequest](../../sdk/models/shared/submittooloutputsrunrequest.md) | :heavy_check_mark:                                                                           | N/A                                                                                          |
+| `runId`                                                                                      | *string*                                                                                     | :heavy_check_mark:                                                                           | The ID of the run that requires the tool output submission.                                  |
+| `threadId`                                                                                   | *string*                                                                                     | :heavy_check_mark:                                                                           | The ID of the [thread](/docs/api-reference/threads) to which this run belongs.               |
+| `config`                                                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                                 | :heavy_minus_sign:                                                                           | Available config options for making requests.                                                |
 
 
 ### Response
