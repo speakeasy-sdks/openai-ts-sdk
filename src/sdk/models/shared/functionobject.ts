@@ -25,9 +25,9 @@ export class FunctionObject extends SpeakeasyBase {
      *
      * @remarks
      *
-     * To describe a function that accepts no parameters, provide the value `{"type": "object", "properties": {}}`.
+     * Omitting `parameters` defines a function with an empty parameter list.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "parameters" })
-    parameters: Record<string, any>;
+    parameters?: Record<string, any>;
 }
