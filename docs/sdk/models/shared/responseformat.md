@@ -1,6 +1,6 @@
 # ResponseFormat
 
-An object specifying the format that the model must output.
+An object specifying the format that the model must output. Compatible with `gpt-4-1106-preview` and `gpt-3.5-turbo-1106`.
 
 Setting to `{ "type": "json_object" }` enables JSON mode, which guarantees the message the model generates is valid JSON.
 

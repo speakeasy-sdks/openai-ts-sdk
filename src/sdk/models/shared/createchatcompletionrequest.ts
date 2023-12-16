@@ -16,7 +16,7 @@ export enum CreateChatCompletionRequestType {
 }
 
 /**
- * An object specifying the format that the model must output.
+ * An object specifying the format that the model must output. Compatible with `gpt-4-1106-preview` and `gpt-3.5-turbo-1106`.
  *
  * @remarks
  *
@@ -57,7 +57,7 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
      * `auto` means the model can pick between generating a message or calling a function.
      * Specifying a particular function via `{"name": "my_function"}` forces the model to call that function.
      *
-     * `none` is the default when no functions are present. `auto`` is the default if functions are present.
+     * `none` is the default when no functions are present. `auto` is the default if functions are present.
      *
      *
      * @deprecated field: This will be removed in a future release, please migrate away from it as soon as possible.
@@ -94,7 +94,14 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
     logitBias?: Record<string, number>;
 
     /**
-     * The maximum number of [tokens](/tokenizer) to generate in the chat completion.
+     * Whether to return log probabilities of the output tokens or not. If true, returns the log probabilities of each output token returned in the `content` of `message`. This option is currently not available on the `gpt-4-vision-preview` model.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "logprobs" })
+    logprobs?: boolean;
+
+    /**
+     * The maximum number of [tokens](/tokenizer) that can be generated in the chat completion.
      *
      * @remarks
      *
@@ -139,7 +146,7 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
     presencePenalty?: number;
 
     /**
-     * An object specifying the format that the model must output.
+     * An object specifying the format that the model must output. Compatible with `gpt-4-1106-preview` and `gpt-3.5-turbo-1106`.
      *
      * @remarks
      *
@@ -222,6 +229,13 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
     @Expose({ name: "tools" })
     @Type(() => ChatCompletionTool)
     tools?: ChatCompletionTool[];
+
+    /**
+     * An integer between 0 and 5 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "top_logprobs" })
+    topLogprobs?: number;
 
     /**
      * An alternative to sampling with temperature, called nucleus sampling, where the model considers the results of the tokens with top_p probability mass. So 0.1 means only the tokens comprising the top 10% probability mass are considered.

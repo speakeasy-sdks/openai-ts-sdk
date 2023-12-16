@@ -342,6 +342,9 @@ docs/sdk/models/shared/createtranslationresponse.md
 docs/sdk/models/shared/createtranslationrequestfile.md
 docs/sdk/models/shared/createtranslationrequest.md
 docs/sdk/models/shared/finishreason.md
+docs/sdk/models/shared/toplogprobs.md
+docs/sdk/models/shared/content.md
+docs/sdk/models/shared/logprobs.md
 docs/sdk/models/shared/choices.md
 docs/sdk/models/shared/createchatcompletionresponseobject.md
 docs/sdk/models/shared/createchatcompletionresponse.md
@@ -360,7 +363,7 @@ docs/sdk/models/shared/chatcompletiontool.md
 docs/sdk/models/shared/functionobject.md
 docs/sdk/models/shared/chatcompletionfunctions.md
 docs/sdk/models/shared/createcompletionresponsefinishreason.md
-docs/sdk/models/shared/logprobs.md
+docs/sdk/models/shared/createcompletionresponselogprobs.md
 docs/sdk/models/shared/createcompletionresponsechoices.md
 docs/sdk/models/shared/createcompletionresponseobject.md
 docs/sdk/models/shared/createcompletionresponse.md

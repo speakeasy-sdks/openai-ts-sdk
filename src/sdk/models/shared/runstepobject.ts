@@ -41,7 +41,7 @@ export class RunStepObjectLastError extends SpeakeasyBase {
 export class RunStepObjectMetadata extends SpeakeasyBase {}
 
 /**
- * The object type, which is always `thread.run.step``.
+ * The object type, which is always `thread.run.step`.
  */
 export enum RunStepObjectObject {
     ThreadRunStep = "thread.run.step",
@@ -142,7 +142,7 @@ export class RunStepObject extends SpeakeasyBase {
     metadata: RunStepObjectMetadata;
 
     /**
-     * The object type, which is always `thread.run.step``.
+     * The object type, which is always `thread.run.step`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "object" })

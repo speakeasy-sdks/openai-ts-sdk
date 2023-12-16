@@ -1,6 +1,6 @@
 # RunStepObjectObject
 
-The object type, which is always `thread.run.step``.
+The object type, which is always `thread.run.step`.
 
 
 ## Values

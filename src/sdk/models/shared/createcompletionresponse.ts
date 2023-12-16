@@ -20,7 +20,7 @@ export enum CreateCompletionResponseFinishReason {
     ContentFilter = "content_filter",
 }
 
-export class Logprobs extends SpeakeasyBase {
+export class CreateCompletionResponseLogprobs extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "text_offset" })
     textOffset?: number[];
@@ -57,8 +57,8 @@ export class CreateCompletionResponseChoices extends SpeakeasyBase {
 
     @SpeakeasyMetadata()
     @Expose({ name: "logprobs" })
-    @Type(() => Logprobs)
-    logprobs: Logprobs;
+    @Type(() => CreateCompletionResponseLogprobs)
+    logprobs: CreateCompletionResponseLogprobs;
 
     @SpeakeasyMetadata()
     @Expose({ name: "text" })
