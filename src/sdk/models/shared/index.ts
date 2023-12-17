@@ -7,6 +7,7 @@ export * from "./assistantobject";
 export * from "./chatcompletionfunctions";
 export * from "./chatcompletionmessagetoolcall";
 export * from "./chatcompletionresponsemessage";
+export * from "./chatcompletiontokenlogprob";
 export * from "./chatcompletiontool";
 export * from "./completionusage";
 export * from "./createassistantfilerequest";

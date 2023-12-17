@@ -4,6 +4,7 @@
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { ChatCompletionResponseMessage } from "./chatcompletionresponsemessage";
+import { ChatCompletionTokenLogprob } from "./chatcompletiontokenlogprob";
 import { CompletionUsage } from "./completionusage";
 import { Expose, Type } from "class-transformer";
 
@@ -24,60 +25,6 @@ export enum FinishReason {
     FunctionCall = "function_call",
 }
 
-export class TopLogprobs extends SpeakeasyBase {
-    /**
-     * A list of integers representing the UTF-8 bytes representation of the token. Useful in instances where characters are represented by multiple tokens and their byte representations must be combined to generate the correct text representation. Can be `null` if there is no bytes representation for the token.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "bytes" })
-    bytes?: number[];
-
-    /**
-     * The log probability of this token.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "logprob" })
-    logprob?: number;
-
-    /**
-     * The token.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "token" })
-    token?: string;
-}
-
-export class Content extends SpeakeasyBase {
-    /**
-     * A list of integers representing the UTF-8 bytes representation of the token. Useful in instances where characters are represented by multiple tokens and their byte representations must be combined to generate the correct text representation. Can be `null` if there is no bytes representation for the token.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "bytes" })
-    bytes: number[];
-
-    /**
-     * The log probability of this token.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "logprob" })
-    logprob: number;
-
-    /**
-     * The token.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "token" })
-    token: string;
-
-    /**
-     * List of the most likely tokens and their log probability, at this token position. In rare cases, there may be fewer than the number of requested `top_logprobs` returned.
-     */
-    @SpeakeasyMetadata({ elemType: TopLogprobs })
-    @Expose({ name: "top_logprobs" })
-    @Type(() => TopLogprobs)
-    topLogprobs: TopLogprobs[];
-}
-
 /**
  * Log probability information for the choice.
  */
@@ -85,10 +32,10 @@ export class Logprobs extends SpeakeasyBase {
     /**
      * A list of message content tokens with log probability information.
      */
-    @SpeakeasyMetadata({ elemType: Content })
+    @SpeakeasyMetadata({ elemType: ChatCompletionTokenLogprob })
     @Expose({ name: "content" })
-    @Type(() => Content)
-    content: Content[];
+    @Type(() => ChatCompletionTokenLogprob)
+    content: ChatCompletionTokenLogprob[];
 }
 
 export class Choices extends SpeakeasyBase {

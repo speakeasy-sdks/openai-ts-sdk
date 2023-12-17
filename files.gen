@@ -124,6 +124,7 @@ src/sdk/models/shared/createchatcompletionresponse.ts
 src/sdk/models/shared/completionusage.ts
 src/sdk/models/shared/chatcompletionresponsemessage.ts
 src/sdk/models/shared/chatcompletionmessagetoolcall.ts
+src/sdk/models/shared/chatcompletiontokenlogprob.ts
 src/sdk/models/shared/createchatcompletionrequest.ts
 src/sdk/models/shared/chatcompletiontool.ts
 src/sdk/models/shared/functionobject.ts
@@ -342,8 +343,6 @@ docs/sdk/models/shared/createtranslationresponse.md
 docs/sdk/models/shared/createtranslationrequestfile.md
 docs/sdk/models/shared/createtranslationrequest.md
 docs/sdk/models/shared/finishreason.md
-docs/sdk/models/shared/toplogprobs.md
-docs/sdk/models/shared/content.md
 docs/sdk/models/shared/logprobs.md
 docs/sdk/models/shared/choices.md
 docs/sdk/models/shared/createchatcompletionresponseobject.md
@@ -355,6 +354,8 @@ docs/sdk/models/shared/chatcompletionresponsemessage.md
 docs/sdk/models/shared/functiont.md
 docs/sdk/models/shared/typet.md
 docs/sdk/models/shared/chatcompletionmessagetoolcall.md
+docs/sdk/models/shared/toplogprobs.md
+docs/sdk/models/shared/chatcompletiontokenlogprob.md
 docs/sdk/models/shared/createchatcompletionrequesttype.md
 docs/sdk/models/shared/responseformat.md
 docs/sdk/models/shared/createchatcompletionrequest.md
