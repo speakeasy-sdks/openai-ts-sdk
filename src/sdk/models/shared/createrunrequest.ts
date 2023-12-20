@@ -15,6 +15,13 @@ export class CreateRunRequestMetadata extends SpeakeasyBase {}
 
 export class CreateRunRequest extends SpeakeasyBase {
     /**
+     * Appends additional instructions at the end of the instructions for the run. This is useful for modifying the behavior on a per-run basis without overriding other instructions.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "additional_instructions" })
+    additionalInstructions?: string;
+
+    /**
      * The ID of the [assistant](/docs/api-reference/assistants) to use to execute this run.
      */
     @SpeakeasyMetadata()
@@ -22,7 +29,7 @@ export class CreateRunRequest extends SpeakeasyBase {
     assistantId: string;
 
     /**
-     * Override the default system message of the assistant. This is useful for modifying the behavior on a per-run basis.
+     * Overrides the [instructions](/docs/api-reference/assistants/createAssistant) of the assistant. This is useful for modifying the behavior on a per-run basis.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "instructions" })
