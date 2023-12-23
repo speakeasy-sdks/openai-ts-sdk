@@ -24,7 +24,7 @@ export class Categories extends SpeakeasyBase {
     harassmentThreatening: boolean;
 
     /**
-     * Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harrassment.
+     * Content that expresses, incites, or promotes hate based on race, gender, ethnicity, religion, nationality, sexual orientation, disability status, or caste. Hateful content aimed at non-protected groups (e.g., chess players) is harassment.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hate" })
