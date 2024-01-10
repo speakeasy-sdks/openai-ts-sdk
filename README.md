@@ -114,10 +114,6 @@ run();
 
 * [createCompletion](docs/sdks/completions/README.md#createcompletion) - Creates a completion for the provided prompt and parameters.
 
-### [edits](docs/sdks/edits/README.md)
-
-* [~~createEdit~~](docs/sdks/edits/README.md#createedit) - Creates a new edit for the provided input, instruction, and parameters. :warning: **Deprecated**
-
 ### [embeddings](docs/sdks/embeddings/README.md)
 
 * [createEmbedding](docs/sdks/embeddings/README.md#createembedding) - Creates an embedding vector representing the input text.
@@ -135,30 +131,11 @@ Please [contact us](https://help.openai.com/) if you need to increase these stor
 * [listFiles](docs/sdks/files/README.md#listfiles) - Returns a list of files that belong to the user's organization.
 * [retrieveFile](docs/sdks/files/README.md#retrievefile) - Returns information about a specific file.
 
-### [fineTunes](docs/sdks/finetunes/README.md)
-
-* [~~cancelFineTune~~](docs/sdks/finetunes/README.md#cancelfinetune) - Immediately cancel a fine-tune job.
- :warning: **Deprecated**
-* [~~createFineTune~~](docs/sdks/finetunes/README.md#createfinetune) - Creates a job that fine-tunes a specified model from a given dataset.
-
-Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
-
-[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
- :warning: **Deprecated**
-* [~~listFineTuneEvents~~](docs/sdks/finetunes/README.md#listfinetuneevents) - Get fine-grained status updates for a fine-tune job.
- :warning: **Deprecated**
-* [~~listFineTunes~~](docs/sdks/finetunes/README.md#listfinetunes) - List your organization's fine-tuning jobs
- :warning: **Deprecated**
-* [~~retrieveFineTune~~](docs/sdks/finetunes/README.md#retrievefinetune) - Gets info about the fine-tune job.
-
-[Learn more about fine-tuning](/docs/guides/legacy-fine-tuning)
- :warning: **Deprecated**
-
 ### [fineTuning](docs/sdks/finetuning/README.md)
 
 * [cancelFineTuningJob](docs/sdks/finetuning/README.md#cancelfinetuningjob) - Immediately cancel a fine-tune job.
 
-* [createFineTuningJob](docs/sdks/finetuning/README.md#createfinetuningjob) - Creates a job that fine-tunes a specified model from a given dataset.
+* [createFineTuningJob](docs/sdks/finetuning/README.md#createfinetuningjob) - Creates a fine-tuning job which begins the process of creating a new model from a given dataset.
 
 Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 

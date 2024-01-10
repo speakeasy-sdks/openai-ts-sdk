@@ -1,19 +1,19 @@
 lockVersion: 2.0.0
 id: 597e611b-7490-45e2-839f-5daf119dcd37
 management:
-  docChecksum: 20d3cc86978da80cdf4bd1c649b0ebd7
+  docChecksum: 3650aae62d60640ad8bd28dcf1c0bda2
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.225.2
-  releaseVersion: 3.1.6
-  configChecksum: e0d957420497a497256f04a704101433
+  generationVersion: 2.230.3
+  releaseVersion: 3.1.7
+  configChecksum: 4b375ec04e7824dff555bdb387250938
   repoURL: https://github.com/speakeasy-sdks/openai-ts-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-ts-sdk
   published: true
 features:
   typescript:
-    core: 3.4.1
+    core: 3.4.5
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.2
@@ -23,10 +23,8 @@ generatedFiles:
   - src/sdk/audio.ts
   - src/sdk/chat.ts
   - src/sdk/completions.ts
-  - src/sdk/edits.ts
   - src/sdk/embeddings.ts
   - src/sdk/files.ts
-  - src/sdk/finetunes.ts
   - src/sdk/finetuning.ts
   - src/sdk/images.ts
   - src/sdk/models.ts
@@ -84,18 +82,12 @@ generatedFiles:
   - src/sdk/models/operations/createtranslation.ts
   - src/sdk/models/operations/createchatcompletion.ts
   - src/sdk/models/operations/createcompletion.ts
-  - src/sdk/models/operations/createedit.ts
   - src/sdk/models/operations/createembedding.ts
   - src/sdk/models/operations/createfile.ts
   - src/sdk/models/operations/deletefile.ts
   - src/sdk/models/operations/downloadfile.ts
   - src/sdk/models/operations/listfiles.ts
   - src/sdk/models/operations/retrievefile.ts
-  - src/sdk/models/operations/cancelfinetune.ts
-  - src/sdk/models/operations/createfinetune.ts
-  - src/sdk/models/operations/listfinetuneevents.ts
-  - src/sdk/models/operations/listfinetunes.ts
-  - src/sdk/models/operations/retrievefinetune.ts
   - src/sdk/models/operations/cancelfinetuningjob.ts
   - src/sdk/models/operations/createfinetuningjob.ts
   - src/sdk/models/operations/listfinetuningevents.ts
@@ -152,8 +144,6 @@ generatedFiles:
   - src/sdk/models/shared/chatcompletionfunctions.ts
   - src/sdk/models/shared/createcompletionresponse.ts
   - src/sdk/models/shared/createcompletionrequest.ts
-  - src/sdk/models/shared/createeditresponse.ts
-  - src/sdk/models/shared/createeditrequest.ts
   - src/sdk/models/shared/createembeddingresponse.ts
   - src/sdk/models/shared/embedding.ts
   - src/sdk/models/shared/createembeddingrequest.ts
@@ -161,11 +151,6 @@ generatedFiles:
   - src/sdk/models/shared/createfilerequest.ts
   - src/sdk/models/shared/deletefileresponse.ts
   - src/sdk/models/shared/listfilesresponse.ts
-  - src/sdk/models/shared/finetune.ts
-  - src/sdk/models/shared/finetuneevent.ts
-  - src/sdk/models/shared/createfinetunerequest.ts
-  - src/sdk/models/shared/listfinetuneeventsresponse.ts
-  - src/sdk/models/shared/listfinetunesresponse.ts
   - src/sdk/models/shared/finetuningjob.ts
   - src/sdk/models/shared/createfinetuningjobrequest.ts
   - src/sdk/models/shared/listfinetuningjobeventsresponse.ts
@@ -249,7 +234,6 @@ generatedFiles:
   - docs/sdk/models/operations/createtranslationresponse.md
   - docs/sdk/models/operations/createchatcompletionresponse.md
   - docs/sdk/models/operations/createcompletionresponse.md
-  - docs/sdk/models/operations/createeditresponse.md
   - docs/sdk/models/operations/createembeddingresponse.md
   - docs/sdk/models/operations/createfileresponse.md
   - docs/sdk/models/operations/deletefilerequest.md
@@ -260,14 +244,6 @@ generatedFiles:
   - docs/sdk/models/operations/listfilesresponse.md
   - docs/sdk/models/operations/retrievefilerequest.md
   - docs/sdk/models/operations/retrievefileresponse.md
-  - docs/sdk/models/operations/cancelfinetunerequest.md
-  - docs/sdk/models/operations/cancelfinetuneresponse.md
-  - docs/sdk/models/operations/createfinetuneresponse.md
-  - docs/sdk/models/operations/listfinetuneeventsrequest.md
-  - docs/sdk/models/operations/listfinetuneeventsresponse.md
-  - docs/sdk/models/operations/listfinetunesresponse.md
-  - docs/sdk/models/operations/retrievefinetunerequest.md
-  - docs/sdk/models/operations/retrievefinetuneresponse.md
   - docs/sdk/models/operations/cancelfinetuningjobrequest.md
   - docs/sdk/models/operations/cancelfinetuningjobresponse.md
   - docs/sdk/models/operations/createfinetuningjobresponse.md
@@ -390,11 +366,6 @@ generatedFiles:
   - docs/sdk/models/shared/createcompletionresponseobject.md
   - docs/sdk/models/shared/createcompletionresponse.md
   - docs/sdk/models/shared/createcompletionrequest.md
-  - docs/sdk/models/shared/createeditresponsefinishreason.md
-  - docs/sdk/models/shared/createeditresponsechoices.md
-  - docs/sdk/models/shared/createeditresponseobject.md
-  - docs/sdk/models/shared/createeditresponse.md
-  - docs/sdk/models/shared/createeditrequest.md
   - docs/sdk/models/shared/createembeddingresponseobject.md
   - docs/sdk/models/shared/usage.md
   - docs/sdk/models/shared/createembeddingresponse.md
@@ -413,23 +384,12 @@ generatedFiles:
   - docs/sdk/models/shared/deletefileresponse.md
   - docs/sdk/models/shared/listfilesresponseobject.md
   - docs/sdk/models/shared/listfilesresponse.md
-  - docs/sdk/models/shared/hyperparams.md
-  - docs/sdk/models/shared/finetuneobject.md
-  - docs/sdk/models/shared/finetune.md
-  - docs/sdk/models/shared/finetuneeventobject.md
-  - docs/sdk/models/shared/finetuneevent.md
-  - docs/sdk/models/shared/hyperparameters.md
-  - docs/sdk/models/shared/createfinetunerequest.md
-  - docs/sdk/models/shared/listfinetuneeventsresponseobject.md
-  - docs/sdk/models/shared/listfinetuneeventsresponse.md
-  - docs/sdk/models/shared/listfinetunesresponseobject.md
-  - docs/sdk/models/shared/listfinetunesresponse.md
   - docs/sdk/models/shared/errort.md
   - docs/sdk/models/shared/finetuningjobhyperparameters.md
   - docs/sdk/models/shared/finetuningjobobject.md
   - docs/sdk/models/shared/status.md
   - docs/sdk/models/shared/finetuningjob.md
-  - docs/sdk/models/shared/createfinetuningjobrequesthyperparameters.md
+  - docs/sdk/models/shared/hyperparameters.md
   - docs/sdk/models/shared/createfinetuningjobrequest.md
   - docs/sdk/models/shared/listfinetuningjobeventsresponseobject.md
   - docs/sdk/models/shared/listfinetuningjobeventsresponse.md
@@ -470,10 +430,8 @@ generatedFiles:
   - docs/sdks/audio/README.md
   - docs/sdks/chat/README.md
   - docs/sdks/completions/README.md
-  - docs/sdks/edits/README.md
   - docs/sdks/embeddings/README.md
   - docs/sdks/files/README.md
-  - docs/sdks/finetunes/README.md
   - docs/sdks/finetuning/README.md
   - docs/sdks/images/README.md
   - docs/sdks/models/README.md

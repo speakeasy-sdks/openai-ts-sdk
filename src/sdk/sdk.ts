@@ -8,10 +8,8 @@ import { Assistants } from "./assistants";
 import { Audio } from "./audio";
 import { Chat } from "./chat";
 import { Completions } from "./completions";
-import { Edits } from "./edits";
 import { Embeddings } from "./embeddings";
 import { Files } from "./files";
-import { FineTunes } from "./finetunes";
 import { FineTuning } from "./finetuning";
 import { Images } from "./images";
 import { Models } from "./models";
@@ -57,9 +55,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "2.0.0";
-    sdkVersion = "3.1.6";
-    genVersion = "2.225.2";
-    userAgent = "speakeasy-sdk/typescript 3.1.6 2.225.2 2.0.0 @speakeasy-api/openai";
+    sdkVersion = "3.1.7";
+    genVersion = "2.230.3";
+    userAgent = "speakeasy-sdk/typescript 3.1.7 2.230.3 2.0.0 @speakeasy-api/openai";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -87,10 +85,6 @@ export class Gpt {
      */
     public completions: Completions;
     /**
-     * Given a prompt and an instruction, the model will return an edited version of the prompt.
-     */
-    public edits: Edits;
-    /**
      * Get a vector representation of a given input that can be easily consumed by machine learning models and algorithms.
      */
     public embeddings: Embeddings;
@@ -98,10 +92,6 @@ export class Gpt {
      * Files are used to upload documents that can be used with features like Assistants and Fine-tuning.
      */
     public files: Files;
-    /**
-     * Manage legacy fine-tuning jobs to tailor a model to your specific training data.
-     */
-    public fineTunes: FineTunes;
     /**
      * Manage fine-tuning jobs to tailor a model to your specific training data.
      */
@@ -142,10 +132,8 @@ export class Gpt {
         this.audio = new Audio(this.sdkConfiguration);
         this.chat = new Chat(this.sdkConfiguration);
         this.completions = new Completions(this.sdkConfiguration);
-        this.edits = new Edits(this.sdkConfiguration);
         this.embeddings = new Embeddings(this.sdkConfiguration);
         this.files = new Files(this.sdkConfiguration);
-        this.fineTunes = new FineTunes(this.sdkConfiguration);
         this.fineTuning = new FineTuning(this.sdkConfiguration);
         this.images = new Images(this.sdkConfiguration);
         this.models = new Models(this.sdkConfiguration);

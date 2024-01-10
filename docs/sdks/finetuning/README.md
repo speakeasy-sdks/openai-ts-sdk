@@ -9,7 +9,7 @@ Manage fine-tuning jobs to tailor a model to your specific training data.
 
 * [cancelFineTuningJob](#cancelfinetuningjob) - Immediately cancel a fine-tune job.
 
-* [createFineTuningJob](#createfinetuningjob) - Creates a job that fine-tunes a specified model from a given dataset.
+* [createFineTuningJob](#createfinetuningjob) - Creates a fine-tuning job which begins the process of creating a new model from a given dataset.
 
 Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 
@@ -70,7 +70,7 @@ run();
 
 ## createFineTuningJob
 
-Creates a job that fine-tunes a specified model from a given dataset.
+Creates a fine-tuning job which begins the process of creating a new model from a given dataset.
 
 Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
 

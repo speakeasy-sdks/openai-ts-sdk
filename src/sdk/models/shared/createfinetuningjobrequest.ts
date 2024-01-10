@@ -8,7 +8,7 @@ import { Expose, Type } from "class-transformer";
 /**
  * The hyperparameters used for the fine-tuning job.
  */
-export class CreateFineTuningJobRequestHyperparameters extends SpeakeasyBase {
+export class Hyperparameters extends SpeakeasyBase {
     /**
      * Number of examples in each batch. A larger batch size means that model parameters
      *
@@ -49,8 +49,8 @@ export class CreateFineTuningJobRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     @Expose({ name: "hyperparameters" })
-    @Type(() => CreateFineTuningJobRequestHyperparameters)
-    hyperparameters?: CreateFineTuningJobRequestHyperparameters;
+    @Type(() => Hyperparameters)
+    hyperparameters?: Hyperparameters;
 
     /**
      * The name of the model to fine-tune. You can select one of the
