@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { RunCompletionUsage } from "./runcompletionusage";
 import { RunToolCallObject } from "./runtoolcallobject";
 import { Expose, Type } from "class-transformer";
 
@@ -237,4 +238,12 @@ export class RunObject extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "tools" })
     tools: any[];
+
+    /**
+     * Usage statistics related to the run. This value will be `null` if the run is not in a terminal state (i.e. `in_progress`, `queued`, etc.).
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "usage" })
+    @Type(() => RunCompletionUsage)
+    usage: RunCompletionUsage;
 }

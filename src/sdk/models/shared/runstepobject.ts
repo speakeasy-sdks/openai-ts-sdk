@@ -3,6 +3,7 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
+import { RunStepCompletionUsage } from "./runstepcompletionusage";
 import { Expose, Type } from "class-transformer";
 
 /**
@@ -182,4 +183,12 @@ export class RunStepObject extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "type" })
     type: RunStepObjectType;
+
+    /**
+     * Usage statistics related to the run step. This value will be `null` while the run step's status is `in_progress`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "usage" })
+    @Type(() => RunStepCompletionUsage)
+    usage: RunStepCompletionUsage;
 }
