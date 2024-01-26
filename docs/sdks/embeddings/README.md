@@ -27,7 +27,7 @@ async function run() {
   const res = await sdk.embeddings.createEmbedding({
     encodingFormat: EncodingFormat.Float,
     input: "The quick brown fox jumped over the lazy dog",
-    model: "text-embedding-ada-002",
+    model: "text-embedding-3-small",
     user: "user-1234",
   });
 

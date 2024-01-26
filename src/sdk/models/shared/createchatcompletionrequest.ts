@@ -16,7 +16,7 @@ export enum CreateChatCompletionRequestType {
 }
 
 /**
- * An object specifying the format that the model must output. Compatible with `gpt-4-1106-preview` and `gpt-3.5-turbo-1106`.
+ * An object specifying the format that the model must output. Compatible with [GPT-4 Turbo](/docs/models/gpt-4-and-gpt-4-turbo) and `gpt-3.5-turbo-1106`.
  *
  * @remarks
  *
@@ -146,7 +146,7 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
     presencePenalty?: number;
 
     /**
-     * An object specifying the format that the model must output. Compatible with `gpt-4-1106-preview` and `gpt-3.5-turbo-1106`.
+     * An object specifying the format that the model must output. Compatible with [GPT-4 Turbo](/docs/models/gpt-4-and-gpt-4-turbo) and `gpt-3.5-turbo-1106`.
      *
      * @remarks
      *
