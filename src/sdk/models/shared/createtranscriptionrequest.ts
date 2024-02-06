@@ -26,6 +26,11 @@ export enum CreateTranscriptionRequestResponseFormat {
     Vtt = "vtt",
 }
 
+export enum TimestampGranularities {
+    Word = "word",
+    Segment = "segment",
+}
+
 export class CreateTranscriptionRequest extends SpeakeasyBase {
     /**
      * The audio file object (not file name) to transcribe, in one of these formats: flac, mp3, mp4, mpeg, mpga, m4a, ogg, wav, or webm.
@@ -80,4 +85,13 @@ export class CreateTranscriptionRequest extends SpeakeasyBase {
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=temperature" })
     temperature?: number;
+
+    /**
+     * The timestamp granularities to populate for this transcription. Any of these options: `word`, or `segment`. Note: There is no additional latency for segment timestamps, but generating word timestamps incurs additional latency.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=timestamp_granularities[]" })
+    timestampGranularities?: TimestampGranularities[];
 }

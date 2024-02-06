@@ -65,7 +65,7 @@ Transcribes audio into the input language.
 
 ```typescript
 import { Gpt } from "@speakeasy-api/openai";
-import { CreateTranscriptionRequestResponseFormat } from "@speakeasy-api/openai/dist/sdk/models/shared";
+import { CreateTranscriptionRequestResponseFormat, TimestampGranularities } from "@speakeasy-api/openai/dist/sdk/models/shared";
 
 async function run() {
   const sdk = new Gpt({
@@ -78,6 +78,9 @@ async function run() {
       fileName: "buckinghamshire.gif",
     },
     model: "whisper-1",
+    timestampGranularities: [
+      TimestampGranularities.Segment,
+    ],
   });
 
   if (res.statusCode == 200) {

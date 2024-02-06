@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 597e611b-7490-45e2-839f-5daf119dcd37
 management:
-  docChecksum: fec080cc7b4b85f737f17928f5f6f306
+  docChecksum: 48d5059756953328026cfca7d15f0081
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.239.4
-  releaseVersion: 3.1.9
-  configChecksum: 710c6fd4f435cb71d823466e6299f2f8
+  generationVersion: 2.250.2
+  releaseVersion: 4.0.0
+  configChecksum: c3cb181783782482882f4fe7fe7487b4
   repoURL: https://github.com/speakeasy-sdks/openai-ts-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-ts-sdk
@@ -339,6 +339,7 @@ generatedFiles:
   - docs/sdk/models/shared/createtranscriptionresponse.md
   - docs/sdk/models/shared/createtranscriptionrequestfile.md
   - docs/sdk/models/shared/createtranscriptionrequestresponseformat.md
+  - docs/sdk/models/shared/timestampgranularities.md
   - docs/sdk/models/shared/createtranscriptionrequest.md
   - docs/sdk/models/shared/createtranslationresponse.md
   - docs/sdk/models/shared/createtranslationrequestfile.md
