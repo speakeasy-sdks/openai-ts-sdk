@@ -85,7 +85,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const fileId: string = "string";
+const fileId: string = "<value>";
 
   const res = await sdk.files.deleteFile(fileId);
 
@@ -128,7 +128,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const fileId: string = "string";
+const fileId: string = "<value>";
 
   const res = await sdk.files.downloadFile(fileId);
 
@@ -171,7 +171,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const purpose: string = "string";
+const purpose: string = "<value>";
 
   const res = await sdk.files.listFiles(purpose);
 
@@ -214,7 +214,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const fileId: string = "string";
+const fileId: string = "<value>";
 
   const res = await sdk.files.retrieveFile(fileId);
 

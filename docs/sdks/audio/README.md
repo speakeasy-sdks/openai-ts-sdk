@@ -27,8 +27,8 @@ async function run() {
   });
 
   const res = await sdk.audio.createSpeech({
-    input: "string",
-    model: "string",
+    input: "<value>",
+    model: "<value>",
     voice: Voice.Shimmer,
   });
 

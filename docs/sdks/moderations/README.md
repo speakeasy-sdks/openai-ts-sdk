@@ -24,7 +24,7 @@ async function run() {
   });
 
   const res = await sdk.moderations.createModeration({
-    input: "string",
+    input: "<value>",
     model: "text-moderation-stable",
   });
 

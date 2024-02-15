@@ -51,8 +51,8 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const runId: string = "string";
-const threadId: string = "string";
+const runId: string = "<value>";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.cancelRun(runId, threadId);
 
@@ -98,12 +98,12 @@ async function run() {
 
   const res = await sdk.assistants.createAssistant({
     fileIds: [
-      "string",
+      "<value>",
     ],
     metadata: {},
     model: "XTS",
     tools: [
-      "string",
+      "<value>",
     ],
   });
 
@@ -148,7 +148,7 @@ async function run() {
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const createAssistantFileRequest: CreateAssistantFileRequest = {
-  fileId: "string",
+  fileId: "<value>",
 };
 const assistantId: string = "file-abc123";
 
@@ -196,14 +196,14 @@ async function run() {
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const createMessageRequest: CreateMessageRequest = {
-  content: "string",
+  content: "<value>",
   fileIds: [
-    "string",
+    "<value>",
   ],
   metadata: {},
   role: CreateMessageRequestRole.User,
 };
-const threadId: string = "string";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.createMessage(createMessageRequest, threadId);
 
@@ -249,13 +249,13 @@ async function run() {
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const createRunRequest: CreateRunRequest = {
-  assistantId: "string",
+  assistantId: "<value>",
   metadata: {},
   tools: [
-    "string",
+    "<value>",
   ],
 };
-const threadId: string = "string";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.createRun(createRunRequest, threadId);
 
@@ -303,9 +303,9 @@ async function run() {
   const res = await sdk.assistants.createThread({
     messages: [
       {
-        content: "string",
+        content: "<value>",
         fileIds: [
-          "string",
+          "<value>",
         ],
         metadata: {},
         role: CreateMessageRequestRole.User,
@@ -355,14 +355,14 @@ async function run() {
   });
 
   const res = await sdk.assistants.createThreadAndRun({
-    assistantId: "string",
+    assistantId: "<value>",
     metadata: {},
     thread: {
       messages: [
         {
-          content: "string",
+          content: "<value>",
           fileIds: [
-            "string",
+            "<value>",
           ],
           metadata: {},
           role: CreateMessageRequestRole.User,
@@ -371,7 +371,7 @@ async function run() {
       metadata: {},
     },
     tools: [
-      "string",
+      "<value>",
     ],
   });
 
@@ -414,7 +414,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const assistantId: string = "string";
+const assistantId: string = "<value>";
 
   const res = await sdk.assistants.deleteAssistant(assistantId);
 
@@ -457,8 +457,8 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const assistantId: string = "string";
-const fileId: string = "string";
+const assistantId: string = "<value>";
+const fileId: string = "<value>";
 
   const res = await sdk.assistants.deleteAssistantFile(assistantId, fileId);
 
@@ -502,7 +502,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const threadId: string = "string";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.deleteThread(threadId);
 
@@ -545,7 +545,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const assistantId: string = "string";
+const assistantId: string = "<value>";
 
   const res = await sdk.assistants.getAssistant(assistantId);
 
@@ -588,8 +588,8 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const assistantId: string = "string";
-const fileId: string = "string";
+const assistantId: string = "<value>";
+const fileId: string = "<value>";
 
   const res = await sdk.assistants.getAssistantFile(assistantId, fileId);
 
@@ -633,8 +633,8 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const messageId: string = "string";
-const threadId: string = "string";
+const messageId: string = "<value>";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.getMessage(messageId, threadId);
 
@@ -725,8 +725,8 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const runId: string = "string";
-const threadId: string = "string";
+const runId: string = "<value>";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.getRun(runId, threadId);
 
@@ -770,9 +770,9 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const runId: string = "string";
-const stepId: string = "string";
-const threadId: string = "string";
+const runId: string = "<value>";
+const stepId: string = "<value>";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.getRunStep(runId, stepId, threadId);
 
@@ -817,7 +817,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const threadId: string = "string";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.getThread(threadId);
 
@@ -862,7 +862,7 @@ async function run() {
   });
 
   const res = await sdk.assistants.listAssistantFiles({
-    assistantId: "string",
+    assistantId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -904,8 +904,8 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const after: string = "string";
-const before: string = "string";
+const after: string = "<value>";
+const before: string = "<value>";
 const limit: number = 948776;
 const order: QueryParamOrder = QueryParamOrder.Asc;
 
@@ -955,8 +955,8 @@ async function run() {
   });
 
   const res = await sdk.assistants.listMessageFiles({
-    messageId: "string",
-    threadId: "string",
+    messageId: "<value>",
+    threadId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -1000,7 +1000,7 @@ async function run() {
   });
 
   const res = await sdk.assistants.listMessages({
-    threadId: "string",
+    threadId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -1044,8 +1044,8 @@ async function run() {
   });
 
   const res = await sdk.assistants.listRunSteps({
-    runId: "string",
-    threadId: "string",
+    runId: "<value>",
+    threadId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -1089,7 +1089,7 @@ async function run() {
   });
 
   const res = await sdk.assistants.listRuns({
-    threadId: "string",
+    threadId: "<value>",
   });
 
   if (res.statusCode == 200) {
@@ -1134,14 +1134,14 @@ async function run() {
   });
 const modifyAssistantRequest: ModifyAssistantRequest = {
   fileIds: [
-    "string",
+    "<value>",
   ],
   metadata: {},
   tools: [
-    "string",
+    "<value>",
   ],
 };
-const assistantId: string = "string";
+const assistantId: string = "<value>";
 
   const res = await sdk.assistants.modifyAssistant(modifyAssistantRequest, assistantId);
 
@@ -1189,8 +1189,8 @@ async function run() {
 const modifyMessageRequest: ModifyMessageRequest = {
   metadata: {},
 };
-const messageId: string = "string";
-const threadId: string = "string";
+const messageId: string = "<value>";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.modifyMessage(modifyMessageRequest, messageId, threadId);
 
@@ -1239,8 +1239,8 @@ async function run() {
 const modifyRunRequest: ModifyRunRequest = {
   metadata: {},
 };
-const runId: string = "string";
-const threadId: string = "string";
+const runId: string = "<value>";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.modifyRun(modifyRunRequest, runId, threadId);
 
@@ -1289,7 +1289,7 @@ async function run() {
 const modifyThreadRequest: ModifyThreadRequest = {
   metadata: {},
 };
-const threadId: string = "string";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.modifyThread(modifyThreadRequest, threadId);
 
@@ -1340,8 +1340,8 @@ const submitToolOutputsRunRequest: SubmitToolOutputsRunRequest = {
     {},
   ],
 };
-const runId: string = "string";
-const threadId: string = "string";
+const runId: string = "<value>";
+const threadId: string = "<value>";
 
   const res = await sdk.assistants.submitToolOuputsToRun(submitToolOutputsRunRequest, runId, threadId);
 

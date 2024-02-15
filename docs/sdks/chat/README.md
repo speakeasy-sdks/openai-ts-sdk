@@ -25,12 +25,12 @@ async function run() {
   });
 
   const res = await sdk.chat.createChatCompletion({
-    functionCall: "string",
+    functionCall: "<value>",
     functions: [
       {
-        name: "string",
+        name: "<value>",
         parameters: {
-          "key": "string",
+          "key": "<value>",
         },
       },
     ],
@@ -38,22 +38,22 @@ async function run() {
       "key": 770726,
     },
     messages: [
-      "string",
+      "<value>",
     ],
     model: "gpt-3.5-turbo",
     n: 1,
     responseFormat: {
       type: CreateChatCompletionRequestType.JsonObject,
     },
-    stop: "string",
+    stop: "<value>",
     temperature: 1,
-    toolChoice: "string",
+    toolChoice: "<value>",
     tools: [
       {
         function: {
-          name: "string",
+          name: "<value>",
           parameters: {
-            "key": "string",
+            "key": "<value>",
           },
         },
         type: ChatCompletionToolType.Function,

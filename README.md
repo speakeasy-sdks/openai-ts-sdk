@@ -50,8 +50,8 @@ async function run() {
     const sdk = new Gpt({
         apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
-    const runId: string = "string";
-    const threadId: string = "string";
+    const runId: string = "<value>";
+    const threadId: string = "<value>";
 
     const res = await sdk.assistants.cancelRun(runId, threadId);
 
@@ -190,8 +190,8 @@ async function run() {
     const sdk = new Gpt({
         apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
-    const runId: string = "string";
-    const threadId: string = "string";
+    const runId: string = "<value>";
+    const threadId: string = "<value>";
 
     let res;
     try {
@@ -237,8 +237,8 @@ async function run() {
         serverIdx: 0,
         apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
-    const runId: string = "string";
-    const threadId: string = "string";
+    const runId: string = "<value>";
+    const threadId: string = "<value>";
 
     const res = await sdk.assistants.cancelRun(runId, threadId);
 
@@ -264,8 +264,8 @@ async function run() {
         serverURL: "https://api.openai.com/v1",
         apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
-    const runId: string = "string";
-    const threadId: string = "string";
+    const runId: string = "<value>";
+    const threadId: string = "<value>";
 
     const res = await sdk.assistants.cancelRun(runId, threadId);
 
@@ -322,8 +322,8 @@ async function run() {
     const sdk = new Gpt({
         apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
-    const runId: string = "string";
-    const threadId: string = "string";
+    const runId: string = "<value>";
+    const threadId: string = "<value>";
 
     const res = await sdk.assistants.cancelRun(runId, threadId);
 

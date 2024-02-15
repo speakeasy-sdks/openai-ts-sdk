@@ -89,9 +89,9 @@ async function run() {
 
   const res = await sdk.fineTuning.createFineTuningJob({
     hyperparameters: {
-      batchSize: "string",
-      learningRateMultiplier: "string",
-      nEpochs: "string",
+      batchSize: "<value>",
+      learningRateMultiplier: "<value>",
+      nEpochs: "<value>",
     },
     model: "gpt-3.5-turbo",
     trainingFile: "file-abc123",
@@ -139,7 +139,7 @@ async function run() {
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
 const fineTuningJobId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
-const after: string = "string";
+const after: string = "<value>";
 const limit: number = 896841;
 
   const res = await sdk.fineTuning.listFineTuningEvents(fineTuningJobId, after, limit);
@@ -186,7 +186,7 @@ async function run() {
   const sdk = new Gpt({
     apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
   });
-const after: string = "string";
+const after: string = "<value>";
 const limit: number = 385496;
 
   const res = await sdk.fineTuning.listPaginatedFineTuningJobs(after, limit);

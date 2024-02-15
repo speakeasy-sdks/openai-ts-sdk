@@ -7,8 +7,8 @@ async function run() {
     const sdk = new Gpt({
         apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
     });
-    const runId: string = "string";
-    const threadId: string = "string";
+    const runId: string = "<value>";
+    const threadId: string = "<value>";
 
     const res = await sdk.assistants.cancelRun(runId, threadId);
 
