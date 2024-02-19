@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 597e611b-7490-45e2-839f-5daf119dcd37
 management:
-  docChecksum: fc72a6cb6d13a3b462587faec01dd645
+  docChecksum: 48d5059756953328026cfca7d15f0081
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.258.2
-  releaseVersion: 4.0.2
-  configChecksum: 3ee4894f806993c2349bb162a4c2c245
+  generationVersion: 2.262.2
+  releaseVersion: 4.0.3
+  configChecksum: 8ac27bd938fe8ddc6fc2fd7e655b2404
   repoURL: https://github.com/speakeasy-sdks/openai-ts-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-ts-sdk

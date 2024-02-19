@@ -82,13 +82,6 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
     functions?: ChatCompletionFunctions[];
 
     /**
-     * An unique identifier to a custom instance to execute the request. The requesting organization is required to have access to the instance.
-     */
-    @SpeakeasyMetadata()
-    @Expose({ name: "instance_id" })
-    instanceId?: string;
-
-    /**
      * Modify the likelihood of specified tokens appearing in the completion.
      *
      * @remarks
