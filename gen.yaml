@@ -7,8 +7,10 @@ generation:
     nameResolutionDec2023: false
     parameterOrderingFeb2024: false
     requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 typescript:
-  version: 4.0.3
+  version: 4.0.4
   author: speakeasy-openai
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: true
