@@ -389,3 +389,13 @@ Based on:
 - [typescript v4.0.4] .
 ### Releases
 - [NPM v4.0.4] https://www.npmjs.com/package/@speakeasy-api/openai/v/4.0.4 - .
+
+## 2024-02-27 00:46:53
+### Changes
+Based on:
+- OpenAPI Doc 2.0.0 https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+- Speakeasy CLI 1.194.0 (2.272.7) https://github.com/speakeasy-api/speakeasy
+### Generated
+- [typescript v4.0.5] .
+### Releases
+- [NPM v4.0.5] https://www.npmjs.com/package/@speakeasy-api/openai/v/4.0.5 - .
