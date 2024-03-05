@@ -3,7 +3,6 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class CreateTranslationResponse extends SpeakeasyBase {
@@ -12,12 +11,6 @@ export class CreateTranslationResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     contentType: string;
-
-    /**
-     * OK
-     */
-    @SpeakeasyMetadata()
-    createTranslationResponse?: shared.CreateTranslationResponse;
 
     /**
      * HTTP response status code for this operation
@@ -30,4 +23,10 @@ export class CreateTranslationResponse extends SpeakeasyBase {
      */
     @SpeakeasyMetadata()
     rawResponse: AxiosResponse;
+
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    oneOf?: any;
 }

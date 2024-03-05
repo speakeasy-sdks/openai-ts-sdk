@@ -10,7 +10,7 @@ import { SDKConfiguration } from "./sdk";
 import { AxiosInstance, AxiosRequestConfig, AxiosResponse, RawAxiosRequestHeaders } from "axios";
 
 /**
- * Given a input text, outputs if the model classifies it as violating OpenAI's content policy.
+ * Given a input text, outputs if the model classifies it as potentially harmful.
  */
 
 export class Moderations {
@@ -21,7 +21,7 @@ export class Moderations {
     }
 
     /**
-     * Classifies if text violates OpenAI's Content Policy
+     * Classifies if text is potentially harmful.
      */
     async createModeration(
         req: shared.CreateModerationRequest,

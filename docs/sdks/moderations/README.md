@@ -3,15 +3,15 @@
 
 ## Overview
 
-Given a input text, outputs if the model classifies it as violating OpenAI's content policy.
+Given a input text, outputs if the model classifies it as potentially harmful.
 
 ### Available Operations
 
-* [createModeration](#createmoderation) - Classifies if text violates OpenAI's Content Policy
+* [createModeration](#createmoderation) - Classifies if text is potentially harmful.
 
 ## createModeration
 
-Classifies if text violates OpenAI's Content Policy
+Classifies if text is potentially harmful.
 
 ### Example Usage
 

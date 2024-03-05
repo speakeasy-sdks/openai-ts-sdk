@@ -14,7 +14,7 @@ export class TopLogprobs extends SpeakeasyBase {
     bytes: number[];
 
     /**
-     * The log probability of this token.
+     * The log probability of this token, if it is within the top 20 most likely tokens. Otherwise, the value `-9999.0` is used to signify that the token is very unlikely.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "logprob" })
@@ -37,7 +37,7 @@ export class ChatCompletionTokenLogprob extends SpeakeasyBase {
     bytes: number[];
 
     /**
-     * The log probability of this token.
+     * The log probability of this token, if it is within the top 20 most likely tokens. Otherwise, the value `-9999.0` is used to signify that the token is very unlikely.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "logprob" })

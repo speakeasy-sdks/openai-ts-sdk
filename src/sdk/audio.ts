@@ -176,10 +176,7 @@ export class Audio {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.createTranscriptionResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CreateTranscriptionResponse
-                    );
+                    res.oneOf = JSON.parse(decodedRes);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + responseContentType,
@@ -264,10 +261,7 @@ export class Audio {
         switch (true) {
             case httpRes?.status == 200:
                 if (utils.matchContentType(responseContentType, `application/json`)) {
-                    res.createTranslationResponse = utils.objectToClass(
-                        JSON.parse(decodedRes),
-                        shared.CreateTranslationResponse
-                    );
+                    res.oneOf = JSON.parse(decodedRes);
                 } else {
                     throw new errors.SDKError(
                         "unknown content-type received: " + responseContentType,

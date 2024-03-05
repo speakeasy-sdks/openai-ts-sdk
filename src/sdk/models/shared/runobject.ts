@@ -8,11 +8,12 @@ import { RunToolCallObject } from "./runtoolcallobject";
 import { Expose, Type } from "class-transformer";
 
 /**
- * One of `server_error` or `rate_limit_exceeded`.
+ * One of `server_error`, `rate_limit_exceeded`, or `invalid_prompt`.
  */
 export enum Code {
     ServerError = "server_error",
     RateLimitExceeded = "rate_limit_exceeded",
+    InvalidPrompt = "invalid_prompt",
 }
 
 /**
@@ -20,7 +21,7 @@ export enum Code {
  */
 export class LastError extends SpeakeasyBase {
     /**
-     * One of `server_error` or `rate_limit_exceeded`.
+     * One of `server_error`, `rate_limit_exceeded`, or `invalid_prompt`.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "code" })

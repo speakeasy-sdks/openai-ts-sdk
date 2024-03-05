@@ -13,7 +13,7 @@ export class CreateImageVariationRequestImage extends SpeakeasyBase {
 }
 
 /**
- * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
+ * The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
  */
 export enum CreateImageVariationRequestResponseFormat {
     Url = "url",
@@ -49,7 +49,7 @@ export class CreateImageVariationRequest extends SpeakeasyBase {
     n?: number;
 
     /**
-     * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
+     * The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
     responseFormat?: CreateImageVariationRequestResponseFormat;

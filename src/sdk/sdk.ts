@@ -55,9 +55,9 @@ export class SDKConfiguration {
     serverDefaults: any;
     language = "typescript";
     openapiDocVersion = "2.0.0";
-    sdkVersion = "4.0.5";
-    genVersion = "2.272.7";
-    userAgent = "speakeasy-sdk/typescript 4.0.5 2.272.7 2.0.0 @speakeasy-api/openai";
+    sdkVersion = "4.0.6";
+    genVersion = "2.277.0";
+    userAgent = "speakeasy-sdk/typescript 4.0.6 2.277.0 2.0.0 @speakeasy-api/openai";
     retryConfig?: utils.RetryConfig;
     public constructor(init?: Partial<SDKConfiguration>) {
         Object.assign(this, init);
@@ -105,7 +105,7 @@ export class Gpt {
      */
     public models: Models;
     /**
-     * Given a input text, outputs if the model classifies it as violating OpenAI's content policy.
+     * Given a input text, outputs if the model classifies it as potentially harmful.
      */
     public moderations: Moderations;
 

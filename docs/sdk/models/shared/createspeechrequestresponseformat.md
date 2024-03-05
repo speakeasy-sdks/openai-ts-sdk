@@ -1,9 +1,6 @@
 # CreateSpeechRequestResponseFormat
 
-The format to return audio in. 
-Supported formats are `mp3`, `opus`, `aac`, `flac`, `pcm`, and `wav`. 
-
-The `pcm` audio format, similar to `wav` but without a header, utilizes a 24kHz sample rate, mono channel, and 16-bit depth in signed little-endian format.
+The format to audio in. Supported formats are `mp3`, `opus`, `aac`, `flac`, `wav`, and `pcm`.
 
 
 ## Values
@@ -14,5 +11,5 @@ The `pcm` audio format, similar to `wav` but without a header, utilizes a 24kHz 
 | `Opus` | opus   |
 | `Aac`  | aac    |
 | `Flac` | flac   |
-| `Pcm`  | pcm    |
 | `Wav`  | wav    |
+| `Pcm`  | pcm    |

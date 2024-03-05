@@ -1,12 +1,12 @@
 lockVersion: 2.0.0
 id: 597e611b-7490-45e2-839f-5daf119dcd37
 management:
-  docChecksum: a69f499fa6cae6acc1c4d0e467f207d3
+  docChecksum: 0f1a105489b43417f5ab6cd2c8614d36
   docVersion: 2.0.0
   speakeasyVersion: internal
-  generationVersion: 2.272.7
-  releaseVersion: 4.0.5
-  configChecksum: ae2e642ddafb8d302fd5d6c17fc3773c
+  generationVersion: 2.277.0
+  releaseVersion: 4.0.6
+  configChecksum: 138ff8078b7bfcba60be6590aef73698
   repoURL: https://github.com/speakeasy-sdks/openai-ts-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-ts-sdk
@@ -131,9 +131,7 @@ generatedFiles:
   - src/sdk/models/shared/modifythreadrequest.ts
   - src/sdk/models/shared/submittooloutputsrunrequest.ts
   - src/sdk/models/shared/createspeechrequest.ts
-  - src/sdk/models/shared/createtranscriptionresponse.ts
   - src/sdk/models/shared/createtranscriptionrequest.ts
-  - src/sdk/models/shared/createtranslationresponse.ts
   - src/sdk/models/shared/createtranslationrequest.ts
   - src/sdk/models/shared/createchatcompletionresponse.ts
   - src/sdk/models/shared/completionusage.ts
@@ -336,12 +334,10 @@ generatedFiles:
   - docs/sdk/models/shared/createspeechrequestresponseformat.md
   - docs/sdk/models/shared/voice.md
   - docs/sdk/models/shared/createspeechrequest.md
-  - docs/sdk/models/shared/createtranscriptionresponse.md
   - docs/sdk/models/shared/createtranscriptionrequestfile.md
   - docs/sdk/models/shared/createtranscriptionrequestresponseformat.md
   - docs/sdk/models/shared/timestampgranularities.md
   - docs/sdk/models/shared/createtranscriptionrequest.md
-  - docs/sdk/models/shared/createtranslationresponse.md
   - docs/sdk/models/shared/createtranslationrequestfile.md
   - docs/sdk/models/shared/createtranslationrequest.md
   - docs/sdk/models/shared/finishreason.md

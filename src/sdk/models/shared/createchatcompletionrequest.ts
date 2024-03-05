@@ -231,7 +231,7 @@ export class CreateChatCompletionRequest extends SpeakeasyBase {
     tools?: ChatCompletionTool[];
 
     /**
-     * An integer between 0 and 5 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used.
+     * An integer between 0 and 20 specifying the number of most likely tokens to return at each token position, each with an associated log probability. `logprobs` must be set to `true` if this parameter is used.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "top_logprobs" })

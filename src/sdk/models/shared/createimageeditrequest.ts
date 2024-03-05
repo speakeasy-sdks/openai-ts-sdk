@@ -21,7 +21,7 @@ export class Mask extends SpeakeasyBase {
 }
 
 /**
- * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
+ * The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
  */
 export enum CreateImageEditRequestResponseFormat {
     Url = "url",
@@ -69,7 +69,7 @@ export class CreateImageEditRequest extends SpeakeasyBase {
     prompt: string;
 
     /**
-     * The format in which the generated images are returned. Must be one of `url` or `b64_json`.
+     * The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
      */
     @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
     responseFormat?: CreateImageEditRequestResponseFormat;

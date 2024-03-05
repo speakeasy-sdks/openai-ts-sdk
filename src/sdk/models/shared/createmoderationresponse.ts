@@ -187,7 +187,7 @@ export class Results extends SpeakeasyBase {
     categoryScores: CategoryScores;
 
     /**
-     * Whether the content violates [OpenAI's usage policies](/policies/usage-policies).
+     * Whether any of the below categories are flagged.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "flagged" })
@@ -195,7 +195,7 @@ export class Results extends SpeakeasyBase {
 }
 
 /**
- * Represents policy compliance report by OpenAI's content moderation model against a given input.
+ * Represents if a given text input is potentially harmful.
  */
 export class CreateModerationResponse extends SpeakeasyBase {
     /**
