@@ -3,10 +3,10 @@ id: 597e611b-7490-45e2-839f-5daf119dcd37
 management:
   docChecksum: 0f1a105489b43417f5ab6cd2c8614d36
   docVersion: 2.0.0
-  speakeasyVersion: internal
-  generationVersion: 2.277.0
-  releaseVersion: 4.0.6
-  configChecksum: 138ff8078b7bfcba60be6590aef73698
+  speakeasyVersion: 1.207.1
+  generationVersion: 2.280.6
+  releaseVersion: 4.0.7
+  configChecksum: 3cb08bceb4b051dfca03e6d3c5c7d7de
   repoURL: https://github.com/speakeasy-sdks/openai-ts-sdk.git
   repoSubDirectory: .
   installationURL: https://github.com/speakeasy-sdks/openai-ts-sdk
@@ -17,7 +17,7 @@ features:
     deprecations: 2.81.1
     flattening: 2.81.1
     globalSecurity: 2.82.4
-    globalServerURLs: 2.82.1
+    globalServerURLs: 2.82.2
 generatedFiles:
   - src/sdk/assistants.ts
   - src/sdk/audio.ts

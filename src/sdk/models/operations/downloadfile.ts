@@ -36,5 +36,5 @@ export class DownloadFileResponse extends SpeakeasyBase {
      * OK
      */
     @SpeakeasyMetadata()
-    res?: string;
+    string?: string;
 }
