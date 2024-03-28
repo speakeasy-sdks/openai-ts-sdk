@@ -3,22 +3,39 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
+export class ListFilesRequest extends SpeakeasyBase {
+    /**
+     * Only return files with the given purpose.
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=purpose" })
+    purpose?: string;
+}
+
 export class ListFilesResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    /**
+     * HTTP response content type for this operation
+     */
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  listFilesResponse?: shared.ListFilesResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    listFilesResponse?: shared.ListFilesResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    /**
+     * HTTP response status code for this operation
+     */
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
+    @SpeakeasyMetadata()
+    rawResponse: AxiosResponse;
 }

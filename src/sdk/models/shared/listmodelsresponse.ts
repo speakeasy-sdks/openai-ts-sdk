@@ -3,17 +3,20 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import { Expose } from "class-transformer";
+import { Model } from "./model";
+import { Expose, Type } from "class-transformer";
 
-/**
- * OK
- */
+export enum ListModelsResponseObject {
+    List = "list",
+}
+
 export class ListModelsResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  @Expose({ name: "data" })
-  data: any[];
+    @SpeakeasyMetadata({ elemType: Model })
+    @Expose({ name: "data" })
+    @Type(() => Model)
+    data: Model[];
 
-  @SpeakeasyMetadata()
-  @Expose({ name: "object" })
-  object: string;
+    @SpeakeasyMetadata()
+    @Expose({ name: "object" })
+    object: ListModelsResponseObject;
 }

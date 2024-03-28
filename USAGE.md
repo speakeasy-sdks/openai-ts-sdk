@@ -1,20 +1,23 @@
-<!-- Start SDK Example Usage -->
+<!-- Start SDK Example Usage [usage] -->
 ```typescript
-import {
-  CancelFineTuneRequest,
-  CancelFineTuneResponse
-} from "@speakeasy-api/openai/dist/sdk/models/operations";
-
-import { AxiosError } from "axios";
 import { Gpt } from "@speakeasy-api/openai";
-const sdk = new Gpt();
+import { CancelRunRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
 
-const req: CancelFineTuneRequest = {
-  fineTuneId: "ft-AF1WoRqd3aJAHsqc9NY7iL8F",
-};
+async function run() {
+    const sdk = new Gpt({
+        apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
+    });
+    const runId: string = "<value>";
+    const threadId: string = "<value>";
 
-sdk.openAI.cancelFineTune(req).then((res: CancelFineTuneResponse | AxiosError) => {
-   // handle response
-});
+    const res = await sdk.assistants.cancelRun(runId, threadId);
+
+    if (res.statusCode == 200) {
+        // handle response
+    }
+}
+
+run();
+
 ```
-<!-- End SDK Example Usage -->
+<!-- End SDK Example Usage [usage] -->

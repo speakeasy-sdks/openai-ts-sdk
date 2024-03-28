@@ -1,0 +1,264 @@
+# FineTuning
+(*fineTuning*)
+
+## Overview
+
+Manage fine-tuning jobs to tailor a model to your specific training data.
+
+### Available Operations
+
+* [cancelFineTuningJob](#cancelfinetuningjob) - Immediately cancel a fine-tune job.
+
+* [createFineTuningJob](#createfinetuningjob) - Creates a fine-tuning job which begins the process of creating a new model from a given dataset.
+
+Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+* [listFineTuningEvents](#listfinetuningevents) - Get status updates for a fine-tuning job.
+
+* [listPaginatedFineTuningJobs](#listpaginatedfinetuningjobs) - List your organization's fine-tuning jobs
+
+* [retrieveFineTuningJob](#retrievefinetuningjob) - Get info about a fine-tuning job.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+
+## cancelFineTuningJob
+
+Immediately cancel a fine-tune job.
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { CancelFineTuningJobRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+async function run() {
+  const sdk = new Gpt({
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  });
+const fineTuningJobId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
+
+  const res = await sdk.fineTuning.cancelFineTuningJob(fineTuningJobId);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `fineTuningJobId`                                            | *string*                                                     | :heavy_check_mark:                                           | The ID of the fine-tuning job to cancel.<br/>                | ft-AF1WoRqd3aJAHsqc9NY7iL8F                                  |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
+
+
+### Response
+
+**Promise<[operations.CancelFineTuningJobResponse](../../sdk/models/operations/cancelfinetuningjobresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## createFineTuningJob
+
+Creates a fine-tuning job which begins the process of creating a new model from a given dataset.
+
+Response includes details of the enqueued job including job status and the name of the fine-tuned models once complete.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+
+async function run() {
+  const sdk = new Gpt({
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  });
+
+  const res = await sdk.fineTuning.createFineTuningJob({
+    hyperparameters: {
+      batchSize: "<value>",
+      learningRateMultiplier: "<value>",
+      nEpochs: "<value>",
+    },
+    model: "gpt-3.5-turbo",
+    trainingFile: "file-abc123",
+    validationFile: "file-abc123",
+  });
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                                                  | Type                                                                                       | Required                                                                                   | Description                                                                                |
+| ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ | ------------------------------------------------------------------------------------------ |
+| `request`                                                                                  | [shared.CreateFineTuningJobRequest](../../sdk/models/shared/createfinetuningjobrequest.md) | :heavy_check_mark:                                                                         | The request object to use for the request.                                                 |
+| `config`                                                                                   | [AxiosRequestConfig](https://axios-http.com/docs/req_config)                               | :heavy_minus_sign:                                                                         | Available config options for making requests.                                              |
+
+
+### Response
+
+**Promise<[operations.CreateFineTuningJobResponse](../../sdk/models/operations/createfinetuningjobresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## listFineTuningEvents
+
+Get status updates for a fine-tuning job.
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { ListFineTuningEventsRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+async function run() {
+  const sdk = new Gpt({
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  });
+const fineTuningJobId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
+const after: string = "<value>";
+const limit: number = 896841;
+
+  const res = await sdk.fineTuning.listFineTuningEvents(fineTuningJobId, after, limit);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                           | Type                                                                | Required                                                            | Description                                                         | Example                                                             |
+| ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- | ------------------------------------------------------------------- |
+| `fineTuningJobId`                                                   | *string*                                                            | :heavy_check_mark:                                                  | The ID of the fine-tuning job to get events for.<br/>               | ft-AF1WoRqd3aJAHsqc9NY7iL8F                                         |
+| `after`                                                             | *string*                                                            | :heavy_minus_sign:                                                  | Identifier for the last event from the previous pagination request. |                                                                     |
+| `limit`                                                             | *number*                                                            | :heavy_minus_sign:                                                  | Number of events to retrieve.                                       |                                                                     |
+| `config`                                                            | [AxiosRequestConfig](https://axios-http.com/docs/req_config)        | :heavy_minus_sign:                                                  | Available config options for making requests.                       |                                                                     |
+
+
+### Response
+
+**Promise<[operations.ListFineTuningEventsResponse](../../sdk/models/operations/listfinetuningeventsresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## listPaginatedFineTuningJobs
+
+List your organization's fine-tuning jobs
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { ListPaginatedFineTuningJobsRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+async function run() {
+  const sdk = new Gpt({
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  });
+const after: string = "<value>";
+const limit: number = 385496;
+
+  const res = await sdk.fineTuning.listPaginatedFineTuningJobs(after, limit);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                         | Type                                                              | Required                                                          | Description                                                       |
+| ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- | ----------------------------------------------------------------- |
+| `after`                                                           | *string*                                                          | :heavy_minus_sign:                                                | Identifier for the last job from the previous pagination request. |
+| `limit`                                                           | *number*                                                          | :heavy_minus_sign:                                                | Number of fine-tuning jobs to retrieve.                           |
+| `config`                                                          | [AxiosRequestConfig](https://axios-http.com/docs/req_config)      | :heavy_minus_sign:                                                | Available config options for making requests.                     |
+
+
+### Response
+
+**Promise<[operations.ListPaginatedFineTuningJobsResponse](../../sdk/models/operations/listpaginatedfinetuningjobsresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
+
+## retrieveFineTuningJob
+
+Get info about a fine-tuning job.
+
+[Learn more about fine-tuning](/docs/guides/fine-tuning)
+
+
+### Example Usage
+
+```typescript
+import { Gpt } from "@speakeasy-api/openai";
+import { RetrieveFineTuningJobRequest } from "@speakeasy-api/openai/dist/sdk/models/operations";
+
+async function run() {
+  const sdk = new Gpt({
+    apiKeyAuth: "<YOUR_BEARER_TOKEN_HERE>",
+  });
+const fineTuningJobId: string = "ft-AF1WoRqd3aJAHsqc9NY7iL8F";
+
+  const res = await sdk.fineTuning.retrieveFineTuningJob(fineTuningJobId);
+
+  if (res.statusCode == 200) {
+    // handle response
+  }
+}
+
+run();
+```
+
+### Parameters
+
+| Parameter                                                    | Type                                                         | Required                                                     | Description                                                  | Example                                                      |
+| ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ | ------------------------------------------------------------ |
+| `fineTuningJobId`                                            | *string*                                                     | :heavy_check_mark:                                           | The ID of the fine-tuning job.<br/>                          | ft-AF1WoRqd3aJAHsqc9NY7iL8F                                  |
+| `config`                                                     | [AxiosRequestConfig](https://axios-http.com/docs/req_config) | :heavy_minus_sign:                                           | Available config options for making requests.                |                                                              |
+
+
+### Response
+
+**Promise<[operations.RetrieveFineTuningJobResponse](../../sdk/models/operations/retrievefinetuningjobresponse.md)>**
+### Errors
+
+| Error Object    | Status Code     | Content Type    |
+| --------------- | --------------- | --------------- |
+| errors.SDKError | 4xx-5xx         | */*             |
