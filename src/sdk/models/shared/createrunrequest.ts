@@ -54,6 +54,16 @@ export class CreateRunRequest extends SpeakeasyBase {
     model?: string;
 
     /**
+     * If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "stream" })
+    stream?: boolean;
+
+    /**
      * Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.
      */
     @SpeakeasyMetadata()

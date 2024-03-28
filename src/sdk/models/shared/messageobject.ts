@@ -6,6 +6,29 @@ import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 import { Expose, Type } from "class-transformer";
 
 /**
+ * The reason the message is incomplete.
+ */
+export enum Reason {
+    ContentFilter = "content_filter",
+    MaxTokens = "max_tokens",
+    RunCancelled = "run_cancelled",
+    RunExpired = "run_expired",
+    RunFailed = "run_failed",
+}
+
+/**
+ * On an incomplete message, details about why the message is incomplete.
+ */
+export class IncompleteDetails extends SpeakeasyBase {
+    /**
+     * The reason the message is incomplete.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "reason" })
+    reason: Reason;
+}
+
+/**
  * Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.
  *
  * @remarks
@@ -29,6 +52,15 @@ export enum MessageObjectRole {
 }
 
 /**
+ * The status of the message, which can be either `in_progress`, `incomplete`, or `completed`.
+ */
+export enum MessageObjectStatus {
+    InProgress = "in_progress",
+    Incomplete = "incomplete",
+    Completed = "completed",
+}
+
+/**
  * Represents a message within a [thread](/docs/api-reference/threads).
  */
 export class MessageObject extends SpeakeasyBase {
@@ -38,6 +70,13 @@ export class MessageObject extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "assistant_id" })
     assistantId: string;
+
+    /**
+     * The Unix timestamp (in seconds) for when the message was completed.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "completed_at" })
+    completedAt: number;
 
     /**
      * The content of the message in array of text and/or images.
@@ -66,6 +105,21 @@ export class MessageObject extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "id" })
     id: string;
+
+    /**
+     * The Unix timestamp (in seconds) for when the message was marked as incomplete.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "incomplete_at" })
+    incompleteAt: number;
+
+    /**
+     * On an incomplete message, details about why the message is incomplete.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "incomplete_details" })
+    @Type(() => IncompleteDetails)
+    incompleteDetails: IncompleteDetails;
 
     /**
      * Set of 16 key-value pairs that can be attached to an object. This can be useful for storing additional information about the object in a structured format. Keys can be a maximum of 64 characters long and values can be a maxium of 512 characters long.
@@ -98,6 +152,13 @@ export class MessageObject extends SpeakeasyBase {
     @SpeakeasyMetadata()
     @Expose({ name: "run_id" })
     runId: string;
+
+    /**
+     * The status of the message, which can be either `in_progress`, `incomplete`, or `completed`.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "status" })
+    status: MessageObjectStatus;
 
     /**
      * The [thread](/docs/api-reference/threads) ID that this message belongs to.

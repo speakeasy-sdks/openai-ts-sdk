@@ -47,6 +47,16 @@ export class CreateThreadAndRunRequest extends SpeakeasyBase {
     @Expose({ name: "model" })
     model?: string;
 
+    /**
+     * If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "stream" })
+    stream?: boolean;
+
     @SpeakeasyMetadata()
     @Expose({ name: "thread" })
     @Type(() => CreateThreadRequest)

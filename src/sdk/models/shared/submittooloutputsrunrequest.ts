@@ -23,6 +23,16 @@ export class ToolOutputs extends SpeakeasyBase {
 
 export class SubmitToolOutputsRunRequest extends SpeakeasyBase {
     /**
+     * If `true`, returns a stream of events that happen during the Run as server-sent events, terminating when the Run enters a terminal state with a `data: [DONE]` message.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "stream" })
+    stream?: boolean;
+
+    /**
      * A list of tools for which the outputs are being submitted.
      */
     @SpeakeasyMetadata({ elemType: ToolOutputs })

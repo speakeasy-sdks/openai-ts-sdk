@@ -160,6 +160,11 @@ export class CreateCompletionRequest extends SpeakeasyBase {
 
     /**
      * The suffix that comes after a completion of inserted text.
+     *
+     * @remarks
+     *
+     * This parameter is only supported for `gpt-3.5-turbo-instruct`.
+     *
      */
     @SpeakeasyMetadata()
     @Expose({ name: "suffix" })
