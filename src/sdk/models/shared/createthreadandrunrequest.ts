@@ -57,6 +57,16 @@ export class CreateThreadAndRunRequest extends SpeakeasyBase {
     @Expose({ name: "stream" })
     stream?: boolean;
 
+    /**
+     * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "temperature" })
+    temperature?: number;
+
     @SpeakeasyMetadata()
     @Expose({ name: "thread" })
     @Type(() => CreateThreadRequest)

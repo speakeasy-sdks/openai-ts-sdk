@@ -64,6 +64,16 @@ export class CreateRunRequest extends SpeakeasyBase {
     stream?: boolean;
 
     /**
+     * What sampling temperature to use, between 0 and 2. Higher values like 0.8 will make the output more random, while lower values like 0.2 will make it more focused and deterministic.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "temperature" })
+    temperature?: number;
+
+    /**
      * Override the tools the assistant can use for this run. This is useful for modifying the behavior on a per-run basis.
      */
     @SpeakeasyMetadata()

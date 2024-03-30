@@ -227,6 +227,13 @@ export class RunObject extends SpeakeasyBase {
     status: RunObjectStatus;
 
     /**
+     * The sampling temperature used for this run. If not set, defaults to 1.
+     */
+    @SpeakeasyMetadata()
+    @Expose({ name: "temperature" })
+    temperature?: number;
+
+    /**
      * The ID of the [thread](/docs/api-reference/threads) that was executed on as a part of this run.
      */
     @SpeakeasyMetadata()

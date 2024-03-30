@@ -251,6 +251,7 @@ async function run() {
 const createRunRequest: CreateRunRequest = {
   assistantId: "<value>",
   metadata: {},
+  temperature: 1,
   tools: [
     "<value>",
   ],
@@ -357,6 +358,7 @@ async function run() {
   const res = await sdk.assistants.createThreadAndRun({
     assistantId: "<value>",
     metadata: {},
+    temperature: 1,
     thread: {
       messages: [
         {
@@ -365,7 +367,7 @@ async function run() {
             "<value>",
           ],
           metadata: {},
-          role: CreateMessageRequestRole.User,
+          role: CreateMessageRequestRole.Assistant,
         },
       ],
       metadata: {},

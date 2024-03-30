@@ -147,7 +147,7 @@ export class MessageObject extends SpeakeasyBase {
     role: MessageObjectRole;
 
     /**
-     * If applicable, the ID of the [run](/docs/api-reference/runs) associated with the authoring of this message.
+     * The ID of the [run](/docs/api-reference/runs) associated with the creation of this message. Value is `null` when messages are created manually using the create message or create thread endpoints.
      */
     @SpeakeasyMetadata()
     @Expose({ name: "run_id" })
