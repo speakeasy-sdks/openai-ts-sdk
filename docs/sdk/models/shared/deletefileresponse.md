@@ -1,0 +1,10 @@
+# DeleteFileResponse
+
+
+## Fields
+
+| Field                                                                                     | Type                                                                                      | Required                                                                                  | Description                                                                               |
+| ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------------------- |
+| `deleted`                                                                                 | *boolean*                                                                                 | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `id`                                                                                      | *string*                                                                                  | :heavy_check_mark:                                                                        | N/A                                                                                       |
+| `object`                                                                                  | [shared.DeleteFileResponseObject](../../../sdk/models/shared/deletefileresponseobject.md) | :heavy_check_mark:                                                                        | N/A                                                                                       |

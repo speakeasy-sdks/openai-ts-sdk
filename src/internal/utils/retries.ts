@@ -14,7 +14,7 @@ export class BackoffStrategy {
     initialInterval: number,
     maxInterval: number,
     exponent: number,
-    maxElapsedTime: number
+    maxElapsedTime: number,
   ) {
     this.initialInterval = initialInterval;
     this.maxInterval = maxInterval;
@@ -24,12 +24,17 @@ export class BackoffStrategy {
 }
 
 export class RetryConfig {
-  strategy: string;
+  strategy: "backoff" | "none";
   backoff?: BackoffStrategy;
   retryConnectionErrors: boolean;
 
-  constructor(strategy: string, retryConnectionErrors = true) {
+  constructor(
+    strategy: "backoff" | "none",
+    backoff?: BackoffStrategy,
+    retryConnectionErrors = true,
+  ) {
     this.strategy = strategy;
+    this.backoff = backoff;
     this.retryConnectionErrors = retryConnectionErrors;
   }
 }
@@ -50,6 +55,8 @@ class PermanentError extends Error {
   constructor(inner: unknown) {
     super("Permanent error");
     this.inner = inner;
+
+    Object.setPrototypeOf(this, PermanentError.prototype);
   }
 }
 
@@ -59,12 +66,14 @@ class TemporaryError extends Error {
   constructor(res: AxiosResponse<any, any>) {
     super("Temporary error");
     this.res = res;
+
+    Object.setPrototypeOf(this, TemporaryError.prototype);
   }
 }
 
 export async function Retry(
   fn: () => Promise<AxiosResponse<any, any>>,
-  retries: Retries
+  retries: Retries,
 ): Promise<AxiosResponse<any, any>> {
   switch (retries.config.strategy) {
     case "backoff":
@@ -98,7 +107,7 @@ export async function Retry(
         retries.config.backoff?.initialInterval ?? 500,
         retries.config.backoff?.maxInterval ?? 60000,
         retries.config.backoff?.exponent ?? 1.5,
-        retries.config.backoff?.maxElapsedTime ?? 3600000
+        retries.config.backoff?.maxElapsedTime ?? 3600000,
       );
     default:
       return await fn();
@@ -107,7 +116,7 @@ export async function Retry(
 
 function isRetryableResponse(
   res: AxiosResponse<any, any>,
-  statusCodes: string[]
+  statusCodes: string[],
 ): boolean {
   for (const code of statusCodes) {
     if (code.toUpperCase().includes("X")) {
@@ -134,12 +143,13 @@ async function retryBackoff(
   initialInterval: number,
   maxInterval: number,
   exponent: number,
-  maxElapsedTime: number
+  maxElapsedTime: number,
 ): Promise<AxiosResponse<any, any>> {
   const start = Date.now();
   let x = 0;
 
-  while (true) { /* eslint-disable-line no-constant-condition */
+  // eslint-disable-next-line no-constant-condition
+  while (true) {
     try {
       return await fn();
     } catch (err) {
@@ -158,7 +168,7 @@ async function retryBackoff(
 
       const d = Math.min(
         initialInterval * Math.pow(x, exponent) + Math.random() * 1000,
-        maxInterval
+        maxInterval,
       );
 
       await delay(d);

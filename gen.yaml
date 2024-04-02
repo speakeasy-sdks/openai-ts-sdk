@@ -1,15 +1,29 @@
-configVersion: 1.0.0
-management:
-  docChecksum: 5399f7767be93d4a4b8cecb9bbc687b3
-  docVersion: 1.2.0
-  speakeasyVersion: 1.19.2
-  generationVersion: 2.16.5
+configVersion: 2.0.0
 generation:
-  telemetryEnabled: false
   sdkClassName: gpt
-  sdkFlattening: true
-  singleTagPerOp: false
+  usageSnippets:
+    optionalPropertyRendering: withExample
+  fixes:
+    nameResolutionDec2023: false
+    parameterOrderingFeb2024: false
+    requestResponseComponentNamesFeb2024: false
+  auth:
+    oAuth2ClientCredentialsEnabled: false
 typescript:
-  version: 1.9.2
+  version: 4.0.12
   author: speakeasy-openai
+  clientServerStatusCodesAsErrors: false
+  flattenGlobalSecurity: true
+  imports:
+    option: openapi
+    paths:
+      callbacks: sdk/models/callbacks
+      errors: sdk/models/errors
+      operations: sdk/models/operations
+      shared: sdk/models/shared
+      webhooks: sdk/models/webhooks
+  inputModelSuffix: input
+  maxMethodParams: 4
+  outputModelSuffix: output
   packageName: '@speakeasy-api/openai'
+  templateVersion: v1

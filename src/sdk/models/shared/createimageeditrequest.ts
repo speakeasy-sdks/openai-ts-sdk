@@ -5,49 +5,87 @@
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
 
 export class CreateImageEditRequestImage extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
-  content: Uint8Array;
+    @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+    content: Uint8Array;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=image" })
-  image: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=image" })
+    fileName: string;
 }
 
-export class CreateImageEditRequestMask extends SpeakeasyBase {
-  @SpeakeasyMetadata({ data: "multipart_form, content=true" })
-  content: Uint8Array;
+export class Mask extends SpeakeasyBase {
+    @SpeakeasyMetadata({ data: "multipart_form, content=true" })
+    content: Uint8Array;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=mask" })
-  mask: string;
+    @SpeakeasyMetadata({ data: "multipart_form, name=mask" })
+    fileName: string;
+}
+
+/**
+ * The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
+ */
+export enum CreateImageEditRequestResponseFormat {
+    Url = "url",
+    B64Json = "b64_json",
+}
+
+/**
+ * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
+ */
+export enum Size {
+    TwoHundredAndFiftySixx256 = "256x256",
+    FiveHundredAndTwelvex512 = "512x512",
+    OneThousandAndTwentyFourx1024 = "1024x1024",
 }
 
 export class CreateImageEditRequest extends SpeakeasyBase {
-  /**
-   * The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-  image: CreateImageEditRequestImage;
+    /**
+     * The image to edit. Must be a valid PNG file, less than 4MB, and square. If mask is not provided, image must have transparency, which will be used as the mask.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, file=true" })
+    image: CreateImageEditRequestImage;
 
-  /**
-   * An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, file=true" })
-  mask?: CreateImageEditRequestMask;
+    /**
+     * An additional image whose fully transparent areas (e.g. where alpha is zero) indicate where `image` should be edited. Must be a valid PNG file, less than 4MB, and have the same dimensions as `image`.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, file=true" })
+    mask?: Mask;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=n" })
-  n?: any;
+    /**
+     * The model to use for image generation. Only `dall-e-2` is supported at this time.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=model" })
+    model?: any;
 
-  /**
-   * A text description of the desired image(s). The maximum length is 1000 characters.
-   */
-  @SpeakeasyMetadata({ data: "multipart_form, name=prompt" })
-  prompt: string;
+    /**
+     * The number of images to generate. Must be between 1 and 10.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=n" })
+    n?: number;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
-  responseFormat?: any;
+    /**
+     * A text description of the desired image(s). The maximum length is 1000 characters.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=prompt" })
+    prompt: string;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=size" })
-  size?: any;
+    /**
+     * The format in which the generated images are returned. Must be one of `url` or `b64_json`. URLs are only valid for 60 minutes after the image has been generated.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=response_format" })
+    responseFormat?: CreateImageEditRequestResponseFormat;
 
-  @SpeakeasyMetadata({ data: "multipart_form, name=user" })
-  user?: any;
+    /**
+     * The size of the generated images. Must be one of `256x256`, `512x512`, or `1024x1024`.
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=size" })
+    size?: Size;
+
+    /**
+     * A unique identifier representing your end-user, which can help OpenAI to monitor and detect abuse. [Learn more](/docs/guides/safety-best-practices/end-user-ids).
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "multipart_form, name=user" })
+    user?: string;
 }

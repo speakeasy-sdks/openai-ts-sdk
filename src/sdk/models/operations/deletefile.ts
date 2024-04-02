@@ -3,32 +3,39 @@
  */
 
 import { SpeakeasyBase, SpeakeasyMetadata } from "../../../internal/utils";
-import * as shared from "../shared";
+import * as shared from "../../../sdk/models/shared";
 import { AxiosResponse } from "axios";
 
 export class DeleteFileRequest extends SpeakeasyBase {
-  /**
-   * The ID of the file to use for this request
-   */
-  @SpeakeasyMetadata({
-    data: "pathParam, style=simple;explode=false;name=file_id",
-  })
-  fileId: string;
+    /**
+     * The ID of the file to use for this request.
+     */
+    @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=file_id" })
+    fileId: string;
 }
 
 export class DeleteFileResponse extends SpeakeasyBase {
-  @SpeakeasyMetadata()
-  contentType: string;
+    /**
+     * HTTP response content type for this operation
+     */
+    @SpeakeasyMetadata()
+    contentType: string;
 
-  /**
-   * OK
-   */
-  @SpeakeasyMetadata()
-  deleteFileResponse?: shared.DeleteFileResponse;
+    /**
+     * OK
+     */
+    @SpeakeasyMetadata()
+    deleteFileResponse?: shared.DeleteFileResponse;
 
-  @SpeakeasyMetadata()
-  statusCode: number;
+    /**
+     * HTTP response status code for this operation
+     */
+    @SpeakeasyMetadata()
+    statusCode: number;
 
-  @SpeakeasyMetadata()
-  rawResponse?: AxiosResponse;
+    /**
+     * Raw HTTP response; suitable for custom response parsing
+     */
+    @SpeakeasyMetadata()
+    rawResponse: AxiosResponse;
 }
