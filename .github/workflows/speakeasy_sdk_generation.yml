@@ -1,27 +1,22 @@
 name: Generate
-
-on:
-  workflow_dispatch: # Allows manual triggering of the workflow to generate SDK
+"on":
+  workflow_dispatch:
     inputs:
       force:
-        description: "Force generation of SDKs"
+        description: Force generation of SDKs
         type: boolean
         default: false
-  schedule:
-    - cron: 0 0 * * * # Runs every day at midnight
-
 jobs:
   generate:
-    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v14 # Import the sdk generation workflow which will handle the generation of the SDKs and publishing to the package managers in 'direct' mode.
+    uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v14
     with:
-      speakeasy_version: latest
-      openapi_doc_location: https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
-      languages: |-
-        - typescript
-      publish_typescript: true # Tells the generation action to generate artifacts for publishing to NPM
-      mode: pr
       force: ${{ github.event.inputs.force }}
+      languages: '- typescript'
+      mode: pr
+      openapi_doc_location: https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
+      publish_typescript: true
+      speakeasy_version: latest
     secrets:
-      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
       github_access_token: ${{ secrets.GITHUB_TOKEN }}
       npm_token: ${{ secrets.NPM_TOKEN }}
+      speakeasy_api_key: ${{ secrets.SPEAKEASY_API_KEY }}
