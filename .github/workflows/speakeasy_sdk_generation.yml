@@ -11,7 +11,8 @@ jobs:
     uses: speakeasy-api/sdk-generation-action/.github/workflows/sdk-generation.yaml@v14
     with:
       force: ${{ github.event.inputs.force }}
-      languages: '- typescript'
+      languages: |
+        - typescript
       mode: pr
       openapi_doc_location: https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml
       publish_typescript: true
