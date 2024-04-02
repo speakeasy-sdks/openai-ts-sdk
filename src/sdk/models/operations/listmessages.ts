@@ -55,6 +55,15 @@ export class ListMessagesRequest extends SpeakeasyBase {
     order?: ListMessagesQueryParamOrder;
 
     /**
+     * Filter messages by the run ID that generated them.
+     *
+     * @remarks
+     *
+     */
+    @SpeakeasyMetadata({ data: "queryParam, style=form;explode=true;name=run_id" })
+    runId?: string;
+
+    /**
      * The ID of the [thread](/docs/api-reference/threads) the messages belong to.
      */
     @SpeakeasyMetadata({ data: "pathParam, style=simple;explode=false;name=thread_id" })

@@ -10,7 +10,7 @@ generation:
   auth:
     oAuth2ClientCredentialsEnabled: false
 typescript:
-  version: 4.0.10
+  version: 4.0.11
   author: speakeasy-openai
   clientServerStatusCodesAsErrors: false
   flattenGlobalSecurity: true
